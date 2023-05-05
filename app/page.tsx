@@ -1,8 +1,11 @@
+import Image from "next/image";
 import Link from "next/link";
 
 export default () => {
   return (
     <div className="flex flex-col items-center justify-center h-screen text-center bg-slate-100 px-4">
+
+      <Image className="rounded-full mb-3 shadow-xl max-[420px]:w-2/5" src="/avatar.png" alt="Leon image" width={150} height={150} />
       <span className="font-extrabold text-[2rem] leading-none transition-all max-[420px]:text-[1.5rem]">Leon San José Larsson</span>
       <span className="text-lg font-semibold italic transition-all max-[420px]:text-sm">Community & Support Specialist</span>
       <a className="font-extrabold text-[1.8rem] hover:text-[rgb(231,51,49)] transition-all max-[420px]:text-[1.5rem]" href="https://sharkmob.com">Sharkmob</a>
@@ -17,7 +20,7 @@ export default () => {
       </div>
 
       <div className="flex justify-center flex-wrap space-x-2">
-        <Link className="link" href="./projects">➡ Projects ⬅</Link>
+        <Link className="link" href="./projects">➡ Projects</Link>
         <ProfileLink title="Resume" url="https://www.linkedin.com/in/leonlarsson/" />
         <ProfileLink title="Swedish Resume" url="https://twitter.com/MozzyFX" />
       </div>
