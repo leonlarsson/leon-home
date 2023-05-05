@@ -19,7 +19,7 @@ export default () => {
       </div>
 
       <div className="flex justify-center flex-wrap gap-x-2">
-        <Link className="home-link" href="/projects">➡ Projects</Link>
+        <Link className="home-link" href="/projects"><i className="fa-solid fa-arrow-right" /> Projects</Link>
         <ProfileLink title="Resume" url="/cv" newTab={false} />
         <ProfileLink title="Swedish Resume" url="/cv-swe" newTab={false} />
       </div>
