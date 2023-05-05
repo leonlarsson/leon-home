@@ -8,7 +8,7 @@ export default () => {
 
       <Image className="rounded-full mb-3 shadow-xl max-[420px]:w-2/5" src="/assets/images/avatar.png" alt="Leon image" width={150} height={150} priority />
       <span className="font-extrabold text-[2rem] leading-none max-[420px]:text-[1.5rem]">Leon San José Larsson</span>
-      <span className="text-lg font-semibold italic max-[420px]:text-sm">Community & Support Specialist @ <a href="https://sharkmob.com" target="_blank" className="hover:text-[rgb(231,51,49)] transition-colors duration-300">Sharkmob</a></span>
+      <TitleAndCompany title="Community & Support Specialist" company="Sharkmob" companyUrl="https://sharkmob.com" companyThemeColor="rgb(231,51,49)" />
 
       <div className="flex justify-center flex-wrap gap-x-1 mt-2 max-[632px]:border-b-4 border-b-slate-900">
         <ProfileLink title="Email" url="mailto:leonlarsson8@gmail.com" icon={<i className="fa-solid fa-envelope" />} />
@@ -28,5 +28,8 @@ export default () => {
   );
 };
 
-const ProfileLink = ({ title, url, icon, newTab = true }: { title: string, url: string, icon?: React.ReactNode, newTab?: boolean }) => <a className="home-link" href={url} target={newTab ? "_blank" : "_self"}>{icon} {title}</a>
+const TitleAndCompany = ({ title, company, companyUrl, companyThemeColor }: { title: string, company?: string, companyUrl?: string, companyThemeColor?: string }) => {
+  return <span className="text-lg font-semibold italic max-[420px]:text-sm">{title} {company && <>@ <a href={companyUrl} target="_blank" className={`hover:text-[${companyThemeColor}] transition-colors duration-300`}>Sharkmob</a></>}</span>
+};
 
+const ProfileLink = ({ title, url, icon, newTab = true }: { title: string, url: string, icon?: React.ReactNode, newTab?: boolean }) => <a className="home-link" href={url} target={newTab ? "_blank" : "_self"}>{icon} {title}</a>;
