@@ -1,5 +1,28 @@
+import { Metadata } from "next";
 import Link from "next/link";
 import "../globals.css";
+
+const pageTitle = "Projects | Leon San José Larsson";
+const pageDescription = "Links to personal projects.";
+
+export const metadata: Metadata = {
+    title: pageTitle,
+    description: pageDescription,
+    openGraph: {
+        type: "website",
+        url: "https://leonlarsson.com/projects",
+        title: pageTitle,
+        description: pageDescription,
+        images: "/assets/images/avatar.png"
+    },
+    twitter: {
+        card: "summary",
+        title: pageTitle,
+        description: pageDescription,
+        creator: "@mozzyfx",
+        images: "/assets/images/avatar.png"
+    }
+};
 
 export default () => {
     return (
