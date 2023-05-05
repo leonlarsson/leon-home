@@ -3,7 +3,7 @@ import Script from "next/script";
 
 export default () => {
     return (
-        <div className="flex flex-col items-center justify-center h-screen text-center bg-slate-100 space-y-1 max-[420px]:space-y-0">
+        <div className="flex flex-col items-center justify-center h-screen text-center px-4 bg-slate-100 space-y-1 max-[420px]:space-y-0">
             <Script src="https://kit.fontawesome.com/7ebec69507.js" />
             <Link className="font-extrabold text-[2rem] hover:text-blue-600 transition-all max-[420px]:text-[1.5rem]" href="/">Leon San José Larsson</Link>
 

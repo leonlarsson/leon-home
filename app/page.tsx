@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default () => {
   return (
-    <div className="flex flex-col items-center justify-center h-screen text-center bg-slate-100">
+    <div className="flex flex-col items-center justify-center h-screen text-center bg-slate-100 px-4">
       <span className="font-extrabold text-[2rem] leading-none transition-all max-[420px]:text-[1.5rem]">Leon San José Larsson</span>
       <span className="text-lg font-semibold italic transition-all max-[420px]:text-sm">Community & Support Specialist</span>
       <a className="font-extrabold text-[1.8rem] hover:text-[rgb(231,51,49)] transition-all max-[420px]:text-[1.5rem]" href="https://sharkmob.com">Sharkmob</a>
