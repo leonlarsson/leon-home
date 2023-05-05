@@ -3,5 +3,5 @@
 @tailwind utilities;
 
 .home-link {
-  @apply text-lg font-semibold underline-offset-2 hover:underline hover:bg-black hover:text-white hover:px-3 hover:font-bold transition-all duration-300 hover:even:rotate-3 hover:odd:-rotate-3;
+  @apply text-lg font-semibold transition-all duration-300 px-[3px] rounded hover:bg-black hover:text-white hover:even:rotate-3 hover:odd:-rotate-3;
 }
