@@ -9,7 +9,7 @@ export default () => {
       <Image className="rounded-full mb-3 shadow-xl max-[420px]:w-2/5" src="/assets/images/avatar.png" alt="Leon image" width={150} height={150} priority />
       <span className="font-extrabold text-[2rem] leading-none transition-all max-[420px]:text-[1.5rem]">Leon San José Larsson</span>
       <span className="text-lg font-semibold italic transition-all max-[420px]:text-sm">Community & Support Specialist</span>
-      <a className="font-extrabold text-[1.8rem] hover:text-[rgb(231,51,49)] transition-all max-[420px]:text-[1.5rem]" href="https://sharkmob.com">Sharkmob</a>
+      <a className="font-extrabold text-[1.8rem] hover:text-[rgb(231,51,49)] transition-all max-[420px]:text-[1.5rem]  hover:underline" href="https://sharkmob.com">Sharkmob</a>
 
       <div className="flex justify-center flex-wrap gap-x-2 max-[420px]:border-b-4 border-b-slate-900">
         <ProfileLink title="Email" url="mailto:leonlarsson8@gmail.com" />
