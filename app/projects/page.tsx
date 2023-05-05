@@ -5,7 +5,7 @@ export default () => {
     return (
         <div className="flex flex-col items-center justify-center h-screen text-center px-4 bg-slate-100 space-y-1 max-[420px]:space-y-0">
 
-            <Link className="font-extrabold text-[2rem] hover:text-blue-600 transition-all max-[420px]:text-[1.5rem]" href="/">Leon San José Larsson</Link>
+            <Link href="/" className="font-extrabold text-[2rem] max-[420px]:text-[1.5rem]"><i className="fa-solid fa-arrow-left" /> Leon San José Larsson</Link>
 
             <span className="font-extrabold">Fun:</span>
 
@@ -100,7 +100,7 @@ export default () => {
 
 const Project = ({ name, link, githubLink, nextLink = false, extra }: ProjectProps) => {
     return (
-        <div className="project">
+        <div className="project-link">
             {nextLink ? <Link className="link" href={link}>{name}</Link> : <a className="link" href={link} target="_blank">{name}</a>} {githubLink && <a href={githubLink} target="_blank" className="fa-brands fa-github" />}
             {extra && <> (<a className="link" href={extra.link} target="_blank">{extra.name}</a> {extra.githubLink && <a href={extra.githubLink} target="_blank" className="fa-brands fa-github" />})</>}
         </div>

@@ -5,3 +5,7 @@
 .home-link {
   @apply text-lg font-semibold transition-all duration-300 px-[3px] rounded hover:bg-black hover:text-white hover:even:rotate-3 hover:odd:-rotate-3;
 }
+
+.project-link {
+  @apply text-lg font-semibold transition-all duration-300 px-[3px] rounded hover:bg-black hover:text-white hover:even:rotate-1 hover:odd:-rotate-1;
+}
