@@ -1,7 +1,10 @@
 import { Metadata } from "next";
 import { Inter } from "next/font/google";
-import Script from "next/script";
 const inter = Inter({ subsets: ["latin"] });
+
+import "../public/fontawesome/css/fontawesome.min.css";
+import "../public/fontawesome/css/solid.min.css";
+import "../public/fontawesome/css/brands.min.css";
 
 const pageTitle = "Leon San José Larsson";
 const pageDescription = "Landing page for Leon San José Larsson. Includes links to CV and projects.";
@@ -35,7 +38,6 @@ export const metadata: Metadata = {
 export default ({ children }: { children: React.ReactNode }) => {
   return (
     <html lang="en">
-      <Script src="https://kit.fontawesome.com/7ebec69507.js" />
       <body className={`${inter.className} bg-slate-100`}>
         <div className="flex h-[100svh] p-4">
           {children}
