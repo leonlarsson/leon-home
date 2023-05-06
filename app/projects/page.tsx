@@ -3,7 +3,7 @@ import Link from "next/link";
 import "../globals.css";
 
 const pageTitle = "Projects | Leon San José Larsson";
-const pageDescription = "Links to personal projects.";
+const pageDescription = "Links to projects.";
 
 export const metadata: Metadata = {
     title: pageTitle,
