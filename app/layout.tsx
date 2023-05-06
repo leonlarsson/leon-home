@@ -17,7 +17,11 @@ export const metadata: Metadata = {
     url: "https://leonlarsson.com",
     title: pageTitle,
     description: pageDescription,
-    images: "/assets/images/embed.png"
+    images: [{
+      url: "/assets/images/embed.png",
+      width: 896,
+      height: 605
+    }]
   },
   twitter: {
     card: "summary",
