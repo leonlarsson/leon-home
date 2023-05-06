@@ -19,19 +19,13 @@ export const metadata: Metadata = {
     type: "website",
     url: "https://leonlarsson.com",
     title: pageTitle,
-    description: pageDescription,
-    images: [{
-      url: "/assets/images/embed.png",
-      width: 896,
-      height: 605
-    }]
+    description: pageDescription
   },
   twitter: {
     card: "summary_large_image",
     title: pageTitle,
     description: pageDescription,
-    creator: "@mozzyfx",
-    images: "/assets/images/embed.png"
+    creator: "@mozzyfx"
   }
 };
 
