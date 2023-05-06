@@ -17,14 +17,14 @@ export const metadata: Metadata = {
     url: "https://leonlarsson.com",
     title: pageTitle,
     description: pageDescription,
-    images: "/assets/images/avatar.png"
+    images: "/assets/images/embed.png"
   },
   twitter: {
     card: "summary",
     title: pageTitle,
     description: pageDescription,
     creator: "@mozzyfx",
-    images: "/assets/images/avatar.png"
+    images: "/assets/images/embed.png"
   }
 };
 
