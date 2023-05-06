@@ -28,7 +28,7 @@ export default () => {
 };
 
 const TitleAndCompany = ({ title, company, companyUrl }: { title: string, company?: string, companyUrl?: string }) => {
-  return <span className="text-lg font-semibold italic max-[430px]:text-sm">{title} {company && <>@ <a href={companyUrl} target="_blank" className="transition-colors duration-300 hover:underline underline-offset-2">Sharkmob</a></>}</span>
+  return <span className="text-lg italic max-[430px]:text-sm">{title} {company && <>@ <a href={companyUrl} target="_blank" className="transition-colors duration-300 hover:underline underline-offset-2">Sharkmob</a></>}</span>
 };
 
 const ProfileLink = ({ title, url, icon, newTab = true }: { title: string, url: string, icon?: React.ReactNode, newTab?: boolean }) => <a className="home-link" href={url} target={newTab ? "_blank" : "_self"}>{icon} {title}</a>;
