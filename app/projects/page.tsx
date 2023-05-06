@@ -122,8 +122,8 @@ export default () => {
 const Project = ({ name, link, githubLink, nextLink = false, extra }: ProjectProps) => {
     return (
         <div className="project-link">
-            {nextLink ? <Link className="link" href={link}>{name}</Link> : <a className="link" href={link} target="_blank">{name}</a>} {githubLink && <a href={githubLink} target="_blank" className="fa-brands fa-github" />}
-            {extra && <> (<a className="link" href={extra.link} target="_blank">{extra.name}</a> {extra.githubLink && <a href={extra.githubLink} target="_blank" className="fa-brands fa-github" />})</>}
+            {nextLink ? <Link href={link}>{name}</Link> : <a href={link} target="_blank">{name}</a>} {githubLink && <a href={githubLink} target="_blank" className="fa-brands fa-github" />}
+            {extra && <> (<a href={extra.link} target="_blank">{extra.name}</a> {extra.githubLink && <a href={extra.githubLink} target="_blank" className="fa-brands fa-github" />})</>}
         </div>
     );
 };
