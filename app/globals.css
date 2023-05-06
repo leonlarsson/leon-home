@@ -2,10 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+.shared-link {
+  @apply rounded text-lg font-semibold transition-all duration-300 hover:bg-black hover:text-white active:translate-y-[2px] active:bg-gray-900 active:text-white active:duration-[30ms];
+}
+
 .home-link {
-  @apply text-lg font-semibold transition-all duration-300 px-[3px] rounded hover:bg-black hover:text-white hover:even:rotate-3 hover:odd:-rotate-3 active:bg-gray-900 active:text-white active:translate-y-[2px] active:duration-[30ms];
+  @apply shared-link px-[3px] hover:odd:-rotate-3 hover:even:rotate-3;
 }
 
 .project-link {
-  @apply text-lg max-[450px]:text-base font-semibold transition-all duration-300 rounded hover:p-3 hover:text-xl hover:bg-black hover:text-white hover:even:rotate-1 hover:odd:-rotate-1 active:bg-gray-900 active:text-white active:translate-y-[3px] active:duration-[30ms];
+  @apply shared-link hover:p-3 hover:text-xl hover:odd:-rotate-1 hover:even:rotate-1 max-[450px]:text-base;
 }
