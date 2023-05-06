@@ -9,18 +9,14 @@ export const metadata: Metadata = {
     title: pageTitle,
     description: pageDescription,
     openGraph: {
-        type: "website",
         url: "https://leonlarsson.com/projects",
         title: pageTitle,
-        description: pageDescription,
-        images: "/assets/images/avatar.png"
+        description: pageDescription
     },
     twitter: {
-        card: "summary",
         title: pageTitle,
         description: pageDescription,
-        creator: "@mozzyfx",
-        images: "/assets/images/avatar.png"
+        creator: "@mozzyfx"
     }
 };
 
