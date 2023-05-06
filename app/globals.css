@@ -3,9 +3,9 @@
 @tailwind utilities;
 
 .home-link {
-  @apply text-lg font-semibold transition-all duration-300 px-[3px] rounded hover:bg-black hover:text-white hover:even:rotate-3 hover:odd:-rotate-3 active:text-white active:translate-y-[2px] active:bg-gray-900 active:duration-[30ms];
+  @apply text-lg font-semibold transition-all duration-300 px-[3px] rounded hover:bg-black hover:text-white hover:even:rotate-3 hover:odd:-rotate-3 active:bg-gray-900 active:text-white active:translate-y-[2px] active:duration-[30ms];
 }
 
 .project-link {
-  @apply text-lg max-[450px]:text-base font-semibold transition-all duration-300 rounded hover:p-3 hover:text-xl hover:bg-black hover:text-white hover:even:rotate-1 hover:odd:-rotate-1 active:text-white active:translate-y-[3px] active:bg-gray-900 active:duration-[30ms];
+  @apply text-lg max-[450px]:text-base font-semibold transition-all duration-300 rounded hover:p-3 hover:text-xl hover:bg-black hover:text-white hover:even:rotate-1 hover:odd:-rotate-1 active:bg-gray-900 active:text-white active:translate-y-[3px] active:duration-[30ms];
 }
