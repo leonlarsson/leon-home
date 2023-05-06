@@ -32,7 +32,7 @@ export const metadata: Metadata = {
 export default ({ children }: { children: React.ReactNode }) => {
   return (
     <html lang="en">
-      <body className={`${inter.className} bg-slate-100 select-none`}>
+      <body className={`${inter.className} bg-gradient-to-bl from-white to-slate-200 select-none`}>
         <div className="flex h-[100svh] p-4">
           {children}
         </div>
