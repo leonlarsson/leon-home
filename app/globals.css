@@ -7,5 +7,5 @@
 }
 
 .project-link {
-  @apply text-lg font-semibold transition-all duration-300 px-[3px] rounded hover:bg-black hover:text-white hover:even:rotate-1 hover:odd:-rotate-1;
+  @apply text-lg max-[450px]:text-base font-semibold transition-all duration-300 px-[3px] rounded hover:bg-black hover:text-white hover:even:rotate-1 hover:odd:-rotate-1;
 }

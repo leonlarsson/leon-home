@@ -4,10 +4,10 @@ import "./globals.css";
 
 export default () => {
   return (
-    <div className="flex flex-col items-center justify-center h-screen text-center bg-slate-100 px-4">
+    <div className="flex flex-col text-center m-auto">
 
-      <Image className="rounded-full mb-3 shadow-xl max-[420px]:w-2/5" src="/assets/images/avatar.png" alt="Leon image" width={150} height={150} priority />
-      <span className="font-extrabold text-[2rem] leading-none max-[420px]:text-[1.5rem]">Leon San José Larsson</span>
+      <Image className="rounded-full self-center mb-2 shadow-xl max-[430px]:w-2/5" src="/assets/images/avatar.png" alt="Leon image" width={150} height={150} priority />
+      <span className="font-extrabold text-[2rem] leading-none max-[430px]:text-[1.5rem]">Leon San José Larsson</span>
       <TitleAndCompany title="Community & Support Specialist" company="Sharkmob" companyUrl="https://sharkmob.com" />
 
       <div className="flex justify-center flex-wrap gap-x-1 mt-2 mb-1 max-[521px]:border-b-4 border-b-slate-900">
@@ -28,7 +28,7 @@ export default () => {
 };
 
 const TitleAndCompany = ({ title, company, companyUrl }: { title: string, company?: string, companyUrl?: string }) => {
-  return <span className="text-lg font-semibold italic max-[420px]:text-sm">{title} {company && <>@ <a href={companyUrl} target="_blank" className="transition-colors duration-300 hover:underline underline-offset-2">Sharkmob</a></>}</span>
+  return <span className="text-lg font-semibold italic max-[430px]:text-sm">{title} {company && <>@ <a href={companyUrl} target="_blank" className="transition-colors duration-300 hover:underline underline-offset-2">Sharkmob</a></>}</span>
 };
 
 const ProfileLink = ({ title, url, icon, newTab = true }: { title: string, url: string, icon?: React.ReactNode, newTab?: boolean }) => <a className="home-link" href={url} target={newTab ? "_blank" : "_self"}>{icon} {title}</a>;

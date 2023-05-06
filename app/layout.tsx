@@ -32,7 +32,11 @@ export default ({ children }: { children: React.ReactNode }) => {
   return (
     <html lang="en">
       <Script src="https://kit.fontawesome.com/7ebec69507.js" />
-      <body className={inter.className}>{children}</body>
+      <body className={`${inter.className} bg-slate-100`}>
+        <div className="flex h-[100svh] p-4">
+          {children}
+        </div>
+      </body>
     </html>
   );
 }
