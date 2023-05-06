@@ -6,7 +6,7 @@ export default () => {
   return (
     <div className="flex flex-col text-center m-auto">
 
-      <Image className="rounded-[100px] self-center mb-2 shadow-xl max-[430px]:w-2/5 hover:rounded-b-xl hover:shadow-2xl active:-translate-y-1 transition-all" src="/assets/images/avatar.png" alt="Leon image" width={150} height={150} priority />
+      <Image className="rounded-[100px] self-center mb-2 shadow-xl max-[430px]:w-2/5 hover:rounded-b-xl hover:shadow-2xl active:-translate-y-1 transition-all" src="/assets/images/avatar.png" alt="Leon image" width={150} height={150} priority draggable={false} />
       <span className="font-extrabold text-[2rem] leading-none max-[430px]:text-[1.5rem]">Leon San José Larsson</span>
       <TitleAndCompany title="Community & Support Specialist" company="Sharkmob" companyUrl="https://sharkmob.com" />
 
@@ -28,7 +28,7 @@ export default () => {
 };
 
 const TitleAndCompany = ({ title, company, companyUrl }: { title: string, company?: string, companyUrl?: string }) => {
-  return <span className="text-lg italic max-[430px]:text-sm">{title} {company && <>@ <a href={companyUrl} target="_blank" className="transition-colors duration-300 hover:underline underline-offset-2">Sharkmob</a></>}</span>
+  return <span className="text-lg italic max-[430px]:text-sm">{title} {company && <>@ <a href={companyUrl} target="_blank" className="transition-colors duration-300 hover:underline underline-offset-2" draggable={false}>Sharkmob</a></>}</span>
 };
 
-const ProfileLink = ({ title, url, icon, newTab = true }: { title: string, url: string, icon?: React.ReactNode, newTab?: boolean }) => <a className="home-link" href={url} target={newTab ? "_blank" : "_self"}>{icon} {title}</a>;
+const ProfileLink = ({ title, url, icon, newTab = true }: { title: string, url: string, icon?: React.ReactNode, newTab?: boolean }) => <a className="home-link" href={url} target={newTab ? "_blank" : "_self"} draggable={false}>{icon} {title}</a>;
