@@ -26,9 +26,9 @@ export const metadata: Metadata = {
 
 export default () => {
     return (
-        <div className="flex flex-col text-center m-auto space-y-1 max-[450px]:space-y-0">
+        <div className="flex flex-col text-center m-auto space-y-1 max-[450px]:space-y-0 pb-3">
 
-            <Link href="/" className="font-extrabold text-[2rem] max-[450px]:text-[1.5rem] transition-all duration-300"><i className="fa-solid fa-arrow-left" /> Leon San José Larsson</Link>
+            <Link href="/" className="group font-extrabold text-[2rem] max-[450px]:text-[1.5rem] transition-all duration-300" title="Go back"><i className="fa-solid fa-arrow-left group-hover:text-red-400 group-hover:-translate-x-2 transition-all" /> Leon San José Larsson</Link>
 
             <span className="font-extrabold">Fun:</span>
 
