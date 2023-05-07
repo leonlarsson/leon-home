@@ -2,12 +2,6 @@ import { ImageResponse } from "next/server";
 import projects from "../projects";
 
 export const runtime = "edge";
-// export const size = { width: 896, height: 605 };
-
-
-// const boldFont = fetch(
-//     new URL("/public/assets/fonts/Inter-Bold.ttf", import.meta.url)
-// ).then(res => res.arrayBuffer());
 
 export default async ({ params }: { params: { id: string } }) => {
 
