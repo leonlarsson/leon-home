@@ -34,16 +34,22 @@ export default () => {
 }
 
 const Project = ({ project }: { project: Project }) => {
-    const commonProps = {
-        draggable: false
-    };
 
     return (
-        <div className="project-link">
-            <Link href={`/projects/${project.projectId}`} title={`See more info on project ${project.name}.`}><i className="fa-solid fa-arrow-right fa-lg me-1 hover:translate-x-[3px] transition-transform" /></Link>
+        <div className="project-link px-[1px] py-[2px]">
+
+            <Link className="group" href={`/projects/${project.projectId}`} draggable={false} title={`See more info on project ${project.name}.`}>
+                <i className="fa-solid fa-arrow-right fa-lg me-1 group-hover:translate-x-[3px] group-active:translate-x-[6px] transition-transform" /> {project.name}
+            </Link>
+
             {" "}
-            {project.nextLink ? <Link href={project.link} {...commonProps} title={`Go to project ${project.name}.`}>{project.name}</Link> : <a href={project.link} target="_blank" {...commonProps} title={`Go to project ${project.name}.`}>{project.name}</a>} {project.githubLink && <a href={project.githubLink} target="_blank" title={`Go to project's GitHub.`} {...commonProps} className="fa-brands fa-github fa-lg ms-1" />}
-            {project.extra && <> (<a href={project.extra.link} target="_blank" title={`Go to project ${project.name} (${project.extra.name}).`} {...commonProps}>{project.extra.name}</a> {project.extra.githubLink && <a href={project.extra.githubLink} target="_blank" title={`Go to project's GitHub.`} {...commonProps} className="fa-brands fa-github fa-lg" />})</>}
+
+            {project.nextLink ?
+                <Link href={project.link} draggable={false} title={`Go to project ${project.name}.`}><LinkIcon /></Link> :
+                <a href={project.link} target="_blank" draggable={false} title={`Go to project website for ${project.name}.`}><LinkIcon /></a>
+            }
         </div>
     );
 };
+
+const LinkIcon = () => <i className="fa-solid fa-up-right-from-square fa-lg mx-1 hover:scale-[1.18] transition-transform" />;
