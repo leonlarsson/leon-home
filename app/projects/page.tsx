@@ -1,5 +1,5 @@
-import { Metadata } from "next";
 import Link from "next/link";
+import type { Metadata } from "next";
 import projects from "./projects";
 import type { Project } from "./projects";
 import "../globals.css";

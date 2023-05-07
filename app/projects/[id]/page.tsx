@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Metadata } from "next";
+import type { Metadata } from "next";
 import projects from "../projects";
 
 export const generateMetadata = ({ params }: { params: { id: string } }): Metadata => {
