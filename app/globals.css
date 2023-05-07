@@ -13,3 +13,7 @@
 .project-link {
   @apply shared-link hover:p-3 hover:text-xl hover:odd:-rotate-1 hover:even:rotate-1 max-[450px]:text-base;
 }
+
+.project-page-link {
+  @apply shared-link p-2 border border-black max-sm:p-1 max-sm:text-lg;
+}

@@ -1,5 +1,7 @@
 import { Metadata } from "next";
 import Link from "next/link";
+import projects from "./projects";
+import type { Project } from "./projects";
 import "../globals.css";
 
 const pageTitle = "Projects | Leon San José Larsson";
@@ -24,122 +26,24 @@ export const metadata: Metadata = {
 
 export default () => {
     return (
-        <div className="flex flex-col text-center m-auto space-y-1 max-[450px]:space-y-0 pb-3">
-
+        <div className=" space-y-1 max-[450px]:space-y-0 pb-3">
             <Link href="/" className="group font-extrabold text-[2rem] max-[450px]:text-[1.5rem] transition-all duration-300" title="Go back" draggable={false}><i className="fa-solid fa-arrow-left group-hover:text-red-400 group-hover:-translate-x-2 group-active:text-red-600 group-active:-translate-x-3 transition-all" /> Leon's Projects</Link>
-
-            <span className="font-extrabold">Fun:</span>
-
-            <Project
-                name="Battlefield V Menu Playground"
-                link="https://bfvmenu.leonlarsson.com/"
-                githubLink="https://github.com/leonlarsson/bfvmenu"
-            />
-
-            <Project
-                name="Battlefield 1 Palette Recreation"
-                link="https://bf1palette.leonlarsson.com/"
-                githubLink="https://github.com/leonlarsson/bf1palette"
-            />
-
-            <Project
-                name="You Spin Me Right Round"
-                link="https://joy.leonlarsson.com/"
-                githubLink="https://github.com/leonlarsson/joy-meme"
-            />
-
-            <br />
-            <span className="font-extrabold">Other:</span>
-
-            <Project
-                name="This website"
-                link="/"
-                githubLink="https://github.com/leonlarsson/leon-home"
-                nextLink={true}
-            />
-
-            <Project
-                name="Log Sorter"
-                link="https://logsorter.net/"
-                githubLink="https://github.com/leonlarsson/logsorter"
-            />
-
-            <Project
-                name="Battlefield 1 Morse Solver"
-                link="https://bf1morse.leonlarsson.com/"
-                githubLink="https://github.com/leonlarsson/bf1morse"
-            />
-
-            <Project
-                name="Battlefield Stats Discord Bot"
-                link="https://battlefieldstats.com/"
-                githubLink="https://github.com/leonlarsson/bfstats-web"
-                extra={{
-                    name: "API",
-                    link: "https://api.battlefieldstats.com/",
-                    githubLink: "https://github.com/leonlarsson/bfstats-api"
-                }}
-            />
-
-            <Project
-                name="Raccoon HTTP API"
-                link="https://api.onlyraccoons.com/"
-                githubLink="https://github.com/leonlarsson/http-raccoons"
-            />
-
-            <Project
-                name="Zeppelin Case Stats"
-                link="https://zeppelin-stats.leonlarsson.com/"
-                githubLink="https://github.com/leonlarsson/zeppelin-case-stats"
-            />
-
-            <Project
-                name="Redirect / Link Service"
-                link="https://x.leon.ms/"
-                githubLink="https://github.com/leonlarsson/link-redirector-worker"
-            />
-
-            <Project
-                name="THE FINALS Leaderboard"
-                link="https://the-finals-leaderboard.leonlarsson.com/"
-                githubLink="https://github.com/leonlarsson/the-finals-leaderboard"
-            />
-
-            <Project
-                name="React + Ant Design website"
-                link="https://react-ant-design-ui.pages.dev/"
-                githubLink="https://github.com/leonlarsson/react-ant-design-ui"
-            />
-
-            <Project
-                name="Bloodhunt ARG"
-                link="https://omnis.pages.dev/"
-            />
+            {projects.map(project => <Project key={project.projectId} project={project} />)}
         </div>
     );
-};
+}
 
-const Project = ({ name, link, githubLink, nextLink = false, extra }: ProjectProps) => {
+const Project = ({ project }: { project: Project }) => {
     const commonProps = {
         draggable: false
     };
 
     return (
         <div className="project-link">
-            {nextLink ? <Link href={link} {...commonProps}>{name}</Link> : <a href={link} target="_blank" {...commonProps}>{name}</a>} {githubLink && <a href={githubLink} target="_blank" {...commonProps} className="fa-brands fa-github" />}
-            {extra && <> (<a href={extra.link} target="_blank" {...commonProps}>{extra.name}</a> {extra.githubLink && <a href={extra.githubLink} target="_blank" {...commonProps} className="fa-brands fa-github" />})</>}
+            <Link href={`/projects/${project.projectId}`} title={`See more info on project ${project.name}.`}><i className="fa-solid fa-arrow-right fa-lg me-1 hover:translate-x-[3px] transition-transform" /></Link>
+            {" "}
+            {project.nextLink ? <Link href={project.link} {...commonProps} title={`Go to project ${project.name}.`}>{project.name}</Link> : <a href={project.link} target="_blank" {...commonProps} title={`Go to project ${project.name}.`}>{project.name}</a>} {project.githubLink && <a href={project.githubLink} target="_blank" title={`Go to project's GitHub.`} {...commonProps} className="fa-brands fa-github fa-lg ms-1" />}
+            {project.extra && <> (<a href={project.extra.link} target="_blank" title={`Go to project ${project.name} (${project.extra.name}).`} {...commonProps}>{project.extra.name}</a> {project.extra.githubLink && <a href={project.extra.githubLink} target="_blank" title={`Go to project's GitHub.`} {...commonProps} className="fa-brands fa-github fa-lg" />})</>}
         </div>
     );
-};
-
-interface ProjectProps {
-    name: string;
-    link: string;
-    githubLink?: string;
-    nextLink?: boolean;
-    extra?: {
-        name: string;
-        link: string;
-        githubLink?: string;
-    };
 };
