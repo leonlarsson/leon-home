@@ -48,6 +48,10 @@ export default ({ params }: { params: { id: string } }) => {
                             </>
                         }
                     </div>
+
+                    <div className="mt-5 font-semibold">Try it:</div>
+                    <iframe src={project.link} width="100%" height="500px" className="border-2 border-black rounded"></iframe>
+
                 </div>
             ) : (
                 <span className="text-red-600 text-lg">No project found with id {params.id}</span>
