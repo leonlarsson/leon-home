@@ -4,15 +4,16 @@ import projects from "../projects";
 export const runtime = "edge";
 // export const size = { width: 896, height: 605 };
 
-const regularFont = fetch(
-    new URL("/public/assets/fonts/Inter-Regular.ttf", import.meta.url)
-).then(res => res.arrayBuffer());
 
 // const boldFont = fetch(
 //     new URL("/public/assets/fonts/Inter-Bold.ttf", import.meta.url)
 // ).then(res => res.arrayBuffer());
 
 export default async ({ params }: { params: { id: string } }) => {
+
+    const regularFont = fetch(
+        new URL("/public/assets/fonts/Inter-Regular.ttf", import.meta.url)
+    ).then(res => res.arrayBuffer());
 
     const [regularFontData] = await Promise.all([regularFont]);
 
