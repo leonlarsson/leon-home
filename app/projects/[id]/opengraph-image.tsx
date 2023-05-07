@@ -8,13 +8,13 @@ const regularFont = fetch(
     new URL("/public/assets/fonts/Inter-Regular.ttf", import.meta.url)
 ).then(res => res.arrayBuffer());
 
-const boldFont = fetch(
-    new URL("/public/assets/fonts/Inter-Bold.ttf", import.meta.url)
-).then(res => res.arrayBuffer());
+// const boldFont = fetch(
+//     new URL("/public/assets/fonts/Inter-Bold.ttf", import.meta.url)
+// ).then(res => res.arrayBuffer());
 
 export default async ({ params }: { params: { id: string } }) => {
 
-    const [regularFontData, boldFontData] = await Promise.all([regularFont, boldFont]);
+    const [regularFontData] = await Promise.all([regularFont]);
 
     const project = projects.find(project => project.projectId === parseInt(params.id));
 
@@ -48,11 +48,6 @@ export default async ({ params }: { params: { id: string } }) => {
                     name: "Inter",
                     data: regularFontData,
                     weight: 400
-                },
-                {
-                    name: "Inter",
-                    data: boldFontData,
-                    weight: 700
                 }
             ]
         }
