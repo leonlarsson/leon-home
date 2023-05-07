@@ -71,21 +71,21 @@ export default [
     {
         projectId: 10,
         name: "Redirect / Link Service",
-        description: "Small project build with Discord workers. Think of it like Linktree, but much worse.",
+        description: "Small project built with Discord workers. Think of it like Linktree, but much worse.",
         link: "https://x.leon.ms/",
         githubLink: "https://github.com/leonlarsson/link-redirector-worker"
     },
     {
         projectId: 11,
         name: "THE FINALS Leaderboard",
-        description: "A fun project that creates a better leaderboard for the game THE FINALS from Embark Studios.\nBuild with React + Vite.",
+        description: "A fun project that creates a better leaderboard for the game THE FINALS from Embark Studios.\nBuilt with React + Vite.",
         link: "https://the-finals-leaderboard.leonlarsson.com/",
         githubLink: "https://github.com/leonlarsson/the-finals-leaderboard"
     },
     {
         projectId: 12,
         name: "React + Ant Design website",
-        description: "A dashboard website template build with Vite + React + Ant Design.\nThis is something I originally build for work, but without the secret parts.",
+        description: "A dashboard website template built with Vite + React + Ant Design.\nThis is something I originally built for work, but without the secret parts.",
         link: "https://react-ant-design-ui.pages.dev/",
         githubLink: "https://github.com/leonlarsson/react-ant-design-ui"
     },
