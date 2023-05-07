@@ -1,5 +1,31 @@
 import Link from "next/link";
+import { Metadata } from "next";
 import projects from "../projects";
+
+export const generateMetadata = ({ params }: { params: { id: string } }): Metadata => {
+
+    const project = projects.find(project => project.projectId === parseInt(params.id));
+
+    const pageTitle = `${project?.name ?? "Project #404"} | Leon San José Larsson`;
+    const pageDescription = `A page dedicated to Leon's ${project?.description ?? "Project #404"}.`;
+
+    return {
+        title: pageTitle,
+        description: pageDescription,
+        openGraph: {
+            type: "website",
+            url: `https://leonlarsson.com/projects/${params.id}`,
+            title: pageTitle,
+            description: pageDescription
+        },
+        twitter: {
+            card: "summary_large_image",
+            title: pageTitle,
+            description: pageDescription,
+            creator: "@mozzyfx"
+        }
+    };
+};
 
 export default ({ params }: { params: { id: string } }) => {
     const project = projects.find(project => project.projectId === parseInt(params.id));
