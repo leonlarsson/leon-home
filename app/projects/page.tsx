@@ -26,7 +26,7 @@ export default () => {
     return (
         <div className="flex flex-col text-center m-auto space-y-1 max-[450px]:space-y-0 pb-3">
 
-            <Link href="/" className="group font-extrabold text-[2rem] max-[450px]:text-[1.5rem] transition-all duration-300" title="Go back" draggable={false}><i className="fa-solid fa-arrow-left group-hover:text-red-400 group-hover:-translate-x-2 group-active:text-red-600 group-active:-translate-x-3 transition-all" /> Leon San José Larsson</Link>
+            <Link href="/" className="group font-extrabold text-[2rem] max-[450px]:text-[1.5rem] transition-all duration-300" title="Go back" draggable={false}><i className="fa-solid fa-arrow-left group-hover:text-red-400 group-hover:-translate-x-2 group-active:text-red-600 group-active:-translate-x-3 transition-all" /> Leon's Projects</Link>
 
             <span className="font-extrabold">Fun:</span>
 
