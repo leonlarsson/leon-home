@@ -108,7 +108,7 @@ export default [
     shortDescription: "The official website for the Bloodhunt ARG, 'The Omnis Challenge'.",
     link: "https://omnis.pages.dev/"
   }
-] as Project[];
+] satisfies Project[];
 
 export type Project = {
   projectId: number;
