@@ -71,8 +71,10 @@ export default ({ params }: { params: { id: string } }) => {
             )}
           </div>
 
-          <div className="mt-5 font-semibold">Try it:</div>
-          <iframe src={project.link} width="100%" height="500px" className="rounded border-2 border-black"></iframe>
+          <details className="mt-5 rounded border border-black p-2 transition-colors open:bg-black open:text-white hover:bg-black hover:text-white">
+            <summary className="cursor-pointer text-lg font-semibold">Try it</summary>
+            <iframe src={project.link} width="100%" height="500px" className="rounded"></iframe>
+          </details>
         </div>
       ) : (
         <span className="text-lg text-red-600">No project found with id {decodeURIComponent(params.id)}</span>
