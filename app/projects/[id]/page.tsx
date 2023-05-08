@@ -2,8 +2,10 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import projects from "../projects";
 
+const getProject = (id: string) => projects.find(project => project.projectId === parseInt(id));
+
 export const generateMetadata = ({ params }: { params: { id: string } }): Metadata => {
-  const project = projects.find(project => project.projectId === parseInt(params.id));
+  const project = getProject(params.id);
 
   const pageTitle = `${project?.name ?? "Project #404"} | Leon San José Larsson`;
   const pageDescription = `A page dedicated to Leon's ${project?.name ?? "Project #404"}.`;
@@ -27,7 +29,8 @@ export const generateMetadata = ({ params }: { params: { id: string } }): Metada
 };
 
 export default ({ params }: { params: { id: string } }) => {
-  const project = projects.find(project => project.projectId === parseInt(params.id));
+  const project = getProject(params.id);
+
   return (
     <>
       <Link href="/projects" className="group text-[1.3rem] transition-all duration-300 max-sm:text-base" title="Go back" draggable={false}>
@@ -72,7 +75,7 @@ export default ({ params }: { params: { id: string } }) => {
           <iframe src={project.link} width="100%" height="500px" className="rounded border-2 border-black"></iframe>
         </div>
       ) : (
-        <span className="text-lg text-red-600">No project found with id {params.id}</span>
+        <span className="text-lg text-red-600">No project found with id {decodeURIComponent(params.id)}</span>
       )}
     </>
   );
