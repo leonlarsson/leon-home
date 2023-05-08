@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import CvHeader from "../CVHeader";
-import "../../../public/assets/styles/cv.css";
+import "/public/assets/styles/cv.css";
 
 const pageTitle = "English CV | Leon San José Larsson";
 const pageDescription = "Leon San José Larsson's CV/Resume in English.";
