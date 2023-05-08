@@ -6,8 +6,9 @@ export default () => {
   return (
     <div className="m-auto flex flex-col text-center">
       <Image className="mb-2 self-center rounded-[100px] shadow-xl transition-all hover:rounded-b-xl hover:shadow-2xl active:-translate-y-1 max-[430px]:w-2/5" src="/assets/images/avatar.png" alt="Leon image" width={150} height={150} priority draggable={false} />
+
       <span className="text-[2rem] font-extrabold leading-none max-[430px]:text-[1.5rem]">Leon San José Larsson</span>
-      <TitleAndCompany title="Community & Support Specialist" company="Sharkmob" companyUrl="https://sharkmob.com" />
+      <Employment title="Community & Support Specialist" companyName="Sharkmob" companyUrl="https://sharkmob.com" />
 
       <div className="mb-1 mt-2 flex flex-wrap justify-center gap-x-1 border-b-slate-900 max-[521px]:border-b-4">
         <ProfileLink title="Email" url="mailto:leonlarsson8@gmail.com" icon={<i className="fa-solid fa-envelope" />} />
@@ -28,15 +29,16 @@ export default () => {
   );
 };
 
-const TitleAndCompany = ({ title, company, companyUrl }: { title: string; company?: string; companyUrl?: string }) => {
+const Employment = ({ title, companyName, companyUrl }: { title: string; companyName?: string; companyUrl?: string }) => {
   return (
     <span className="text-lg italic max-[430px]:text-sm">
-      {title}{" "}
-      {company && (
+      {title}
+      {companyName && (
         <>
+          {" "}
           @{" "}
           <a href={companyUrl} target="_blank" className="underline-offset-2 transition-colors duration-300 hover:underline" draggable={false}>
-            Sharkmob
+            {companyName}
           </a>
         </>
       )}
