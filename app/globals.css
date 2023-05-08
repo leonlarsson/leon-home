@@ -15,5 +15,5 @@
 }
 
 .project-page-link {
-  @apply shared-link p-2 border border-black max-sm:p-1 max-sm:text-lg;
+  @apply shared-link border border-black p-2 max-sm:p-1 max-sm:text-lg;
 }

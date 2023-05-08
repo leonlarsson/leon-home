@@ -1,9 +1,5 @@
 import "../globals.css";
 
 export default ({ children }: { children: React.ReactNode }) => {
-    return (
-        <div className="flex flex-col text-center m-auto">
-            {children}
-        </div>
-    );
-}
+  return <div className="m-auto flex flex-col text-center">{children}</div>;
+};
