@@ -2,9 +2,10 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 const inter = Inter({ subsets: ["latin"] });
 
-import "../public/fontawesome/css/fontawesome.min.css";
-import "../public/fontawesome/css/solid.min.css";
-import "../public/fontawesome/css/brands.min.css";
+import "./globals.css";
+import "/public/fontawesome/css/fontawesome.min.css";
+import "/public/fontawesome/css/solid.min.css";
+import "/public/fontawesome/css/brands.min.css";
 
 const pageTitle = "Leon San José Larsson";
 const pageDescription = "Landing page for Leon San José Larsson. Includes links to CV and projects.";

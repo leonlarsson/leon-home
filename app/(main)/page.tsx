@@ -1,10 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
-import "./globals.css";
 
 export default () => {
   return (
-    <div className="m-auto flex flex-col">
+    <div className="page">
       <Image className="mb-2 self-center rounded-[100px] shadow-xl transition-all hover:rounded-b-xl hover:shadow-2xl active:-translate-y-1 max-[430px]:w-2/5" src="/assets/images/avatar.png" alt="Leon image" width={150} height={150} priority draggable={false} />
 
       <span className="text-[2rem] font-extrabold leading-none max-[430px]:text-[1.5rem]">Leon San José Larsson</span>
@@ -22,8 +21,14 @@ export default () => {
         <Link className="home-link group" href="/projects" draggable={false}>
           <i className="fa-solid fa-arrow-right transition-transform group-hover:translate-x-[3px]" /> Projects
         </Link>
-        <ProfileLink title="Resume" url="/cv" newTab={false} />
-        <ProfileLink title="Swedish Resume" url="/cv-swe" newTab={false} />
+
+        <Link className="home-link" href="/cv" draggable={false}>
+          Resume
+        </Link>
+
+        <Link className="home-link" href="/cv-swe" draggable={false}>
+          Swedish Resume
+        </Link>
       </div>
     </div>
   );

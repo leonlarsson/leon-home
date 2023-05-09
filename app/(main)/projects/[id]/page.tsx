@@ -32,7 +32,7 @@ export default ({ params }: { params: { id: string } }) => {
   const project = getProject(params.id);
 
   return (
-    <>
+    <div className="page">
       <Link href="/projects" className="group text-[1.3rem] transition-all duration-300 max-sm:text-base" title="Go back" draggable={false}>
         <i className="fa-solid fa-arrow-left transition-all group-hover:-translate-x-1 group-hover:text-red-400 group-active:-translate-x-2 group-active:text-red-600" /> Back to list
       </Link>
@@ -79,6 +79,6 @@ export default ({ params }: { params: { id: string } }) => {
       ) : (
         <span className="text-lg text-red-600">No project found with id {decodeURIComponent(params.id)}</span>
       )}
-    </>
+    </div>
   );
 };

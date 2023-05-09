@@ -17,3 +17,7 @@
 .project-page-link {
   @apply shared-link border border-black p-2 max-sm:p-1 max-sm:text-lg;
 }
+
+.page {
+  @apply m-auto flex flex-col;
+}
