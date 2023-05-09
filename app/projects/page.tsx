@@ -25,7 +25,7 @@ export const metadata: Metadata = {
 
 export default () => {
   return (
-    <div className="space-y-1 pb-3 max-[450px]:space-y-0">
+    <div className="space-y-1 max-[450px]:space-y-0">
       <Link href="/" className="group text-[2rem] font-extrabold transition-all duration-300 max-[450px]:text-[1.5rem]" title="Go back" draggable={false}>
         <i className="fa-solid fa-arrow-left transition-all group-hover:-translate-x-2 group-hover:text-red-400 group-active:-translate-x-3 group-active:text-red-600" /> Leon's Projects
       </Link>
