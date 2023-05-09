@@ -31,6 +31,9 @@ export const generateMetadata = ({ params }: { params: { id: string } }): Metada
 export default ({ params }: { params: { id: string } }) => {
   const project = getProject(params.id);
 
+  const canPrevious = parseInt(params.id) > 1;
+  const canNext = parseInt(params.id) < projects.length;
+
   return (
     <div className="page">
       <Link href="/projects" className="group text-[1.3rem] transition-all duration-300 max-sm:text-base" title="Go back" draggable={false}>
@@ -38,7 +41,21 @@ export default ({ params }: { params: { id: string } }) => {
       </Link>
       {project ? (
         <div className="px-16 max-sm:px-4">
-          <span className="text-[2rem] font-extrabold transition-all duration-300 max-sm:text-2xl">{project.name}</span>
+          <span className="text-[2rem] font-extrabold transition-all duration-300 max-sm:text-2xl">
+            {canPrevious && (
+              <Link className="group" href={`/projects/${project.projectId - 1}`} title="Previous project" draggable={false}>
+                <i className="fa-solid fa-arrow-left me-2 transition-all group-hover:-translate-x-1 group-hover:text-green-600" />
+              </Link>
+            )}
+
+            {project.name}
+
+            {canNext && (
+              <Link className="group" href={`/projects/${project.projectId + 1}`} title="Next project" draggable={false}>
+                <i className="fa-solid fa-arrow-right ms-2 transition-all group-hover:translate-x-1 group-hover:text-green-600" />
+              </Link>
+            )}
+          </span>
           <p className="mb-3 whitespace-pre-line">{project.description}</p>
 
           <span className="text-lg font-bold">Links:</span>
