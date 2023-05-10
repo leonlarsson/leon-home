@@ -43,7 +43,7 @@ export default ({ params }: { params: { id: string } }) => {
         <div className="px-16 max-sm:px-4">
           <span className="text-[2rem] font-extrabold transition-all duration-300 max-sm:text-2xl">
             {canPrevious && (
-              <Link className="group" href={`/projects/${project.projectId - 1}`} title="Previous project" draggable={false}>
+              <Link className="group" href={`/projects/${project.projectId - 1}`} title={`Previous project, ${projects[projects.indexOf(project) - 1].name}`} draggable={false}>
                 <i className="fa-solid fa-arrow-left me-2 transition-all group-hover:-translate-x-1 group-hover:text-green-600" />
               </Link>
             )}
@@ -51,7 +51,7 @@ export default ({ params }: { params: { id: string } }) => {
             {project.name}
 
             {canNext && (
-              <Link className="group" href={`/projects/${project.projectId + 1}`} title="Next project" draggable={false}>
+              <Link className="group" href={`/projects/${project.projectId + 1}`} title={`Next project, ${projects[projects.indexOf(project) + 1].name}`} draggable={false}>
                 <i className="fa-solid fa-arrow-right ms-2 transition-all group-hover:translate-x-1 group-hover:text-green-600" />
               </Link>
             )}
