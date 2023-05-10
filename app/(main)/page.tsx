@@ -17,6 +17,9 @@ export default () => {
         <ProfileLink title="ArtStation" url="https://www.artstation.com/leonlarsson" icon={<i className="fa-brands fa-artstation" />} />
       </div>
 
+      {/* Used for creating embed images for 900x600 */}
+      {/* <div className="absolute left-[15px] top-[565px] text-lg">leonlarsson.com</div> */}
+
       <div className="flex flex-wrap justify-center gap-x-1">
         <Link className="home-link group" href="/projects" draggable={false}>
           <i className="fa-solid fa-arrow-right transition-transform group-hover:translate-x-[3px]" /> Projects
