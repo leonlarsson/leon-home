@@ -17,18 +17,13 @@ export default () => {
         <ProfileLink title="ArtStation" url="https://www.artstation.com/leonlarsson" icon={<i className="fa-brands fa-artstation" />} />
       </div>
 
-      <div className="flex flex-wrap justify-center gap-x-2">
+      <div className="flex flex-wrap justify-center gap-x-1">
         <Link className="home-link group" href="/projects" draggable={false}>
           <i className="fa-solid fa-arrow-right transition-transform group-hover:translate-x-[3px]" /> Projects
         </Link>
 
-        <Link className="home-link" href="/cv" draggable={false}>
-          Resume
-        </Link>
-
-        <Link className="home-link" href="/cv-swe" draggable={false}>
-          Swedish Resume
-        </Link>
+        <ProfileLink title="English CV" url="/cv" icon={<i className="fa-solid fa-file-text" />} newTab={false} />
+        <ProfileLink title="Swedish CV" url="/cv-swe" icon={<i className="fa-solid fa-file-text" />} newTab={false} />
       </div>
     </div>
   );
