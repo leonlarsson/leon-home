@@ -206,6 +206,10 @@ export default () => {
                         <a style={{ color: "#333" }} href="https://www.ea.com/sv-se/games/fifa/fifa-21" target="_blank">
                           FIFA 21
                         </a>
+                        <br />
+                        <a style={{ color: "#333" }} href="https://www.ea.com/games/lord-of-the-rings/the-lord-of-the-rings-heroes-of-middle-earth" target="_blank">
+                          The Lord of the Rings: Midgårds hjältar
+                        </a>
                       </p>
                     </span>
                   </div>
