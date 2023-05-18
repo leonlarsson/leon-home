@@ -44,7 +44,7 @@ export default ({ searchParams }: { searchParams: Record<string, string> }) => {
 const ProjectsList = ({ projects, useGridLayout }: { projects: Project[]; useGridLayout: boolean }) => {
   if (useGridLayout)
     return (
-      <div className="grid grid-cols-2 gap-3 max-md:grid-cols-1">
+      <div className="grid grid-cols-1 gap-3 md:grid-cols-2">
         {projects.map(project => (
           <Project key={project.projectId} project={project} useGridLayout={useGridLayout} />
         ))}
