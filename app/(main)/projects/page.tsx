@@ -42,17 +42,8 @@ export default ({ searchParams }: { searchParams: Record<string, string> }) => {
 };
 
 const ProjectsList = ({ projects, useGridLayout }: { projects: Project[]; useGridLayout: boolean }) => {
-  if (useGridLayout)
-    return (
-      <div className="grid grid-cols-1 gap-3 md:grid-cols-2">
-        {projects.map(project => (
-          <Project key={project.projectId} project={project} useGridLayout={useGridLayout} />
-        ))}
-      </div>
-    );
-
   return (
-    <div>
+    <div className={useGridLayout ? "grid grid-cols-1 gap-3 md:grid-cols-2" : ""}>
       {projects.map(project => (
         <Project key={project.projectId} project={project} useGridLayout={useGridLayout} />
       ))}
