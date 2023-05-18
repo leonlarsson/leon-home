@@ -68,18 +68,12 @@ const Project = ({ project, useGridLayout }: { project: Project; useGridLayout: 
           <span className="text-lg font-bold">{project.name}</span>
           <span>{project.shortDescription}</span>
         </Link>
+
         <div className="mx-4 w-px bg-gray-300" />
-        <div className="flex items-center">
-          {project.nextLink ? (
-            <Link href={project.link} draggable={false} title={`Go to project ${project.name}.`}>
-              <LinkIcon />
-            </Link>
-          ) : (
-            <a href={project.link} target="_blank" draggable={false} title={`Go to project ${project.name}.`}>
-              <LinkIcon />
-            </a>
-          )}
-        </div>
+
+        <Link className="flex items-center" href={project.link} target={project.nextLink ? "_self" : "_blank"} draggable={false} title={`Go to project ${project.name}.`}>
+          <LinkIcon />
+        </Link>
       </div>
     );
 
@@ -88,15 +82,9 @@ const Project = ({ project, useGridLayout }: { project: Project; useGridLayout: 
       <Link className="group" href={`/projects/${project.projectId}`} draggable={false} title={`See more info on project ${project.name}.`}>
         <i className="fa-solid fa-arrow-right fa-lg me-1 transition-transform group-hover:translate-x-[3px] group-active:translate-x-[6px]" /> {project.name}
       </Link>{" "}
-      {project.nextLink ? (
-        <Link href={project.link} draggable={false} title={`Go to project ${project.name}.`}>
-          <LinkIcon />
-        </Link>
-      ) : (
-        <a href={project.link} target="_blank" draggable={false} title={`Go to project ${project.name}.`}>
-          <LinkIcon />
-        </a>
-      )}
+      <Link href={project.link} target={project.nextLink ? "_self" : "_blank"} draggable={false} title={`Go to project ${project.name}.`}>
+        <LinkIcon />
+      </Link>
     </div>
   );
 };
