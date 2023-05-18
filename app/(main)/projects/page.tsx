@@ -64,7 +64,7 @@ const Project = ({ project, useGridLayout }: { project: Project; useGridLayout: 
   if (useGridLayout)
     return (
       <div className="flex rounded border border-black p-3 text-start transition-all hover:bg-black hover:text-white active:translate-y-1">
-        <Link href={`/projects/${project.projectId}`} className="flex flex-1 flex-col" draggable={false}>
+        <Link href={`/projects/${project.projectId}`} className="flex flex-1 flex-col" draggable={false} title={`See more info on project ${project.name}.`}>
           <span className="text-lg font-bold">{project.name}</span>
           <span>{project.shortDescription}</span>
         </Link>
@@ -75,7 +75,7 @@ const Project = ({ project, useGridLayout }: { project: Project; useGridLayout: 
               <LinkIcon />
             </Link>
           ) : (
-            <a href={project.link} target="_blank" draggable={false} title={`Go to project website for ${project.name}.`}>
+            <a href={project.link} target="_blank" draggable={false} title={`Go to project ${project.name}.`}>
               <LinkIcon />
             </a>
           )}
@@ -93,7 +93,7 @@ const Project = ({ project, useGridLayout }: { project: Project; useGridLayout: 
           <LinkIcon />
         </Link>
       ) : (
-        <a href={project.link} target="_blank" draggable={false} title={`Go to project website for ${project.name}.`}>
+        <a href={project.link} target="_blank" draggable={false} title={`Go to project ${project.name}.`}>
           <LinkIcon />
         </a>
       )}
