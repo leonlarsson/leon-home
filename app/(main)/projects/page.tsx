@@ -54,8 +54,8 @@ const ProjectsList = ({ projects, useGridLayout }: { projects: Project[]; useGri
 const Project = ({ project, useGridLayout }: { project: Project; useGridLayout: boolean }) => {
   if (useGridLayout)
     return (
-      <div className="flex rounded border border-black text-start transition-all hover:bg-black hover:text-white active:translate-y-1">
-        <Link href={`/projects/${project.projectId}`} className="group flex flex-1 flex-col p-3" draggable={false} title={`See more info on project ${project.name}.`}>
+      <div className="flex rounded border border-black text-start active:translate-y-1">
+        <Link href={`/projects/${project.projectId}`} className="group flex flex-1 flex-col p-3 transition-all hover:bg-black hover:text-white" draggable={false} title={`See more info on project ${project.name}.`}>
           <span className="text-lg font-bold">
             <i className="fa-solid fa-arrow-right me-2 transition-transform group-hover:translate-x-1" />
             {project.name}
@@ -65,7 +65,7 @@ const Project = ({ project, useGridLayout }: { project: Project; useGridLayout: 
 
         <div className="my-3 w-px bg-gray-300" />
 
-        <Link className="group flex items-center px-3" href={project.link} target={project.nextLink ? "_self" : "_blank"} draggable={false} title={`Go to project ${project.name}.`}>
+        <Link className="group flex items-center px-3 transition-all hover:bg-black hover:text-white" href={project.link} target={project.nextLink ? "_self" : "_blank"} draggable={false} title={`Go to project ${project.name}.`}>
           <i className="fa-solid fa-up-right-from-square fa-lg mx-1 transition-transform group-hover:scale-[1.18]" />
         </Link>
       </div>
