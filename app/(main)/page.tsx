@@ -34,7 +34,7 @@ export default () => {
 
 const Employment = ({ title, companyName, companyUrl }: { title: string; companyName?: string; companyUrl?: string }) => {
   return (
-    <span className="text-lg italic max-[430px]:text-sm">
+    <span className="text-lg max-[430px]:text-sm">
       {title}
       {companyName && (
         <>
