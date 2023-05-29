@@ -79,13 +79,13 @@ export default () => {
                   <span className="text">Språklokalisering</span>
                 </div>
                 <div className="small-segment-skill-holder">
-                  <span className="text">Online Forum Moderation</span>
+                  <span className="text">Community Management</span>
                 </div>
                 <div className="small-segment-skill-holder">
-                  <span className="text">Online Community Management</span>
+                  <span className="text">Programutveckling</span>
                 </div>
                 <div className="small-segment-skill-holder">
-                  <span className="text">(Lite) Programutveckling</span>
+                  <span className="text">Webbutveckling</span>
                 </div>
                 <div className="small-segment-skill-holder">
                   <span className="text">Bild-/videoredigering</span>
@@ -125,11 +125,8 @@ export default () => {
                     <span className="titel">Community &amp; Support Specialist</span>
                     <span className="text">
                       <p>
-                        Hanterar Sharkmobs spelarsupport, relevanta system och äger innehållet på Bloodhunts hemsida. Arbetar alltid nära marketing och player relations för att se till att allt är synkat och i bästa möjligaste skick för våra spelare. Arbetar också direkt med utvecklarna av
-                        <a className="inline-href" href="https://bloodhunt.com" target="_blank">
-                          Bloodhunt
-                        </a>{" "}
-                        och ser till att både våra utvecklare och supportteam har allt de behöver.
+                        På Sharkmob hanterar jag spelarsupporten och relaterade system. Jag äger, hanterar och bygger också sidorna och innehållet på Bloodhunt-hemsidan. Utöver detta hjälper jag även till med communityområden som att hantera Bloodhunts Discord och sätta upp Twitch Drops. I min roll
+                        arbetar jag alltid nära marketing och player relations för att se till att allt är synkat och i bästa möjligaste skick för våra spelare. Jag arbetar också direkt med utvecklarna i områden som antifusk och ser till att både våra utvecklare och supportteam har allt de behöver.
                       </p>
                     </span>
                   </div>
@@ -276,7 +273,7 @@ export default () => {
                         <br />
                         <br />
                         Jag började jobba som en volontärmoderator på Battlefields Discord sent in i 2016 och nu är jag en administratör/ägare där. Sen det att jag började, har Discord-kanalen vuxit från att vara ett litet community med ett par tusen medlemmar till att vara det officiella hemmet för
-                        Battlefield på Discord med över 190&nbsp;000 medlemmar. Detta inkluderade att jobba med EA:s community team för att försäkra att allting går lugnt och fungerar, något som fortsätter än idag.
+                        Battlefield på Discord. Den sitter oftast mellan 170K och 190K medlemmar. Detta inkluderade att jobba med EA:s community team för att försäkra att allting går lugnt och fungerar, något som fortsätter än idag.
                         <br />
                         <i>*I oktober 2022, valde vi att återgå till att kanalen ska vara 100% ägd av communityn.</i>
                         <br />
@@ -304,7 +301,7 @@ export default () => {
                   <span className="namn">Programutveckling</span>
                   <span className="text">
                     <p>
-                      Jag har ett intresse i programutveckling, både med webb och lösningar som Node.js.
+                      Jag har ett intresse i programutveckling, både med webb och Node.js.
                       <br />
                       <br />
                       <a className="inline-href" target="_blank" href="https://battlefieldstats.com/">
@@ -314,8 +311,8 @@ export default () => {
                       <a className="inline-href" target="_blank" href="https://nodejs.org/">
                         Node.js
                       </a>
-                      . Denna bot har blivit inbjuden till mer än 2&nbsp;100 Discord-kanaler, ett nummer som växer varje dag. Data i realtid{" "}
-                      <a className="inline-href" target="_blank" href="https://bfstats-api.leonlarsson.com/">
+                      . Denna bot har blivit inbjuden till nästan 3,000 Discord-servrar, ett nummer som växer varje dag. Data i realtid finns{" "}
+                      <a className="inline-href" target="_blank" href="https://battlefieldstats.com/data">
                         här
                       </a>
                       . Botten är även fullt översatt till 13 språk med hjälp av hjälpsamma communitymedlemmar.

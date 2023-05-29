@@ -79,13 +79,13 @@ export default () => {
                   <span className="text">Localization</span>
                 </div>
                 <div className="small-segment-skill-holder">
-                  <span className="text">Online Forum Moderation</span>
+                  <span className="text">Community Management</span>
                 </div>
                 <div className="small-segment-skill-holder">
-                  <span className="text">Online Community Management</span>
+                  <span className="text">Software Engineering</span>
                 </div>
                 <div className="small-segment-skill-holder">
-                  <span className="text">(Some) Software Engineering</span>
+                  <span className="text">Web Development</span>
                 </div>
                 <div className="small-segment-skill-holder">
                   <span className="text">Photo/Video Editing</span>
@@ -125,12 +125,9 @@ export default () => {
                     <span className="titel">Community &amp; Support Specialist</span>
                     <span className="text">
                       <p>
-                        Managing Sharkmob Player Support and systems, as well as managing the content on the Bloodhunt website. Always working closely with the marketing team and the player relations team to make sure everything is synced and in the best condition for our players. Also working
-                        directly with the devs on{" "}
-                        <a className="inline-href" href="https://bloodhunt.com" target="_blank">
-                          Bloodhunt
-                        </a>
-                        , making sure that both our developers and support teams have everything they need.
+                        At Sharkmob, I manage the player support and related systems. I also own, manage, and build the pages and content on the Bloodhunt website. In addition to this, I also help with community areas such as managing the Bloodhunt Discord and setting up Twitch Drops. In my role, I
+                        always work closely with the marketing team and the player relations team to make sure everything is synced and in the best condition for our players. I also work directly with the developers on areas such as anti-cheat, making sure that both our developers and support teams
+                        have everything they need.
                       </p>
                     </span>
                   </div>
@@ -278,7 +275,7 @@ export default () => {
                         <br />
                         <br />
                         I started volunteering as a moderator in the Battlefield Discord in late 2016 and I am now an Admin and co-owner there. Since I joined, we have successfully grown and transformed the Discord from a small community with a couple thousand members to being the official home of
-                        Battlefield on Discord with over 190,000 members. This included aligning with the EA Community Team to make sure everything went smoothly, which continues to this day.
+                        Battlefield on Discord, which hovers between 170K and 190K members. This included aligning with the EA Community Team to make sure everything went smoothly, which continues to this day.
                         <br />
                         <i>*In October 2022, we decided to return this to be 100% community owned.</i>
                         <br />
@@ -306,7 +303,7 @@ export default () => {
                   <span className="namn">Software Development</span>
                   <span className="text">
                     <p>
-                      I have a hobby interest in software development, both with web and solutions like Node.js.
+                      I have a hobby interest in software development, both with web and the Node.js runtime.
                       <br />
                       <br />
                       The{" "}
@@ -317,8 +314,8 @@ export default () => {
                       <a className="inline-href" target="_blank" href="https://nodejs.org/">
                         Node.js
                       </a>
-                      . This bot has been invited to more than 2,100 Discord servers, with more inviting it every day. Data in real-time{" "}
-                      <a className="inline-href" target="_blank" href="https://bfstats-api.leonlarsson.com/">
+                      . This bot has been invited to almost 3,000 Discord servers, with more inviting it every day. Data in real-time is found{" "}
+                      <a className="inline-href" target="_blank" href="https://battlefieldstats.com/data">
                         here
                       </a>
                       . The bot has also been fully localized to 13 language with the help of many helpful community members.
