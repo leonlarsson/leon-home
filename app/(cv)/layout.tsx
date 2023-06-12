@@ -5,7 +5,7 @@ import "/public/fontawesome/css/brands.min.css";
 export default ({ children }: { children: React.ReactNode }) => {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body className="cv">{children}</body>
     </html>
   );
 };
