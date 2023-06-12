@@ -33,7 +33,7 @@ export default ({ searchParams }: { searchParams: Record<string, string> }) => {
           <i className="fa-solid fa-arrow-left transition-all group-hover:-translate-x-2 group-hover:text-red-400 group-active:-translate-x-3 group-active:text-red-600" /> Leon's Projects
         </Link>
         <Link className="ms-3 text-2xl" title={`Use ${useGridLayout ? "list" : "grid"} view.`} href={{ pathname: "/projects", query: { grid: !useGridLayout } }}>
-          <i className={`fa-solid ${useGridLayout ? "fa-solid fa-list" : "fa-solid fa-table-cells-large"} transition-transform duration-150 hover:scale-125`} />
+          <i className={`fa-solid ${useGridLayout ? "fa-list" : "fa-table-cells-large"} transition-transform duration-150 hover:scale-125`} />
         </Link>
         <ProjectsList projects={projects} useGridLayout={useGridLayout} />
       </div>
