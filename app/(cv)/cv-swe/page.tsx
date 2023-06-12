@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import CvHeader from "../CVHeader";
+import Employment from "../Employment";
 
 const pageTitle = "Svenskt CV | Leon San José Larsson";
 const pageDescription = "Leon San José Larssons CV/Resume på svenska.";
@@ -115,131 +116,102 @@ export default () => {
                     <span className="sf-main-title">Arbetserfarenhet</span>
                   </div>
                   <div className="sf-heading-underline" />
-                  <div className="small-segment-holder">
-                    <span className="datum">Aug 2022 – Nuvarande</span>
-                    <span className="namn">
-                      <a style={{ color: "#000" }} href="https://sharkmob.com" target="_blank">
-                        Sharkmob AB
-                      </a>
-                    </span>
-                    <span className="titel">Community &amp; Support Specialist</span>
-                    <span className="text">
-                      <p>
-                        På Sharkmob hanterar jag spelarsupporten och relaterade system. Jag äger, hanterar och bygger också sidorna och innehållet på Bloodhunt-hemsidan. Utöver detta hjälper jag även till med communityområden som att hantera Bloodhunts Discord och sätta upp Twitch Drops. I min roll
-                        arbetar jag alltid nära marketing och player relations för att se till att allt är synkat och i bästa möjligaste skick för våra spelare. Jag arbetar också direkt med utvecklarna i områden som antifusk och ser till att både våra utvecklare och supportteam har allt de behöver.
-                      </p>
-                    </span>
-                  </div>
+
+                  <Employment title="Community & Support Specialist" company="Sharkmob AB" companyUrl="https://sharkmob.com" date="Aug 2022 – Nuvarande">
+                    <p>
+                      På Sharkmob hanterar jag spelarsupporten och relaterade system. Jag äger, hanterar och bygger också sidorna och innehållet på Bloodhunt-hemsidan. Utöver detta hjälper jag även till med communityområden som att hantera Bloodhunts Discord och sätta upp Twitch Drops. I min roll
+                      arbetar jag alltid nära marketing och player relations för att se till att allt är synkat och i bästa möjligaste skick för våra spelare. Jag arbetar också direkt med utvecklarna i områden som antifusk och ser till att både våra utvecklare och supportteam har allt de behöver.
+                    </p>
+                  </Employment>
+
                   <hr />
-                  <div className="small-segment-holder">
-                    <span className="datum">Nov 2019 – Aug 2022</span>
-                    <span className="namn">
-                      <a style={{ color: "#000" }} href="https://www.ea.com" target="_blank">
-                        Electronic Arts
+
+                  <Employment title="Localization/QA Tester - Swedish" company="Electronic Arts" companyUrl="https://www.ea.com" date="Nov 2019 – Aug 2022">
+                    <p>
+                      Hos Electronic Arts (EA) granskade och säkerställde jag kvaliteten på svenska EA-spel (PC+konsoler) och marknadsföringsmaterial som trailers och webbplatser med mera. Under högsäsong var jag också ansvarig för att granska anställningstest från potentiella kandidater. Jag var
+                      även medverkande med att skapa och bygga innehållet i rekryteringstestet. På The Sims 4 var jag huvudansvarig för kvaliteten av den svenska lokaliseringsinsatsen. Detta inkluderade att granska all text, dess implementering i spelet och rapportera (via JIRA) / eskalera
+                      eventuella problem som inte kunde åtgärdas med en textändring. Jag utförde både ad-hoc-tester och tester baserade på fördesignade testfall.
+                      <br />
+                      <br />
+                      <i>Spelreleaser som jag har arbetat på:</i>
+                      <br />
+                      <a style={{ color: "#333" }} href="https://www.ea.com/sv-se/games/the-sims/the-sims-4/packs/expansion-packs/the-sims-4-discover-university" target="_blank">
+                        The Sims™ 4: Studentliv
                       </a>
-                    </span>
-                    <span className="titel">Localization/QA Tester - Swedish</span>
-                    <span className="text">
-                      <p>
-                        Hos Electronic Arts (EA) granskade och säkerställde jag kvaliteten på svenska EA-spel (PC+konsoler) och marknadsföringsmaterial som trailers och webbplatser med mera. Under högsäsong var jag också ansvarig för att granska anställningstest från potentiella kandidater. Jag var
-                        även medverkande med att skapa och bygga innehållet i rekryteringstestet. På The Sims 4 var jag huvudansvarig för kvaliteten av den svenska lokaliseringsinsatsen. Detta inkluderade att granska all text, dess implementering i spelet och rapportera (via JIRA) / eskalera
-                        eventuella problem som inte kunde åtgärdas med en textändring. Jag utförde både ad-hoc-tester och tester baserade på fördesignade testfall.
-                        <br />
-                        <br />
-                        <i>Spelreleaser som jag har arbetat på:</i>
-                        <br />
-                        <a style={{ color: "#333" }} href="https://www.ea.com/sv-se/games/the-sims/the-sims-4/packs/expansion-packs/the-sims-4-discover-university" target="_blank">
-                          The Sims™ 4: Studentliv
-                        </a>
-                        <br />
-                        <a style={{ color: "#333" }} href="https://www.ea.com/sv-se/games/the-sims/the-sims-4/packs/stuff-packs/the-sims-4-tiny-living" target="_blank">
-                          The Sims™ 4: Smått och smart
-                        </a>
-                        <br />
-                        <a style={{ color: "#333" }} href="https://www.ea.com/sv-se/games/the-sims/the-sims-4/packs/expansion-packs/the-sims-4-eco-lifestyle" target="_blank">
-                          The Sims™ 4: Eko-liv
-                        </a>
-                        <br />
-                        <a style={{ color: "#333" }} href="https://www.ea.com/sv-se/games/the-sims/the-sims-4/packs/stuff-packs/the-sims-4-nifty-knitting" target="_blank">
-                          The Sims™ 4: Skickligt stickat
-                        </a>
-                        <br />
-                        <a style={{ color: "#333" }} href="https://www.ea.com/sv-se/games/the-sims/the-sims-4/packs/game-packs/the-sims-4-star-wars-journey-to-batuu" target="_blank">
-                          The Sims™ 4: <i>Star Wars™</i>: Resan till Batuu
-                        </a>
-                        <br />
-                        <a style={{ color: "#333" }} href="https://www.ea.com/sv-se/games/the-sims/the-sims-4/packs/expansion-packs/the-sims-4-snowy-escape" target="_blank">
-                          The Sims™ 4: Snöiga bergen
-                        </a>
-                        <br />
-                        <a style={{ color: "#333" }} href="https://www.ea.com/sv-se/games/the-sims/the-sims-4/packs/stuff-packs/the-sims-4-paranormal" target="_blank">
-                          The Sims™ 4: Paranormalt
-                        </a>
-                        <br />
-                        <a style={{ color: "#333" }} href="https://www.ea.com/sv-se/games/the-sims/the-sims-4/packs/game-packs/the-sims-4-dream-home-decorator" target="_blank">
-                          The Sims™ 4: Styla ditt drömhus
-                        </a>
-                        <br />
-                        <a style={{ color: "#333" }} href="https://www.ea.com/sv-se/games/the-sims/the-sims-4/packs/expansion-packs/the-sims-4-cottage-living" target="_blank">
-                          The Sims™ 4: Lantliv
-                        </a>
-                        <br />
-                        <a style={{ color: "#333" }} href="https://www.ea.com/sv-se/games/the-sims/the-sims-4/packs/game-packs/the-sims-4-my-wedding-stories" target="_blank">
-                          The Sims™ 4: Mina bröllopshistorier
-                        </a>
-                        <br />
-                        <a style={{ color: "#333" }} href="https://www.ea.com/sv-se/games/the-sims/the-sims-4/packs/game-packs/the-sims-4-werewolves" target="_blank">
-                          The Sims™ 4: Varulvar
-                        </a>
-                        <br />
-                        <a style={{ color: "#333" }} href="https://www.ea.com/sv-se/games/the-sims/the-sims-4/the-sims-4-high-school-years" target="_blank">
-                          The Sims™ 4: High school-åren
-                        </a>
-                        <br />
-                        <a style={{ color: "#333" }} href="https://www.ea.com/sv-se/games/the-sims/the-sims-4/packs/kits" target="_blank">
-                          The Sims™ 4 Kit: Dammråttor, Lantkök, Retro, Innergårdsoas, Industriloft, Fashion Street, Välkommen till Incheon, Blommande rum, Modernt herrmode, Karnevalmode, Maxad inredning, Ungdomlig elegans, Knattarnas camping, Första modet, Ökenlyx
-                        </a>
-                        <br />
-                        <a style={{ color: "#333" }} href="https://www.ea.com/sv-se/games/fifa/fifa-21" target="_blank">
-                          FIFA 21
-                        </a>
-                        <br />
-                        <a style={{ color: "#333" }} href="https://www.ea.com/games/lord-of-the-rings/the-lord-of-the-rings-heroes-of-middle-earth" target="_blank">
-                          The Lord of the Rings: Midgårds hjältar
-                        </a>
-                      </p>
-                    </span>
-                  </div>
+                      <br />
+                      <a style={{ color: "#333" }} href="https://www.ea.com/sv-se/games/the-sims/the-sims-4/packs/stuff-packs/the-sims-4-tiny-living" target="_blank">
+                        The Sims™ 4: Smått och smart
+                      </a>
+                      <br />
+                      <a style={{ color: "#333" }} href="https://www.ea.com/sv-se/games/the-sims/the-sims-4/packs/expansion-packs/the-sims-4-eco-lifestyle" target="_blank">
+                        The Sims™ 4: Eko-liv
+                      </a>
+                      <br />
+                      <a style={{ color: "#333" }} href="https://www.ea.com/sv-se/games/the-sims/the-sims-4/packs/stuff-packs/the-sims-4-nifty-knitting" target="_blank">
+                        The Sims™ 4: Skickligt stickat
+                      </a>
+                      <br />
+                      <a style={{ color: "#333" }} href="https://www.ea.com/sv-se/games/the-sims/the-sims-4/packs/game-packs/the-sims-4-star-wars-journey-to-batuu" target="_blank">
+                        The Sims™ 4: <i>Star Wars™</i>: Resan till Batuu
+                      </a>
+                      <br />
+                      <a style={{ color: "#333" }} href="https://www.ea.com/sv-se/games/the-sims/the-sims-4/packs/expansion-packs/the-sims-4-snowy-escape" target="_blank">
+                        The Sims™ 4: Snöiga bergen
+                      </a>
+                      <br />
+                      <a style={{ color: "#333" }} href="https://www.ea.com/sv-se/games/the-sims/the-sims-4/packs/stuff-packs/the-sims-4-paranormal" target="_blank">
+                        The Sims™ 4: Paranormalt
+                      </a>
+                      <br />
+                      <a style={{ color: "#333" }} href="https://www.ea.com/sv-se/games/the-sims/the-sims-4/packs/game-packs/the-sims-4-dream-home-decorator" target="_blank">
+                        The Sims™ 4: Styla ditt drömhus
+                      </a>
+                      <br />
+                      <a style={{ color: "#333" }} href="https://www.ea.com/sv-se/games/the-sims/the-sims-4/packs/expansion-packs/the-sims-4-cottage-living" target="_blank">
+                        The Sims™ 4: Lantliv
+                      </a>
+                      <br />
+                      <a style={{ color: "#333" }} href="https://www.ea.com/sv-se/games/the-sims/the-sims-4/packs/game-packs/the-sims-4-my-wedding-stories" target="_blank">
+                        The Sims™ 4: Mina bröllopshistorier
+                      </a>
+                      <br />
+                      <a style={{ color: "#333" }} href="https://www.ea.com/sv-se/games/the-sims/the-sims-4/packs/game-packs/the-sims-4-werewolves" target="_blank">
+                        The Sims™ 4: Varulvar
+                      </a>
+                      <br />
+                      <a style={{ color: "#333" }} href="https://www.ea.com/sv-se/games/the-sims/the-sims-4/the-sims-4-high-school-years" target="_blank">
+                        The Sims™ 4: High school-åren
+                      </a>
+                      <br />
+                      <a style={{ color: "#333" }} href="https://www.ea.com/sv-se/games/the-sims/the-sims-4/packs/kits" target="_blank">
+                        The Sims™ 4 Kit: Dammråttor, Lantkök, Retro, Innergårdsoas, Industriloft, Fashion Street, Välkommen till Incheon, Blommande rum, Modernt herrmode, Karnevalmode, Maxad inredning, Ungdomlig elegans, Knattarnas camping, Första modet, Ökenlyx
+                      </a>
+                      <br />
+                      <a style={{ color: "#333" }} href="https://www.ea.com/sv-se/games/fifa/fifa-21" target="_blank">
+                        FIFA 21
+                      </a>
+                      <br />
+                      <a style={{ color: "#333" }} href="https://www.ea.com/games/lord-of-the-rings/the-lord-of-the-rings-heroes-of-middle-earth" target="_blank">
+                        The Lord of the Rings: Midgårds hjältar
+                      </a>
+                    </p>
+                  </Employment>
+
                   <hr />
-                  <div className="small-segment-holder">
-                    <span className="datum">Nov 2018 – Juni 2019</span>
-                    <span className="namn">
-                      <a style={{ color: "#000" }} href="https://www.postnord.se/" target="_blank">
-                        PostNord Logistics AB
-                      </a>
-                    </span>
-                    <span className="titel">Terminalarbetare</span>
-                    <span className="text">
-                      <p>
-                        Jag jobbade natt på en av PostNords paketterminaler. Timmarna var midnatt till 08:00.
-                        <br />
-                        En uppgift jag hade var att skanna uppemot 1&nbsp;500 paket per natt inför morgonens leveranser. En annan uppgift jag hade var att lasta av paket från lastbilar rakt in till terminalens band. En person brukar lasta av ungefär två- till fyratusen paket om natten.
-                      </p>
-                    </span>
-                  </div>
+
+                  <Employment title="Terminalarbetare" company="PostNord Logistics AB" companyUrl="https://www.postnord.se/" date="Nov 2018 – Juni 2019">
+                    <p>
+                      Jag jobbade natt på en av PostNords paketterminaler. Timmarna var midnatt till 08:00.
+                      <br />
+                      En uppgift jag hade var att skanna uppemot 1&nbsp;500 paket per natt inför morgonens leveranser. En annan uppgift jag hade var att lasta av paket från lastbilar rakt in till terminalens band. En person brukar lasta av ungefär två- till fyratusen paket om natten.
+                    </p>
+                  </Employment>
+
                   <hr />
-                  <div className="small-segment-holder">
-                    <span className="datum">Juli 2015 – Aug 2015</span>
-                    <span className="namn">
-                      <a style={{ color: "#000" }} href="https://www.forenadecare.com/" target="_blank">
-                        Förenade Care
-                      </a>
-                    </span>
-                    <span className="titel">Köksassistant</span>
-                    <span className="text">
-                      <p>Jag jobbade i ett kök som del av ett sommarjob i 3 veckor. Detta inkluderade uppgifter som att diska, servera/göra/förbereda mat, besvara telefonsamtal och ta emot leveranser.</p>
-                    </span>
-                  </div>
+
+                  <Employment title="Köksassistant" company="Förenade Care" companyUrl="https://www.forenadecare.com/" date="Juli 2015 – Aug 2015">
+                    <p>Jag jobbade i ett kök som del av ett sommarjob i 3 veckor. Detta inkluderade uppgifter som att diska, servera/göra/förbereda mat, besvara telefonsamtal och ta emot leveranser.</p>
+                  </Employment>
                 </div>
                 <div className="no-pagebreak-header">
                   <div className="sf-heading-holder">
