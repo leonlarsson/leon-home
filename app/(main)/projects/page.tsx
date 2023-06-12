@@ -32,7 +32,7 @@ export default ({ searchParams }: { searchParams: Record<string, string> }) => {
         <Link href="/" className="group text-[2rem] font-extrabold transition-all duration-300 max-[450px]:text-[1.5rem]" title="Go back" draggable={false}>
           <i className="fa-solid fa-arrow-left transition-all group-hover:-translate-x-2 group-hover:text-red-400 group-active:-translate-x-3 group-active:text-red-600" /> Leon's Projects
         </Link>
-        <Link className="ms-3 text-2xl" title={`Use ${useGridLayout ? "list" : "grid"} view.`} href={{ pathname: "/projects", query: { grid: !useGridLayout } }}>
+        <Link className="ms-3 text-2xl" title={`Use ${useGridLayout ? "list" : "grid"} view.`} href={{ query: { grid: !useGridLayout } }}>
           <i className={`fa-solid ${useGridLayout ? "fa-list" : "fa-table-cells-large"} transition-transform duration-150 hover:scale-125`} />
         </Link>
         <ProjectsList projects={projects} useGridLayout={useGridLayout} />
