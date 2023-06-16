@@ -286,7 +286,7 @@ export default () => {
                       <a className="inline-href" target="_blank" href="https://nodejs.org/">
                         Node.js
                       </a>
-                      . This bot has been invited to almost 3,000 Discord servers, with more inviting it every day. Data in real-time is found{" "}
+                      . This bot has been invited to over 3,000 Discord servers, with more inviting it every day. Data in real-time is found{" "}
                       <a className="inline-href" target="_blank" href="https://battlefieldstats.com/data">
                         here
                       </a>

@@ -283,7 +283,7 @@ export default () => {
                       <a className="inline-href" target="_blank" href="https://nodejs.org/">
                         Node.js
                       </a>
-                      . Denna bot har blivit inbjuden till nästan 3,000 Discord-servrar, ett nummer som växer varje dag. Data i realtid finns{" "}
+                      . Denna bot har blivit inbjuden till över 3,000 Discord-servrar, ett nummer som växer varje dag. Data i realtid finns{" "}
                       <a className="inline-href" target="_blank" href="https://battlefieldstats.com/data">
                         här
                       </a>
