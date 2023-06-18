@@ -62,7 +62,9 @@ export default ({ params }: { params: { id: string } }) => {
           {project.tags && (
             <div className="mb-3 mt-1 flex flex-wrap justify-center gap-1">
               {project.tags.sort().map(tag => (
-                <div className="tag-pill">{tag}</div>
+                <div key={tag} className="tag-pill">
+                  {tag}
+                </div>
               ))}
             </div>
           )}

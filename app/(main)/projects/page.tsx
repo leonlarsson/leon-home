@@ -76,7 +76,9 @@ const Project = ({ project, useGridLayout }: { project: Project; useGridLayout: 
           {project.tags && (
             <div className="mt-1 flex flex-wrap gap-1">
               {project.tags.sort().map(tag => (
-                <div className="tag-pill">{tag}</div>
+                <div key={tag} className="tag-pill">
+                  {tag}
+                </div>
               ))}
             </div>
           )}
