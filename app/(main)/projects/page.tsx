@@ -29,7 +29,7 @@ export default ({ searchParams }: { searchParams: Record<string, string> }) => {
 
   return (
     <div className="page">
-      <div className="flex flex-col space-y-2 max-[450px]:space-y-0">
+      <div className="flex flex-col space-y-2">
         <div>
           <Link href="/" className="group text-[2rem] font-extrabold max-[450px]:text-[1.5rem]" title="Go back" draggable={false}>
             <i className="fa-solid fa-arrow-left transition-all group-hover:-translate-x-2 group-hover:text-red-400 group-active:-translate-x-3 group-active:text-red-600" /> Leon's Projects
