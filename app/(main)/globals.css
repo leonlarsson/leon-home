@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 .shared-link {
-  @apply rounded text-lg font-semibold transition-all duration-300 hover:bg-black hover:text-white active:translate-y-[2px] active:bg-gray-900 active:text-white active:duration-[30ms];
+  @apply rounded text-lg font-semibold transition-all hover:bg-black hover:text-white hover:active:translate-y-[2px];
 }
 
 .home-link {

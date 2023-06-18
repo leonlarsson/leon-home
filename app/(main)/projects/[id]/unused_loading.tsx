@@ -3,12 +3,12 @@ import Link from "next/link";
 export default () => {
   return (
     <div className="page">
-      <Link href="/projects" className="group text-[1.3rem] transition-all duration-300 max-sm:text-base" title="Go back" draggable={false}>
+      <Link href="/projects" className="group text-[1.3rem] max-sm:text-base" title="Go back" draggable={false}>
         <i className="fa-solid fa-arrow-left transition-all group-hover:-translate-x-1 group-hover:text-red-400 group-active:-translate-x-2 group-active:text-red-600" /> Back to list
       </Link>
 
       <div className="px-16 max-sm:px-4">
-        <span className="text-[2rem] font-extrabold transition-all duration-300 max-sm:text-2xl">Loading name...</span>
+        <span className="text-[2rem] font-extrabold max-sm:text-2xl">Loading name...</span>
 
         <p className="mb-3 whitespace-pre-line">Loading description...</p>
 

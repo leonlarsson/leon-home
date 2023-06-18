@@ -40,7 +40,7 @@ const Employment = ({ title, companyName, companyUrl }: { title: string; company
         <>
           {" "}
           @{" "}
-          <a href={companyUrl} target="_blank" className="underline-offset-2 transition-colors duration-300 hover:underline" draggable={false}>
+          <a href={companyUrl} target="_blank" className="underline-offset-2 hover:underline" draggable={false}>
             {companyName}
           </a>
         </>
