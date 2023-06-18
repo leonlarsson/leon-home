@@ -49,7 +49,7 @@ export default [
     projectId: 6,
     name: "Battlefield 1 Morse Solver",
     description: "Another Battlefield-related project. This has helped hundreds if not thousands of people to solve the 'The Beginning' Battlefield 1 easter egg.",
-    shortDescription: "A tool that helps solve all stages of the 'The Beginning' Battlefield 1 easter egg.",
+    shortDescription: "A tool that helps solve the 'The Beginning' Battlefield 1 easter egg.",
     tags: ["html", "css", "javascript"],
     link: "https://bf1morse.leonlarsson.com/",
     githubLink: "https://github.com/leonlarsson/bf1morse"
@@ -58,7 +58,7 @@ export default [
     projectId: 7,
     name: "Battlefield Stats Discord Bot",
     description: "My largest and most successful project by far. A Discord bot that provides on demand Battlefield statistics in Discord.\nUsed by thousands of users in thousands of Discord servers. Built in Node.js.\nThe extra links are for the API that I built with Cloudflare Workers.",
-    shortDescription: "The Battlefield Stats Discord bot. Provides Battlefield stats right inside your Discord.",
+    shortDescription: "A bot that provides Battlefield stats right inside your Discord.",
     tags: ["node.js", "discord.js", "cloudflare workers", "api"],
     link: "https://battlefieldstats.com/",
     githubLink: "https://github.com/leonlarsson/bfstats-web",
