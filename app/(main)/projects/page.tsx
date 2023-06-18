@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { Metadata } from "next";
+import Filter from "./_components/Filter";
 import projects from "./projects";
 import type { Project } from "./projects";
 
@@ -38,6 +39,8 @@ export default ({ searchParams }: { searchParams: Record<string, string> }) => {
             <i className={`fa-solid animate-[spin_.7s_ease-in-out_1] ${useGridLayout ? "fa-list" : "fa-table-cells-large"} transition-transform hover:scale-125`} />
           </Link>
         </div>
+
+        <Filter />
 
         {filter && (
           <span>
