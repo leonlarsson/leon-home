@@ -70,7 +70,16 @@ const Project = ({ project, useGridLayout }: { project: Project; useGridLayout: 
             <i className="fa-solid fa-arrow-right me-2 transition-transform group-hover:translate-x-1" />
             {project.name}
           </span>
+
           <span>{project.shortDescription}</span>
+
+          {project.tags && (
+            <div className="mt-1 flex flex-wrap gap-1">
+              {project.tags.sort().map(tag => (
+                <div className="rounded-full bg-blue-200 px-3 py-1 text-xs font-bold uppercase text-blue-700 transition-colors group-hover:bg-slate-700 group-hover:text-white">{tag}</div>
+              ))}
+            </div>
+          )}
         </Link>
 
         <div className="my-3 w-px bg-gray-300" />
