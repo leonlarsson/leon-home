@@ -21,3 +21,8 @@
 .page {
   @apply m-auto flex flex-col;
 }
+
+.tag-pill {
+  @apply rounded-full bg-blue-200 px-3 py-1 text-xs font-bold uppercase text-blue-700 transition-colors group-hover:bg-slate-700 group-hover:text-white;
+  /* bg-gray-300 / text-black is an alternative */
+}

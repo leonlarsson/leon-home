@@ -57,7 +57,15 @@ export default ({ params }: { params: { id: string } }) => {
             )}
           </span>
 
-          <p className="mb-3 whitespace-pre-line">{project.description}</p>
+          <p className="whitespace-pre-line">{project.description}</p>
+
+          {project.tags && (
+            <div className="mb-3 mt-1 flex flex-wrap justify-center gap-1">
+              {project.tags.sort().map(tag => (
+                <div className="tag-pill">{tag}</div>
+              ))}
+            </div>
+          )}
 
           <span className="text-lg font-bold">Links:</span>
           <div className="flex flex-wrap justify-center gap-2">
