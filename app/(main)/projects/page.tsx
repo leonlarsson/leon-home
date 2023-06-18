@@ -65,7 +65,7 @@ const Project = ({ project, useGridLayout }: { project: Project; useGridLayout: 
   if (useGridLayout)
     return (
       <div className="flex rounded border border-black text-start transition-transform active:translate-y-1">
-        <Link href={`/projects/${project.projectId}`} className="group flex flex-1 flex-col p-3 transition-colors hover:bg-black hover:text-white" draggable={false} title={`See more info on project ${project.name}.`}>
+        <Link href={`/projects/${project.projectId}?grid=true`} className="group flex flex-1 flex-col p-3 transition-colors hover:bg-black hover:text-white" draggable={false} title={`See more info on project ${project.name}.`}>
           <span className="text-lg font-bold">
             <i className="fa-solid fa-arrow-right me-2 transition-transform group-hover:translate-x-1" />
             {project.name}
