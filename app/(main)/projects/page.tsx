@@ -25,17 +25,26 @@ export const metadata: Metadata = {
 
 export default ({ searchParams }: { searchParams: Record<string, string> }) => {
   const useGridLayout = ["1", "true", "yes"].includes(searchParams.grid);
+  const search = searchParams.search;
 
   return (
     <div className="page">
-      <div className="space-y-1 max-[450px]:space-y-0">
+      <div className="space-y-2 max-[450px]:space-y-0">
         <Link href="/" className="group text-[2rem] font-extrabold max-[450px]:text-[1.5rem]" title="Go back" draggable={false}>
           <i className="fa-solid fa-arrow-left transition-all group-hover:-translate-x-2 group-hover:text-red-400 group-active:-translate-x-3 group-active:text-red-600" /> Leon's Projects
         </Link>
         <Link className="ms-3 text-2xl" title={`Use ${useGridLayout ? "list" : "grid"} view.`} href={{ query: { grid: !useGridLayout } }}>
           <i className={`fa-solid ${useGridLayout ? "fa-list" : "fa-table-cells-large"} transition-transform hover:scale-125`} />
         </Link>
-        <ProjectsList projects={projects} useGridLayout={useGridLayout} />
+
+        <br />
+        {search && (
+          <span>
+            Projects matching <span className="rounded bg-black p-1 text-white">{search}</span>
+          </span>
+        )}
+
+        <ProjectsList projects={search ? projects.filter(x => x.name.toLowerCase().includes(search.toLowerCase())) : projects} useGridLayout={useGridLayout} />
       </div>
     </div>
   );
