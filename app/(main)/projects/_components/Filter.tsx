@@ -17,5 +17,5 @@ export default () => {
     if (searchParams.size === 1) input.current!.value = "";
   }, [searchParams]);
 
-  return <input type="search" placeholder="Name, description, tags" className="w-60 self-center rounded p-2 shadow outline-none" onChange={e => handleChange(e.target.value.trim())} ref={input} />;
+  return <input type="search" placeholder="Name, description, tags..." className="w-60 self-center rounded border border-black/50 p-2 shadow outline-none" onChange={e => handleChange(e.target.value.trim())} ref={input} />;
 };
