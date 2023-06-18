@@ -45,7 +45,7 @@ export default ({ searchParams }: { searchParams: Record<string, string> }) => {
           </span>
         )}
 
-        <ProjectsList projects={filter ? projects.filter(x => x.name.toLowerCase().includes(filter.toLowerCase())) : projects} useGridLayout={useGridLayout} />
+        <ProjectsList projects={filter ? projects.filter(project => [project.name, project.description, project.shortDescription, ...project.tags].some(item => item.toLowerCase().includes(filter.toLowerCase()))) : projects} useGridLayout={useGridLayout} />
       </div>
     </div>
   );
