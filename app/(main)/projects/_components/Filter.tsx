@@ -19,5 +19,5 @@ export default () => {
     setFilterQuery("");
   }, [searchParams.get("grid")]);
 
-  return <input type="search" placeholder="Name, description, tags..." className="w-60 self-center rounded border border-black/50 p-2 shadow outline-none" value={filterQuery} onChange={e => setFilterQuery(e.target.value)} />;
+  return <input type="search" maxLength={20} placeholder="Name, description, tags..." className="w-60 self-center rounded border border-black/50 p-2 shadow outline-none" value={filterQuery} onChange={e => setFilterQuery(e.target.value)} />;
 };
