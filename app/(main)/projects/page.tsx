@@ -30,12 +30,12 @@ export default ({ searchParams }: { searchParams: Record<string, string> }) => {
 
   return (
     <div className="page">
-      <div className="flex flex-col space-y-2">
-        <div>
-          <Link href="/" className="group text-[2rem] font-extrabold max-[450px]:text-[1.5rem]" title="Go back" draggable={false}>
+      <div className="flex flex-col space-y-3">
+        <div className="text-3xl max-[450px]:text-2xl">
+          <Link href="/" className="group font-extrabold" title="Go back" draggable={false}>
             <i className="fa-solid fa-arrow-left transition-all group-hover:-translate-x-2 group-hover:text-red-400 group-active:-translate-x-3 group-active:text-red-600" /> Leon's Projects
           </Link>
-          <Link className="ms-3 text-2xl" title={`Use ${useGridLayout ? "list" : "grid"} view.`} href={{ query: { grid: !useGridLayout } }}>
+          <Link className="ms-3" title={`Use ${useGridLayout ? "list" : "grid"} view.`} href={{ query: { grid: !useGridLayout } }}>
             <i className={`fa-solid animate-[spin_.7s_ease-in-out_1] ${useGridLayout ? "fa-list" : "fa-table-cells-large"} transition-transform hover:scale-125`} />
           </Link>
         </div>
