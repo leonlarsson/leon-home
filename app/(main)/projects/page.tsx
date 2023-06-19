@@ -56,11 +56,15 @@ export default ({ searchParams }: { searchParams: Record<string, string> }) => {
 
 const ProjectsList = ({ projects, useGridLayout }: { projects: Project[]; useGridLayout: boolean }) => {
   return (
-    <div className={useGridLayout ? "grid grid-cols-1 gap-3 md:grid-cols-2" : ""}>
-      {projects.map(project => (
-        <Project key={project.projectId} project={project} useGridLayout={useGridLayout} />
-      ))}
-    </div>
+    <>
+      {/* If grid layout, use grid with 2 cols until. On medium, use 1 col. Additionally, use 1 col if there is a single project */}
+      <div className={useGridLayout ? `grid gap-3 ${projects.length === 1 ? "grid-cols-1" : "grid-cols-1 md:grid-cols-2"}` : ""}>
+        {projects.map(project => (
+          <Project key={project.projectId} project={project} useGridLayout={useGridLayout} />
+        ))}
+      </div>
+      {!projects.length && <span className="!m-0 text-red-500">No projects found</span>}
+    </>
   );
 };
 
