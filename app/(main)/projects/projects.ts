@@ -59,7 +59,7 @@ export default [
     name: "Battlefield Stats Discord Bot",
     description: "My largest and most successful project by far. A Discord bot that provides on demand Battlefield statistics in Discord.\nUsed by thousands of users in thousands of Discord servers. Built in Node.js.\nThe extra links are for the API that I built with Cloudflare Workers.",
     shortDescription: "A bot that provides Battlefield stats right inside your Discord.",
-    tags: ["node.js", "discord.js", "cloudflare workers", "api", "react"],
+    tags: ["node.js", "discord.js", "cloudflare workers", "api", "react", "next.js"],
     link: "https://battlefieldstats.com/",
     githubLink: "https://github.com/leonlarsson/bfstats-web",
     extra: {
