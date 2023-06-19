@@ -4,20 +4,20 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 
 export default () => {
-  const [filterQuery, setFilterQuery] = useState("");
+  const [searchQuery, setSearchQuery] = useState("");
   const router = useRouter();
   const searchParams = new URLSearchParams(useSearchParams().toString());
 
   // When the state changes, set or remove the searchParams
   useEffect(() => {
-    filterQuery.trim().length ? searchParams.set("filter", filterQuery.trim()) : searchParams.delete("filter");
+    searchQuery.trim().length ? searchParams.set("search", searchQuery.trim()) : searchParams.delete("search");
     router.replace("?" + searchParams.toString());
-  }, [filterQuery]);
+  }, [searchQuery]);
 
   // Reset state when layout changes
   useEffect(() => {
-    setFilterQuery("");
+    setSearchQuery("");
   }, [searchParams.get("grid")]);
 
-  return <input type="search" maxLength={20} placeholder="Name, description, tags..." className="w-60 self-center rounded border border-black/50 bg-white p-1 shadow outline-none" value={filterQuery} onChange={e => setFilterQuery(e.target.value)} />;
+  return <input type="search" maxLength={20} placeholder="Name, description, tags..." className="w-60 self-center rounded border border-black/50 bg-white p-1 shadow outline-none" value={searchQuery} onChange={e => setSearchQuery(e.target.value)} />;
 };

@@ -1,6 +1,6 @@
 import Link from "next/link";
 import type { Metadata } from "next";
-import Filter from "./_components/Filter";
+import Search from "./_components/Search";
 import projects from "./projects";
 import type { Project } from "./projects";
 
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
 
 export default ({ searchParams }: { searchParams: Record<string, string> }) => {
   const useGridLayout = ["1", "true", "yes"].includes(searchParams.grid);
-  const filter = searchParams.filter;
+  const searchParam = searchParams.search;
 
   return (
     <div className="page">
@@ -40,15 +40,15 @@ export default ({ searchParams }: { searchParams: Record<string, string> }) => {
           </Link>
         </div>
 
-        <Filter />
+        <Search />
 
-        {filter && (
+        {searchParam && (
           <span>
-            Projects matching <span className="rounded bg-black p-1 text-white">{filter}</span>
+            Projects matching <span className="rounded bg-black p-1 text-white">{searchParam}</span>
           </span>
         )}
 
-        <ProjectsList projects={filter ? projects.filter(project => [project.name, project.description, project.shortDescription, ...project.tags].some(item => item.toLowerCase().includes(filter.toLowerCase()))) : projects} useGridLayout={useGridLayout} />
+        <ProjectsList projects={searchParam ? projects.filter(project => [project.name, project.description, project.shortDescription, ...project.tags].some(item => item.toLowerCase().includes(searchParam.toLowerCase()))) : projects} useGridLayout={useGridLayout} />
       </div>
     </div>
   );
