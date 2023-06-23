@@ -5,7 +5,7 @@ export const postMessage = async (message: string, name?: string): Promise<boole
     method: "POST",
     headers: { "API-KEY": process.env.API_KEY as string },
     cache: "no-store",
-    body: message.trim() || "<Empty message>"
+    body: JSON.stringify({ body: message.trim() || "<Empty message>", name })
   });
   return res.ok;
 };
