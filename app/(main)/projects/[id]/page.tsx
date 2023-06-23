@@ -101,7 +101,7 @@ export default ({ params, searchParams }: { params: { id: string }; searchParams
           </div>
 
           <details className="m-auto my-5 rounded border border-black p-2 transition-colors open:bg-black open:text-white hover:bg-black hover:text-white max-xl:min-w-[70vw] lg:w-[80vw] 2xl:w-[1300px]">
-            <summary className="cursor-pointer text-lg font-semibold">Try it {project.projectId === 4 && "(Inception style)"}</summary>
+            <summary className="cursor-pointer text-lg font-semibold">Preview {project.projectId === 4 && "(Inception style)"}</summary>
             <iframe src={project.link} className="h-[500px] w-full rounded bg-white lg:h-[500px] xl:h-[700px]"></iframe>
           </details>
         </div>
