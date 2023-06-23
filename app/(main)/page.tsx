@@ -25,6 +25,10 @@ export default () => {
           <i className="fa-solid fa-arrow-right transition-transform group-hover:translate-x-[3px]" /> Projects
         </Link>
 
+        <Link className="home-link group" href="/guestbook" draggable={false}>
+          <i className="fa-solid fa-book" /> Guestbook
+        </Link>
+
         <ProfileLink title="English CV" url="/cv" icon={<i className="fa-solid fa-file-text" />} newTab={false} />
         <ProfileLink title="Swedish CV" url="/cv-swe" icon={<i className="fa-solid fa-file-text" />} newTab={false} />
       </div>
