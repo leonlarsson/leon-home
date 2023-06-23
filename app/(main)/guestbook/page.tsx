@@ -26,8 +26,11 @@ export const metadata: Metadata = {
   }
 };
 
+const requireAuth = false;
+
 export default async () => {
-  const session = await getServerSession();
+  let session;
+  if (requireAuth) session = await getServerSession();
 
   return (
     <div className="flex w-full flex-col items-center justify-center">
@@ -36,13 +39,19 @@ export default async () => {
       </Link>
       <span className="mb-4">A guestbook created with Next.js Server Actions and Cloudflare D1.</span>
 
-      {session?.user?.name ? (
-        <>
-          <Form name={session.user.name} />
-          <span className="mb-4 text-sm">Commenting as {session.user.name}</span>
-        </>
+      {requireAuth ? (
+        session?.user?.name ? (
+          <>
+            <Form name={session.user.name} />
+            <span className="mb-4 text-sm">Commenting as {session.user.name}</span>
+          </>
+        ) : (
+          <SignIn />
+        )
       ) : (
-        <SignIn />
+        <div className="mb-4">
+          <Form />
+        </div>
       )}
 
       <Suspense fallback="Loading messages...">

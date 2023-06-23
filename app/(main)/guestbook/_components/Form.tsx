@@ -7,7 +7,7 @@ import { useState, useTransition } from "react";
 import { postMessage } from "../actions";
 import { SignOut } from "./Auth";
 
-export default ({ name }: { name: string }) => {
+export default ({ name }: { name?: string }) => {
   const router = useRouter();
   const [isPending, startTransition] = useTransition();
   const [isFetching, setIsFetching] = useState(false);
@@ -37,7 +37,7 @@ export default ({ name }: { name: string }) => {
 
   return (
     <div className="mb-1">
-      <SignOut />
+      {name && <SignOut />}
       <form className="flex gap-2 max-[370px]:flex-col" onSubmit={onSubmit}>
         <input className="rounded border border-black/50 bg-white p-2 shadow outline-none" type="text" name="message" placeholder="Your message..." required disabled={isPending} maxLength={50} />
         <button className="rounded border border-black p-2 font-medium text-black transition-all hover:bg-black hover:text-white active:translate-y-[2px] disabled:bg-gray-300 disabled:text-gray-500" type="submit" disabled={isMutating}>
