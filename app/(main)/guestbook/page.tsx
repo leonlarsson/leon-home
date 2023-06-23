@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   }
 };
 
-const requireAuth = false;
+const requireAuth = true;
 
 export default async () => {
   let session;
