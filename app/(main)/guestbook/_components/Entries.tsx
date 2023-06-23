@@ -19,7 +19,7 @@ export default async () => {
   );
 };
 
-type Entry = {
+export type Entry = {
   id: string;
   date: number;
   body: string;
