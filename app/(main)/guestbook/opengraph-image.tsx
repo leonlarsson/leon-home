@@ -9,7 +9,7 @@ export default async () => {
   const avatar = fetch(new URL("/public/assets/images/avatar.png", import.meta.url)).then(res => res.arrayBuffer());
   const [regularFontData, avatarData] = await Promise.all([regularFont, avatar]);
 
-  const res = await fetch("https://leon-guestbook-api.ragnarok.workers.dev", { headers: { "API-KEY": process.env.API_KEY! }, cache: "no-store" });
+  const res = await fetch("https://leon-guestbook-api.ragnarok.workers.dev", { headers: { "API-KEY": process.env.API_KEY as string }, cache: "no-store" });
   const entries: Entry[] = await res.json();
 
   return new ImageResponse(
