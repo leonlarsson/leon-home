@@ -120,6 +120,16 @@ export default [
     shortDescription: "The official website for the Bloodhunt ARG, 'The Omnis Challenge'.",
     tags: ["cloudflare workers", "cloudflare pages", "html", "css", "typescript"],
     link: "https://omnis.pages.dev/"
+  },
+  {
+    projectId: 14,
+    name: "Guestbook",
+    description: "A guestbook for my personal website. It uses Next.js experimental Server Actions and Cloudflare D1.",
+    shortDescription: "A guestbook powered by Next.js Server Actions and Cloudflare D1.",
+    tags: ["cloudflare workers", "react", "next.js", "tailwind", "typescript", "API"],
+    link: "/guestbook",
+    githubLink: "https://github.com/leonlarsson/leon-guestbook-api",
+    nextLink: true
   }
 ] satisfies Project[];
 
