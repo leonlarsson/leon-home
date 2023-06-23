@@ -72,15 +72,9 @@ export default ({ params, searchParams }: { params: { id: string }; searchParams
 
           <span className="text-lg font-bold">Links:</span>
           <div className="flex flex-wrap justify-center gap-2">
-            {project.nextLink ? (
-              <Link className="project-page-link" href="/" draggable={false}>
-                Go to project <i className="fa-solid fa-link" />
-              </Link>
-            ) : (
-              <a href={project.link} target="_blank" className="project-page-link" draggable={false}>
-                Go to project <i className="fa-solid fa-link" />
-              </a>
-            )}
+            <Link href={project.link} target={project.nextLink ? "_self" : "_blank"} className="project-page-link" draggable={false}>
+              Go to project <i className="fa-solid fa-link" />
+            </Link>
 
             {project.githubLink && (
               <a href={project.githubLink} target="_blank" className="project-page-link" draggable={false}>
