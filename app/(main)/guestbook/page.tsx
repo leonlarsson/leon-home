@@ -33,7 +33,7 @@ export default () => {
       <span className="mb-4">A guestbook created with Next.js Server Actions and Cloudflare D1.</span>
       <Form />
 
-      <Suspense fallback="Loading entries...">
+      <Suspense fallback="Loading messages...">
         {/* @ts-expect-error */}
         <Entries />
       </Suspense>
