@@ -1,5 +1,6 @@
 import { ImageResponse } from "next/server";
-import { Entry } from "./_components/Entries";
+import { profanity } from "@2toad/profanity";
+import type { Entry } from "./_components/Entries";
 
 export const runtime = "edge";
 
@@ -25,7 +26,7 @@ export default async () => {
             .slice(0, 10)
             .map(entry => (
               <div tw="flex" key={entry.id}>
-                <span>Someone wrote: {entry.body}</span>
+                <span>Someone wrote: {profanity.censor(entry.body)}</span>
               </div>
             ))}
         </div>
