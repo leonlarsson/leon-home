@@ -4,7 +4,7 @@
 
 import { useRouter } from "next/navigation";
 import { useState, useTransition } from "react";
-import { postMessage } from "../actions";
+import { postEntry } from "../actions";
 import { SignOut } from "./Auth";
 
 export default ({ emoteOnlyMode, name }: { emoteOnlyMode?: boolean; name?: string }) => {
@@ -14,7 +14,7 @@ export default ({ emoteOnlyMode, name }: { emoteOnlyMode?: boolean; name?: strin
   const [isError, setIsError] = useState(false);
   const isMutating = isFetching || isPending;
 
-  // On form submit, grab the info and send to postMessageFunc, which then sends the actualk request
+  // On form submit, grab the info and send to postEntryFunc, which then sends the actual request
   const onFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsFetching(true);
@@ -23,14 +23,14 @@ export default ({ emoteOnlyMode, name }: { emoteOnlyMode?: boolean; name?: strin
     const form = e.currentTarget;
     const input = form.elements.namedItem("message") as HTMLInputElement;
 
-    const postWasOk = await postMessageFunc(input.value);
+    const postWasOk = await postEntryFunc(input.value);
     if (postWasOk) input.value = "";
   };
 
   // Send the message to the API
-  const postMessageFunc = async (message: string) => {
+  const postEntryFunc = async (message: string) => {
     // Post message (server action)
-    const postWasOk = await postMessage(message, name);
+    const postWasOk = await postEntry(message, name);
 
     setIsFetching(false);
 
@@ -50,7 +50,7 @@ export default ({ emoteOnlyMode, name }: { emoteOnlyMode?: boolean; name?: strin
           <span className="font-semibold">Send an emote or sign in to send a message:</span>
           <div className="flex flex-wrap justify-center gap-1">
             {["😀", "😐", "😥", "😂", "😎", "😍", "🦝"].map(emote => (
-              <button key={emote} className="rounded border border-black p-1 text-xl transition-all hover:bg-black disabled:cursor-not-allowed disabled:bg-gray-300" title={`Send ${emote} anonymously.`} disabled={isMutating} onClick={() => postMessageFunc(emote)}>
+              <button key={emote} className="rounded border border-black p-1 text-xl transition-all hover:bg-black disabled:cursor-not-allowed disabled:bg-gray-300" title={`Send ${emote} anonymously.`} disabled={isMutating} onClick={() => postEntryFunc(emote)}>
                 {emote}
               </button>
             ))}
