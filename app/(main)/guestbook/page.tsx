@@ -1,6 +1,7 @@
 import { Suspense } from "react";
 import Link from "next/link";
 import type { Metadata } from "next";
+import { get } from "@vercel/edge-config";
 import { getServerSession } from "next-auth";
 import { SignIn } from "./_components/Auth";
 import Entries from "./_components/Entries";
@@ -26,14 +27,9 @@ export const metadata: Metadata = {
   }
 };
 
-const requireAuth = true;
-
 export default async () => {
   let session;
-  // const requireAuth = await get(process.env.APP_ENV === "prod" ? "requireAuth_prod" : "requireAuth_dev");
-  console.log("VERCEL_ENV", process.env.VERCEL_ENV);
-  console.log("NODE_ENV", process.env.NODE_ENV);
-
+  const requireAuth = await get(process.env.NODE_ENV === "production" ? "requireAuth_prod" : "requireAuth_dev");
   if (requireAuth) session = await getServerSession();
 
   return (
