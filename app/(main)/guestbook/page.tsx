@@ -7,7 +7,7 @@ import Entries from "./_components/Entries";
 import Form from "./_components/Form";
 
 const pageTitle = "Guestbook | Leon San José Larsson";
-const pageDescription = "A simple guestbook.";
+const pageDescription = "A guestbook where you can send public messages to me.";
 
 export const metadata: Metadata = {
   title: pageTitle,
@@ -37,7 +37,7 @@ export default async () => {
       <Link href="/" className="group text-3xl font-extrabold max-[450px]:text-2xl" title="Go back" draggable={false}>
         <i className="fa-solid fa-arrow-left transition-all group-hover:-translate-x-2 group-hover:text-red-400 group-active:-translate-x-3 group-active:text-red-600" /> Guestbook
       </Link>
-      <span className="mb-4">A guestbook created with Next.js Server Actions and Cloudflare D1.</span>
+      <span className="mb-4">A guestbook created with Next.js Server Actions and Cloudflare D1. Below you will see the last 100 messages.</span>
 
       {requireAuth ? (
         session?.user?.name ? (
