@@ -59,7 +59,7 @@ export default async () => {
 
       <Suspense fallback="Loading messages...">
         {/* @ts-expect-error */}
-        <Entries />
+        <Entries admin={session?.user?.email && process.env.ADMIN_EMAIL && session.user.email === process.env.ADMIN_EMAIL} />
       </Suspense>
     </div>
   );

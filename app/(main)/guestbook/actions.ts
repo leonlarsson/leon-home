@@ -16,3 +16,12 @@ export const getEntries = async (): Promise<Response> => {
     cache: "no-store"
   });
 };
+
+export const deleteEntry = async (idToDelete: string): Promise<boolean> => {
+  const res = await fetch("https://leon-guestbook-api.ragnarok.workers.dev", {
+    method: "DELETE",
+    headers: { "API-KEY": process.env.API_KEY as string, "id-to-delete": idToDelete },
+    cache: "no-store"
+  });
+  return res.ok;
+};
