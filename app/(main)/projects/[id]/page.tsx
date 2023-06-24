@@ -82,16 +82,11 @@ export default ({ params, searchParams }: { params: { id: string }; searchParams
               </a>
             )}
 
-            {project.extra && (
-              <>
-                <a href={project.extra.link} target="_blank" className="project-page-link" draggable={false}>
-                  {project.extra.name} <i className="fa-solid fa-link" />
-                </a>
-                <a href={project.extra.githubLink} target="_blank" className="project-page-link" draggable={false}>
-                  {project.extra.name} <i className="fa-brands fa-github" />
-                </a>
-              </>
-            )}
+            {project.extraLinks?.map(extraLink => (
+              <a href={extraLink.link} target="_blank" className="project-page-link" draggable={false}>
+                {extraLink.name} <i className={extraLink.type === "link" ? "fa-solid fa-link" : "fa-brands fa-github"} />
+              </a>
+            ))}
           </div>
 
           <details className="m-auto my-5 rounded border border-black p-2 transition-colors open:bg-black open:text-white hover:bg-black hover:text-white max-xl:min-w-[70vw] lg:w-[80vw] 2xl:w-[1300px]">

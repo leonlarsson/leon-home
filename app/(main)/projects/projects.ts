@@ -62,11 +62,18 @@ export default [
     tags: ["node.js", "discord.js", "cloudflare workers", "api", "react", "next.js"],
     link: "https://battlefieldstats.com/",
     githubLink: "https://github.com/leonlarsson/bfstats-web",
-    extra: {
-      name: "API",
-      link: "https://api.battlefieldstats.com/",
-      githubLink: "https://github.com/leonlarsson/bfstats-api"
-    }
+    extraLinks: [
+      {
+        name: "API",
+        link: "https://api.battlefieldstats.com/",
+        type: "link"
+      },
+      {
+        name: "API Source",
+        link: "https://github.com/leonlarsson/bfstats-api",
+        type: "github"
+      }
+    ]
   },
   {
     projectId: 8,
@@ -142,9 +149,9 @@ export type Project = {
   link: string;
   githubLink?: string;
   nextLink?: boolean;
-  extra?: {
+  extraLinks?: {
     name: string;
     link: string;
-    githubLink?: string;
-  };
+    type: "link" | "github";
+  }[];
 };
