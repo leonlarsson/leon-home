@@ -3,7 +3,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { get } from "@vercel/edge-config";
 import { getServerSession } from "next-auth";
-import { SignIn } from "./_components/Auth";
+import { SignInDiscord, SignInGitHub } from "./_components/Auth";
 import Entries from "./_components/Entries";
 import Form from "./_components/Form";
 
@@ -39,23 +39,30 @@ export default async () => {
       </Link>
       <span className="mb-4">A guestbook created with Next.js Server Actions and Cloudflare D1. Below you will see the last 100 messages.</span>
 
-      {requireAuth ? (
-        session?.user?.name ? (
-          <>
-            <Form name={session.user.name} />
-            <span className="mb-4 text-sm">Commenting as {session.user.name}</span>
-          </>
+      <div className="mb-4">
+        {requireAuth ? (
+          session?.user?.name ? (
+            <>
+              <Form name={session.user.name} />
+              <span className="text-sm">Commenting as {session.user.name}</span>
+            </>
+          ) : (
+            <>
+              <Form emoteOnlyMode={true} />
+              <div className="flex flex-wrap justify-center gap-1">
+                <SignInDiscord />
+                <SignInGitHub />
+              </div>
+            </>
+          )
         ) : (
-          <>
-            <Form emoteOnlyMode={true} />
-            <SignIn />
-          </>
-        )
-      ) : (
-        <div className="mb-4">
-          <Form />
-        </div>
-      )}
+          <div>
+            <Form />
+          </div>
+        )}
+      </div>
+
+      <hr className="border-1 mb-4 h-px w-full border-black" />
 
       <Suspense fallback="Loading messages...">
         {/* @ts-expect-error */}

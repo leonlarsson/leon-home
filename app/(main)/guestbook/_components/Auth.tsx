@@ -10,10 +10,18 @@ export const SignOut = () => {
   );
 };
 
-export const SignIn = () => {
+export const SignInGitHub = () => {
   return (
-    <button className="mb-4 rounded border border-black p-2 text-black transition-colors hover:bg-black hover:text-white" onClick={() => signIn("github")}>
-      <i className="fa-brands fa-github fa-xl me-1" /> Sign in with GitHub
+    <button className="rounded border border-black p-2 text-black transition-colors hover:bg-black hover:text-white" title="Sign in with GitHub." onClick={() => signIn("github")}>
+      <i className="fa-brands fa-github fa-xl fa-fw" /> Sign in
+    </button>
+  );
+};
+
+export const SignInDiscord = () => {
+  return (
+    <button className="rounded border border-black p-2 text-black transition-colors hover:bg-black hover:text-white" title="Sign in with Discord." onClick={() => signIn("discord")}>
+      <i className="fa-brands fa-discord fa-xl fa-fw" /> Sign in
     </button>
   );
 };
