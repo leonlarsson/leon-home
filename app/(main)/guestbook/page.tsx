@@ -46,7 +46,10 @@ export default async () => {
             <span className="mb-4 text-sm">Commenting as {session.user.name}</span>
           </>
         ) : (
-          <SignIn />
+          <>
+            <Form emoteOnlyMode={true} />
+            <SignIn />
+          </>
         )
       ) : (
         <div className="mb-4">
