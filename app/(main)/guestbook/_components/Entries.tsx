@@ -8,11 +8,11 @@ export default async ({ admin }: { admin: boolean }) => {
   const entries: Entry[] = await res.json();
 
   return (
-    <section>
+    <section className="flex flex-col">
       {entries
         .sort((a, b) => b.date - a.date)
         .map(entry => (
-          <div key={entry.id} className="mb-2 select-text break-words text-left text-sm">
+          <div key={entry.id} className="select-text break-words rounded p-1 text-left text-sm hover:bg-gray-300">
             {admin && <DeleteEntryButton id={entry.id} />} <b title={new Date(entry.date).toUTCString()}>{entry.name ?? "Anonymous"}:</b> <span className="break-all">{profanity.censor(entry.body)}</span>
           </div>
         ))}
