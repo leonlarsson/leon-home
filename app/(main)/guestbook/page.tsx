@@ -30,6 +30,10 @@ const requireAuth = true;
 
 export default async () => {
   let session;
+  // const requireAuth = await get(process.env.APP_ENV === "prod" ? "requireAuth_prod" : "requireAuth_dev");
+  console.log("VERCEL_ENV", process.env.VERCEL_ENV);
+  console.log("NODE_ENV", process.env.NODE_ENV);
+
   if (requireAuth) session = await getServerSession();
 
   return (
