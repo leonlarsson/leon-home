@@ -18,15 +18,17 @@ export default async () => {
         {/* @ts-ignore src is confused */}
         <img tw="rounded-full shadow-xl" src={avatarData} width={100} height={100} />
         <div tw="text-[40px] font-[900]">Leon's Guestbook</div>
-        <div tw="text-[25px] font-[900]">Last 10 messages:</div>
+        <div tw="text-[25px] font-[900] mb-2">Last 10 messages:</div>
 
         <div tw="flex flex-col items-left">
           {entries
             .sort((a, b) => b.date - a.date)
             .slice(0, 10)
             .map(entry => (
-              <div tw="flex" key={entry.id}>
-                <span>Someone wrote: {profanity.censor(entry.body)}</span>
+              <div tw="flex mb-2" key={entry.id}>
+                <span>
+                  {entry.name ?? "Someone wrote"}: {profanity.censor(entry.body)}
+                </span>
               </div>
             ))}
         </div>
