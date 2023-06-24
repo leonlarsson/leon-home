@@ -131,12 +131,19 @@ export default [
   {
     projectId: 14,
     name: "Guestbook",
-    description: "A guestbook for my personal website. It uses Next.js experimental Server Actions and Cloudflare D1.",
+    description: "A guestbook for my personal website. It uses Next.js experimental Server Actions and Cloudflare D1.\nIt uses authentication from NextAuth.js.",
     shortDescription: "A guestbook powered by Next.js Server Actions and Cloudflare D1.",
     tags: ["cloudflare workers", "react", "next.js", "tailwind", "typescript", "API"],
     link: "/guestbook",
-    githubLink: "https://github.com/leonlarsson/leon-guestbook-api",
-    nextLink: true
+    githubLink: "https://github.com/leonlarsson/leon-home/tree/main/app/(main)/guestbook",
+    nextLink: true,
+    extraLinks: [
+      {
+        name: "API + DB",
+        link: "https://github.com/leonlarsson/leon-guestbook-api",
+        type: "github"
+      }
+    ]
   }
 ] satisfies Project[];
 
