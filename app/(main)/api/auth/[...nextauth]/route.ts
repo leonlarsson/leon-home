@@ -10,7 +10,8 @@ const authOptions: NextAuthOptions = {
     }),
     DiscordProvider({
       clientId: process.env.DISCORD_ID as string,
-      clientSecret: process.env.DISCORD_SECRET as string
+      clientSecret: process.env.DISCORD_SECRET as string,
+      authorization: { params: { scope: "identify" } }
     })
   ]
 };
