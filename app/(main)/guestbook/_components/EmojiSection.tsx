@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import EmojiPicker from "./EmojiPicker";
+// import EmojiPicker from "./EmojiPicker";
 
 export default ({ isMutating, postEntryFunc }: { isMutating: boolean; postEntryFunc: any }) => {
   const [load, setLoad] = useState(false);
