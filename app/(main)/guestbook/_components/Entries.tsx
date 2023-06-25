@@ -10,8 +10,8 @@ export default async ({ admin }: { admin: boolean }) => {
   return (
     <section className="flex flex-col">
       {entries.map(entry => (
-        <div key={entry.id} className="select-text break-words rounded p-1 text-left text-sm hover:bg-gray-300">
-          {admin && <DeleteEntryButton id={entry.id} />} <b title={new Date(entry.date).toUTCString()}>{entry.name ?? "Anonymous"}:</b> <span className="break-all">{profanity.censor(entry.body)}</span>
+        <div key={entry.id} className="select-text whitespace-pre-wrap break-all rounded p-1 text-left text-sm hover:bg-gray-300">
+          {admin && <DeleteEntryButton id={entry.id} />} <b title={new Date(entry.date).toUTCString()}>{entry.name ?? "Anonymous"}:</b> <span>{profanity.censor(entry.body)}</span>
         </div>
       ))}
       {!entries.length && <span>Awaiting messages...</span>}
