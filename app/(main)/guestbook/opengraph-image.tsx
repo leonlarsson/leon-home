@@ -21,16 +21,13 @@ export default async () => {
         <div tw="text-[25px] font-[900] mb-2">Last 10 messages:</div>
 
         <div tw="flex flex-col items-left">
-          {entries
-            .sort((a, b) => b.date - a.date)
-            .slice(0, 10)
-            .map(entry => (
-              <div tw="flex mb-2" key={entry.id}>
-                <span>
-                  {entry.name ?? "Someone wrote"}: {profanity.censor(entry.body)}
-                </span>
-              </div>
-            ))}
+          {entries.slice(0, 10).map(entry => (
+            <div tw="flex mb-2" key={entry.id}>
+              <span>
+                {entry.name ?? "Anonymous"}: {profanity.censor(entry.body)}
+              </span>
+            </div>
+          ))}
         </div>
 
         <div tw="flex absolute top-[565px] left-[15px] text-lg">leonlarsson.com/guestbook</div>
