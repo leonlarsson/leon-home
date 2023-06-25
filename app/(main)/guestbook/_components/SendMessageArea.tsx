@@ -3,12 +3,9 @@
 // Inspired by https://leerob.io/guestbook
 
 import { useState, useTransition } from "react";
-import dynamic from "next/dynamic";
 import { useRouter } from "next/navigation";
-import { EmojiStyle } from "emoji-picker-react";
+import EmojiPicker from "./EmojiPicker";
 import { postEntry } from "../apiActions";
-
-const EmojiPicker = dynamic(() => import("emoji-picker-react"));
 
 export default ({ emoteOnlyMode, showEmojiPicker, name }: { emoteOnlyMode?: boolean; showEmojiPicker?: boolean; name?: string }) => {
   const router = useRouter();
@@ -31,7 +28,7 @@ export default ({ emoteOnlyMode, showEmojiPicker, name }: { emoteOnlyMode?: bool
   };
 
   // Send the message to the API
-  const postEntryFunc = async (message: string) => {
+  const postEntryFunc = async (message: string): Promise<boolean> => {
     // Post message (server action)
     const postWasOk = await postEntry(message, name);
 
@@ -63,18 +60,7 @@ export default ({ emoteOnlyMode, showEmojiPicker, name }: { emoteOnlyMode?: bool
           {showEmojiPicker && (
             <details className="mt-1">
               <summary className="cursor-pointer">Full Emoji Picker</summary>
-              <EmojiPicker
-                onEmojiClick={e => !isMutating && postEntryFunc(e.emoji)}
-                lazyLoadEmojis
-                skinTonesDisabled
-                emojiStyle={EmojiStyle.NATIVE}
-                emojiVersion="5.0"
-                previewConfig={{ defaultEmoji: "1f47d" }}
-                height={400}
-                width={"100%"}
-                // @ts-expect-error
-                categories={["smileys_people", "animals_nature", "food_drink", "travel_places", "activities", "objects", "symbols", "flags"]}
-              />
+              <EmojiPicker isMutating={isMutating} postEntryFunc={postEntryFunc} />
             </details>
           )}
         </>
