@@ -3,9 +3,9 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { get } from "@vercel/edge-config";
 import { getServerSession } from "next-auth";
-import { SignInDiscord, SignInGitHub } from "./_components/Auth";
+import { SignInDiscord, SignInGitHub } from "./_components/AuthButtons";
 import Entries from "./_components/Entries";
-import Form from "./_components/Form";
+import SendMessageArea from "./_components/SendMessageArea";
 
 const pageTitle = "Guestbook | Leon San José Larsson";
 const pageDescription = "A guestbook where you can send public messages to me.";
@@ -43,12 +43,12 @@ export default async () => {
         {requireAuth ? (
           session?.user?.name ? (
             <>
-              <Form name={session.user.name} />
+              <SendMessageArea name={session.user.name} />
               <span className="text-sm">Commenting as {session.user.name}</span>
             </>
           ) : (
             <>
-              <Form emoteOnlyMode showEmojiPicker />
+              <SendMessageArea emoteOnlyMode showEmojiPicker />
               <div className="flex flex-wrap justify-center gap-1">
                 <SignInDiscord />
                 <SignInGitHub />
@@ -56,9 +56,7 @@ export default async () => {
             </>
           )
         ) : (
-          <div>
-            <Form />
-          </div>
+          <SendMessageArea />
         )}
       </div>
 

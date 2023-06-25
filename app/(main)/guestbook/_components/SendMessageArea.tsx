@@ -6,8 +6,8 @@ import { useState, useTransition } from "react";
 import dynamic from "next/dynamic";
 import { useRouter } from "next/navigation";
 import { EmojiStyle } from "emoji-picker-react";
-import { postEntry } from "../actions";
-import { SignOut } from "./Auth";
+import { postEntry } from "../apiActions";
+import { SignOut } from "./AuthButtons";
 
 const Picker = dynamic(() => import("emoji-picker-react"));
 

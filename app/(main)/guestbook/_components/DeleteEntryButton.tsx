@@ -1,7 +1,7 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { deleteEntry } from "../actions";
+import { deleteEntry } from "../apiActions";
 
 export default ({ id }: { id: string }) => {
   const router = useRouter();

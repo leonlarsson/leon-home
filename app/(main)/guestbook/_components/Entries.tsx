@@ -1,6 +1,6 @@
 import { profanity } from "@2toad/profanity";
 import DeleteEntryButton from "./DeleteEntryButton";
-import { getEntries } from "../actions";
+import { getEntries } from "../apiActions";
 
 export default async ({ admin }: { admin: boolean }) => {
   const res = await getEntries();
