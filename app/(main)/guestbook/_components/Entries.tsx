@@ -9,7 +9,7 @@ export default async ({ admin }: { admin: boolean }) => {
 
   return (
     <section className="flex flex-col">
-      {entries.map(entry => (
+      {entries.slice(0, 2).map(entry => (
         <div key={entry.id} className="select-text break-words rounded p-1 text-left text-sm hover:bg-gray-300">
           {profanity.censor(entry.body)}
           {/* <b>{entry.name ?? "Anonymous"}:</b> <span className="break-all">{entry.body}</span> */}
