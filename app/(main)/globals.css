@@ -7,11 +7,11 @@
 }
 
 .home-link {
-  @apply shared-link px-[3px] hover:odd:-rotate-3 hover:even:rotate-3;
+  @apply shared-link px-[3px];
 }
 
 .project-link {
-  @apply shared-link hover:p-3 hover:text-xl hover:odd:-rotate-1 hover:even:rotate-1 max-[450px]:text-base;
+  @apply shared-link hover:p-3 hover:text-xl max-[450px]:text-base;
 }
 
 .project-page-link {
