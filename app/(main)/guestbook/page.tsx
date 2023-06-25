@@ -3,9 +3,10 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { get as getEdgeConfig } from "@vercel/edge-config";
 import { getServerSession } from "next-auth";
-import { SignInDiscord, SignInGitHub, SignOut } from "./_components/AuthButtons";
+import { SignInDiscord, SignInGitHub } from "./_components/AuthButtons";
+import SendMessageSection from "./_components/SendMessageSection";
+import CommenterInfo from "./_components/CommenterInfo";
 import Entries from "./_components/Entries";
-import SendMessageArea from "./_components/SendMessageArea";
 
 const pageTitle = "Guestbook | Leon San José Larsson";
 const pageDescription = "A guestbook where you can send public messages to me.";
@@ -43,18 +44,15 @@ export default async () => {
       <div className="mb-4 flex flex-col justify-center gap-1">
         {requireAuth ? (
           session?.user?.name ? (
+            // If requireAuth, and name exists, user is logged in. Show the message area in text mode and the commenter info
             <>
-              <SendMessageArea name={session.user.name} />
-              <span className="text-sm">
-                Commenting as {session.user.name}{" "}
-                <span className="whitespace-nowrap">
-                  (<SignOut />)
-                </span>
-              </span>
+              <SendMessageSection mode="text" name={session.user.name} />
+              <CommenterInfo name={session.user.name} />
             </>
           ) : (
+            // If requireAuth, and name doesn't exist, user is not logged in. Show the message area in emoji mode and the sign in buttons
             <>
-              <SendMessageArea emoteOnlyMode showEmojiPicker />
+              <SendMessageSection mode="emoji" />
               <div className="mt-1 flex flex-wrap justify-center gap-1">
                 <SignInDiscord />
                 <SignInGitHub />
@@ -62,7 +60,8 @@ export default async () => {
             </>
           )
         ) : (
-          <SendMessageArea />
+          // If !requireAuth, show the message area in mode text
+          <SendMessageSection mode="text" />
         )}
       </div>
 
