@@ -3,7 +3,7 @@
 import dynamic from "next/dynamic";
 import { EmojiStyle } from "emoji-picker-react";
 
-const EmojiPicker = dynamic(() => import("emoji-picker-react"));
+const EmojiPicker = dynamic(() => import("emoji-picker-react"), { ssr: false });
 
 export default ({ isMutating, postEntryFunc }: { isMutating: boolean; postEntryFunc: (message: string) => Promise<boolean> }) => {
   return (
