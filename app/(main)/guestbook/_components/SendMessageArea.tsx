@@ -7,9 +7,8 @@ import dynamic from "next/dynamic";
 import { useRouter } from "next/navigation";
 import { EmojiStyle } from "emoji-picker-react";
 import { postEntry } from "../apiActions";
-import { SignOut } from "./AuthButtons";
 
-const Picker = dynamic(() => import("emoji-picker-react"));
+const EmojiPicker = dynamic(() => import("emoji-picker-react"));
 
 export default ({ emoteOnlyMode, showEmojiPicker, name }: { emoteOnlyMode?: boolean; showEmojiPicker?: boolean; name?: string }) => {
   const router = useRouter();
@@ -48,15 +47,15 @@ export default ({ emoteOnlyMode, showEmojiPicker, name }: { emoteOnlyMode?: bool
   };
 
   return (
-    <div className="mb-1">
+    <div>
       {emoteOnlyMode ? (
         <>
           <span className="font-semibold">Send an emote or sign in to send a message:</span>
 
           {showEmojiPicker && (
             <details className="mb-1">
-              <summary>Emoji Picker</summary>
-              <Picker
+              <summary className="cursor-pointer">Full Emoji Picker</summary>
+              <EmojiPicker
                 onEmojiClick={e => !isMutating && postEntryFunc(e.emoji)}
                 lazyLoadEmojis
                 skinTonesDisabled
@@ -80,18 +79,15 @@ export default ({ emoteOnlyMode, showEmojiPicker, name }: { emoteOnlyMode?: bool
           </div>
         </>
       ) : (
-        <>
-          {name && <SignOut />}
-          <form className="flex gap-2 max-[370px]:flex-col" onSubmit={onFormSubmit}>
-            <input className="rounded border border-black/50 bg-white p-2 shadow outline-none" type="text" name="message" placeholder="Your message..." required disabled={isPending} maxLength={50} />
-            <button className="rounded border border-black p-2 font-medium text-black transition-all hover:bg-black hover:text-white active:translate-y-[2px] disabled:cursor-not-allowed disabled:bg-gray-300 disabled:text-gray-500" type="submit" disabled={isMutating}>
-              <i className="fa-solid fa-paper-plane" /> Send
-            </button>
-          </form>
-        </>
+        <form className="flex justify-center gap-2 max-[370px]:flex-col" onSubmit={onFormSubmit}>
+          <input className="rounded border border-black/50 bg-white p-2 shadow outline-none" type="text" name="message" placeholder="Your message..." required disabled={isPending} maxLength={50} />
+          <button className="rounded border border-black p-2 font-medium text-black transition-all hover:bg-black hover:text-white active:translate-y-[2px] disabled:cursor-not-allowed disabled:bg-gray-300 disabled:text-gray-500" type="submit" disabled={isMutating}>
+            <i className="fa-solid fa-paper-plane" /> Send
+          </button>
+        </form>
       )}
 
-      {isError && <span className="text-red-500">Failed to send message.</span>}
+      {isError && <span className="mt-1 text-red-500">Failed to send message.</span>}
     </div>
   );
 };

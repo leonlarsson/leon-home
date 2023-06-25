@@ -4,8 +4,8 @@ import { signIn, signOut } from "next-auth/react";
 
 export const SignOut = () => {
   return (
-    <button className="mb-2" onClick={() => signOut()}>
-      <i className="fa-solid fa-lock" /> Sign out
+    <button className="text-red-500 hover:underline" title="Sign out." onClick={() => signOut()}>
+      Sign out
     </button>
   );
 };
