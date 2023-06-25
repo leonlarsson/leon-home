@@ -1,4 +1,4 @@
-// import { profanity } from "@2toad/profanity";
+import { profanity } from "@2toad/profanity";
 // import DeleteEntryButton from "./DeleteEntryButton";
 import { getEntries } from "../apiActions";
 
@@ -11,6 +11,7 @@ export default async ({ admin }: { admin: boolean }) => {
     <section className="flex flex-col">
       {entries.map(entry => (
         <div key={entry.id} className="select-text break-words rounded p-1 text-left text-sm hover:bg-gray-300">
+          {profanity.censor(entry.body)}
           {/* <b>{entry.name ?? "Anonymous"}:</b> <span className="break-all">{entry.body}</span> */}
         </div>
       ))}
