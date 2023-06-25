@@ -55,7 +55,7 @@ export default async () => {
           ) : (
             <>
               <SendMessageArea emoteOnlyMode showEmojiPicker />
-              <div className="flex flex-wrap justify-center gap-1">
+              <div className="mt-1 flex flex-wrap justify-center gap-1">
                 <SignInDiscord />
                 <SignInGitHub />
               </div>

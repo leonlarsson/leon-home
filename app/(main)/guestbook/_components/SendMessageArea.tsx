@@ -52,8 +52,16 @@ export default ({ emoteOnlyMode, showEmojiPicker, name }: { emoteOnlyMode?: bool
         <>
           <span className="font-semibold">Send an emote or sign in to send a message:</span>
 
+          <div className="flex flex-wrap justify-center gap-1">
+            {["😀", "😐", "😥", "😂", "😎", "😍", "🦝"].map(emote => (
+              <button key={emote} className="rounded border border-black p-1 text-xl transition-all hover:bg-black disabled:cursor-not-allowed disabled:bg-gray-300" title={`Send ${emote} anonymously.`} disabled={isMutating} onClick={() => postEntryFunc(emote)}>
+                {emote}
+              </button>
+            ))}
+          </div>
+
           {showEmojiPicker && (
-            <details className="mb-1">
+            <details className="mt-1">
               <summary className="cursor-pointer">Full Emoji Picker</summary>
               <EmojiPicker
                 onEmojiClick={e => !isMutating && postEntryFunc(e.emoji)}
@@ -69,14 +77,6 @@ export default ({ emoteOnlyMode, showEmojiPicker, name }: { emoteOnlyMode?: bool
               />
             </details>
           )}
-
-          <div className="flex flex-wrap justify-center gap-1">
-            {["😀", "😐", "😥", "😂", "😎", "😍", "🦝"].map(emote => (
-              <button key={emote} className="rounded border border-black p-1 text-xl transition-all hover:bg-black disabled:cursor-not-allowed disabled:bg-gray-300" title={`Send ${emote} anonymously.`} disabled={isMutating} onClick={() => postEntryFunc(emote)}>
-                {emote}
-              </button>
-            ))}
-          </div>
         </>
       ) : (
         <form className="flex justify-center gap-2 max-[370px]:flex-col" onSubmit={onFormSubmit}>
