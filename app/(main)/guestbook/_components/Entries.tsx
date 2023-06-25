@@ -11,7 +11,7 @@ export default async ({ admin }: { admin: boolean }) => {
     <section className="flex flex-col">
       {entries.map(entry => (
         <div key={entry.id} className="select-text break-words rounded p-1 text-left text-sm hover:bg-gray-300">
-          <b>{entry.name ?? "Anonymous"}:</b> <span className="break-all">{entry.body}</span>
+          {/* <b>{entry.name ?? "Anonymous"}:</b> <span className="break-all">{entry.body}</span> */}
         </div>
       ))}
       {!entries.length && <span>Awaiting messages...</span>}
