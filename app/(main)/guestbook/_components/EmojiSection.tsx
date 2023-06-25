@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import EmojiPicker from "./EmojiPicker";
 
 export default ({ isMutating, postEntryFunc }: { isMutating: boolean; postEntryFunc: any }) => {
@@ -20,7 +20,7 @@ export default ({ isMutating, postEntryFunc }: { isMutating: boolean; postEntryF
 
       <details className="mt-1" onClick={() => setLoad(true)}>
         <summary className="cursor-pointer">Full Emoji Picker</summary>
-        {load && <EmojiPicker isMutating={isMutating} postEntryFunc={postEntryFunc} />}
+        {/* {load && <EmojiPicker isMutating={isMutating} postEntryFunc={postEntryFunc} />} */}
       </details>
     </>
   );
