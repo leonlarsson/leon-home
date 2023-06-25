@@ -2,12 +2,16 @@
 
 // Inspired by https://leerob.io/guestbook
 
-import { useRouter } from "next/navigation";
 import { useState, useTransition } from "react";
+import dynamic from "next/dynamic";
+import { useRouter } from "next/navigation";
+import { EmojiStyle } from "emoji-picker-react";
 import { postEntry } from "../actions";
 import { SignOut } from "./Auth";
 
-export default ({ emoteOnlyMode, name }: { emoteOnlyMode?: boolean; name?: string }) => {
+const Picker = dynamic(() => import("emoji-picker-react"));
+
+export default ({ emoteOnlyMode, showEmojiPicker, name }: { emoteOnlyMode?: boolean; showEmojiPicker?: boolean; name?: string }) => {
   const router = useRouter();
   const [isPending, startTransition] = useTransition();
   const [isFetching, setIsFetching] = useState(false);
@@ -48,6 +52,25 @@ export default ({ emoteOnlyMode, name }: { emoteOnlyMode?: boolean; name?: strin
       {emoteOnlyMode ? (
         <>
           <span className="font-semibold">Send an emote or sign in to send a message:</span>
+
+          {showEmojiPicker && (
+            <details className="mb-1">
+              <summary>Emoji Picker</summary>
+              <Picker
+                onEmojiClick={e => !isMutating && postEntryFunc(e.emoji)}
+                lazyLoadEmojis
+                skinTonesDisabled
+                emojiStyle={EmojiStyle.NATIVE}
+                emojiVersion="5.0"
+                previewConfig={{ defaultEmoji: "1f47d" }}
+                height={400}
+                width={"100%"}
+                // @ts-expect-error
+                categories={["smileys_people", "animals_nature", "food_drink", "travel_places", "activities", "objects", "symbols", "flags"]}
+              />
+            </details>
+          )}
+
           <div className="flex flex-wrap justify-center gap-1">
             {["😀", "😐", "😥", "😂", "😎", "😍", "🦝"].map(emote => (
               <button key={emote} className="rounded border border-black p-1 text-xl transition-all hover:bg-black disabled:cursor-not-allowed disabled:bg-gray-300" title={`Send ${emote} anonymously.`} disabled={isMutating} onClick={() => postEntryFunc(emote)}>

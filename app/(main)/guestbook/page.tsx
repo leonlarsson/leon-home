@@ -48,7 +48,7 @@ export default async () => {
             </>
           ) : (
             <>
-              <Form emoteOnlyMode={true} />
+              <Form emoteOnlyMode showEmojiPicker />
               <div className="flex flex-wrap justify-center gap-1">
                 <SignInDiscord />
                 <SignInGitHub />
