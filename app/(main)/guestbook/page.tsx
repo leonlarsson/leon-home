@@ -1,7 +1,7 @@
 import { Suspense } from "react";
 import Link from "next/link";
 import type { Metadata } from "next";
-import { get } from "@vercel/edge-config";
+import { get as getEdgeConfig } from "@vercel/edge-config";
 import { getServerSession } from "next-auth";
 import { SignInDiscord, SignInGitHub, SignOut } from "./_components/AuthButtons";
 import Entries from "./_components/Entries";
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
 
 export default async () => {
   let session;
-  const requireAuth = await get(process.env.NODE_ENV === "production" ? "requireAuth_prod" : "requireAuth_dev");
+  const requireAuth = await getEdgeConfig(process.env.NODE_ENV === "production" ? "requireAuth_prod" : "requireAuth_dev");
   if (requireAuth) session = await getServerSession();
   const userIsAdmin = session?.user?.email && process.env.ADMIN_EMAIL && session.user.email === process.env.ADMIN_EMAIL;
 
