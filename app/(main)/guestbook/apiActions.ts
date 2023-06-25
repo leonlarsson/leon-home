@@ -1,5 +1,12 @@
 "use server";
 
+export const getEntries = async (): Promise<Response> => {
+  return await fetch("https://leon-guestbook-api.ragnarok.workers.dev", {
+    headers: { "API-KEY": process.env.API_KEY as string },
+    cache: "no-store"
+  });
+};
+
 export const postEntry = async (message: string, name?: string): Promise<boolean> => {
   const res = await fetch("https://leon-guestbook-api.ragnarok.workers.dev", {
     method: "POST",
@@ -8,13 +15,6 @@ export const postEntry = async (message: string, name?: string): Promise<boolean
     body: JSON.stringify({ body: message.trim() || "<Empty message>", name })
   });
   return res.ok;
-};
-
-export const getEntries = async (): Promise<Response> => {
-  return await fetch("https://leon-guestbook-api.ragnarok.workers.dev", {
-    headers: { "API-KEY": process.env.API_KEY as string },
-    cache: "no-store"
-  });
 };
 
 export const deleteEntry = async (idToDelete: string): Promise<boolean> => {
