@@ -6,14 +6,19 @@ import { deleteEntry } from "../actions";
 export default ({ id }: { id: string }) => {
   const router = useRouter();
 
-  const onDeleteClick = async () => {
+  const onDeleteClick = async (refresh: boolean) => {
     const postWasOk = await deleteEntry(id);
-    if (postWasOk) router.refresh();
+    if (refresh && postWasOk) router.refresh();
   };
 
   return (
-    <button className="text-red-500 hover:underline" title={`Delete entry with ID ${id}`} onClick={onDeleteClick}>
-      [Delete]
-    </button>
+    <span className="text-red-500" title={`Delete entry with ID ${id}.`}>
+      <button className="hover:underline" onClick={() => onDeleteClick(true)}>
+        [DR]
+      </button>{" "}
+      <button className="hover:underline" onClick={() => onDeleteClick(false)}>
+        [D]
+      </button>
+    </span>
   );
 };
