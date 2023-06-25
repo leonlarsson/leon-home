@@ -14,7 +14,7 @@ export default ({ isMutating, postEntryFunc }: { isMutating: boolean; postEntryF
       ))}
     </div>
 
-    <details className="mt-1">
+    <details className="mt-1" suppressHydrationWarning>
       <summary className="cursor-pointer">Full Emoji Picker</summary>
       <EmojiPicker isMutating={isMutating} postEntryFunc={postEntryFunc} />
     </details>
