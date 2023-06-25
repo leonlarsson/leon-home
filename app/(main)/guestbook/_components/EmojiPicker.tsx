@@ -1,6 +1,8 @@
 "use client";
 
-import Picker from "@emoji-mart/react";
+import { Suspense, lazy } from "react";
+
+const Picker = lazy(() => import("@emoji-mart/react"));
 
 // import dynamic from "next/dynamic";
 // import { EmojiStyle } from "emoji-picker-react";
@@ -9,7 +11,9 @@ import Picker from "@emoji-mart/react";
 
 export default ({ isMutating, postEntryFunc }: { isMutating: boolean; postEntryFunc: (message: string) => Promise<boolean> }) => {
   return (
-    <Picker theme="light" dynamicWidth={true} skinTonePosition="none" categories={["people", "nature", "foods", "activity", "places", "objects", "symbols", "flags"]} onEmojiSelect={(e: { native: string }) => !isMutating && postEntryFunc(e.native)} />
+    <Suspense fallback="Picker">
+      <Picker theme="light" dynamicWidth={true} skinTonePosition="none" categories={["people", "nature", "foods", "activity", "places", "objects", "symbols", "flags"]} onEmojiSelect={(e: { native: string }) => !isMutating && postEntryFunc(e.native)} />
+    </Suspense>
     // <EmojiPicker
     //   onEmojiClick={e => !isMutating && postEntryFunc(e.emoji)}
     //   lazyLoadEmojis
