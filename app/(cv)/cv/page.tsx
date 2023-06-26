@@ -229,7 +229,7 @@ export default () => {
                     </span>
                     <span className="titel">Civics / Media</span>
                     <span className="text">
-                      <p>I graduated high school in Sweden on the 7th of June 2018. I attended Sundsgymnasiet from 2015 to 2018. I studied civics / media. It included some communication, marketing and content creation.</p>
+                      <p>I graduated high school in Sweden on the 7th of June 2018. I attended Sundsgymnasiet from 2015 to 2018. I studied civics / media. It included some communication, marketing, and content creation.</p>
                     </span>
                   </div>
                 </div>
@@ -303,7 +303,7 @@ export default () => {
                       <a className="inline-href" target="_blank" href="https://api.onlyraccoons.com/">
                         TrasHTTPandas
                       </a>{" "}
-                      is an API I created as a fun test project. It returns HTTP responses, but with an added flair of fun. This project is built using{" "}
+                      is an API I created as a fun test project. It returns HTTP response images, but with an fun twist. This project is built using{" "}
                       <a className="inline-href" target="_blank" href="https://workers.cloudflare.com/">
                         Cloudflare Workers
                       </a>

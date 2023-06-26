@@ -244,10 +244,10 @@ export default () => {
                         Jag jobbar volontärt som en administratör för den officiella* Battlefield Discord-kanalen.
                         <br />
                         <br />
-                        Jag började jobba som en volontärmoderator på Battlefields Discord sent in i 2016 och nu är jag en administratör/ägare där. Sen det att jag började, har Discord-kanalen vuxit från att vara ett litet community med ett par tusen medlemmar till att vara det officiella hemmet för
+                        Jag började jobba som en volontärmoderator på Battlefields Discord sent in i 2016 och nu är jag en administratör/ägare där. Sen jag började har Discord-kanalen vuxit från att vara ett litet community med ett par tusen medlemmar till att vara det officiella hemmet för
                         Battlefield på Discord. Den sitter oftast mellan 170K och 190K medlemmar. Detta inkluderade att jobba med EA:s community team för att försäkra att allting går lugnt och fungerar, något som fortsätter än idag.
                         <br />
-                        <i>*I oktober 2022, valde vi att återgå till att kanalen ska vara 100% ägd av communityn.</i>
+                        <i>*I oktober 2022 valde vi att återgå till att kanalen ska vara 100% ägd av communityn.</i>
                         <br />
                         <br />
                         Mitt arbete som en moderator/admin för dessa kanaler inkluderar:
@@ -299,7 +299,7 @@ export default () => {
                       <a className="inline-href" target="_blank" href="https://api.onlyraccoons.com/">
                         TrasHTTPandas
                       </a>{" "}
-                      är ett API jag skapade som ett roligt testprojekt. API:et returnerar HTTP-svar, men med lite extra kul. Detta project är byggt med{" "}
+                      är ett API jag skapade som ett roligt testprojekt. API:et returnerar HTTP-svar, men med en kul twist. Detta project är byggt med{" "}
                       <a className="inline-href" target="_blank" href="https://workers.cloudflare.com/">
                         Cloudflare Workers
                       </a>
