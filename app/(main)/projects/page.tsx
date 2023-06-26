@@ -71,7 +71,7 @@ const ProjectsList = ({ projects, useGridLayout }: { projects: Project[]; useGri
 const Project = ({ project, useGridLayout }: { project: Project; useGridLayout: boolean }) => {
   if (useGridLayout)
     return (
-      <div className="flex rounded border border-black text-start transition-all active:translate-y-1 dark:border-kinda-white/50 dark:hover:border-kinda-white">
+      <div className="flex rounded border border-black text-start transition-colors active:translate-y-1 dark:border-kinda-white/50 dark:hover:border-kinda-white">
         <Link href={`/projects/${project.projectId}?grid=true`} className="group flex flex-1 flex-col p-3 transition-colors hover:bg-black hover:text-white dark:hover:bg-inherit" draggable={false} title={`See more info on project ${project.name}.`}>
           <span className="text-lg font-bold">
             <i className="fa-solid fa-arrow-right me-2 transition-transform group-hover:translate-x-1" />
