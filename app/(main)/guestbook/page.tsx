@@ -65,7 +65,7 @@ export default async () => {
         )}
       </div>
 
-      <hr className="border-1 mb-4 h-px w-full border-black" />
+      <hr className="border-1 mb-4 h-px w-full border-black dark:border-kinda-white/50" />
 
       <Suspense fallback="Loading messages...">
         {/* @ts-expect-error */}
