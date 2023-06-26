@@ -39,7 +39,7 @@ export default async () => {
       <Link href="/" className="group text-3xl font-extrabold max-[450px]:text-2xl" title="Go back" draggable={false}>
         <i className="fa-solid fa-arrow-left transition-all group-hover:-translate-x-2 group-hover:text-red-400 group-active:-translate-x-3 group-active:text-red-600" /> Guestbook
       </Link>
-      <span className="mb-3">A guestbook created with Next.js Server Actions and Cloudflare D1. Below you will see the last 100 messages.</span>
+      <span className="mb-3">A guestbook where you can send an emoji or sign in to send a message.</span>
 
       <div className="mb-4 flex flex-col justify-center gap-1">
         {requireAuth ? (
