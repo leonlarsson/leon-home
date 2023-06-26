@@ -37,7 +37,7 @@ export default async () => {
   return (
     <div className="flex w-full flex-col items-center justify-center">
       <Link href="/" className="group text-3xl font-extrabold max-[450px]:text-2xl" title="Go back" draggable={false}>
-        <i className="fa-solid fa-arrow-left transition-all group-hover:-translate-x-2 group-hover:text-red-400 group-active:-translate-x-3 group-active:text-red-600" /> Guestbook
+        <i className="fa-solid fa-arrow-left transition-all group-hover:-translate-x-2 group-hover:text-red-400 group-active:-translate-x-3 group-active:text-red-500" /> Guestbook
       </Link>
       <span className="mb-3">A guestbook where you can send an emoji or sign in to send a message.</span>
 

@@ -4,7 +4,7 @@ import { getEntries } from "../apiActions";
 
 export default async ({ admin }: { admin: boolean }) => {
   const res = await getEntries();
-  if (!res.ok) return <span className="text-red-500">Failed to fetch messages.</span>;
+  if (!res.ok) return <span className="text-red-500 dark:text-red-400">Failed to fetch messages.</span>;
   const entries: Entry[] = await res.json();
 
   return (

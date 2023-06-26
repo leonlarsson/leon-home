@@ -38,7 +38,7 @@ export default ({ params, searchParams }: { params: { id: string }; searchParams
   return (
     <div className="page">
       <Link href={{ pathname: "/projects", query: { grid: useGridLayout } }} className="group text-[1.3rem] max-sm:text-base" title="Go back" draggable={false}>
-        <i className="fa-solid fa-arrow-left transition-all group-hover:-translate-x-1 group-hover:text-red-400 group-active:-translate-x-2 group-active:text-red-600" /> Back to list
+        <i className="fa-solid fa-arrow-left transition-all group-hover:-translate-x-1 group-hover:text-red-400 group-active:-translate-x-2 group-active:text-red-500" /> Back to list
       </Link>
       {project ? (
         <div className="px-16 max-sm:px-4">
@@ -95,7 +95,7 @@ export default ({ params, searchParams }: { params: { id: string }; searchParams
           </details>
         </div>
       ) : (
-        <span className="text-lg text-red-600">No project found with id {decodeURIComponent(params.id)}</span>
+        <span className="text-lg text-red-500 dark:text-red-400">No project found with id {decodeURIComponent(params.id)}</span>
       )}
     </div>
   );

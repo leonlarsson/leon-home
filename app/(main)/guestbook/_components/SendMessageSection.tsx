@@ -45,7 +45,7 @@ export default ({ mode, name }: { mode: "text" | "emoji"; name?: string }) => {
   return (
     <div>
       {mode === "emoji" ? <EmojiSection isMutating={isMutating} postEntryFunc={postEntryFunc} /> : <TextForm isPending={isPending} isMutating={isMutating} onFormSubmit={onFormSubmit} />}
-      {isError && <span className="mt-1 text-red-500">Failed to send message.</span>}
+      {isError && <span className="mt-1 text-red-500 dark:text-red-400">Failed to send message.</span>}
     </div>
   );
 };
