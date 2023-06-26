@@ -3,7 +3,7 @@ export default ({ title, company, companyUrl, date, children }: { title: string;
     <div className="small-segment-holder">
       <span className="datum">{date}</span>
       <span className="namn">
-        <a style={{ color: "#000" }} href={companyUrl} target="_blank">
+        <a style={{ color: "#000", fontWeight: 500 }} href={companyUrl} target="_blank">
           {company}
         </a>
       </span>

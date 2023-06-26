@@ -13,12 +13,14 @@ body {
 
 a,
 a:visited,
-a:active,
-a:hover {
+a:active {
   text-decoration: none;
   color: #6ec5e9;
 }
 
+a:hover {
+  text-decoration: underline;
+}
 hr {
   border-color: var(--theme-color);
   margin: 10px 0;
@@ -27,6 +29,10 @@ hr {
 .inline-href {
   text-decoration: underline;
   color: #294b5a !important;
+}
+
+.inline-href:hover {
+  text-underline-offset: 2px;
 }
 
 .sf-wrapper {
@@ -61,8 +67,8 @@ hr {
   align-items: center;
   flex-direction: column;
   background: #23323f !important;
-  padding: 40px 0px;
-  margin-bottom: 20px;
+  padding: 20px 0px;
+  margin-bottom: 10px;
   position: relative;
 }
 
@@ -79,8 +85,8 @@ hr {
   background: var(--theme-color) !important;
   text-align: center;
   padding: 1.5px 1.5px 1.5px 2px;
-  width: 90px;
-  height: 90px;
+  /* width: 90px;
+  height: 90px; */
   border-radius: 100%;
 }
 
