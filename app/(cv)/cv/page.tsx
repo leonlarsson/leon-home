@@ -47,7 +47,7 @@ export default () => {
                 <div className="sf-contact">
                   <span className="sf-contact-heading">Email</span>
                   <span className="text">
-                    <a style={{ color: "#000", textDecoration: "underline" }} href="mailto:leonlarsson8@gmail.com" target="_blank">
+                    <a style={{ color: "#000" }} href="mailto:leonlarsson8@gmail.com" target="_blank">
                       leonlarsson8@gmail.com
                     </a>
                   </span>
@@ -223,7 +223,7 @@ export default () => {
                   <div className="small-segment-holder">
                     <span className="datum">Aug 2015 - June 2018</span>
                     <span className="namn">
-                      <a style={{ color: "#000" }} href="https://vellinge.se/sundsgymnasiet/" target="_blank">
+                      <a href="https://vellinge.se/sundsgymnasiet/" target="_blank">
                         Sundsgymnasiet
                       </a>
                     </span>

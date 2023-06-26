@@ -308,7 +308,12 @@ hr {
 
 .namn {
   font-size: 17px;
+  font-weight: 500;
   display: block;
+}
+
+.namn > a {
+  color: black;
 }
 
 .titel {
