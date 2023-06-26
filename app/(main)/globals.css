@@ -2,27 +2,30 @@
 @tailwind components;
 @tailwind utilities;
 
-.shared-link {
-  @apply rounded text-lg font-semibold transition-all hover:bg-black hover:text-white hover:active:translate-y-[2px];
-}
-
-.home-link {
-  @apply shared-link px-[3px];
-}
-
-.project-link {
-  @apply shared-link hover:p-3 hover:text-xl max-[450px]:text-base;
-}
-
-.project-page-link {
-  @apply shared-link border border-black p-2 max-sm:p-1 max-sm:text-lg;
-}
-
 .page {
   @apply m-auto flex flex-col;
 }
 
+.button-with-border {
+  @apply rounded border border-black p-2 text-black transition-colors hover:bg-black hover:text-white dark:border-kinda-white/50 dark:text-kinda-white dark:hover:bg-kinda-white dark:hover:text-kinda-black;
+}
+
+.text-input {
+  @apply rounded border border-black/50 bg-white p-2 shadow outline-none transition-colors focus:border-black dark:border-kinda-white/50 dark:bg-kinda-black dark:focus:border-kinda-white;
+}
+
 .tag-pill {
-  @apply rounded-full bg-blue-200 px-3 py-1 text-xs font-bold uppercase text-blue-700 transition-colors group-hover:bg-slate-700 group-hover:text-white;
-  /* bg-gray-300 / text-black is an alternative */
+  @apply rounded-full bg-blue-200 px-3 py-1 text-xs font-bold uppercase text-blue-700 transition-colors group-hover:bg-slate-700 group-hover:text-white dark:bg-[#212528] dark:text-[#4b98f2] dark:group-hover:bg-[#212528] dark:group-hover:text-[#4b98f2];
+}
+
+.shared-link {
+  @apply rounded text-lg font-semibold transition-all hover:bg-black hover:text-white hover:active:translate-y-[2px] dark:hover:bg-kinda-white dark:hover:text-kinda-black;
+}
+
+.home-link {
+  @apply shared-link px-1;
+}
+
+.project-link {
+  @apply shared-link hover:p-3 hover:text-xl max-[450px]:text-base;
 }

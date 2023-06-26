@@ -24,7 +24,7 @@ export default () => {
       type="search"
       maxLength={20}
       placeholder="Name, description, tags..."
-      className="w-full self-center rounded border border-black/50 bg-white p-1 shadow outline-none md:w-80"
+      className="text-input w-full self-center md:w-80"
       value={searchQuery}
       onChange={e => {
         const value = e.target.value;

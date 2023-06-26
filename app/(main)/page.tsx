@@ -9,7 +9,7 @@ export default () => {
       <span className="text-[2rem] font-extrabold leading-none max-[430px]:text-[1.5rem]">Leon San José Larsson</span>
       <Employment title="Community & Support Specialist" companyName="Sharkmob" companyUrl="https://sharkmob.com" />
 
-      <div className="mb-1 mt-2 flex flex-wrap justify-center gap-x-1 border-b-slate-900 max-[521px]:border-b-4">
+      <div className="mb-1 mt-2 flex flex-wrap justify-center gap-x-1 border-b-slate-900 dark:border-kinda-white max-[531px]:border-b-4">
         <ProfileLink title="Email" url="mailto:leonlarsson8@gmail.com" icon={<i className="fa-solid fa-envelope" />} />
         <ProfileLink title="LinkedIn" url="https://www.linkedin.com/in/leonlarsson/" icon={<i className="fa-brands fa-linkedin" />} />
         <ProfileLink title="Twitter" url="https://twitter.com/MozzyFX" icon={<i className="fa-brands fa-twitter" />} />

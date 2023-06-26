@@ -12,7 +12,7 @@ export default ({ id }: { id: string }) => {
   };
 
   return (
-    <span className="text-red-500" title={`Delete entry with ID ${id}.`}>
+    <span className="text-red-500 dark:text-red-400" title={`Delete entry with ID ${id}.`}>
       <button className="hover:underline" onClick={() => onDeleteClick(true)}>
         [DR]
       </button>{" "}

@@ -1,7 +1,7 @@
 "use client";
 
 import dynamic from "next/dynamic";
-import { EmojiStyle } from "emoji-picker-react";
+import { EmojiStyle, Theme } from "emoji-picker-react";
 
 const EmojiPicker = dynamic(() => import("emoji-picker-react"), { ssr: false });
 
@@ -16,6 +16,7 @@ export default ({ isMutating, postEntryFunc }: { isMutating: boolean; postEntryF
   return (
     <EmojiPicker
       onEmojiClick={e => !isMutating && postEntryFunc(e.emoji)}
+      theme={Theme.AUTO}
       lazyLoadEmojis
       skinTonesDisabled
       emojiStyle={EmojiStyle.NATIVE}

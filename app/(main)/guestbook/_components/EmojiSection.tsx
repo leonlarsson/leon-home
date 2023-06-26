@@ -8,7 +8,7 @@ export default ({ isMutating, postEntryFunc }: { isMutating: boolean; postEntryF
 
     <div className="flex flex-wrap justify-center gap-1">
       {["😀", "😐", "😥", "😂", "😎", "😍", "🦝"].map(emote => (
-        <button key={emote} className="rounded border border-black p-1 text-xl transition-all hover:bg-black disabled:cursor-not-allowed disabled:bg-gray-300" title={`Send ${emote} anonymously.`} disabled={isMutating} onClick={() => postEntryFunc(emote)}>
+        <button key={emote} className="button-with-border !p-1 text-xl disabled:cursor-not-allowed disabled:bg-gray-300" title={`Send ${emote} anonymously.`} disabled={isMutating} onClick={() => postEntryFunc(emote)}>
           {emote}
         </button>
       ))}

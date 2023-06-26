@@ -72,24 +72,24 @@ export default ({ params, searchParams }: { params: { id: string }; searchParams
 
           <span className="text-lg font-bold">Links:</span>
           <div className="flex flex-wrap justify-center gap-2">
-            <Link href={project.link} target={project.nextLink ? "_self" : "_blank"} className="project-page-link" draggable={false}>
+            <Link href={project.link} target={project.nextLink ? "_self" : "_blank"} className="button-with-border" draggable={false}>
               Go to project <i className="fa-solid fa-link" />
             </Link>
 
             {project.githubLink && (
-              <a href={project.githubLink} target="_blank" className="project-page-link" draggable={false}>
+              <a href={project.githubLink} target="_blank" className="button-with-border" draggable={false}>
                 Go to GitHub <i className="fa-brands fa-github" />
               </a>
             )}
 
             {project.extraLinks?.map(extraLink => (
-              <a href={extraLink.link} target="_blank" className="project-page-link" draggable={false}>
+              <a href={extraLink.link} target="_blank" className="button-with-border" draggable={false}>
                 {extraLink.name} <i className={extraLink.type === "link" ? "fa-solid fa-link" : "fa-brands fa-github"} />
               </a>
             ))}
           </div>
 
-          <details className="m-auto my-5 rounded border border-black p-2 transition-colors open:bg-black open:text-white hover:bg-black hover:text-white max-xl:min-w-[70vw] lg:w-[80vw] 2xl:w-[1300px]">
+          <details className="dark m-auto my-5 rounded border border-black p-2 transition-colors open:bg-black open:text-white hover:bg-black hover:text-white dark:border-kinda-white/50 max-xl:min-w-[70vw] lg:w-[80vw] 2xl:w-[1300px]">
             <summary className="cursor-pointer text-lg font-semibold">Preview {project.projectId === 4 && "(Inception style)"}</summary>
             <iframe src={project.link} className="h-[500px] w-full rounded bg-white lg:h-[500px] xl:h-[700px]"></iframe>
           </details>

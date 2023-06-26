@@ -4,7 +4,7 @@ import { signIn, signOut } from "next-auth/react";
 
 export const SignOut = () => {
   return (
-    <button className="text-red-500 hover:underline" title="Sign out." onClick={() => signOut()}>
+    <button className="text-red-500 hover:underline dark:text-red-400" title="Sign out." onClick={() => signOut()}>
       Sign out
     </button>
   );
@@ -12,7 +12,7 @@ export const SignOut = () => {
 
 export const SignInGitHub = () => {
   return (
-    <button className="rounded border border-black p-2 text-black transition-colors hover:bg-black hover:text-white" title="Sign in with GitHub." onClick={() => signIn("github")}>
+    <button className="button-with-border" title="Sign in with GitHub." onClick={() => signIn("github")}>
       <i className="fa-brands fa-github fa-xl fa-fw" /> Sign in
     </button>
   );
@@ -20,7 +20,7 @@ export const SignInGitHub = () => {
 
 export const SignInDiscord = () => {
   return (
-    <button className="rounded border border-black p-2 text-black transition-colors hover:bg-black hover:text-white" title="Sign in with Discord." onClick={() => signIn("discord")}>
+    <button className="button-with-border" title="Sign in with Discord." onClick={() => signIn("discord")}>
       <i className="fa-brands fa-discord fa-xl fa-fw" /> Sign in
     </button>
   );
