@@ -7,7 +7,7 @@
 }
 
 .button-with-border {
-  @apply rounded border border-black p-2 text-black transition-colors hover:bg-black hover:text-white dark:border-kinda-white/50 dark:text-kinda-white dark:hover:bg-kinda-white dark:hover:text-kinda-black;
+  @apply rounded border border-black p-2 text-black transition-colors hover:bg-black hover:text-white dark:border-kinda-white/50 dark:text-kinda-white dark:hover:border-kinda-white dark:hover:bg-kinda-black;
 }
 
 .text-input {
