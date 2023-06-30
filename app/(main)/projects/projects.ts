@@ -37,8 +37,7 @@ export default [
     year: "2023",
     tags: ["react", "next.js", "tailwind", "typescript"],
     link: "/",
-    githubLink: "https://github.com/leonlarsson/leon-home",
-    nextLink: true
+    githubLink: "https://github.com/leonlarsson/leon-home"
   },
   {
     projectId: 5,
@@ -150,7 +149,6 @@ export default [
     tags: ["cloudflare workers", "react", "next.js", "tailwind", "typescript", "API"],
     link: "/guestbook",
     githubLink: "https://github.com/leonlarsson/leon-home/tree/main/app/(main)/guestbook",
-    nextLink: true,
     extraLinks: [
       {
         name: "API + DB",
@@ -170,7 +168,6 @@ export type Project = {
   tags?: string[];
   link?: string;
   githubLink?: string;
-  nextLink?: boolean;
   extraLinks?: {
     name: string;
     link: string;

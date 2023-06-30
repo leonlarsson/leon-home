@@ -77,7 +77,7 @@ export default ({ params, searchParams }: { params: { id: string }; searchParams
               <span className="text-lg font-bold">Links:</span>
               <div className="flex flex-wrap justify-center gap-2">
                 {project.link && (
-                  <Link href={project.link} target={project.nextLink ? "_self" : "_blank"} className="button-with-border" draggable={false}>
+                  <Link href={project.link} target={!project.link.startsWith("http") ? "_self" : "_blank"} className="button-with-border" draggable={false}>
                     Go to project <i className="fa-solid fa-link" />
                   </Link>
                 )}
