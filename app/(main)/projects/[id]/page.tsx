@@ -62,6 +62,7 @@ export default ({ params, searchParams }: { params: { id: string }; searchParams
 
           {project.tags && (
             <div className="mb-3 mt-1 flex flex-wrap justify-center gap-1">
+              {project.year && <div className="tag-pill">{project.year}</div>}
               {project.tags.sort().map(tag => (
                 <div key={tag} className="tag-pill">
                   {tag}
