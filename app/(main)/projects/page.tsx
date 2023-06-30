@@ -44,7 +44,7 @@ export default ({ searchParams }: { searchParams: Record<string, string> }) => {
 
         {searchParam && (
           <span>
-            Projects matching <span className="rounded bg-black p-1 text-white dark:bg-kinda-white dark:text-kinda-black">{searchParam}</span>
+            Projects matching <span className="rounded bg-black p-1 font-semibold text-white dark:bg-kinda-white dark:text-kinda-black">{searchParam}</span>
           </span>
         )}
 
