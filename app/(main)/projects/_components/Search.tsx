@@ -23,7 +23,7 @@ export default () => {
     <input
       type="search"
       maxLength={20}
-      placeholder="Name, description, tags..."
+      placeholder="Name, description, year, tags..."
       className="text-input w-full self-center md:w-80"
       value={searchQuery}
       onChange={e => {
