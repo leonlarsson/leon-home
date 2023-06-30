@@ -168,7 +168,7 @@ export type Project = {
   shortDescription: string;
   year?: string;
   tags?: string[];
-  link: string;
+  link?: string;
   githubLink?: string;
   nextLink?: boolean;
   extraLinks?: {

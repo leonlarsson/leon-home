@@ -96,11 +96,15 @@ const Project = ({ project, useGridLayout }: { project: Project; useGridLayout: 
           )}
         </Link>
 
-        <div className="my-3 w-px bg-gray-300" />
+        {project.link && (
+          <>
+            <div className="my-3 w-px bg-gray-300" />
 
-        <Link className="group flex items-center px-3 transition-colors hover:bg-black hover:text-white dark:hover:bg-inherit" href={project.link} target={project.nextLink ? "_self" : "_blank"} draggable={false} title={`Go to project ${project.name}.`}>
-          <i className="fa-solid fa-up-right-from-square fa-lg mx-1 transition-transform group-hover:scale-[1.18]" />
-        </Link>
+            <Link className="group flex items-center px-3 transition-colors hover:bg-black hover:text-white dark:hover:bg-inherit" href={project.link} target={project.nextLink ? "_self" : "_blank"} draggable={false} title={`Go to project ${project.name}.`}>
+              <i className="fa-solid fa-up-right-from-square fa-lg mx-1 transition-transform group-hover:scale-[1.18]" />
+            </Link>
+          </>
+        )}
       </div>
     );
 
@@ -109,9 +113,11 @@ const Project = ({ project, useGridLayout }: { project: Project; useGridLayout: 
       <Link className="group" href={`/projects/${project.projectId}`} draggable={false} title={`See more info on project ${project.name}.`}>
         <i className="fa-solid fa-arrow-right fa-lg me-1 transition-transform group-hover:translate-x-[3px] group-active:translate-x-[6px]" /> {project.name}
       </Link>{" "}
-      <Link href={project.link} target={project.nextLink ? "_self" : "_blank"} draggable={false} title={`Go to project ${project.name}.`}>
-        <LinkIcon />
-      </Link>
+      {project.link && (
+        <Link href={project.link} target={project.nextLink ? "_self" : "_blank"} draggable={false} title={`Go to project ${project.name}.`}>
+          <LinkIcon />
+        </Link>
+      )}
     </div>
   );
 };
