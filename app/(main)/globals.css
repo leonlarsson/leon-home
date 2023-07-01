@@ -18,14 +18,6 @@
   @apply rounded-full bg-blue-200 px-3 py-1 text-xs font-bold uppercase text-blue-700 transition-colors group-hover:bg-slate-700 group-hover:text-white dark:bg-[#212528] dark:text-[#4b98f2] dark:group-hover:bg-[#212528] dark:group-hover:text-[#4b98f2];
 }
 
-.shared-link {
-  @apply rounded text-lg font-semibold transition-all hover:bg-black hover:text-white dark:hover:bg-gray-300/10 dark:hover:text-kinda-white;
-}
-
-.home-link {
-  @apply shared-link px-1;
-}
-
-.project-link {
-  @apply shared-link hover:p-3 hover:text-xl max-[450px]:text-base;
+.button-link {
+  @apply rounded px-1 text-lg font-semibold transition-all hover:bg-black hover:text-white dark:hover:bg-gray-300/10 dark:hover:text-kinda-white;
 }

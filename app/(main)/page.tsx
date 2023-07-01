@@ -21,11 +21,11 @@ export default () => {
       {/* <div className="absolute left-[15px] top-[565px] text-lg">leonlarsson.com</div> */}
 
       <div className="flex flex-wrap justify-center gap-x-1">
-        <Link className="home-link group" href="/projects" draggable={false}>
+        <Link className="button-link group" href="/projects" draggable={false}>
           <i className="fa-solid fa-arrow-right transition-transform group-hover:translate-x-[3px]" /> Projects
         </Link>
 
-        <Link className="home-link group" href="/guestbook" draggable={false}>
+        <Link className="button-link group" href="/guestbook" draggable={false}>
           <i className="fa-solid fa-book" /> Guestbook
         </Link>
 
@@ -54,7 +54,7 @@ const Employment = ({ title, companyName, companyUrl }: { title: string; company
 };
 
 const ProfileLink = ({ title, url, icon, newTab = true }: { title: string; url: string; icon?: React.ReactNode; newTab?: boolean }) => (
-  <a className="home-link" href={url} target={newTab ? "_blank" : "_self"} draggable={false}>
+  <a className="button-link" href={url} target={newTab ? "_blank" : "_self"} draggable={false}>
     {icon} {title}
   </a>
 );

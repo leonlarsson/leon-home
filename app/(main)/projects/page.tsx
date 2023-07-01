@@ -59,7 +59,7 @@ const ProjectsList = ({ projects, useGridLayout }: { projects: Project[]; useGri
   return (
     <>
       {/* If grid layout, use grid with 2 cols until. On medium, use 1 col. Additionally, use 1 col if there is a single project */}
-      <div className={useGridLayout ? `grid gap-3 ${projects.length === 1 ? "grid-cols-1" : "grid-cols-1 md:grid-cols-2"}` : ""}>
+      <div className={useGridLayout ? `grid gap-3 ${projects.length === 1 ? "grid-cols-1" : "grid-cols-1 md:grid-cols-2"}` : "space-y-1"}>
         {projects.map(project => (
           <Project key={project.projectId} project={project} useGridLayout={useGridLayout} />
         ))}
@@ -109,17 +109,15 @@ const Project = ({ project, useGridLayout }: { project: Project; useGridLayout: 
     );
 
   return (
-    <div className="project-link px-[1px] py-[2px]">
+    <div className="button-link flex justify-center gap-2 hover:text-xl max-[450px]:text-base">
       <Link className="group" href={`/projects/${project.projectId}`} draggable={false} title={`See more info on project ${project.name}.`}>
         <i className="fa-solid fa-arrow-right fa-lg me-1 transition-transform group-hover:translate-x-[3px] group-active:translate-x-[6px]" /> {project.name}
-      </Link>{" "}
+      </Link>
       {project.link && (
         <Link href={project.link} target={!project.link.startsWith("http") ? "_self" : "_blank"} draggable={false} title={`Go to project ${project.name}.`}>
-          <LinkIcon />
+          <i className="fa-solid fa-up-right-from-square transition-transform hover:scale-[1.18]" />
         </Link>
       )}
     </div>
   );
 };
-
-const LinkIcon = () => <i className="fa-solid fa-up-right-from-square fa-lg mx-1 transition-transform hover:scale-[1.18]" />;
