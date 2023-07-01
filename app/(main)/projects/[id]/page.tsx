@@ -8,7 +8,7 @@ export const generateMetadata = ({ params }: { params: { id: string } }): Metada
   const project = getProject(params.id);
 
   const pageTitle = `${project?.name ?? "Project #404"} | Leon San José Larsson`;
-  const pageDescription = project ? project.shortDescription : "You found Project #404.";
+  const pageDescription = project?.shortDescription ?? "You found Project #404.";
 
   return {
     title: pageTitle,
