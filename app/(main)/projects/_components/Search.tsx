@@ -8,11 +8,6 @@ export default () => {
   const router = useRouter();
   const searchParams = new URLSearchParams(useSearchParams().toString());
 
-  // Reset state when layout changes
-  useEffect(() => {
-    setSearchQuery("");
-  }, [searchParams.get("grid")]);
-
   // On mount, set the state from searchParam
   useEffect(() => {
     const searchParam = searchParams.get("search");

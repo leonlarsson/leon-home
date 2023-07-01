@@ -28,23 +28,21 @@ export const generateMetadata = ({ params }: { params: { id: string } }): Metada
   };
 };
 
-export default ({ params, searchParams }: { params: { id: string }; searchParams: Record<string, string> }) => {
+export default ({ params }: { params: { id: string } }) => {
   const project = getProject(params.id);
-  const useGridLayout = searchParams.grid;
-
   const canPrevious = parseInt(params.id) > 1;
   const canNext = parseInt(params.id) < projects.length;
 
   return (
     <div className="page">
-      <Link href={{ pathname: "/projects", query: { grid: useGridLayout } }} className="group text-[1.3rem] transition-all max-sm:text-base" title="Go back" draggable={false}>
-        <i className="fa-solid fa-arrow-left transition-all group-hover:-translate-x-1 group-hover:text-red-400 group-active:-translate-x-2 group-active:text-red-500" /> Back to list
+      <Link href="/projects" className="group text-[1.3rem] transition-all max-sm:text-base" title="Go back" draggable={false}>
+        <i className="fa-solid fa-arrow-left transition-all group-hover:-translate-x-1 group-hover:text-red-400 group-active:-translate-x-2 group-active:text-red-500" /> Back
       </Link>
       {project ? (
         <div className="px-16 max-sm:px-4">
           <span className="text-[2rem] font-extrabold transition-all max-sm:text-2xl">
             {canPrevious && (
-              <Link className="group" href={{ pathname: `/projects/${project.projectId - 1}`, query: { grid: useGridLayout } }} title={`Previous project, ${projects[projects.indexOf(project) - 1].name}`} draggable={false}>
+              <Link className="group" href={`/projects/${project.projectId - 1}`} title={`Previous project, ${projects[projects.indexOf(project) - 1].name}`} draggable={false}>
                 <i className="fa-solid fa-arrow-left me-2 transition-all group-hover:-translate-x-1 group-hover:text-green-600" />
               </Link>
             )}
@@ -52,7 +50,7 @@ export default ({ params, searchParams }: { params: { id: string }; searchParams
             {project.name}
 
             {canNext && (
-              <Link className="group" href={{ pathname: `/projects/${project.projectId + 1}`, query: { grid: useGridLayout } }} title={`Next project, ${projects[projects.indexOf(project) + 1].name}`} draggable={false}>
+              <Link className="group" href={`/projects/${project.projectId + 1}`} title={`Next project, ${projects[projects.indexOf(project) + 1].name}`} draggable={false}>
                 <i className="fa-solid fa-arrow-right ms-2 transition-all group-hover:translate-x-1 group-hover:text-green-600" />
               </Link>
             )}
