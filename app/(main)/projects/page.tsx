@@ -70,7 +70,7 @@ const Project = ({ project }: { project: Project }) => {
           <i className="fa-solid fa-arrow-right me-2 transition-transform group-hover:translate-x-1" />
           {project.name}{" "}
           {project.year && (
-            <span className="font-mono text-sm text-gray-600 dark:text-gray-400" title={`First released ${project.year}.`}>
+            <span className="font-mono text-sm text-gray-600 transition-colors group-hover:text-gray-300 dark:text-gray-400 dark:group-hover:text-gray-400" title={`First released ${project.year}.`}>
               ({project.year})
             </span>
           )}
