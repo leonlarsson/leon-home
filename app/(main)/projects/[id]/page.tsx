@@ -87,7 +87,7 @@ export default ({ params }: { params: { id: string } }) => {
                 )}
 
                 {project.extraLinks?.map(extraLink => (
-                  <a href={extraLink.link} target="_blank" className="button-with-border" draggable={false}>
+                  <a key={extraLink.link} href={extraLink.link} target="_blank" className="button-with-border" draggable={false}>
                     {extraLink.name} <i className={extraLink.type === "link" ? "fa-solid fa-link" : "fa-brands fa-github"} />
                   </a>
                 ))}
