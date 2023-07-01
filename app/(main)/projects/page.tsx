@@ -27,6 +27,7 @@ export const metadata: Metadata = {
 export default ({ searchParams }: { searchParams: Record<string, string> }) => {
   const useGridLayout = ["1", "true", "yes"].includes(searchParams.grid);
   const searchParam = searchParams.search;
+  const filteredProjects = projects.filter(project => [project.name, project.description, project.shortDescription, project.year, ...(project.tags ?? [])].some(item => item?.toLowerCase().includes(searchParam?.toLowerCase())));
 
   return (
     <div className="page">
@@ -43,12 +44,12 @@ export default ({ searchParams }: { searchParams: Record<string, string> }) => {
         <Search />
 
         {searchParam && (
-          <span>
-            Projects matching <span className="rounded bg-black p-1 font-semibold text-white dark:bg-kinda-white dark:text-kinda-black">{searchParam}</span>
+          <span className={!filteredProjects.length ? "text-red-500 dark:text-red-400" : ""}>
+            {filteredProjects.length || "No"} {filteredProjects.length === 1 ? "project" : "projects"} matching <span className="rounded bg-black p-1 font-semibold text-white dark:bg-kinda-white dark:text-kinda-black">{searchParam}</span>
           </span>
         )}
 
-        <ProjectsList projects={searchParam ? projects.filter(project => [project.name, project.description, project.shortDescription, project.year, ...(project.tags ?? [])].some(item => item?.toLowerCase().includes(searchParam.toLowerCase()))) : projects} useGridLayout={useGridLayout} />
+        <ProjectsList projects={searchParam ? filteredProjects : projects} useGridLayout={useGridLayout} />
       </div>
     </div>
   );
@@ -63,7 +64,6 @@ const ProjectsList = ({ projects, useGridLayout }: { projects: Project[]; useGri
           <Project key={project.projectId} project={project} useGridLayout={useGridLayout} />
         ))}
       </div>
-      {!projects.length && <span className="!m-0 text-red-500 dark:text-red-400">No projects found</span>}
     </>
   );
 };
