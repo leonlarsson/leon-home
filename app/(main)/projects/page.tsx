@@ -1,7 +1,7 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import Search from "./_components/Search";
-import projects from "./projects";
+import projectsData from "./projects";
 import type { Project } from "./projects";
 
 const pageTitle = "Projects | Leon San José Larsson";
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
 export default ({ searchParams }: { searchParams: Record<string, string> }) => {
   const useGridLayout = ["1", "true", "yes"].includes(searchParams.grid);
   const searchParam = searchParams.search;
-  const filteredProjects = projects.filter(project => [project.name, project.description, project.shortDescription, project.year, ...(project.tags ?? [])].some(item => item?.toLowerCase().includes(searchParam?.toLowerCase())));
+  const projects = searchParam ? projectsData.filter(project => [project.name, project.description, project.shortDescription, project.year, ...(project.tags ?? [])].some(item => item?.toLowerCase().includes(searchParam?.toLowerCase()))) : projectsData;
 
   return (
     <div className="page">
@@ -44,12 +44,12 @@ export default ({ searchParams }: { searchParams: Record<string, string> }) => {
         <Search />
 
         {searchParam && (
-          <span className={!filteredProjects.length ? "text-red-500 dark:text-red-400" : ""}>
-            {filteredProjects.length || "No"} {filteredProjects.length === 1 ? "project" : "projects"} matching <span className="rounded bg-black p-1 font-semibold text-white dark:bg-kinda-white dark:text-kinda-black">{searchParam}</span>
+          <span className={!projects.length ? "text-red-500 dark:text-red-400" : ""}>
+            {projects.length || "No"} {projects.length === 1 ? "project" : "projects"} matching <span className="rounded bg-black p-1 font-semibold text-white dark:bg-kinda-white dark:text-kinda-black">{searchParam}</span>
           </span>
         )}
 
-        <ProjectsList projects={searchParam ? filteredProjects : projects} useGridLayout={useGridLayout} />
+        <ProjectsList projects={projects} useGridLayout={useGridLayout} />
       </div>
     </div>
   );
