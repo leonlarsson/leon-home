@@ -33,15 +33,15 @@ export default ({ mode, name }: { mode: "text" | "emoji"; name?: string }) => {
 };
 
 const TextForm = ({ isMutating, postEntryFunc }: { isMutating: boolean; postEntryFunc: (message: string) => Promise<boolean> }) => {
-  const formRef = useRef<HTMLFormElement>(null);
-
   return (
     <form
       className="flex justify-center gap-2 max-[370px]:flex-col"
-      ref={formRef}
-      action={async formData => {
-        const postWasOk = await postEntryFunc(formData.get("message") as string);
-        if (postWasOk) formRef.current?.reset();
+      onSubmit={async event => {
+        event.preventDefault();
+        const form = event.currentTarget;
+        const message = form.elements.namedItem("message") as HTMLInputElement;
+        const postWasOk = await postEntryFunc(message.value);
+        if (postWasOk) form.reset();
       }}
     >
       <input className="text-input disabled:cursor-not-allowed disabled:bg-neutral-300 dark:disabled:bg-neutral-600" type="text" name="message" placeholder="Your message..." required disabled={isMutating} maxLength={50} />
