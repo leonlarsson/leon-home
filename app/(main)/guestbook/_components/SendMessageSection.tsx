@@ -26,13 +26,13 @@ export default ({ mode, name }: { mode: "text" | "emoji"; name?: string }) => {
 
   return (
     <div>
-      {mode === "emoji" ? <EmojiSection isMutating={isMutating} postEntryFunc={postEntryFunc} /> : <TextForm isPending={isPending} isMutating={isMutating} postEntryFunc={postEntryFunc} />}
+      {mode === "emoji" ? <EmojiSection isMutating={isMutating} postEntryFunc={postEntryFunc} /> : <TextForm isMutating={isMutating} postEntryFunc={postEntryFunc} />}
       {isError && <span className="mt-1 text-red-500 dark:text-red-400">Failed to send message.</span>}
     </div>
   );
 };
 
-const TextForm = ({ isPending, isMutating, postEntryFunc }: { isPending: boolean; isMutating: boolean; postEntryFunc: (message: string) => Promise<boolean> }) => {
+const TextForm = ({ isMutating, postEntryFunc }: { isMutating: boolean; postEntryFunc: (message: string) => Promise<boolean> }) => {
   const formRef = useRef<HTMLFormElement>(null);
 
   return (
@@ -44,7 +44,7 @@ const TextForm = ({ isPending, isMutating, postEntryFunc }: { isPending: boolean
         if (postWasOk) formRef.current?.reset();
       }}
     >
-      <input className="text-input disabled:cursor-not-allowed disabled:bg-neutral-300 dark:disabled:bg-neutral-600" type="text" name="message" placeholder="Your message..." required disabled={isPending} maxLength={50} />
+      <input className="text-input disabled:cursor-not-allowed disabled:bg-neutral-300 dark:disabled:bg-neutral-600" type="text" name="message" placeholder="Your message..." required disabled={isMutating} maxLength={50} />
       <button className="button-with-border disabled:cursor-not-allowed disabled:bg-neutral-300 dark:disabled:bg-neutral-600" type="submit" disabled={isMutating}>
         <i className="fa-solid fa-paper-plane" /> Send
       </button>
