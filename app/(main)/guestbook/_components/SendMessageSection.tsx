@@ -44,7 +44,7 @@ const TextForm = ({ isMutating, postEntryFunc }: { isMutating: boolean; postEntr
         if (postWasOk) form.reset();
       }}
     >
-      <input className="text-input disabled:cursor-not-allowed disabled:bg-neutral-300 dark:disabled:bg-neutral-600" type="text" name="message" placeholder="Your message..." required disabled={isMutating} maxLength={50} />
+      <input className="text-input disabled:cursor-not-allowed disabled:bg-neutral-300 dark:disabled:bg-neutral-600" type="text" name="message" placeholder="Your message..." required disabled={isMutating} maxLength={100} />
       <button className="button-with-border disabled:cursor-not-allowed disabled:bg-neutral-300 dark:disabled:bg-neutral-600" type="submit" disabled={isMutating}>
         <i className="fa-solid fa-paper-plane" /> Send
       </button>
