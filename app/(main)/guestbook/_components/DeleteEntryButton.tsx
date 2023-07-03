@@ -12,11 +12,11 @@ export default ({ id }: { id: string }) => {
   };
 
   return (
-    <span className="text-red-500 dark:text-red-400" title={`Delete entry with ID ${id}.`}>
-      <button className="hover:underline" onClick={() => onDeleteClick(true)}>
+    <span className="text-red-500 dark:text-red-400">
+      <button className="hover:underline" title={`Delete entry with ID ${id} and refresh.`} onClick={() => onDeleteClick(true)}>
         [DR]
       </button>{" "}
-      <button className="hover:underline" onClick={() => onDeleteClick(false)}>
+      <button className="hover:underline" title={`Delete entry with ID ${id}.`} onClick={() => onDeleteClick(false)}>
         [D]
       </button>
     </span>
