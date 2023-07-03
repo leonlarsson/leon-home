@@ -2,6 +2,7 @@
 
 import dynamic from "next/dynamic";
 import { EmojiStyle, Theme } from "emoji-picker-react";
+import emojis from "../lib/emojis";
 const EmojiPicker = dynamic(() => import("emoji-picker-react"), { ssr: false });
 
 export default ({ isMutating, postEntryFunc }: { isMutating: boolean; postEntryFunc: any }) => (
@@ -9,7 +10,7 @@ export default ({ isMutating, postEntryFunc }: { isMutating: boolean; postEntryF
     <span className="font-semibold">Send an emote or sign in to send a message:</span>
 
     <div className="flex flex-wrap justify-center gap-1">
-      {["😀", "😐", "😥", "😂", "😎", "😍", "🦝"].map(emote => (
+      {emojis.map(emote => (
         <button key={emote} className="button-with-border !p-1 text-xl disabled:cursor-not-allowed disabled:bg-gray-300" title={`Send ${emote} anonymously.`} disabled={isMutating} onClick={() => postEntryFunc(emote)}>
           {emote}
         </button>
