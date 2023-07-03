@@ -18,6 +18,9 @@ export const postEntry = async (message: string): Promise<boolean> => {
   // If requireAuth and session (user is signed in), but no name is available, return false (which will show an error)
   if (requireAuth && session && !session.user?.name) return false;
 
+  // Temp debug log
+  console.log({ message, requireAuth, user: session?.user });
+
   const res = await fetch("https://leon-guestbook-api.ragnarok.workers.dev", {
     method: "POST",
     headers: { "API-KEY": process.env.API_KEY as string },
