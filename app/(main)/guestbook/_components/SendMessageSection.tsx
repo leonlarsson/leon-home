@@ -1,11 +1,11 @@
 "use client";
 
-import { useRef, useState, useTransition } from "react";
+import { useState, useTransition } from "react";
 import { useRouter } from "next/navigation";
 import EmojiSection from "./EmojiSection";
 import { postEntry } from "../apiActions";
 
-export default ({ mode, name }: { mode: "text" | "emoji"; name?: string }) => {
+export default ({ mode }: { mode: "text" | "emoji" }) => {
   const router = useRouter();
   const [isPending, startTransition] = useTransition();
   const [isFetching, setIsFetching] = useState(false);
@@ -17,7 +17,7 @@ export default ({ mode, name }: { mode: "text" | "emoji"; name?: string }) => {
     setIsFetching(true);
     setIsError(false);
     // SERVER ACTION
-    const postWasOk = await postEntry(message, name);
+    const postWasOk = await postEntry(message);
     setIsFetching(false);
 
     postWasOk ? startTransition(() => router.refresh()) : setIsError(true);

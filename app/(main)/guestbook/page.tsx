@@ -1,8 +1,8 @@
 import { Suspense } from "react";
 import Link from "next/link";
 import type { Metadata } from "next";
-import { get as getEdgeConfig } from "@vercel/edge-config";
 import { getServerSession } from "next-auth";
+import { getRequireAuth } from "./apiActions";
 import { SignInDiscord, SignInGitHub } from "./_components/AuthButtons";
 import SendMessageSection from "./_components/SendMessageSection";
 import CommenterInfo from "./_components/CommenterInfo";
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
 
 export default async () => {
   let session;
-  const requireAuth = (await getEdgeConfig(process.env.NODE_ENV === "production" ? "requireAuth_prod" : "requireAuth_dev")) ?? true;
+  const requireAuth = await getRequireAuth();
   if (requireAuth) session = await getServerSession();
   const userIsAdmin = session?.user?.email && process.env.ADMIN_EMAIL && session.user.email === process.env.ADMIN_EMAIL;
 
@@ -46,7 +46,7 @@ export default async () => {
           session?.user?.name ? (
             // If requireAuth, and name exists, user is logged in. Show the message area in text mode and the commenter info
             <>
-              <SendMessageSection mode="text" name={session.user.name} />
+              <SendMessageSection mode="text" />
               <CommenterInfo name={session.user.name} />
             </>
           ) : (
