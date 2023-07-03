@@ -30,7 +30,7 @@ export const metadata: Metadata = {
 
 export default async () => {
   let session;
-  const requireAuth = await getEdgeConfig(process.env.NODE_ENV === "production" ? "requireAuth_prod" : "requireAuth_dev");
+  const requireAuth = (await getEdgeConfig(process.env.NODE_ENV === "production" ? "requireAuth_prod" : "requireAuth_dev")) ?? true;
   if (requireAuth) session = await getServerSession();
   const userIsAdmin = session?.user?.email && process.env.ADMIN_EMAIL && session.user.email === process.env.ADMIN_EMAIL;
 
