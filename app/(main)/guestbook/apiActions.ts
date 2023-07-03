@@ -22,7 +22,7 @@ export const postEntry = async (message: string): Promise<boolean> => {
 
   // Handle cases where auth is enabled, the user is not signed in, and the message is not an emoji (it should be because not being signed in means emojis only)
   // if (requireAuth && !session && !emojis.includes(message)) message = "👈🛑👮‍♂️";
-  if (requireAuth && !session && !message.match(emojiRegex())) message = "👈🛑👮‍♂️";
+  if (requireAuth && !session && /^\P{Emoji}*$/u.test(message)) message = "👈🛑👮‍♂️";
 
   // Temp debug log
   console.log({ message, requireAuth, user: session?.user });
