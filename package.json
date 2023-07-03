@@ -17,8 +17,6 @@
     "@types/react-dom": "18.2.4",
     "@vercel/edge-config": "^0.2.1",
     "autoprefixer": "10.4.14",
-    "emoji-picker-react": "^4.4.9",
-    "emoji-regex": "^10.2.1",
     "next": "^13.4.7",
     "next-auth": "^4.22.1",
     "postcss": "8.4.23",

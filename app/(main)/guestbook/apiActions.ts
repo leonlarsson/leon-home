@@ -3,7 +3,6 @@
 import { getServerSession } from "next-auth";
 import { get as getEdgeConfig } from "@vercel/edge-config";
 import emojis from "./lib/emojis";
-import emojiRegex from "emoji-regex";
 
 export const getEntries = async (): Promise<Response> => {
   return await fetch("https://leon-guestbook-api.ragnarok.workers.dev", {
@@ -20,9 +19,8 @@ export const postEntry = async (message: string): Promise<boolean> => {
   // If requireAuth and session (user is signed in), but no name is available, return false (which will show an error)
   if (requireAuth && session && !session.user?.name) return false;
 
-  // Handle cases where auth is enabled, the user is not signed in, and the message is not an emoji (it should be because not being signed in means emojis only)
-  // if (requireAuth && !session && !emojis.includes(message)) message = "👈🛑👮‍♂️";
-  if (requireAuth && !session && /^\P{Emoji}*$/u.test(message)) message = "👈🛑👮‍♂️";
+  // Handle cases where auth is enabled, the user is not signed in, and the message is not an emoji (it should be, because not being signed in means emojis only)
+  if (requireAuth && !session && !emojis.includes(message)) message = "👈🛑👮‍♂️";
 
   // Temp debug log
   console.log({ message, requireAuth, user: session?.user });
