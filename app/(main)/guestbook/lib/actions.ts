@@ -2,7 +2,7 @@
 
 import { getServerSession } from "next-auth";
 import { get as getEdgeConfig } from "@vercel/edge-config";
-import emojis from "./lib/emojis";
+import emojis from "./emojis";
 
 export const getEntries = async (): Promise<Response> => {
   return await fetch("https://leon-guestbook-api.ragnarok.workers.dev", {

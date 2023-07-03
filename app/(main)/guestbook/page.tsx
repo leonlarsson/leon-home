@@ -2,7 +2,7 @@ import { Suspense } from "react";
 import Link from "next/link";
 import type { Metadata } from "next";
 import { getServerSession } from "next-auth";
-import { getRequireAuth } from "./apiActions";
+import { getRequireAuth } from "./lib/actions";
 import { SignInDiscord, SignInGitHub } from "./_components/AuthButtons";
 import SendMessageSection from "./_components/SendMessageSection";
 import CommenterInfo from "./_components/CommenterInfo";

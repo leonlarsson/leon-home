@@ -3,7 +3,7 @@
 import { useState, useTransition } from "react";
 import { useRouter } from "next/navigation";
 import EmojiSection from "./EmojiSection";
-import { postEntry } from "../apiActions";
+import { postEntry } from "../lib/actions";
 
 export default ({ mode }: { mode: "text" | "emoji" }) => {
   const router = useRouter();
