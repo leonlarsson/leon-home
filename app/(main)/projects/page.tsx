@@ -80,7 +80,7 @@ const Project = ({ project }: { project: Project }) => {
         <span>{project.shortDescription}</span>
 
         {project.tags && (
-          <div className="mt-1 flex flex-wrap gap-1">
+          <div className="mt-1 flex max-w-prose flex-wrap gap-1">
             {project.tags
               .sort((a, b) => a.localeCompare(b))
               .map(tag => (
