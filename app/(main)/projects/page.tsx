@@ -34,7 +34,7 @@ export default ({ searchParams }: { searchParams: Record<string, string> }) => {
       <div className="flex flex-col space-y-3">
         <div className="text-3xl transition-all max-[450px]:text-2xl">
           <Link href="/" className="group font-extrabold" title="Go back" draggable={false}>
-            <i className="fa-solid fa-arrow-left transition-all group-hover:-translate-x-2 group-hover:text-red-400 group-active:-translate-x-3 group-active:text-red-500" /> Leon's Projects
+            <i className="fa-solid fa-arrow-left transition-all group-hover:-translate-x-2 group-hover:text-red-400" /> Leon's Projects
           </Link>
         </div>
 
