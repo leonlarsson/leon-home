@@ -15,7 +15,7 @@
 }
 
 .tag-pill {
-  @apply rounded-full bg-blue-200 px-3 py-1 text-xs font-bold uppercase text-blue-700 transition-colors group-hover:bg-slate-700 group-hover:text-white dark:bg-[#212528] dark:text-[#4b98f2] dark:group-hover:bg-[#212528] dark:group-hover:text-[#4b98f2];
+  @apply rounded-full bg-blue-200 px-3 py-1 text-xs font-bold text-blue-700 transition-colors group-hover:bg-slate-700 group-hover:text-white dark:bg-[#212528] dark:text-[#4b98f2] dark:group-hover:bg-[#212528] dark:group-hover:text-[#4b98f2];
 }
 
 .button-link {

@@ -62,9 +62,11 @@ export default ({ params }: { params: { id: string } }) => {
           {project.tags && (
             <div className="mb-3 mt-1 flex flex-wrap justify-center gap-1">
               {project.year && <Tag tag={project.year} clickable={true} />}
-              {project.tags.sort().map(tag => (
-                <Tag key={tag} tag={tag} clickable={true} />
-              ))}
+              {project.tags
+                .sort((a, b) => a.localeCompare(b))
+                .map(tag => (
+                  <Tag key={tag} tag={tag} clickable={true} />
+                ))}
             </div>
           )}
 

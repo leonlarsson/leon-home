@@ -81,9 +81,11 @@ const Project = ({ project }: { project: Project }) => {
 
         {project.tags && (
           <div className="mt-1 flex flex-wrap gap-1">
-            {project.tags.sort().map(tag => (
-              <Tag key={tag} tag={tag} />
-            ))}
+            {project.tags
+              .sort((a, b) => a.localeCompare(b))
+              .map(tag => (
+                <Tag key={tag} tag={tag} />
+              ))}
           </div>
         )}
       </Link>
