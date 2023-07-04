@@ -47,16 +47,6 @@ export default [
     githubLink: "https://github.com/leonlarsson/joy-meme"
   },
   {
-    slug: "leon-home",
-    name: "This website",
-    description: "This is the website you're currently on. It was created using Next.js 13 and was built with Tailwind.",
-    shortDescription: "Leon's personal website.",
-    year: "2023",
-    tags: [tags.REACT, tags.NEXT, tags.TAILWIND, tags.TS],
-    link: "/",
-    githubLink: "https://github.com/leonlarsson/leon-home"
-  },
-  {
     slug: "log-sorter",
     name: "Log Sorter",
     description: "My first actual useful project. It aims to help (Discord) moderators sort through massive amounts of logs in order to combat bot accounts.",
@@ -74,15 +64,35 @@ export default [
     year: "2021",
     tags: [tags.HTML, tags.CSS, tags.JS],
     link: "https://bf1morse.leonlarsson.com/",
-    githubLink: "https://github.com/leonlarsson/bf1morse"
+    githubLink: "https://github.com/leonlarsson/bf1morse",
+    extraLinks: [
+      {
+        name: "API",
+        link: "https://bf1morse-api.leonlarsson.com",
+        type: "link"
+      },
+      {
+        name: "API Source",
+        link: "https://github.com/leonlarsson/bf1morse-api",
+        type: "github"
+      }
+    ]
+  },
+  {
+    slug: "battlebot",
+    name: "Battlebot",
+    description: "This is a bot we use on the Battlefield Discord. It provides moderation utilities for moderators as well as a few fun and helpful features for users.",
+    shortDescription: "A bot that provides utility and fun in the Battlefield Discord.",
+    year: "2021",
+    tags: [tags.NODE, tags.DISCORDJS, tags.JS]
   },
   {
     slug: "battlefield-stats",
     name: "Battlefield Stats Discord Bot",
-    description: "My largest and most successful project by far. A Discord bot that provides on demand Battlefield statistics in Discord.\nUsed by thousands of users in thousands of Discord servers. Built in Node.js.\nThe extra links are for the API that I built with Cloudflare Workers.",
-    shortDescription: "A bot that provides Battlefield stats right inside your Discord.",
+    description: "My largest and most successful project by far. A Discord bot that provides on demand Battlefield statistics in Discord.\nUsed by thousands of users in thousands of Discord servers. Built in Node.js.\nI have also built a website and an API for this project.",
+    shortDescription: "A bot that provides Battlefield stats right inside Discord.",
     year: "2021",
-    tags: [tags.NODE, tags.DISCORDJS, tags.CLOUDFLARE_WORKERS, tags.API, tags.REACT, tags.NEXT],
+    tags: [tags.NODE, tags.DISCORDJS, tags.CLOUDFLARE_WORKERS, tags.API, tags.REACT, tags.NEXT, tags.JS],
     link: "https://battlefieldstats.com/",
     githubLink: "https://github.com/leonlarsson/bfstats-web",
     extraLinks: [
@@ -119,24 +129,56 @@ export default [
     githubLink: "https://github.com/leonlarsson/zeppelin-case-stats"
   },
   {
+    slug: "timestamper-bot",
+    name: "Timestamper Discord Bot",
+    description: "An experimental Discord bot that provides utility commands to build and play with Discord timestamps.\nBuilt fully with Cloudflare Workers.",
+    shortDescription: "An Discord bot that makes using Discord timestamps easier.",
+    year: "2022",
+    tags: [tags.CLOUDFLARE_WORKERS, tags.TS],
+    link: "https://github.com/leonlarsson/timestamper-bot",
+    hidePreview: true
+  },
+  {
     slug: "redirect-link-service",
     name: "Redirect / Link Service",
     description: "Small project built with Discord workers. Think of it like Linktree, but much worse.",
     shortDescription: "A much worse version of Linktree.",
-    year: "2023",
+    year: "2022",
     tags: [tags.CLOUDFLARE_WORKERS, tags.TS],
     link: "https://x.leon.ms/",
     githubLink: "https://github.com/leonlarsson/link-redirector-worker"
   },
   {
-    slug: "the-finals-leaderboard",
-    name: "THE FINALS Leaderboard",
-    description: "A fun project that creates a better leaderboard for the game THE FINALS from Embark Studios.\nBuilt with React + Vite.",
-    shortDescription: "An external leaderboard for the game THE FINALS.",
-    year: "2023",
-    tags: [tags.REACT, tags.VITE],
-    link: "https://the-finals-leaderboard.leonlarsson.com/",
-    githubLink: "https://github.com/leonlarsson/the-finals-leaderboard"
+    slug: "bloodhunt-stats",
+    name: "Bloodhunt Stats Discord Bot",
+    description: "A Discord bot that provides on demand Bloodhunt statistics in Discord, built in Node.js.\nIn addition, I built an API that reports some basic usage.\nBuilt on the same foundations I created for the Battlefield Stats Discord bot.\nBuilt as part of my role at Sharkmob.",
+    shortDescription: "A bot that provides Bloodhunt stats right inside Discord.",
+    year: "2022",
+    tags: [tags.NODE, tags.DISCORDJS, tags.CLOUDFLARE_WORKERS, tags.API, tags.JS],
+    link: "https://discord.com/api/oauth2/authorize?client_id=979116430802972732&permissions=0&scope=bot%20applications.commands",
+    hidePreview: true,
+    extraLinks: [
+      {
+        name: "API",
+        link: "https://bhstats-api.leonlarsson.com/",
+        type: "link"
+      },
+      {
+        name: "API Source",
+        link: "https://github.com/leonlarsson/bhstats-api",
+        type: "github"
+      }
+    ]
+  },
+  {
+    slug: "embed-worker",
+    name: "Embed Worker",
+    description: "A tiny test project that lets you create custom Open Graph embeds.\nPowered by Cloudflare Workers.",
+    shortDescription: "A tiny test project that lets you create custom Open Graph embeds.",
+    year: "2022",
+    tags: [tags.CLOUDFLARE_WORKERS, tags.TS],
+    link: "https://embed-worker.ragnarok.workers.dev/",
+    githubLink: "https://github.com/leonlarsson/embed-worker"
   },
   {
     slug: "react-ant-design-ui",
@@ -149,6 +191,16 @@ export default [
     githubLink: "https://github.com/leonlarsson/react-ant-design-ui"
   },
   {
+    slug: "the-finals-leaderboard",
+    name: "THE FINALS Leaderboard",
+    description: "A fun project that creates a better leaderboard for the game THE FINALS from Embark Studios.\nBuilt with React + Vite.",
+    shortDescription: "An external leaderboard for the game THE FINALS.",
+    year: "2023",
+    tags: [tags.REACT, tags.VITE],
+    link: "https://the-finals-leaderboard.leonlarsson.com/",
+    githubLink: "https://github.com/leonlarsson/the-finals-leaderboard"
+  },
+  {
     slug: "bloodhunt-arg",
     name: "Bloodhunt ARG",
     description: "A project I built for my role at Sharkmob. It is an ARG that we held for players that hundreds of players interacted with.",
@@ -156,6 +208,16 @@ export default [
     year: "2023",
     tags: [tags.CLOUDFLARE_WORKERS, tags.CLOUDFLARE_PAGES, tags.HTML, tags.CSS, tags.TS],
     link: "https://omnis.pages.dev/"
+  },
+  {
+    slug: "leon-home",
+    name: "This website",
+    description: "This is the website you're currently on. It was created using Next.js 13 and was built with Tailwind.",
+    shortDescription: "Leon's personal website.",
+    year: "2023",
+    tags: [tags.REACT, tags.NEXT, tags.TAILWIND, tags.TS],
+    link: "/",
+    githubLink: "https://github.com/leonlarsson/leon-home"
   },
   {
     slug: "guestbook",
@@ -184,6 +246,7 @@ export type Project = {
   year?: string;
   tags?: string[];
   link?: string;
+  hidePreview?: boolean;
   githubLink?: string;
   extraLinks?: {
     name: string;
