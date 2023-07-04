@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import Search from "./_components/Search";
+import Tag from "./_components/Tag";
 import projectsData from "./projects";
 import type { Project } from "./projects";
 
@@ -81,9 +82,7 @@ const Project = ({ project }: { project: Project }) => {
         {project.tags && (
           <div className="mt-1 flex flex-wrap gap-1">
             {project.tags.sort().map(tag => (
-              <div key={tag} className="tag-pill">
-                {tag}
-              </div>
+              <Tag key={tag} tag={tag} />
             ))}
           </div>
         )}

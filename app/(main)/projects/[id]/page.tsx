@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import projects from "../projects";
+import Tag from "../_components/Tag";
 
 const getProject = (id: string) => projects.find(project => project.projectId === parseInt(id));
 
@@ -60,11 +61,9 @@ export default ({ params }: { params: { id: string } }) => {
 
           {project.tags && (
             <div className="mb-3 mt-1 flex flex-wrap justify-center gap-1">
-              {project.year && <div className="tag-pill">{project.year}</div>}
+              {project.year && <Tag tag={project.year} clickable={true} />}
               {project.tags.sort().map(tag => (
-                <div key={tag} className="tag-pill">
-                  {tag}
-                </div>
+                <Tag key={tag} tag={tag} clickable={true} />
               ))}
             </div>
           )}
