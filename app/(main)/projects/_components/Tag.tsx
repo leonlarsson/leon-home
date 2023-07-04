@@ -8,7 +8,7 @@ export default ({ tag, clickable }: { tag: string; clickable?: boolean }) => {
   const className = `tag-pill ${clickable && "border border-transparent hover:border-blue-700"}`;
 
   return clickable ? (
-    <button className={className} title={`See other projects with the tag "${tag.toUpperCase()}".`} onClick={() => router.push(`/projects?search=${tag}`)}>
+    <button className={className} title={`See other projects with the tag "${tag}".`} onClick={() => router.push(`/projects?search=${tag}`)}>
       {tag}
     </button>
   ) : (
