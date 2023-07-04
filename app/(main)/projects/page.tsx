@@ -57,7 +57,7 @@ const Projects = ({ projects }: { projects: Project[] }) => {
     // Use grid with 2 cols until medium, then use 1 col. Additionally, use 1 col if there is a single project
     <div className={`grid gap-3 ${projects.length === 1 ? "grid-cols-1" : "grid-cols-1 md:grid-cols-2"}`}>
       {projects.map(project => (
-        <Project key={project.projectId} project={project} />
+        <Project key={project.slug} project={project} />
       ))}
     </div>
   );
@@ -66,7 +66,7 @@ const Projects = ({ projects }: { projects: Project[] }) => {
 const Project = ({ project }: { project: Project }) => {
   return (
     <div className="flex rounded border border-black text-start transition-colors dark:border-kinda-white/50 dark:hover:border-kinda-white">
-      <Link href={`/projects/${project.projectId}`} className="group flex flex-1 flex-col p-3 transition-colors hover:bg-black hover:text-white dark:hover:bg-inherit" draggable={false} title={`See more info on project ${project.name}.`}>
+      <Link href={`/projects/${project.slug}`} className="group flex flex-1 flex-col p-3 transition-colors hover:bg-black hover:text-white dark:hover:bg-inherit" draggable={false} title={`See more info on project ${project.name}.`}>
         <span className="text-lg font-bold">
           <i className="fa-solid fa-arrow-right me-2 transition-transform group-hover:translate-x-1" />
           {project.name}{" "}

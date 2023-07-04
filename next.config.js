@@ -5,7 +5,7 @@ const nextConfig = {
   }
   // redirects: () => {
   //   return projects.map(project => ({
-  //     source: `/projects/${project.projectId}/go`,
+  //     source: `/projects/${project.slug}/go`,
   //     destination: project.link
   //   }));
   // }

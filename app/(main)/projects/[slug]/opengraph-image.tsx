@@ -3,12 +3,12 @@ import projects from "../projects";
 
 export const runtime = "edge";
 
-export default async ({ params }: { params: { id: string } }) => {
+export default async ({ params }: { params: { slug: string } }) => {
   const regularFont = fetch(new URL("/public/assets/fonts/Inter-Regular.ttf", import.meta.url)).then(res => res.arrayBuffer());
   const avatar = fetch(new URL("/public/assets/images/avatar.png", import.meta.url)).then(res => res.arrayBuffer());
   const [regularFontData, avatarData] = await Promise.all([regularFont, avatar]);
 
-  const project = projects.find(project => project.projectId === parseInt(params.id));
+  const project = projects.find(project => project.slug === params.slug);
 
   return new ImageResponse(
     (
@@ -18,7 +18,7 @@ export default async ({ params }: { params: { id: string } }) => {
         <div tw="text-[30px] mb-2">Project</div>
         <div tw="text-[50px] font-[900]">{project?.name ?? "Project #404"}</div>
         <div tw="text-[26px] px-8">{project?.shortDescription ?? "You found Project #404."}</div>
-        <div tw="flex absolute top-[565px] left-[15px] text-lg">leonlarsson.com/projects/{params.id.slice(0, 30)}</div>
+        <div tw="flex absolute top-[565px] left-[15px] text-lg">leonlarsson.com/projects/{params.slug.slice(0, 30)}</div>
       </div>
     ),
     {
