@@ -92,7 +92,7 @@ export default [
     description: "My largest and most successful project by far. A Discord bot that provides on demand Battlefield statistics in Discord.\nUsed by thousands of users in thousands of Discord servers. Built in Node.js.\nI have also built a website and an API for this project.",
     shortDescription: "A bot that provides Battlefield stats right inside Discord.",
     year: "2021",
-    tags: [tags.NODE, tags.DISCORDJS, tags.CLOUDFLARE_WORKERS, tags.API, tags.REACT, tags.NEXT, tags.JS],
+    tags: [tags.NODE, tags.DISCORDJS, tags.CLOUDFLARE_WORKERS, tags.API, tags.REACT, tags.NEXT, tags.JS, tags.TS],
     link: "https://battlefieldstats.com/",
     githubLink: "https://github.com/leonlarsson/bfstats-web",
     extraLinks: [
