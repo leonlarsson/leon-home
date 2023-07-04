@@ -26,7 +26,7 @@ export default () => {
         </Link>
 
         <Link className="button-link group" href="/guestbook" draggable={false}>
-          <i className="fa-solid fa-book" /> Guestbook
+          <i className="fa-solid fa-book transition-transform group-hover:-rotate-12" /> Guestbook
         </Link>
 
         <ProfileLink title="English CV" url="/cv" icon={<i className="fa-solid fa-file-text" />} newTab={false} />
