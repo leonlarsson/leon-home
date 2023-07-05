@@ -108,10 +108,14 @@ export default ({ params }: { params: { slug: string } }) => {
           {/* Only render images if the exist */}
           {project.images && (
             <div className="mt-5">
-              <span className="text-lg font-bold">Images:</span>
-              <div className="space-y-2">
+              <span className="text-lg font-bold">Image{project.images.length > 1 && "s"}:</span>
+              {/* Style: display as many cols as there are images */}
+              <div className={`container mx-auto grid gap-2 grid-cols-${project.images.length} max-lg:grid-cols-1`}>
                 {project.images.map((image, index) => (
-                  <Image key={index} src={image} alt={`Project image for ${project.name}.`} className="m-auto rounded-lg border border-kinda-black dark:border-kinda-white" priority />
+                  <div className="w-full rounded">
+                    {/* Style: Only use w-full if more than 1 image and on lg and up. Lower than lg means 1 col, where we should not stretch images */}
+                    <Image key={index} src={image} alt={`Project image for ${project.name}.`} className={`m-auto ${project.images.length > 1 ? "lg:w-full" : ""} rounded-lg border border-kinda-black dark:border-kinda-white/50`} priority placeholder="blur" />
+                  </div>
                 ))}
               </div>
             </div>
