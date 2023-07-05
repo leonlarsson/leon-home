@@ -110,7 +110,7 @@ export default ({ params }: { params: { slug: string } }) => {
             <div className="mt-5">
               <span className="text-lg font-bold">Image{project.images.length > 1 && "s"}:</span>
               {/* Style: display as many cols as there are images */}
-              <div className={`container mx-auto grid gap-2 grid-cols-${project.images.length} max-lg:grid-cols-1`}>
+              <div className={`container mx-auto grid gap-2 ${project.images.length === 1 ? "grid-cols-1" : ""} ${project.images.length === 2 ? "grid-cols-2" : ""} ${project.images.length === 3 ? "grid-cols-3" : ""} max-lg:grid-cols-1`}>
                 {project.images.map((image, index) => (
                   <div className="w-full rounded">
                     {/* Style: Only use w-full if more than 1 image and on lg and up. Lower than lg means 1 col, where we should not stretch images */}
