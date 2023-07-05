@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import type { Metadata } from "next";
 import projects from "../projects";
 import Tag from "../_components/Tag";
@@ -98,10 +99,22 @@ export default ({ params }: { params: { slug: string } }) => {
 
           {/* Only render preview if project.link exists */}
           {!project.hidePreview && project.link && (
-            <details className="m-auto my-5 rounded border border-black transition-colors open:bg-black open:text-white hover:bg-black hover:text-white dark:border-kinda-white/50 dark:open:bg-inherit dark:hover:border-kinda-white dark:hover:bg-inherit max-xl:min-w-[70vw] lg:w-[80vw] 2xl:w-[1300px]">
+            <details className="m-auto mt-5 rounded border border-black transition-colors open:bg-black open:text-white hover:bg-black hover:text-white dark:border-kinda-white/50 dark:open:bg-inherit dark:hover:border-kinda-white dark:hover:bg-inherit max-xl:min-w-[70vw] lg:w-[80vw] 2xl:w-[1300px]">
               <summary className="cursor-pointer p-2 text-lg font-semibold">Preview {project.slug === "leon-home" && "(Inception style)"}</summary>
               <iframe src={project.link} className="h-[500px] w-full rounded bg-white lg:h-[500px] xl:h-[700px]"></iframe>
             </details>
+          )}
+
+          {/* Only render images if the exist */}
+          {project.images && (
+            <div className="mt-5">
+              <span className="text-lg font-bold">Images:</span>
+              <div className="space-y-2">
+                {project.images.map((image, index) => (
+                  <Image key={index} src={image} alt={`Project image for ${project.name}.`} className="m-auto rounded-lg border border-kinda-black dark:border-kinda-white" priority />
+                ))}
+              </div>
+            </div>
           )}
         </div>
       ) : (

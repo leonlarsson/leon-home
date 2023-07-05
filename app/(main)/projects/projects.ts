@@ -1,3 +1,10 @@
+import { StaticImageData } from "next/image";
+import battlebotImage1 from "./images/battlebot1.png";
+import battlebotImage2 from "./images/battlebot2.png";
+import battlefieldStatsImage from "./images/battlefieldstats.png";
+import timestamperImage from "./images/timestamper.png";
+import bloodhuntBotImage from "./images/bloodhunt.png";
+
 const tags = {
   HTML: "HTML",
   CSS: "CSS",
@@ -84,7 +91,8 @@ export default [
     description: "This is a bot we use on the Battlefield Discord. It provides moderation utilities for moderators as well as a few fun and helpful features for users.",
     shortDescription: "A bot that provides utility and fun in the Battlefield Discord.",
     year: "2021",
-    tags: [tags.NODE, tags.DISCORDJS, tags.JS]
+    tags: [tags.NODE, tags.DISCORDJS, tags.JS],
+    images: [battlebotImage1, battlebotImage2]
   },
   {
     slug: "battlefield-stats",
@@ -93,6 +101,7 @@ export default [
     shortDescription: "A bot that provides Battlefield stats right inside Discord.",
     year: "2021",
     tags: [tags.NODE, tags.DISCORDJS, tags.CLOUDFLARE_WORKERS, tags.API, tags.REACT, tags.NEXT, tags.JS, tags.TS],
+    images: [battlefieldStatsImage],
     link: "https://battlefieldstats.com/",
     githubLink: "https://github.com/leonlarsson/bfstats-web",
     extraLinks: [
@@ -135,6 +144,7 @@ export default [
     shortDescription: "An Discord bot that makes using Discord timestamps easier.",
     year: "2022",
     tags: [tags.CLOUDFLARE_WORKERS, tags.TS],
+    images: [timestamperImage],
     link: "https://github.com/leonlarsson/timestamper-bot",
     hidePreview: true
   },
@@ -155,6 +165,7 @@ export default [
     shortDescription: "A bot that provides Bloodhunt stats right inside Discord.",
     year: "2022",
     tags: [tags.NODE, tags.DISCORDJS, tags.CLOUDFLARE_WORKERS, tags.API, tags.JS],
+    images: [bloodhuntBotImage],
     link: "https://discord.com/api/oauth2/authorize?client_id=979116430802972732&permissions=0&scope=bot%20applications.commands",
     hidePreview: true,
     extraLinks: [
@@ -245,6 +256,7 @@ export type Project = {
   shortDescription: string;
   year?: string;
   tags?: string[];
+  images?: StaticImageData[];
   link?: string;
   hidePreview?: boolean;
   githubLink?: string;
