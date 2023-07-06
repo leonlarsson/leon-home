@@ -66,7 +66,7 @@ const Projects = ({ projects }: { projects: Project[] }) => {
 const Project = ({ project }: { project: Project }) => {
   return (
     <div className="flex rounded border border-black text-start transition-colors dark:border-kinda-white/50 dark:hover:border-kinda-white">
-      <Link href={`/projects/${project.slug}`} className="group flex flex-1 flex-col p-3 transition-colors hover:bg-black hover:text-white dark:hover:bg-inherit" draggable={false} title={`See more info on project ${project.name}.`}>
+      <Link href={`/projects/${project.slug}`} className="group flex flex-1 flex-col p-3 transition-colors hover:bg-black hover:text-white dark:hover:bg-transparent" draggable={false} title={`See more info on project ${project.name}.`}>
         <span className="text-lg font-bold">
           <i className="fa-solid fa-arrow-right me-2 transition-transform group-hover:translate-x-1" />
           {project.name}{" "}
@@ -94,7 +94,7 @@ const Project = ({ project }: { project: Project }) => {
         <>
           <div className="my-3 w-px bg-gray-300" />
 
-          <Link className="group flex items-center px-3 transition-colors hover:bg-black hover:text-white dark:hover:bg-inherit" href={project.link} target={!project.link.startsWith("http") ? "_self" : "_blank"} draggable={false} title={`Go to project ${project.name}.`}>
+          <Link className="group flex items-center px-3 transition-colors hover:bg-black hover:text-white dark:hover:bg-transparent" href={project.link} target={!project.link.startsWith("http") ? "_self" : "_blank"} draggable={false} title={`Go to project ${project.name}.`}>
             <i className="fa-solid fa-up-right-from-square fa-lg mx-1 transition-transform group-hover:scale-[1.18]" />
           </Link>
         </>
