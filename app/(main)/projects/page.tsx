@@ -66,23 +66,21 @@ const Projects = ({ projects }: { projects: Project[] }) => {
 const Project = ({ project }: { project: Project }) => {
   return (
     <div className="flex rounded border border-black text-start transition-colors dark:border-kinda-white/50 dark:hover:border-kinda-white">
-      <div className="group flex-1 transition-colors hover:bg-black hover:text-white dark:hover:bg-inherit">
-        <Link href={`/projects/${project.slug}`} className="flex flex-col p-3 pb-0" draggable={false} title={`See more info on project ${project.name}.`}>
-          <span className="text-lg font-bold">
-            <i className="fa-solid fa-arrow-right me-2 transition-transform group-hover:translate-x-1" />
-            {project.name}{" "}
-            {project.year && (
-              <span className="font-mono text-sm text-gray-600 transition-colors group-hover:text-gray-300 dark:text-gray-400 dark:group-hover:text-gray-400" title={`First released ${project.year}.`}>
-                ({project.year})
-              </span>
-            )}
-          </span>
+      <Link href={`/projects/${project.slug}`} className="group flex flex-1 flex-col p-3 transition-colors hover:bg-black hover:text-white dark:hover:bg-inherit" draggable={false} title={`See more info on project ${project.name}.`}>
+        <span className="text-lg font-bold">
+          <i className="fa-solid fa-arrow-right me-2 transition-transform group-hover:translate-x-1" />
+          {project.name}{" "}
+          {project.year && (
+            <span className="font-mono text-sm text-gray-600 transition-colors group-hover:text-gray-300 dark:text-gray-400 dark:group-hover:text-gray-400" title={`First released ${project.year}.`}>
+              ({project.year})
+            </span>
+          )}
+        </span>
 
-          <span>{project.shortDescription}</span>
-        </Link>
+        <span>{project.shortDescription}</span>
 
         {project.tags && (
-          <div className="mt-1 flex max-w-xl flex-wrap gap-1 pb-3 ps-3">
+          <div className="mt-1 flex max-w-xl flex-wrap gap-1">
             {project.tags
               .sort((a, b) => a.localeCompare(b))
               .map(tag => (
@@ -90,7 +88,7 @@ const Project = ({ project }: { project: Project }) => {
               ))}
           </div>
         )}
-      </div>
+      </Link>
 
       {project.link && (
         <>
