@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 export default ({ tag, clickable }: { tag: string; clickable?: boolean }) => {
   const router = useRouter();
 
-  const className = `tag-pill ${clickable && "border border-transparent hover:border-blue-700"}`;
+  const className = `tag-pill ${clickable && "border-2 border-transparent hover:border-blue-700"}`;
 
   return clickable ? (
     <button
