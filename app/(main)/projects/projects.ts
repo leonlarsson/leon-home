@@ -23,8 +23,7 @@ const tags = {
   VITE: "Vite",
   ANTD: "Ant Design",
   API: "API",
-  CLOUDFLARE_WORKERS: "Cloudflare Workers",
-  CLOUDFLARE_PAGES: "Cloudflare Pages"
+  CLOUDFLARE_WORKERS: "Cloudflare Workers"
 };
 
 export default [
@@ -224,7 +223,7 @@ export default [
     description: "A project I built for my role at Sharkmob. It is an ARG that we held for players that hundreds of players interacted with.",
     shortDescription: "The official website for the Bloodhunt ARG, 'The Omnis Challenge'.",
     year: "2023",
-    tags: [tags.CLOUDFLARE_WORKERS, tags.CLOUDFLARE_PAGES, tags.HTML, tags.CSS, tags.TS],
+    tags: [tags.CLOUDFLARE_WORKERS, tags.HTML, tags.CSS, tags.TS, tags.API],
     link: "https://omnis.pages.dev/"
   },
   {
