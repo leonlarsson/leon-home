@@ -5,24 +5,27 @@ import Tag from "./_components/Tag";
 import projectsData from "./projects";
 import type { Project } from "./projects";
 
-const pageTitle = "Projects | Leon San José Larsson";
-const pageDescription = "Links to projects.";
+export const generateMetadata = ({ searchParams }: { searchParams: { search: string } }): Metadata => {
+  const search = searchParams.search;
+  const pageTitle = `Projects${search ? ` matching "${search}"` : ""} | Leon San José Larsson`;
+  const pageDescription = `Leon's projects${search ? ` matching "${search}"` : ""}.`;
 
-export const metadata: Metadata = {
-  title: pageTitle,
-  description: pageDescription,
-  openGraph: {
-    type: "website",
-    url: "https://leonlarsson.com/projects",
-    title: pageTitle,
-    description: pageDescription
-  },
-  twitter: {
-    card: "summary_large_image",
+  return {
     title: pageTitle,
     description: pageDescription,
-    creator: "@mozzyfx"
-  }
+    openGraph: {
+      type: "website",
+      url: "https://leonlarsson.com/projects",
+      title: pageTitle,
+      description: pageDescription
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: pageTitle,
+      description: pageDescription,
+      creator: "@mozzyfx"
+    }
+  };
 };
 
 export default ({ searchParams }: { searchParams: Record<string, string> }) => {
