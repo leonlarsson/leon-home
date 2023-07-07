@@ -37,7 +37,7 @@ export default [
     name: "The Battlefield Discord",
     description:
       "The Battlefield Discord is a community Discord server for the Battlefield franchise.\nI have been helping build this community since 2016, and I am currently one of the owners.\nFrom 2018 to 2022, it was the official Discord server for the Battlefield franchise.\nI have seen it go from a couple thousand members to over 170,000 members.\nWe've always worked closely with EA/DICE.",
-    shortDescription: "The Battlefield Discord is a Discord server for the Battlefield franchise.",
+    shortDescription: "The biggest and most successful Battlefield Discord server.",
     year: "2016",
     tags: [tags.COMMUNITY, tags.MODERATION],
     images: [bfd1, bfd2],
@@ -77,7 +77,7 @@ export default [
   {
     slug: "log-sorter",
     name: "Log Sorter",
-    description: "My first actual useful project. It aims to help (Discord) moderators sort through massive amounts of logs in order to combat bot accounts.",
+    description: "My first actual useful project. It aims to help (Discord) moderators sort through massive amounts of logs in order to combat bot accounts.\nIt has proven to be very useful and has helped a lot of moderators.",
     shortDescription: "Also known as Mozzy's Log Sorter. A log-filtering website for moderators.",
     year: "2021",
     tags: [tags.HTML, tags.CSS, tags.JS],
@@ -237,7 +237,7 @@ export default [
   {
     slug: "bloodhunt-arg",
     name: "Bloodhunt ARG",
-    description: "A project I built for my role at Sharkmob. It is an ARG that we held for players that hundreds of players interacted with.",
+    description: "A project I built for my role at Sharkmob. It was an ARG that we created for the game Bloodhunt.\nOver 500 unique users from 50 different countries participated in the ARG.\nIt was a massive success in terms of satisfaction and engagement.",
     shortDescription: "The official website for the Bloodhunt ARG, 'The Omnis Challenge'.",
     year: "2023",
     tags: [tags.CLOUDFLARE_WORKERS, tags.HTML, tags.CSS, tags.TS, tags.API],
@@ -246,8 +246,8 @@ export default [
   {
     slug: "leon-home",
     name: "This website",
-    description: "This is the website you're currently on. It was created using Next.js 13 and was built with Tailwind.",
-    shortDescription: "Leon's personal website.",
+    description: "This is the website you're currently on. It is powered by Next.js 13 on Vercel and is styled with Tailwind.",
+    shortDescription: "Leon's personal website. You are currently on it.",
     year: "2023",
     tags: [tags.REACT, tags.NEXT, tags.TAILWIND, tags.TS],
     link: "/",
