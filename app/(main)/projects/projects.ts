@@ -1,4 +1,6 @@
 import { StaticImageData } from "next/image";
+import bfd1 from "./images/bfd1.png";
+import bfd2 from "./images/bfd2.png";
 import battlebotImage1 from "./images/battlebot1.png";
 import battlebotImage2 from "./images/battlebot2.png";
 import battlefieldStatsImage1 from "./images/battlefieldstats1.png";
@@ -23,10 +25,24 @@ const tags = {
   VITE: "Vite",
   ANTD: "Ant Design",
   API: "API",
-  CLOUDFLARE_WORKERS: "Cloudflare Workers"
+  CLOUDFLARE_WORKERS: "Cloudflare Workers",
+  COMMUNITY: "Community",
+  MODERATION: "Moderation"
 };
 
 export default [
+  {
+    slug: "battlefield-discord",
+    name: "The Battlefield Discord",
+    description:
+      "The Battlefield Discord is a community Discord server for the Battlefield franchise.\nI have been helping build this community since 2016, and I am currently one of the owners.\nFrom 2018 to 2022, it was the official Discord server for the Battlefield franchise.\nI have seen it go from a couple thousand members to over 170,000 members.\nWe've always worked closely with EA/DICE.",
+    shortDescription: "The Battlefield Discord is a Discord server for the Battlefield franchise.",
+    year: "2016",
+    tags: [tags.COMMUNITY, tags.MODERATION],
+    images: [bfd1, bfd2],
+    link: "https://discord.gg/battlefield",
+    hidePreview: true
+  },
   {
     slug: "bfv-menu-playground",
     name: "Battlefield V Menu Playground",
