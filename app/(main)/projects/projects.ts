@@ -25,6 +25,7 @@ const tags = {
   VITE: "Vite",
   ANTD: "Ant Design",
   API: "API",
+  DATABASE: "Database",
   CLOUDFLARE_WORKERS: "Cloudflare Workers",
   COMMUNITY: "Community",
   MODERATION: "Moderation"
@@ -120,7 +121,7 @@ export default [
     description: "My largest and most successful project by far. A Discord bot that provides on demand Battlefield statistics in Discord.\nUsed by thousands of users in thousands of Discord servers. Built in Node.js.\nI have also built a website and an API for this project.",
     shortDescription: "A bot that provides Battlefield stats right inside Discord.",
     year: "2021",
-    tags: [tags.NODE, tags.DISCORDJS, tags.CLOUDFLARE_WORKERS, tags.API, tags.REACT, tags.NEXT, tags.JS, tags.TS],
+    tags: [tags.NODE, tags.DISCORDJS, tags.CLOUDFLARE_WORKERS, tags.API, tags.REACT, tags.NEXT, tags.JS, tags.TS, tags.DATABASE],
     images: [battlefieldStatsImage1, battlefieldStatsImage2],
     link: "https://battlefieldstats.com/",
     githubLink: "https://github.com/leonlarsson/bfstats-web",
@@ -258,7 +259,7 @@ export default [
     description: "A guestbook for my personal website. It uses Next.js experimental Server Actions and Cloudflare D1.\nIt uses authentication from NextAuth.js.",
     shortDescription: "A guestbook powered by Next.js Server Actions and Cloudflare D1.",
     year: "2023",
-    tags: [tags.CLOUDFLARE_WORKERS, tags.REACT, tags.NEXT, tags.TAILWIND, tags.TS, tags.API],
+    tags: [tags.CLOUDFLARE_WORKERS, tags.REACT, tags.NEXT, tags.TAILWIND, tags.TS, tags.API, tags.DATABASE],
     link: "/guestbook",
     githubLink: "https://github.com/leonlarsson/leon-home/tree/main/app/(main)/guestbook",
     extraLinks: [
