@@ -14,15 +14,7 @@ export default async () => {
         {/* @ts-ignore src is confused */}
         <img tw="rounded-full shadow-xl" src={avatarData} width={100} height={100} />
         <div tw="text-[40px] font-[900]">Leon's Projects</div>
-        {projects.map(project => (
-          <div tw="text-lg font-semibold flex" key={project.slug}>
-            <svg fill="none" height="24" width="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" viewBox="0 0 24 24">
-              <path d="M5 12h14" />
-              <path d="M12 5l7 7-7 7" />
-            </svg>
-            {project.name}
-          </div>
-        ))}
+        <div tw="flex text-[20px]">{projects.length} projects and counting</div>
         <div tw="flex absolute top-[565px] left-[15px] text-lg">leonlarsson.com/projects</div>
       </div>
     ),
