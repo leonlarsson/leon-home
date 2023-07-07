@@ -75,7 +75,8 @@ const Project = ({ project }: { project: Project }) => {
           {project.name}{" "}
           {project.year && (
             <span className="font-mono text-sm text-gray-600 transition-colors group-hover:text-gray-300 dark:text-gray-400 dark:group-hover:text-gray-400" title={`First released ${project.year}.`}>
-              ({project.year})
+              ({project.year}
+              {project.endYear && `-${project.endYear}`})
             </span>
           )}
         </span>

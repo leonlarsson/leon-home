@@ -278,6 +278,7 @@ export type Project = {
   description: string;
   shortDescription: string;
   year?: string;
+  endYear?: string;
   tags?: string[];
   images?: StaticImageData[];
   link?: string;
