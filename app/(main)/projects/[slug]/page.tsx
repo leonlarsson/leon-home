@@ -79,7 +79,7 @@ export default ({ params }: { params: { slug: string } }) => {
               <div className="flex flex-wrap justify-center gap-2">
                 {project.link && (
                   <Link href={project.link} target={!project.link.startsWith("http") ? "_self" : "_blank"} className="button-with-border" draggable={false}>
-                    Go to project <i className="fa-solid fa-link" />
+                    {project.linkName ?? "Go to project"} <i className="fa-solid fa-link" />
                   </Link>
                 )}
 

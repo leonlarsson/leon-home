@@ -42,6 +42,7 @@ export default [
     tags: [tags.COMMUNITY, tags.MODERATION],
     images: [bfd1, bfd2],
     link: "https://discord.gg/battlefield",
+    linkName: "Go to Discord",
     hidePreview: true
   },
   {
@@ -189,6 +190,7 @@ export default [
     tags: [tags.NODE, tags.DISCORDJS, tags.CLOUDFLARE_WORKERS, tags.API, tags.JS],
     images: [bloodhuntStatsImage1],
     link: "https://discord.com/api/oauth2/authorize?client_id=979116430802972732&permissions=0&scope=bot%20applications.commands",
+    linkName: "Add to Discord",
     hidePreview: true,
     extraLinks: [
       {
@@ -282,6 +284,7 @@ export type Project = {
   tags?: string[];
   images?: StaticImageData[];
   link?: string;
+  linkName?: string;
   hidePreview?: boolean;
   githubLink?: string;
   extraLinks?: {
