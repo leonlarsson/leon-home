@@ -1,5 +1,5 @@
 import { ImageResponse } from "next/server";
-import projects from "./projects";
+import projects from "./data";
 
 export const runtime = "edge";
 

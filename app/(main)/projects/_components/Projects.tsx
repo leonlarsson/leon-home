@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Project } from "../projects";
+import type { Project } from "../data";
 import Tag from "./Tag";
 
 export default ({ projects }: { projects: Project[] }) => {

@@ -2,7 +2,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import Search from "./_components/Search";
 import Projects from "./_components/Projects";
-import projectsData from "./projects";
+import projectsData from "./data";
 
 export const generateMetadata = ({ searchParams }: { searchParams: { search: string } }): Metadata => {
   const search = searchParams.search;
