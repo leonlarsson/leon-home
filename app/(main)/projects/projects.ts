@@ -270,7 +270,7 @@ export default [
       }
     ]
   }
-] satisfies Project[];
+] satisfies Project[] as Project[];
 
 export type Project = {
   slug: string;

@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import type { Metadata } from "next";
 import projects from "../projects";
+import Projects from "../_components/Projects";
 import Tag from "../_components/Tag";
 
 const getProject = (slug: string) => projects.find(project => project.slug === slug);
@@ -114,7 +115,7 @@ export default ({ params }: { params: { slug: string } }) => {
                 {project.images.map((image, index) => (
                   <div className="w-full rounded">
                     {/* Style: Only use w-full if more than 1 image and on lg and up. Lower than lg means 1 col, where we should not stretch images */}
-                    <Image key={index} src={image} quality={100} alt={`Project image for ${project.name}.`} className={`m-auto ${project.images.length > 1 ? "lg:w-full" : ""} rounded-lg border border-kinda-black dark:border-kinda-white/50`} priority placeholder="blur" />
+                    <Image key={index} src={image} quality={100} alt={`Project image for ${project.name}.`} className={`m-auto ${project.images!.length > 1 ? "lg:w-full" : ""} rounded-lg border border-kinda-black dark:border-kinda-white/50`} priority placeholder="blur" />
                   </div>
                 ))}
               </div>
@@ -122,7 +123,19 @@ export default ({ params }: { params: { slug: string } }) => {
           )}
         </div>
       ) : (
-        <span className="text-lg text-red-500 dark:text-red-400">No project found for "{decodeURIComponent(params.slug)}"</span>
+        <div className="mt-1">
+          <span className="text-red-500 dark:text-red-400">
+            Project <span className="rounded bg-black p-1 font-semibold text-white dark:bg-kinda-white dark:text-kinda-black">{decodeURIComponent(params.slug)}</span> not found
+          </span>
+
+          {projects.filter(project => project.slug.includes(params.slug)).length > 0 && (
+            <>
+              <br />
+              <span>Maybe you were looking for:</span>
+              <Projects projects={projects.filter(project => project.slug.includes(params.slug))} />
+            </>
+          )}
+        </div>
       )}
     </div>
   );
