@@ -243,7 +243,8 @@ export default [
     shortDescription: "The official website for the Bloodhunt ARG, 'The Omnis Challenge'.",
     year: "2023",
     tags: [tags.CLOUDFLARE_WORKERS, tags.HTML, tags.CSS, tags.TS, tags.API],
-    link: "https://omnis.pages.dev/"
+    link: "https://omnis.pages.dev/",
+    githubLink: "https://github.com/leonlarsson/omnis-arg-public"
   },
   {
     slug: "leon-home",
