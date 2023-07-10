@@ -1,4 +1,4 @@
-import { SignOut } from "./AuthButtons";
+import { SignOut } from "../../components/AuthButtons";
 
 export default ({ name }: { name: string }) => (
   <span className="text-sm">

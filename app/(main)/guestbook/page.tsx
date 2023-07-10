@@ -3,10 +3,10 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { getServerSession } from "next-auth";
 import { getRequireAuth } from "./lib/actions";
-import { SignInDiscord, SignInGitHub } from "./_components/AuthButtons";
-import SendMessageSection from "./_components/SendMessageSection";
-import CommenterInfo from "./_components/CommenterInfo";
-import Entries from "./_components/Entries";
+import { SignInDiscord, SignInGitHub } from "../components/AuthButtons";
+import SendMessageSection from "./components/SendMessageSection";
+import CommenterInfo from "./components/CommenterInfo";
+import Entries from "./components/Entries";
 
 const pageTitle = "Guestbook | Leon San José Larsson";
 const pageDescription = "A guestbook where you can send public messages to me.";

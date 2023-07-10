@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/server";
 import { profanity } from "@2toad/profanity";
-import type { Entry } from "./_components/Entries";
+import type { Entry } from "./components/Entries";
 
 export const runtime = "edge";
 
