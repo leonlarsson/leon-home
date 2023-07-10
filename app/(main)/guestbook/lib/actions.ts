@@ -5,7 +5,7 @@ import { get as getEdgeConfig } from "@vercel/edge-config";
 import emojis from "./emojis";
 
 export const getEntries = async (): Promise<Response> => {
-  return await fetch("https://leon-guestbook-api.ragnarok.workers.dev", {
+  return await fetch("https://leon-home.ragnarok.workers.dev/guestbook/entries", {
     headers: { "API-KEY": process.env.API_KEY as string },
     cache: "no-store"
   });
@@ -25,7 +25,7 @@ export const postEntry = async (message: string): Promise<boolean> => {
   // Temp debug log
   console.log({ message, requireAuth, user: session?.user });
 
-  const res = await fetch("https://leon-guestbook-api.ragnarok.workers.dev", {
+  const res = await fetch("https://leon-home.ragnarok.workers.dev/guestbook/entries", {
     method: "POST",
     headers: { "API-KEY": process.env.API_KEY as string },
     cache: "no-store",
@@ -35,7 +35,7 @@ export const postEntry = async (message: string): Promise<boolean> => {
 };
 
 export const deleteEntry = async (idToDelete: string): Promise<boolean> => {
-  const res = await fetch("https://leon-guestbook-api.ragnarok.workers.dev", {
+  const res = await fetch("https://leon-home.ragnarok.workers.dev/guestbook/entries", {
     method: "DELETE",
     headers: { "API-KEY": process.env.API_KEY as string, "id-to-delete": idToDelete },
     cache: "no-store"
