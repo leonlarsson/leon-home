@@ -268,7 +268,7 @@ export default [
     extraLinks: [
       {
         name: "API + DB",
-        link: "https://github.com/leonlarsson/leon-guestbook-api",
+        link: "https://github.com/leonlarsson/leon-home-api",
         type: "github"
       }
     ]
