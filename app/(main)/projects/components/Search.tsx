@@ -8,11 +8,11 @@ export default () => {
   const router = useRouter();
   const searchParams = new URLSearchParams(useSearchParams().toString());
 
-  // On mount and searchParam change, set the state from searchParam
+  // On mount, set the state from searchParam
   useEffect(() => {
     const searchParam = searchParams.get("search");
     setSearchQuery(searchParam ?? "");
-  }, [searchParams.get("search")]);
+  }, []);
 
   return (
     <input
