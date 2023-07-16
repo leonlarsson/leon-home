@@ -1,7 +1,7 @@
 import Link from "next/link";
 import type { Metadata } from "next";
-import Search from "./_components/Search";
-import Projects from "./_components/Projects";
+import Search from "./components/Search";
+import ProjectsGrid from "./components/ProjectsGrid";
 import projectsData from "./data";
 
 export const generateMetadata = ({ searchParams }: { searchParams: { search: string } }): Metadata => {
@@ -48,7 +48,7 @@ export default ({ searchParams }: { searchParams: Record<string, string> }) => {
           </span>
         )}
 
-        <Projects projects={projects} />
+        <ProjectsGrid projects={projects} />
       </div>
     </div>
   );

@@ -2,8 +2,8 @@ import Link from "next/link";
 import Image from "next/image";
 import type { Metadata } from "next";
 import projects from "../data";
-import Projects from "../_components/Projects";
-import Tag from "../_components/Tag";
+import ProjectsGrid from "../components/ProjectsGrid";
+import Tag from "../components/Tag";
 
 const getProject = (slug: string) => projects.find(project => project.slug === slug);
 
@@ -132,7 +132,7 @@ export default ({ params }: { params: { slug: string } }) => {
             <>
               <br />
               <span>Maybe you were looking for:</span>
-              <Projects projects={projects.filter(project => project.slug.includes(params.slug))} />
+              <ProjectsGrid projects={projects.filter(project => project.slug.includes(params.slug))} />
             </>
           )}
         </div>
