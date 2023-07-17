@@ -15,5 +15,5 @@
 }
 
 .button-link {
-  @apply rounded px-1 text-lg font-semibold transition-all hover:bg-black hover:text-white dark:hover:bg-gray-300/10 dark:hover:text-kinda-white;
+  @apply rounded p-1 text-lg font-semibold transition-all hover:bg-black hover:text-white dark:hover:bg-gray-300/10 dark:hover:text-kinda-white;
 }
