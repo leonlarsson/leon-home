@@ -10,28 +10,22 @@ export default () => {
       <Employment title="Community & Support Specialist" companyName="Sharkmob" companyUrl="https://sharkmob.com" />
 
       <div className="mb-1 mt-2 flex flex-wrap justify-center gap-x-1 border-b-slate-900 dark:border-kinda-white max-[651px]:border-b-4">
-        <ProfileLink title="Email" url="mailto:leonlarsson8@gmail.com" icon={<i className="fa-solid fa-envelope" />} />
-        <ProfileLink title="LinkedIn" url="https://www.linkedin.com/in/leonlarsson/" icon={<i className="fa-brands fa-linkedin" />} />
-        <ProfileLink title="Twitter" url="https://twitter.com/MozzyFX" icon={<i className="fa-brands fa-twitter" />} />
-        <ProfileLink title="Instagram" url="https://www.instagram.com/leonsjlarsson/" icon={<i className="fa-brands fa-instagram" />} />
-        <ProfileLink title="GitHub" url="https://github.com/leonlarsson" icon={<i className="fa-brands fa-github" />} />
-        <ProfileLink title="ArtStation" url="https://www.artstation.com/leonlarsson" icon={<i className="fa-brands fa-artstation" />} />
+        <ProfileLink title="Email" url="mailto:leonlarsson8@gmail.com" icon={<i className="fa-solid fa-envelope" />} newTab />
+        <ProfileLink title="LinkedIn" url="https://www.linkedin.com/in/leonlarsson/" icon={<i className="fa-brands fa-linkedin" />} newTab />
+        <ProfileLink title="Twitter" url="https://twitter.com/MozzyFX" icon={<i className="fa-brands fa-twitter" />} newTab />
+        <ProfileLink title="Instagram" url="https://www.instagram.com/leonsjlarsson/" icon={<i className="fa-brands fa-instagram" />} newTab />
+        <ProfileLink title="GitHub" url="https://github.com/leonlarsson" icon={<i className="fa-brands fa-github" />} newTab />
+        <ProfileLink title="ArtStation" url="https://www.artstation.com/leonlarsson" icon={<i className="fa-brands fa-artstation" />} newTab />
       </div>
 
       {/* Used for creating embed images for 900x600 */}
       {/* <div className="absolute left-[15px] top-[565px] text-lg">leonlarsson.com</div> */}
 
       <div className="flex flex-wrap justify-center gap-x-1">
-        <Link className="button-link group" href="/projects" draggable={false}>
-          <i className="fa-solid fa-arrow-right transition-transform group-hover:translate-x-[3px]" /> Projects
-        </Link>
-
-        <Link className="button-link group" href="/guestbook" draggable={false}>
-          <i className="fa-solid fa-book transition-transform group-hover:-rotate-12" /> Guestbook
-        </Link>
-
-        <ProfileLink title="English CV" url="/cv" icon={<i className="fa-solid fa-file-text" />} newTab={false} />
-        <ProfileLink title="Swedish CV" url="/cv-swe" icon={<i className="fa-solid fa-file-text" />} newTab={false} />
+        <ProfileLink title="Projects" url="/projects" icon={<i className="fa-solid fa-arrow-right transition-transform group-hover:translate-x-[3px]" />} />
+        <ProfileLink title="Guestbook" url="/guestbook" icon={<i className="fa-solid fa-book transition-transform group-hover:-rotate-12" />} />
+        <ProfileLink title="English CV" url="/cv" icon={<i className="fa-solid fa-file-text" />} />
+        <ProfileLink title="Swedish CV" url="/cv-swe" icon={<i className="fa-solid fa-file-text" />} />
       </div>
     </div>
   );
@@ -54,8 +48,8 @@ const Employment = ({ title, companyName, companyUrl }: { title: string; company
   );
 };
 
-const ProfileLink = ({ title, url, icon, newTab = true }: { title: string; url: string; icon?: React.ReactNode; newTab?: boolean }) => (
-  <a className="button-link" href={url} target={newTab ? "_blank" : "_self"} draggable={false}>
+const ProfileLink = ({ title, url, icon, newTab }: { title: string; url: string; icon?: React.ReactNode; newTab?: boolean }) => (
+  <Link className="rounded p-1 text-lg font-semibold transition-all hover:bg-black hover:text-white dark:hover:bg-gray-300/10 dark:hover:text-kinda-white group" href={url} target={newTab ? "_blank" : "_self"} draggable={false}>
     {icon} {title}
-  </a>
+  </Link>
 );
