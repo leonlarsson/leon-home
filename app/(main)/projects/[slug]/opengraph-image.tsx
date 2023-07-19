@@ -18,6 +18,13 @@ export default async ({ params }: { params: { slug: string } }) => {
         <div tw="text-[30px] mb-2">Project</div>
         <div tw="text-[50px] font-[900]">{project?.name ?? "Project #404"}</div>
         <div tw="text-[26px] px-8">{project?.shortDescription ?? "You found Project #404."}</div>
+        <div tw="flex flex-wrap justify-center px-7 mt-1">
+          {project?.tags?.map(tag => (
+            <div key={tag} tw="rounded bg-blue-200 px-2 py-1 m-1 text-sm font-bold text-blue-700">
+              {tag}
+            </div>
+          ))}
+        </div>
         <div tw="flex absolute top-[565px] left-[15px] text-lg">leonlarsson.com/projects/{params.slug.slice(0, 30)}</div>
       </div>
     ),
