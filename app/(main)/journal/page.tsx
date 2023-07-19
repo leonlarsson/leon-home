@@ -28,7 +28,7 @@ export const metadata: Metadata = {
 
 export default async () => {
   const session = await getServerSession();
-  const userIsAdmin = session?.user?.email && process.env.ADMIN_EMAIL && session.user.email === process.env.ADMIN_EMAIL;
+  const userIsAdmin = Boolean(session?.user?.email && process.env.ADMIN_EMAIL && session.user.email === process.env.ADMIN_EMAIL);
 
   return (
     <div className="flex w-full flex-col items-center justify-center">
@@ -51,7 +51,6 @@ export default async () => {
       <hr className="border-1 mb-4 h-px w-full border-black dark:border-kinda-white/50" />
 
       <Suspense fallback="Loading posts...">
-        {/* @ts-expect-error */}
         <Posts admin={userIsAdmin} />
       </Suspense>
     </div>
