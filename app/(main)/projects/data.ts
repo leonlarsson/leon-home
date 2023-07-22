@@ -110,11 +110,18 @@ export default [
   {
     slug: "battlebot",
     name: "Battlebot",
-    description: "This is a bot we use on the Battlefield Discord. It provides moderation utilities for moderators as well as a few fun and helpful features for users.",
+    description: "This is a bot we use on the Battlefield Discord. It provides moderation utilities for moderators as well as a few fun and helpful features for users.\nCommand cooldowns are handled with Cloudflare Workers using KV.",
     shortDescription: "A bot that provides utility and fun in the Battlefield Discord.",
     year: "2021",
-    tags: [tags.NODE, tags.DISCORDJS, tags.JS],
-    images: [battlebotImage1, battlebotImage2]
+    tags: [tags.NODE, tags.DISCORDJS, tags.JS, tags.TS, tags.API, tags.CLOUDFLARE_WORKERS],
+    images: [battlebotImage1, battlebotImage2],
+    extraLinks: [
+      {
+        name: "Cooldowns API",
+        link: "https://github.com/leonlarsson/battlebot-api",
+        type: "github"
+      }
+    ]
   },
   {
     slug: "battlefield-stats",
