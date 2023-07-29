@@ -12,7 +12,7 @@ export default () => {
       <div className="mb-1 mt-2 flex flex-wrap justify-center gap-x-[2px] transition-all border-b-slate-900 dark:border-kinda-white max-[665px]:border-b-4">
         <ProfileLink title="Email" url="mailto:leonlarsson8@gmail.com" icon={<i className="fa-solid fa-envelope" />} newTab />
         <ProfileLink title="LinkedIn" url="https://www.linkedin.com/in/leonlarsson/" icon={<i className="fa-brands fa-linkedin" />} newTab />
-        <ProfileLink title="Twitter" url="https://twitter.com/MozzyFX" icon={<i className="fa-brands fa-twitter" />} newTab />
+        <ProfileLink title="Twitter" url="https://x.com/MozzyFX" icon={<i className="fa-brands fa-twitter" />} newTab />
         <ProfileLink title="Instagram" url="https://www.instagram.com/leonsjlarsson/" icon={<i className="fa-brands fa-instagram" />} newTab />
         <ProfileLink title="GitHub" url="https://github.com/leonlarsson" icon={<i className="fa-brands fa-github" />} newTab />
         <ProfileLink title="ArtStation" url="https://www.artstation.com/leonlarsson" icon={<i className="fa-brands fa-artstation" />} newTab />
