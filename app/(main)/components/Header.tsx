@@ -15,11 +15,10 @@ export default () => {
             <HeaderLink content="Home" url="/" />
             <HeaderLink content="Projects" url="/projects" />
             <HeaderLink content="Guestbook" url="/guestbook" />
-            <HeaderLink content="English CV" url="/cv" />
-            <HeaderLink content="Swedish CV" url="/cv-swe" />
+            <HeaderLink content="Resume" url="/resume" />
           </div>
 
-          <div className="hidden items-center gap-6 text-2xl min-[830px]:flex">
+          <div className="hidden items-center gap-6 text-2xl min-[690px]:flex">
             <HeaderLink content={<i className="fa-solid fa-envelope" />} url="mailto:leonlarsson8@gmail.com" title="Email" newTab />
             <HeaderLink content={<i className="fa-brands fa-linkedin" />} url="https://www.linkedin.com/in/leonlarsson/" title="LinkedIn" newTab />
             <HeaderLink content={<i className="fa-brands fa-twitter" />} url="https://x.com/MozzyFX" title="X (Twitter)" newTab />
@@ -36,7 +35,7 @@ export default () => {
             <HeaderLink content={<i className="fa-solid fa-house" />} url="/" title="Home" />
             <HeaderLink content={<i className="fa-solid fa-tools" />} url="/projects" title="Projects" />
             <HeaderLink content={<i className="fa-solid fa-book" />} url="/guestbook" title="Guestbook" />
-            <HeaderLink content={<i className="fa-solid fa-file-text" />} url="/cv" title="CV" />
+            <HeaderLink content={<i className="fa-solid fa-file-text" />} url="/resume" title="CV/Resume" />
           </div>
 
           <div className="hidden items-center gap-6 min-[420px]:flex">
