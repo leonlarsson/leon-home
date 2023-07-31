@@ -5,7 +5,7 @@ export default () => {
   return (
     <div className="m-auto">
       <div className="flex flex-col">
-        <Image className="z-0 mb-2 self-center rounded-[100px] shadow-xl transition-all hover:rounded-b-xl hover:shadow-2xl active:-translate-y-1 max-[430px]:w-2/5" src="/assets/images/avatar.png" alt="Leon image" width={150} height={150} priority draggable={false} />
+        <Image className="z-0 mb-2 self-center rounded-full shadow-xl transition-all hover:rounded-b-xl hover:shadow-2xl active:-translate-y-1 max-[430px]:w-2/5" src="/assets/images/avatar.png" alt="Leon image" width={150} height={150} priority draggable={false} />
 
         <span className="z-30 text-[2rem] font-extrabold leading-none max-[430px]:text-[1.5rem]">Leon San José Larsson</span>
         <Employment title="Community & Support Specialist" companyName="Sharkmob" companyUrl="https://sharkmob.com" />

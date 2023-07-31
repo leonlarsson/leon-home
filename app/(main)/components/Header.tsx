@@ -10,7 +10,7 @@ export default () => {
         <div className="container mx-auto mt-8 flex h-16 w-full max-w-5xl justify-between rounded-xl border-[1px] border-kinda-black/20 bg-white/50 px-4 backdrop-blur-md dark:border-kinda-white/5 dark:bg-[#1e1e1e]/50">
           <div className="flex items-center gap-6">
             <Link className="self-center" href="/" draggable={false}>
-              <Image className="rounded-[100px]" src="/assets/images/avatar.png" alt="Leon image" width={40} height={40} priority draggable={false} />
+              <Image className="rounded-full" src="/assets/images/avatar.png" alt="Leon image" width={40} height={40} priority draggable={false} />
             </Link>
             <HeaderLink content="Home" url="/" />
             <HeaderLink content="Projects" url="/projects" />
