@@ -37,7 +37,7 @@ export default ({ params }: { params: { slug: string } }) => {
   const nextProject = project && projects[projects.indexOf(project) + 1];
 
   return (
-    <div className="page">
+    <div className="m-auto">
       <Link href="/projects" className="group text-[1.3rem] transition-all max-sm:text-base" title={project ? "Go back." : "See all projects."} draggable={false}>
         <i className="fa-solid fa-arrow-left transition-all group-hover:-translate-x-1 group-hover:text-red-400" /> {project ? "Back" : "See all projects"}
       </Link>

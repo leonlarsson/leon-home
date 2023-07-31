@@ -2,10 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-.page {
-  @apply m-auto flex flex-col;
-}
-
 .button-with-border {
   @apply rounded border border-black p-2 text-black transition-colors hover:bg-black hover:text-white dark:border-kinda-white/50 dark:text-kinda-white dark:hover:border-kinda-white dark:hover:bg-kinda-black;
 }

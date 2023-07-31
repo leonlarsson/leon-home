@@ -32,7 +32,7 @@ export default ({ searchParams }: { searchParams: Record<string, string> }) => {
   const projects = searchParam ? projectsData.filter(project => [project.name, project.description, project.shortDescription, project.year, project.link?.replace("https://", ""), ...(project.tags ?? [])].some(item => item?.toLowerCase().includes(searchParam?.toLowerCase()))) : projectsData;
 
   return (
-    <div className="page">
+    <div className="m-auto">
       <div className="flex flex-col space-y-3">
         <div className="text-3xl transition-all max-[450px]:text-2xl">
           <Link href="/" className="group font-extrabold" title="Go back" draggable={false}>

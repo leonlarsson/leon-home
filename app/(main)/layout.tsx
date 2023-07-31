@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 const inter = Inter({ subsets: ["latin"] });
+import Header from "./components/Header";
 
 import "./globals.css";
 import "/public/fontawesome/css/fontawesome.min.css";
@@ -31,9 +32,11 @@ export const metadata: Metadata = {
 
 export default ({ children }: { children: React.ReactNode }) => {
   return (
-    <html lang="en">
-      <body className={`${inter.className} select-none bg-gradient-to-bl from-white to-slate-200 text-black dark:from-kinda-black dark:to-kinda-black dark:text-kinda-white`}>
-        <div className="flex min-h-[100svh] p-4 text-center">{children}</div>
+    <html className="min-h-[100svh] overflow-y-scroll bg-gradient-to-bl from-white to-slate-200 dark:from-kinda-black dark:to-kinda-black" lang="en">
+      <body className={`${inter.className} select-none  text-black dark:from-kinda-black dark:to-kinda-black dark:text-kinda-white`}>
+        <Header />
+        {/* Below 610px width, add bottom margin to accomodate the bottom overlay header. Add relative if issues occur */}
+        <div className="flex p-4 text-center max-[610px]:mb-24">{children}</div>
       </body>
     </html>
   );

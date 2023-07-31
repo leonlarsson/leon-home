@@ -3,13 +3,15 @@ import Link from "next/link";
 
 export default () => {
   return (
-    <div className="page">
-      <Image className="z-0 mb-2 self-center rounded-[100px] shadow-xl transition-all hover:rounded-b-xl hover:shadow-2xl active:-translate-y-1 max-[430px]:w-2/5" src="/assets/images/avatar.png" alt="Leon image" width={150} height={150} priority draggable={false} />
+    <div className="m-auto">
+      <div className="flex flex-col">
+        <Image className="z-0 mb-2 self-center rounded-[100px] shadow-xl transition-all hover:rounded-b-xl hover:shadow-2xl active:-translate-y-1 max-[430px]:w-2/5" src="/assets/images/avatar.png" alt="Leon image" width={150} height={150} priority draggable={false} />
 
-      <span className="z-30 text-[2rem] font-extrabold leading-none max-[430px]:text-[1.5rem]">Leon San José Larsson</span>
-      <Employment title="Community & Support Specialist" companyName="Sharkmob" companyUrl="https://sharkmob.com" />
+        <span className="z-30 text-[2rem] font-extrabold leading-none max-[430px]:text-[1.5rem]">Leon San José Larsson</span>
+        <Employment title="Community & Support Specialist" companyName="Sharkmob" companyUrl="https://sharkmob.com" />
+      </div>
 
-      <div className="mb-1 mt-2 flex flex-wrap justify-center gap-x-[2px] transition-all border-b-slate-900 dark:border-kinda-white max-[665px]:border-b-4">
+      <div className="mb-1 mt-2 flex flex-wrap justify-center gap-x-[2px] border-b-slate-900 transition-all dark:border-kinda-white max-[665px]:border-b-4">
         <ProfileLink title="Email" url="mailto:leonlarsson8@gmail.com" icon={<i className="fa-solid fa-envelope" />} newTab />
         <ProfileLink title="LinkedIn" url="https://www.linkedin.com/in/leonlarsson/" icon={<i className="fa-brands fa-linkedin" />} newTab />
         <ProfileLink title="Twitter" url="https://x.com/MozzyFX" icon={<i className="fa-brands fa-twitter" />} newTab />
@@ -49,7 +51,7 @@ const Employment = ({ title, companyName, companyUrl }: { title: string; company
 };
 
 const ProfileLink = ({ title, url, icon, newTab }: { title: string; url: string; icon?: React.ReactNode; newTab?: boolean }) => (
-  <Link className="rounded p-[6px] leading-tight text-lg font-semibold transition-all hover:bg-black hover:text-white dark:hover:bg-gray-300/10 dark:hover:text-kinda-white group" href={url} target={newTab ? "_blank" : "_self"} draggable={false}>
+  <Link className="group rounded p-[6px] text-lg font-semibold leading-tight transition-all hover:bg-black hover:text-white dark:hover:bg-gray-300/10 dark:hover:text-kinda-white" href={url} target={newTab ? "_blank" : "_self"} draggable={false}>
     {icon} {title}
   </Link>
 );
