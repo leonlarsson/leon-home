@@ -7,7 +7,7 @@ export default ({ content, url, title, newTab = false }: { content: string | Rea
   const activeLink = usePathname() === url || (usePathname().startsWith("/projects") && url.startsWith("/projects"));
 
   return (
-    <Link className={`py-4 text-neutral-800 transition-all hover:text-black dark:text-neutral-400 dark:hover:text-kinda-white ${activeLink ? "font-bold !text-kinda-black dark:!text-kinda-white" : ""}`} href={url} target={newTab ? "_blank" : "_self"} title={title} draggable={false}>
+    <Link className={`py-4 text-neutral-800 transition-all hover:text-black dark:text-neutral-400 dark:hover:text-kinda-white ${activeLink ? "font-bold !text-black dark:!text-kinda-white" : ""}`} href={url} target={newTab ? "_blank" : "_self"} title={title} draggable={false}>
       {content}
     </Link>
   );
