@@ -32,9 +32,7 @@ export default async () => {
 
   return (
     <div className="flex w-full flex-col items-center justify-center">
-      <Link href="/" className="group text-3xl font-extrabold max-[450px]:text-2xl" title="Go back" draggable={false}>
-        <i className="fa-solid fa-arrow-left transition-all group-hover:-translate-x-2 group-hover:text-red-400" /> Journal
-      </Link>
+      <div className="text-3xl font-extrabold transition-all max-[450px]:text-2xl">Journal</div>
       <span className="mb-3">An experimental journal.</span>
 
       <div className="mb-4 flex flex-col justify-center gap-1">

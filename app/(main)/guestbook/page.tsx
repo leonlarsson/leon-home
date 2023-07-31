@@ -1,5 +1,4 @@
 import { Suspense } from "react";
-import Link from "next/link";
 import type { Metadata } from "next";
 import { getServerSession } from "next-auth";
 import { getRequireAuth } from "./lib/actions";
@@ -36,9 +35,7 @@ export default async () => {
 
   return (
     <div className="flex w-full flex-col items-center justify-center">
-      <Link href="/" className="group text-3xl font-extrabold max-[450px]:text-2xl" title="Go back" draggable={false}>
-        <i className="fa-solid fa-arrow-left transition-all group-hover:-translate-x-2 group-hover:text-red-400" /> Guestbook
-      </Link>
+      <div className="text-3xl font-extrabold transition-all max-[450px]:text-2xl">Guestbook</div>
       <span className="mb-3">A guestbook where you can send an emoji or sign in to send a message.</span>
 
       <div className="mb-4 flex flex-col justify-center gap-1">

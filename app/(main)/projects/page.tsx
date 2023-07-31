@@ -1,4 +1,3 @@
-import Link from "next/link";
 import type { Metadata } from "next";
 import Search from "./components/Search";
 import ProjectsGrid from "./components/ProjectsGrid";
@@ -34,11 +33,7 @@ export default ({ searchParams }: { searchParams: Record<string, string> }) => {
   return (
     <div className="m-auto">
       <div className="flex flex-col space-y-3">
-        <div className="text-3xl transition-all max-[450px]:text-2xl">
-          <Link href="/" className="group font-extrabold" title="Go back" draggable={false}>
-            <i className="fa-solid fa-arrow-left transition-all group-hover:-translate-x-2 group-hover:text-red-400" /> Leon's Projects
-          </Link>
-        </div>
+        <div className="text-3xl font-extrabold transition-all max-[450px]:text-2xl">Leon's Projects</div>
 
         <Search />
 
