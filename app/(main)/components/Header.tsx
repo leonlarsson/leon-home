@@ -31,7 +31,7 @@ export default () => {
       {/* BOTTOM OVERLAY HEADER */}
       <header className="fixed inset-x-0 bottom-0 z-50 block px-4 pb-6 min-[610px]:hidden" style={{ opacity: 1, transform: "none" }}>
         <div className="flex h-16 w-full justify-between rounded-xl border-[1px] border-kinda-black/20 bg-white/30 px-4 text-xl backdrop-blur-md dark:border-kinda-white/5 dark:bg-[#1e1e1e]/30">
-          <div className="flex w-full items-center justify-between gap-6 min-[420px]:justify-normal">
+          <div className="flex w-full items-center justify-around gap-6 min-[420px]:justify-normal">
             <HeaderLink content={<i className="fa-solid fa-house" />} url="/" title="Home" />
             <HeaderLink content={<i className="fa-solid fa-tools" />} url="/projects" title="Projects" />
             <HeaderLink content={<i className="fa-solid fa-book" />} url="/guestbook" title="Guestbook" />
