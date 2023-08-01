@@ -22,7 +22,7 @@ export default () => {
 
       <div className="flex flex-col gap-6">
         <div>
-          Hello, I am <span className="font-bold">Leon San José Larsson.</span>
+          👋 Hello, I am <span className="font-bold">Leon San José Larsson.</span>
         </div>
 
         {/* WORK */}
