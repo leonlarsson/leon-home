@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import projects from "./projects/data";
+import GradientBorder from "./components/GradientBorder";
 import smLogo from "/public/assets/images/smlogo_notext.png";
 import { Project } from "./projects/components/ProjectsGrid";
 
@@ -8,7 +9,7 @@ export default () => {
   return (
     <div className="mx-auto max-w-3xl pb-10 text-start">
       <div className="mb-6 flex items-center gap-4">
-        {/* <div className="rounded-full bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 p-1 hover:from-red-500 hover:via-lime-600 hover:to-blue-400 max-md:p-px">IMAGE</div> */}
+        {/* <GradientBorder rounded="rounded-full" padding="p-1">IMAGE</GradientBorder> */}
         <Image className="h-full rounded-full shadow-xl transition-all hover:rounded-l-xl hover:shadow-2xl active:-translate-y-1 max-md:w-[50px]" src="/assets/images/avatar.png" alt="Leon image" width={130} height={130} priority draggable={false} />
 
         <div className="flex flex-col gap-1 max-md:gap-0">
@@ -21,6 +22,7 @@ export default () => {
         <div>
           Hello, I am <span className="font-bold">Leon San José Larsson.</span>
         </div>
+
         {/* INTRO */}
         <div>
           I'm a hobby web developer in self-training.
@@ -58,7 +60,7 @@ export default () => {
               { title: "GitHub", url: "https://github.com/leonlarsson", iconClasses: "fa-brands fa-github" },
               { title: "ArtStation", url: "https://www.artstation.com/leonlarsson", iconClasses: "fa-brands fa-artstation" }
             ].map(({ title, url, iconClasses }) => (
-              <div className="rounded bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 p-[2px] hover:from-red-500 hover:via-lime-600 hover:to-blue-400">
+              <GradientBorder padding="p-[2px]" hoverable>
                 <Link href={url} target="_blank" className="flex items-center justify-between rounded bg-gradient-to-bl from-white to-slate-200 p-2 dark:from-kinda-black dark:to-kinda-black">
                   <div>
                     <i className={`${iconClasses} fa-lg fa-fw me-1`} />
@@ -66,22 +68,24 @@ export default () => {
                   </div>
                   <i className="fa-solid fa-external-link dark:text-kinda-white" />
                 </Link>
-              </div>
+              </GradientBorder>
             ))}
           </div>
         </div>
+
         {/* RESUME */}
         <div className="flex flex-col gap-1">
           <span className="mt-2 text-xl font-semibold">Want to learn more?</span>
-          <div className="rounded bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 p-[2px] hover:from-red-500 hover:via-lime-600 hover:to-blue-400">
+          <GradientBorder padding="p-[2px]" hoverable>
             <Link href="/resume" className="flex h-full rounded bg-gradient-to-bl from-white to-slate-200 p-2 dark:from-kinda-black dark:to-kinda-black">
               <span>
                 <i className="fa-solid fa-file-text fa-lg fa-fw me-1" />
                 Read my Resume
               </span>
             </Link>
-          </div>
+          </GradientBorder>
         </div>
+
         {/* FEATURED PROJECTS */}
         <div className="flex flex-col gap-1">
           <span className="mt-2 text-xl font-semibold">

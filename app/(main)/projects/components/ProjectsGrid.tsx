@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { Project as ProjectType } from "../data";
 import Tag from "./Tag";
+import GradientBorder from "../../components/GradientBorder";
 
 export default ({ projects }: { projects: ProjectType[] }) => {
   return (
@@ -15,7 +16,7 @@ export default ({ projects }: { projects: ProjectType[] }) => {
 
 export const Project = ({ project }: { project: ProjectType }) => {
   return (
-    <div className="rounded bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 p-px hover:from-red-500 hover:via-lime-600 hover:to-blue-400">
+    <GradientBorder hoverable>
       <div className="flex h-full rounded bg-gradient-to-bl from-white to-slate-200 text-start transition-colors dark:from-kinda-black dark:to-kinda-black">
         <Link href={`/projects/${project.slug}`} className="group flex flex-1 flex-col p-3" draggable={false} title={`See more info on project ${project.name}.`}>
           <span className="text-lg font-bold">
@@ -52,6 +53,6 @@ export const Project = ({ project }: { project: ProjectType }) => {
           </>
         )}
       </div>
-    </div>
+    </GradientBorder>
   );
 };

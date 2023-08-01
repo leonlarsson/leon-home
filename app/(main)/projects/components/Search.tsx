@@ -2,6 +2,7 @@
 
 import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
+import GradientBorder from "../../components/GradientBorder";
 
 export default () => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -15,7 +16,7 @@ export default () => {
   }, [searchParams.get("search")]);
 
   return (
-    <div className="w-full self-center rounded bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 p-px hover:from-red-500 hover:via-lime-600 hover:to-blue-400 md:w-80">
+    <GradientBorder padding="p-px" extraClasses="w-full self-center md:w-80">
       <input
         type="search"
         maxLength={20}
@@ -30,6 +31,6 @@ export default () => {
           router.replace("?" + searchParams.toString());
         }}
       />
-    </div>
+    </GradientBorder>
   );
 };
