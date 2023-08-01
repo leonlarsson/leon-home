@@ -1,8 +1,8 @@
 import Link from "next/link";
-import type { Project } from "../data";
+import type { Project as ProjectType } from "../data";
 import Tag from "./Tag";
 
-export default ({ projects }: { projects: Project[] }) => {
+export default ({ projects }: { projects: ProjectType[] }) => {
   return (
     // Use grid with 2 cols until medium, then use 1 col. Additionally, use 1 col if there is a single project
     <div className={`grid gap-3 ${projects.length === 1 ? "self-center" : "grid-cols-1 md:grid-cols-2"}`}>
@@ -13,7 +13,7 @@ export default ({ projects }: { projects: Project[] }) => {
   );
 };
 
-const Project = ({ project }: { project: Project }) => {
+export const Project = ({ project }: { project: ProjectType }) => {
   return (
     <div className="rounded bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 p-px hover:from-red-500 hover:via-lime-600 hover:to-blue-400">
       <div className="flex h-full rounded bg-gradient-to-bl from-white to-slate-200 text-start transition-colors dark:from-kinda-black dark:to-kinda-black">
