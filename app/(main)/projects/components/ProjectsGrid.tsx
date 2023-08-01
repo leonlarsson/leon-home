@@ -5,7 +5,7 @@ import Tag from "./Tag";
 export default ({ projects }: { projects: Project[] }) => {
   return (
     // Use grid with 2 cols until medium, then use 1 col. Additionally, use 1 col if there is a single project
-    <div className={`grid gap-3 ${projects.length === 1 ? "grid-cols-1" : "grid-cols-1 md:grid-cols-2"}`}>
+    <div className={`grid gap-3 ${projects.length === 1 ? "self-center" : "grid-cols-1 md:grid-cols-2"}`}>
       {projects.map(project => (
         <Project key={project.slug} project={project} />
       ))}
@@ -32,7 +32,7 @@ const Project = ({ project }: { project: Project }) => {
           <span>{project.shortDescription}</span>
 
           {project.tags && (
-            <div className="mt-1 flex max-w-xl flex-wrap gap-1">
+            <div className="mt-1 flex flex-wrap gap-1">
               {project.tags
                 .sort((a, b) => a.localeCompare(b))
                 .map(tag => (
