@@ -279,6 +279,17 @@ export default [
         type: "github"
       }
     ]
+  },
+  {
+    slug: "phisherman",
+    name: "Phisherman",
+    description: "Phisherman is a centralised database of phishing and scam links. It is designed for use with Discord bots.\nI am contributing to the Phisherman API, docs, and bot as a maintainer.",
+    shortDescription: "A centralised database of phishing and scam links.",
+    year: "2023",
+    tags: [tags.CLOUDFLARE_WORKERS, tags.TS, tags.JS, tags.API, tags.DATABASE, tags.NODE, tags.DISCORDJS],
+    link: "https://phisherman.gg/",
+    hidePreview: true,
+    githubLink: "https://github.com/PhishermanGG"
   }
 ] satisfies Project[] as Project[];
 
