@@ -21,7 +21,6 @@ export default () => {
         <div>
           Hello, I am <span className="font-bold">Leon San José Larsson.</span>
         </div>
-
         {/* INTRO */}
         <div>
           I'm a hobby web developer in self-training.
@@ -33,6 +32,18 @@ export default () => {
             </Link>
             , where I manage the player support, Bloodhunt's website, and help the community team.
           </div>
+        </div>
+
+        {/* GUESTBOOK */}
+        <div>
+          <i className="fa-solid fa-pencil me-1" />
+          Feel free to{" "}
+          <span className="font-semibold">
+            <Link href="/guestbook" className="underline-offset-2 hover:underline">
+              sign my guestbook
+            </Link>
+            !
+          </span>
         </div>
 
         {/* CONNECT */}
@@ -59,7 +70,6 @@ export default () => {
             ))}
           </div>
         </div>
-
         {/* RESUME */}
         <div className="flex flex-col gap-1">
           <span className="mt-2 text-xl font-semibold">Want to learn more?</span>
@@ -72,7 +82,6 @@ export default () => {
             </Link>
           </div>
         </div>
-
         {/* FEATURED PROJECTS */}
         <div className="flex flex-col gap-1">
           <span className="mt-2 text-xl font-semibold">
