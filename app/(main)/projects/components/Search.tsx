@@ -15,19 +15,21 @@ export default () => {
   }, [searchParams.get("search")]);
 
   return (
-    <input
-      type="search"
-      maxLength={20}
-      placeholder="Name, description, year, tags..."
-      className="text-input w-full self-center md:w-80"
-      value={searchQuery}
-      onChange={e => {
-        const value = e.target.value;
-        setSearchQuery(value);
-        // If value is not empty, set searchParam. Otherwise, remove the searchParam. Then replace the URL params
-        value.trim().length ? searchParams.set("search", value.trim()) : searchParams.delete("search");
-        router.replace("?" + searchParams.toString());
-      }}
-    />
+    <div className="w-full self-center rounded bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 p-px hover:from-red-500 hover:via-lime-600 hover:to-blue-400 md:w-80">
+      <input
+        type="search"
+        maxLength={20}
+        placeholder="Name, description, year, tags..."
+        className="text-input-base w-full"
+        value={searchQuery}
+        onChange={e => {
+          const value = e.target.value;
+          setSearchQuery(value);
+          // If value is not empty, set searchParam. Otherwise, remove the searchParam. Then replace the URL params
+          value.trim().length ? searchParams.set("search", value.trim()) : searchParams.delete("search");
+          router.replace("?" + searchParams.toString());
+        }}
+      />
+    </div>
   );
 };
