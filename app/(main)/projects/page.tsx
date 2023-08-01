@@ -33,7 +33,7 @@ export default ({ searchParams }: { searchParams: Record<string, string> }) => {
   return (
     <div className="m-auto">
       <div className="flex flex-col space-y-3">
-        <div className="text-3xl font-extrabold transition-all max-[450px]:text-2xl">Leon's Projects</div>
+        <div className="text-3xl font-extrabold transition-all max-[450px]:text-2xl">Projects</div>
 
         <Search />
 
