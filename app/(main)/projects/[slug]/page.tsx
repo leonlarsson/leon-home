@@ -101,7 +101,7 @@ export default ({ params }: { params: { slug: string } }) => {
 
           {/* Only render preview if project.link exists */}
           {!project.hidePreview && project.link && (
-            <GradientBorder extraClasses="mt-5" hoverable>
+            <GradientBorder extraClasses="mt-5">
               <details className="rounded transition-colors ">
                 <summary className="cursor-pointer p-2 text-lg font-semibold text-white">Preview {project.slug === "leon-home" && "(Inception style)"}</summary>
                 <iframe src={project.link} className="h-[500px] w-full rounded bg-white lg:h-[500px] xl:h-[700px]"></iframe>
