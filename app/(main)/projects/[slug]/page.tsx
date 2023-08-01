@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import projects from "../data";
 import ProjectsGrid from "../components/ProjectsGrid";
 import Tag from "../components/Tag";
+import GradientBorder from "../../components/GradientBorder";
 
 const getProject = (slug: string) => projects.find(project => project.slug === slug);
 
@@ -100,10 +101,12 @@ export default ({ params }: { params: { slug: string } }) => {
 
           {/* Only render preview if project.link exists */}
           {!project.hidePreview && project.link && (
-            <details className="m-auto mt-5 rounded border border-black transition-colors open:bg-black open:text-white hover:bg-black hover:text-white dark:border-kinda-white/50 dark:open:bg-transparent dark:hover:border-kinda-white dark:hover:bg-transparent max-xl:min-w-[70vw] lg:w-[80vw] 2xl:w-[1300px]">
-              <summary className="cursor-pointer p-2 text-lg font-semibold">Preview {project.slug === "leon-home" && "(Inception style)"}</summary>
-              <iframe src={project.link} className="h-[500px] w-full rounded bg-white lg:h-[500px] xl:h-[700px]"></iframe>
-            </details>
+            <GradientBorder extraClasses="mt-5" hoverable>
+              <details className="rounded transition-colors ">
+                <summary className="cursor-pointer p-2 text-lg font-semibold text-white">Preview {project.slug === "leon-home" && "(Inception style)"}</summary>
+                <iframe src={project.link} className="h-[500px] w-full rounded bg-white lg:h-[500px] xl:h-[700px]"></iframe>
+              </details>
+            </GradientBorder>
           )}
 
           {/* Only render images if the exist */}
