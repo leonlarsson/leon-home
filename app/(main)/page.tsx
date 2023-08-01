@@ -36,7 +36,7 @@ export default () => {
 
         {/* GUESTBOOK */}
         <div>
-          <i className="fa-solid fa-pencil me-1" />
+          <i className="fa-solid fa-pencil fa-lg fa-fw me-1" />
           Feel free to{" "}
           <span className="font-semibold">
             <Link href="/guestbook" className="underline-offset-2 hover:underline">
@@ -76,7 +76,7 @@ export default () => {
           <div className="rounded bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 p-[2px] hover:from-red-500 hover:via-lime-600 hover:to-blue-400">
             <Link href="/resume" className="flex h-full rounded bg-gradient-to-bl from-white to-slate-200 p-2 dark:from-kinda-black dark:to-kinda-black">
               <span>
-                <i className="fa-solid fa-file-text fa-fw me-1" />
+                <i className="fa-solid fa-file-text fa-lg fa-fw me-1" />
                 Read my Resume
               </span>
             </Link>
