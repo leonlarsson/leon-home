@@ -25,17 +25,31 @@ export default () => {
           Hello, I am <span className="font-bold">Leon San José Larsson.</span>
         </div>
 
-        {/* INTRO */}
+        {/* WORK */}
         <div>
-          I'm a hobby web developer in self-training.
-          <div>
-            I currently work as the <b>Community & Support Specialist</b> at{" "}
-            <Link href="https://sharkmob.com" target="_blank" className="inline-flex items-baseline underline-offset-2 hover:underline" draggable={false}>
-              <Image src={smLogo} alt="Sharkmob logo" width={16} height={16} className="mx-1 self-center" />
-              <span>Sharkmob</span>
-            </Link>
-            , where I manage the player support, Bloodhunt's website, and help the community team.
-          </div>
+          I currently work as the <span className="font-semibold">Community & Support Specialist</span> at{" "}
+          <Link href="https://sharkmob.com" target="_blank" className="inline-flex items-baseline underline-offset-2 hover:underline" draggable={false}>
+            <Image src={smLogo} alt="Sharkmob logo" width={16} height={16} className="mx-1 self-center" />
+            <span className="font-semibold underline-offset-2 hover:underline">Sharkmob</span>
+          </Link>
+          , where I manage the player support, Bloodhunt's website, and help the community and marketing teams.
+        </div>
+
+        {/* DEV */}
+        <div>
+          I'm a hobby software developer in self-training. My main interest areas are web development and Discord bots. I also work a lot with creating various APIs and services on platforms such as Cloudflare Workers.{" "}
+          <Link href="/projects" className="font-semibold underline-offset-2 hover:underline">
+            Browse all my projects!
+          </Link>
+        </div>
+
+        {/* COMMUNITY */}
+        <div>
+          One of my interests is also community building and community management. I have been building communities on Discord since 2016, including moderating and then co-owning the biggest{" "}
+          <Link href="/projects/battlefield-discord" className="whitespace-nowrap font-semibold underline-offset-2 hover:underline">
+            Battlefield Discord
+          </Link>
+          .
         </div>
 
         {/* GUESTBOOK */}
