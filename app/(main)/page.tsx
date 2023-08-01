@@ -1,5 +1,7 @@
+import { Suspense } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { getServerSession } from "next-auth";
 import projects from "./projects/data";
 import GradientBorder from "./components/GradientBorder";
 import smLogo from "/public/assets/images/smlogo_notext.png";
@@ -42,10 +44,12 @@ export default () => {
           Feel free to{" "}
           <span className="font-semibold">
             <Link href="/guestbook" className="underline-offset-2 hover:underline">
-              sign my guestbook
-            </Link>
-            !
+              sign my guestbook!
+            </Link>{" "}
           </span>
+          <Suspense>
+            <SignedIn />
+          </Suspense>
         </div>
 
         {/* CONNECT */}
@@ -120,4 +124,9 @@ const Employment = ({ title, companyName, companyUrl }: { title: string; company
       )}
     </span>
   );
+};
+
+const SignedIn = async () => {
+  const session = await getServerSession();
+  if (session?.user?.name) return <span>You are already signed in.</span>;
 };
