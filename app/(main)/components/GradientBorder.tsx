@@ -1,5 +1,5 @@
 export default ({ rounded = "rounded", padding = "p-px", extraClasses = "", hoverable = false, from, via, to, children }: Props) => {
-  return <div className={`${rounded} bg-gradient-to-r ${from ?? "from-pink-500"} ${via ?? "via-red-500"} ${to ?? "to-yellow-500"} ${padding} ${hoverable ? "hover:from-red-500 hover:via-lime-600 hover:to-blue-400" : ""} ${extraClasses}`}>{children}</div>;
+  return <div className={`${rounded} bg-gradient-to-r ${from ?? "from-pink-500"} ${via ?? "via-red-500"} ${to ?? "to-yellow-500"} ${padding} ${hoverable ? "hover:from-yellow-500 hover:via-green-600 hover:to-blue-600" : ""} ${extraClasses}`}>{children}</div>;
 };
 
 type Props = {
