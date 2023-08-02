@@ -8,7 +8,7 @@ export default () => {
       {/* TOP HEADER */}
       <header className="relative z-50 mb-6 hidden px-6 min-[490px]:block">
         {/* <GradientBorder rounded="rounded-xl" extraClasses="max-w-5xl mx-auto mt-8" hoverable>
-          <div className="container mx-auto flex h-16 w-full max-w-5xl justify-between rounded-xl bg-white/50 px-4 backdrop-blur-md dark:bg-[#1e1e1e]/50">REST HERE</div>
+          <div className="container mx-auto flex h-16 w-full max-w-5xl items-center justify-between rounded-xl bg-white/50 px-4 backdrop-blur-md dark:bg-[#1e1e1e]/50">REST HERE</div>
         </GradientBorder> */}
         <div className="container mx-auto mt-8 flex h-16 w-full max-w-5xl items-center justify-between rounded-xl border-[1px] border-black/20 bg-white/50 px-4 backdrop-blur-md dark:border-kinda-white/5 dark:bg-[#1e1e1e]/50">
           <div className="flex gap-6">
