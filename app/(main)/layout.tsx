@@ -35,8 +35,9 @@ export default ({ children }: { children: React.ReactNode }) => {
     <html className="min-h-[100svh] overflow-y-scroll bg-gradient-to-bl from-white to-slate-200 dark:from-kinda-black dark:to-kinda-black" lang="en">
       <body className={`${inter.className} select-none text-black dark:text-kinda-white`}>
         <Header />
-        {/* Below 490px width, add bottom margin to accomodate the bottom overlay header. Add relative if issues occur */}
-        <div className="container mx-auto p-4 text-center transition-all max-[490px]:mb-24">{children}</div>
+        {/* Below 490px (no header) width, add bottom margin to accomodate the bottom overlay header. Add relative if issues occur */}
+        {/* Also below 490px width, add some padding to the top */}
+        <div className="container mx-auto px-4 pb-10 text-center transition-all max-[490px]:mb-24 max-[490px]:pt-3">{children}</div>
       </body>
     </html>
   );
