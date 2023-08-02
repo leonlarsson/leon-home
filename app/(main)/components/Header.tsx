@@ -39,7 +39,7 @@ export default () => {
           <div className="flex w-full justify-around gap-5 text-2xl">
             <HeaderLink content={<i className="fa-solid fa-house" />} url="/" title="Home" />
             <HeaderLink content={<i className="fa-solid fa-tools" />} url="/projects" title="Projects" />
-            <HeaderLink content={<i className="fa-solid fa-book" />} url="/guestbook" title="Guestbook" />
+            <HeaderLink content={<i className="fa-solid fa-pencil" />} url="/guestbook" title="Guestbook" />
             <HeaderLink content={<i className="fa-solid fa-file-text" />} url="/resume" title="CV/Resume" />
           </div>
 
