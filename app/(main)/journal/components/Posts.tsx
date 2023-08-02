@@ -7,9 +7,9 @@ export default async ({ admin }: { admin: boolean }) => {
   const posts: Post[] = await res.json();
 
   return (
-    <section className="grid grid-cols-2 max-sm:grid-cols-1 gap-3 max-w-prose select-text">
+    <section className="grid max-w-prose grid-cols-2 gap-3 max-sm:grid-cols-1">
       {posts.map(post => (
-        <div key={post.id} className="border dark:border-kinda-white border-kinda-black p-2 flex flex-col rounded text-left justify-between">
+        <div key={post.id} className="flex flex-col justify-between rounded border border-kinda-black p-2 text-left dark:border-kinda-white">
           <div className="flex flex-col">
             <span className="text-xs">{new Date(post.date).toLocaleString()}</span>
             <span className="text-lg font-bold">{post.title}</span>

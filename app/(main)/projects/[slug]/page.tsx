@@ -39,7 +39,7 @@ export default ({ params }: { params: { slug: string } }) => {
 
   return (
     <div>
-      <div className="mx-auto mb-2 flex w-full max-w-5xl justify-between font-light text-neutral-800 dark:text-neutral-300 max-[400px]:text-sm">
+      <div className="mx-auto mb-2 flex w-full max-w-5xl select-none justify-between font-light text-neutral-800 dark:text-neutral-300 max-[400px]:text-sm">
         <div className="w-1/3 text-start">
           {previousProject && (
             <Link className="underline-offset-2 transition-all hover:font-normal hover:text-black hover:underline dark:hover:text-kinda-white" href={`/projects/${previousProject.slug}`} title={`Previous project, ${previousProject.name}.`} draggable={false}>
@@ -128,7 +128,7 @@ export default ({ params }: { params: { slug: string } }) => {
                 {project.images.map((image, index) => (
                   <div key={index} className="w-full rounded">
                     {/* Style: Only use w-full if more than 1 image and on lg and up. Lower than lg means 1 col, where we should not stretch images */}
-                    <Image src={image} quality={100} alt={`Project image for ${project.name}.`} className={`m-auto ${project.images!.length > 1 ? "lg:w-full" : ""} rounded-lg border border-kinda-black dark:border-kinda-white/50`} priority placeholder="blur" />
+                    <Image src={image} quality={100} alt={`Project image for ${project.name}.`} className={`m-auto select-none ${project.images!.length > 1 ? "lg:w-full" : ""} rounded-lg border border-kinda-black dark:border-kinda-white/50`} priority placeholder="blur" />
                   </div>
                 ))}
               </div>

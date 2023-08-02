@@ -10,7 +10,7 @@ export default async ({ admin }: { admin: boolean }) => {
   return (
     <section className="flex flex-col">
       {entries.map(entry => (
-        <div key={entry.id} className="select-text break-all rounded p-1 text-left text-sm hover:bg-gray-300 dark:hover:bg-gray-300/10">
+        <div key={entry.id} className="break-all rounded p-1 text-left text-sm hover:bg-gray-300 dark:hover:bg-gray-300/10">
           {admin && <DeleteEntryButton id={entry.id} />}{" "}
           <span className={entry.name ? "font-semibold dark:text-kinda-white" : "text-kinda-black/90 dark:text-kinda-white/75"} title={new Date(entry.date).toUTCString()}>
             {entry.name ?? "Anonymous"}:

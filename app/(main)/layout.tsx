@@ -33,7 +33,7 @@ export const metadata: Metadata = {
 export default ({ children }: { children: React.ReactNode }) => {
   return (
     <html className="min-h-[100svh] overflow-y-scroll bg-gradient-to-bl from-white to-slate-200 dark:from-kinda-black dark:to-kinda-black" lang="en">
-      <body className={`${inter.className} select-none text-black dark:text-kinda-white`}>
+      <body className={`${inter.className} text-black dark:text-kinda-white`}>
         <Header />
         {/* Below 490px (no header) width, add bottom margin to accomodate the bottom overlay header. Add relative if issues occur */}
         {/* Also below 490px width, add some padding to the top */}

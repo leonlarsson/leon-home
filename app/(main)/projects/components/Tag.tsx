@@ -7,7 +7,7 @@ export default ({ tag, clickable }: { tag: string; clickable?: boolean }) => {
 
   // Weird in order to please the Tailwind extension
   const className = {
-    className: `rounded bg-blue-200 px-2 py-1 text-xs font-bold text-blue-700 transition-colors dark:bg-[#212528] dark:text-[#4b98f2] ${clickable && "border-2 border-transparent hover:border-blue-700"}`
+    className: `select-none rounded bg-blue-200 px-2 py-1 text-xs font-bold text-blue-700 transition-colors dark:bg-[#212528] dark:text-[#4b98f2] ${clickable && "border-2 border-transparent hover:border-blue-700"}`
   };
 
   return clickable ? (

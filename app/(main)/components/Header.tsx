@@ -4,7 +4,7 @@ import HeaderLink from "./HeaderLink";
 
 export default () => {
   return (
-    <>
+    <div className="select-none">
       {/* TOP HEADER */}
       <header className="relative z-50 mb-6 hidden px-6 min-[490px]:block">
         {/* <GradientBorder rounded="rounded-xl" extraClasses="max-w-5xl mx-auto mt-8" hoverable>
@@ -51,7 +51,7 @@ export default () => {
           </div> */}
         </div>
       </header>
-    </>
+    </div>
   );
 };
 
