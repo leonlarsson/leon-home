@@ -38,27 +38,36 @@ export default ({ params }: { params: { slug: string } }) => {
   const nextProject = project && projects[projects.indexOf(project) + 1];
 
   return (
-    <div className="m-auto">
-      <Link href="/projects" className="group text-[1.3rem] transition-all max-sm:text-base" title={project ? "Go back." : "See all projects."} draggable={false}>
-        <i className="fa-solid fa-arrow-left transition-all group-hover:-translate-x-1 group-hover:text-red-400" /> {project ? "Back" : "See all projects"}
-      </Link>
+    <div>
+      <div className="mx-auto mb-2 flex w-full max-w-5xl justify-between font-light text-neutral-800 dark:text-neutral-300 max-[400px]:text-sm">
+        <div className="w-1/3 text-start">
+          {previousProject && (
+            <Link className="underline-offset-2 transition-all hover:font-normal hover:text-black hover:underline dark:hover:text-kinda-white" href={`/projects/${previousProject.slug}`} title={`Previous project, ${previousProject.name}.`} draggable={false}>
+              <i className="fa-solid fa-arrow-left me-1" />
+              Previous
+            </Link>
+          )}
+        </div>
+
+        <div className="w-1/3 text-center">
+          <Link className="underline-offset-2 transition-all hover:font-normal hover:text-black hover:underline dark:hover:text-kinda-white" href="/projects" title={"Go back to all projects."} draggable={false}>
+            All projects
+          </Link>
+        </div>
+
+        <div className="w-1/3 text-end">
+          {nextProject && (
+            <Link className="underline-offset-2 transition-all hover:font-normal hover:text-black hover:underline dark:hover:text-kinda-white" href={`/projects/${nextProject.slug}`} title={`Next project, ${nextProject.name}.`} draggable={false}>
+              Next
+              <i className="fa-solid fa-arrow-right ms-1" />
+            </Link>
+          )}
+        </div>
+      </div>
+
       {project ? (
-        <div className="px-16 max-sm:px-4">
-          <span className="text-[2rem] font-extrabold transition-all max-sm:text-2xl">
-            {previousProject && (
-              <Link className="group" href={`/projects/${previousProject.slug}`} title={`Previous project, ${previousProject.name}`} draggable={false}>
-                <i className="fa-solid fa-arrow-left me-2 transition-all group-hover:-translate-x-1 group-hover:text-green-600" />
-              </Link>
-            )}
-
-            {project.name}
-
-            {nextProject && (
-              <Link className="group" href={`/projects/${nextProject.slug}`} title={`Next project, ${nextProject.name}`} draggable={false}>
-                <i className="fa-solid fa-arrow-right ms-2 transition-all group-hover:translate-x-1 group-hover:text-green-600" />
-              </Link>
-            )}
-          </span>
+        <div>
+          <span className="text-[2rem] font-extrabold transition-all max-sm:text-2xl">{project.name}</span>
 
           <p className="whitespace-pre-line">{project.description}</p>
 
@@ -102,7 +111,7 @@ export default ({ params }: { params: { slug: string } }) => {
           {/* Only render preview if project.link exists */}
           {!project.hidePreview && project.link && (
             <GradientBorder extraClasses="mt-5">
-              <details className="rounded transition-colors ">
+              <details className="rounded transition-colors">
                 <summary className="cursor-pointer p-2 text-lg font-semibold text-white">Preview {project.slug === "leon-home" && "(Inception style)"}</summary>
                 <iframe src={project.link} className="h-[500px] w-full rounded bg-white lg:h-[500px] xl:h-[700px]"></iframe>
               </details>
@@ -113,6 +122,7 @@ export default ({ params }: { params: { slug: string } }) => {
           {project.images && (
             <div className="mt-5">
               <span className="text-lg font-bold">Image{project.images.length > 1 && "s"}:</span>
+
               {/* Style: display as many cols as there are images */}
               <div className={`container mx-auto grid gap-2 ${project.images.length === 1 ? "grid-cols-1" : ""} ${project.images.length === 2 ? "grid-cols-2" : ""} ${project.images.length === 3 ? "grid-cols-3" : ""} max-lg:grid-cols-1`}>
                 {project.images.map((image, index) => (
@@ -126,17 +136,16 @@ export default ({ params }: { params: { slug: string } }) => {
           )}
         </div>
       ) : (
-        <div className="mt-1">
-          <span className="text-red-500 dark:text-red-400">
+        <div className="mt-1 flex flex-col gap-2">
+          <div className="text-red-500 dark:text-red-400">
             Project <span className="rounded bg-black p-1 font-semibold text-white dark:bg-kinda-white dark:text-kinda-black">{decodeURIComponent(params.slug)}</span> not found
-          </span>
+          </div>
 
           {projects.filter(project => project.slug.includes(params.slug)).length > 0 && (
-            <>
-              <br />
+            <div>
               <span>Maybe you were looking for:</span>
               <ProjectsGrid projects={projects.filter(project => project.slug.includes(params.slug))} />
-            </>
+            </div>
           )}
         </div>
       )}
