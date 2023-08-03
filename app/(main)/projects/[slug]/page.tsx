@@ -69,7 +69,7 @@ export default ({ params }: { params: { slug: string } }) => {
         <div>
           {/* Main content (title, description, tags, links) */}
           <div className="mx-auto max-w-3xl">
-            <span className="text-4xl font-extrabold transition-all">{project.name}</span>
+            <span className="text-3xl font-extrabold transition-all max-sm:text-xl ">{project.name}</span>
 
             <p className="whitespace-pre-line">{project.description}</p>
 
