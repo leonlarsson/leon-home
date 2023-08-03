@@ -36,7 +36,7 @@ export default [
     slug: "battlefield-discord",
     name: "The Battlefield Discord",
     description:
-      "The Battlefield Discord is a community Discord server for the Battlefield franchise.\nI have been helping build this community since 2016, and I am currently one of the owners.\nFrom 2018 to 2022, it was the official Discord server for the Battlefield franchise.\nI have seen it go from a couple thousand members to over 170,000 members.\nWe've always worked closely with EA/DICE.",
+      "The Battlefield Discord is a community Discord server for the Battlefield franchise. I have been helping build this community since 2016, and I am currently one of the owners.\n\nFrom 2018 to 2022, it was the official Discord server for the Battlefield franchise. I have seen it go from a couple thousand members to over 170,000 members. We've always worked closely with EA/DICE.",
     shortDescription: "The biggest and most successful Battlefield Discord server.",
     year: "2016",
     tags: [tags.COMMUNITY, tags.MODERATION],
@@ -48,12 +48,19 @@ export default [
   {
     slug: "bfv-menu-playground",
     name: "Battlefield V Menu Playground",
-    description: "This was one of my first web projects. It allows you to play around with a copy of the Battlefield V menu.",
+    description: "One of my first web projects. It allows you to play around with a copy of the Battlefield V menu.\n\nI did a menu recreation in Photoshop and then exported it to HTML and CSS. I also added some JavaScript for interactivity.",
     shortDescription: "A Battlefield V menu playground that lets you drag items and change images.",
     year: "2019",
     tags: [tags.HTML, tags.CSS, tags.JS],
     link: "https://bfvmenu.leonlarsson.com/",
-    githubLink: "https://github.com/leonlarsson/bfvmenu"
+    githubLink: "https://github.com/leonlarsson/bfvmenu",
+    extraLinks: [
+      {
+        name: "Photoshop Recreation",
+        link: "https://www.youtube.com/watch?v=P3zMuMp6aGc",
+        type: "link"
+      }
+    ]
   },
   {
     slug: "bf1-palette-recreation",
@@ -78,7 +85,7 @@ export default [
   {
     slug: "log-sorter",
     name: "Log Sorter",
-    description: "My first actual useful project. It aims to help (Discord) moderators sort through massive amounts of logs in order to combat bot accounts.\nIt has proven to be very useful and has helped a lot of moderators.",
+    description: "My first actual useful project. It aims to help (Discord) moderators sort through massive amounts of logs in order to combat bot accounts.\n\nIt has proven to be very useful and has helped a lot of moderators since I launched it.",
     shortDescription: "Also known as Mozzy's Log Sorter. A log-filtering website for moderators.",
     year: "2021",
     tags: [tags.HTML, tags.CSS, tags.JS],
@@ -88,7 +95,7 @@ export default [
   {
     slug: "bf1-morse-solver",
     name: "Battlefield 1 Morse Solver",
-    description: "Another Battlefield-related project. This has helped hundreds if not thousands of people to solve the 'The Beginning' Battlefield 1 easter egg.",
+    description: "Another Battlefield-related project. This has helped hundreds if not thousands of people to solve the 'The Beginning' Battlefield 1 easter egg.\n\nThis project is still being used daily by people to help solve this easter egg.",
     shortDescription: "A tool that helps solve the 'The Beginning' Battlefield 1 easter egg.",
     year: "2021",
     tags: [tags.HTML, tags.CSS, tags.JS],
@@ -110,7 +117,7 @@ export default [
   {
     slug: "battlebot",
     name: "Battlebot",
-    description: "This is a bot we use on the Battlefield Discord. It provides moderation utilities for moderators as well as a few fun and helpful features for users.\nCommand cooldowns are handled with Cloudflare Workers using KV.",
+    description: "This is a bot we use on the Battlefield Discord. It provides moderation utilities for moderators as well as a few fun and helpful features for users.\n\nCommand cooldowns are handled with Cloudflare Workers using KV.",
     shortDescription: "A bot that provides utility and fun in the Battlefield Discord.",
     year: "2021",
     tags: [tags.NODE, tags.DISCORDJS, tags.JS, tags.TS, tags.API, tags.CLOUDFLARE_WORKERS],
@@ -126,7 +133,8 @@ export default [
   {
     slug: "battlefield-stats",
     name: "Battlefield Stats Discord Bot",
-    description: "My largest and most successful project by far. A Discord bot that provides on demand Battlefield statistics in Discord.\nUsed by thousands of users in thousands of Discord servers. Built in Node.js.\nI have also built a website and an API for this project.",
+    description:
+      "My largest and most successful project by far. Battlefield Stats is a Discord bot that provides on-demand Battlefield statistics in Discord. I have also built a website and an API for this project.\n\nUsed by thousands of users in thousands of Discord servers. Built in Node.js with the website being built with Next.js.",
     shortDescription: "A bot that provides Battlefield stats right inside Discord.",
     year: "2021",
     tags: [tags.NODE, tags.DISCORDJS, tags.CLOUDFLARE_WORKERS, tags.API, tags.REACT, tags.NEXT, tags.JS, tags.TS, tags.DATABASE],
@@ -149,7 +157,7 @@ export default [
   {
     slug: "raccoon-http-api",
     name: "Raccoon HTTP API",
-    description: "An API that provides HTTP response images, with a twist.\nPowered by Cloudflare Workers.",
+    description: "A raccoon-themed API that provides HTTP response images. Powered by Cloudflare Workers.",
     shortDescription: "An API that provides HTTP images with trash pandas.",
     year: "2022",
     tags: [tags.CLOUDFLARE_WORKERS, tags.API, tags.TS],
@@ -170,7 +178,7 @@ export default [
   {
     slug: "timestamper-bot",
     name: "Timestamper Discord Bot",
-    description: "An experimental Discord bot that provides utility commands to build and play with Discord timestamps.\nBuilt fully with Cloudflare Workers.",
+    description: "An experimental Discord bot that provides utility commands to build and play with Discord timestamps. Built fully with Cloudflare Workers.",
     shortDescription: "An Discord bot that makes using Discord timestamps easier.",
     year: "2022",
     tags: [tags.CLOUDFLARE_WORKERS, tags.TS],
@@ -191,7 +199,7 @@ export default [
   {
     slug: "bloodhunt-stats",
     name: "Bloodhunt Stats Discord Bot",
-    description: "A Discord bot that provides on demand Bloodhunt statistics in Discord, built in Node.js.\nIn addition, I built an API that reports some basic usage.\nBuilt on the same foundations I created for the Battlefield Stats Discord bot.\nBuilt as part of my role at Sharkmob.",
+    description: "A Discord bot that provides on demand Bloodhunt statistics in Discord, built in Node.js. In addition, I built an API that reports some basic usage.\n\nBuilt on the same foundations I created for the Battlefield Stats Discord bot and built as part of my role at Sharkmob.",
     shortDescription: "A bot that provides Bloodhunt stats right inside Discord.",
     year: "2022",
     tags: [tags.NODE, tags.DISCORDJS, tags.CLOUDFLARE_WORKERS, tags.API, tags.JS],
@@ -215,7 +223,7 @@ export default [
   {
     slug: "embed-worker",
     name: "Embed Worker",
-    description: "A tiny test project that lets you create custom Open Graph embeds.\nPowered by Cloudflare Workers.",
+    description: "A tiny test project that lets you create custom Open Graph embeds. Powered by Cloudflare Workers.",
     shortDescription: "A tiny test project that lets you create custom Open Graph embeds.",
     year: "2022",
     tags: [tags.CLOUDFLARE_WORKERS, tags.TS],
@@ -226,7 +234,7 @@ export default [
   {
     slug: "react-ant-design-ui",
     name: "React + Ant Design website",
-    description: "A dashboard website template built with Vite + React + Ant Design.\nThis is something I originally built for work, but without the secret parts.",
+    description: "A dashboard website template built with Vite + React + Ant Design. This is something I originally built for work, but without the secret parts.",
     shortDescription: "A UI/website/dashboard built with React and And Design.",
     year: "2023",
     tags: [tags.REACT, tags.VITE, tags.ANTD],
@@ -236,7 +244,7 @@ export default [
   {
     slug: "the-finals-leaderboard",
     name: "THE FINALS Leaderboard",
-    description: "A fun project that creates a better leaderboard for the game THE FINALS from Embark Studios.\nBuilt with React + Vite.",
+    description: "A fun project that creates a better leaderboard for the game THE FINALS from Embark Studios. Built with React + Vite.",
     shortDescription: "An external leaderboard for the game THE FINALS.",
     year: "2023",
     tags: [tags.REACT, tags.VITE],
@@ -246,7 +254,7 @@ export default [
   {
     slug: "bloodhunt-arg",
     name: "Bloodhunt ARG",
-    description: "A project I built for my role at Sharkmob. It was an ARG that we created for the game Bloodhunt.\nOver 500 unique users from 50 different countries participated in the ARG.\nIt was a massive success in terms of satisfaction and engagement.",
+    description: "A project I built for my role at Sharkmob. It was an ARG that we created for the game Bloodhunt.\n\nOver 500 unique users from 50 different countries participated in the ARG. It was a massive success, garnering satisfaction and engagement from the community.",
     shortDescription: "The official website for the Bloodhunt ARG, 'The Omnis Challenge'.",
     year: "2023",
     tags: [tags.CLOUDFLARE_WORKERS, tags.HTML, tags.CSS, tags.TS, tags.API],
@@ -266,7 +274,7 @@ export default [
   {
     slug: "guestbook",
     name: "Guestbook",
-    description: "A guestbook for my personal website. It uses Next.js experimental Server Actions and Cloudflare D1.\nIt uses authentication from NextAuth.js.",
+    description: "A guestbook for my personal website. It uses Next.js experimental Server Actions and Cloudflare D1. It uses authentication from NextAuth.js.",
     shortDescription: "A guestbook powered by Next.js Server Actions and Cloudflare D1.",
     year: "2023",
     tags: [tags.CLOUDFLARE_WORKERS, tags.REACT, tags.NEXT, tags.TAILWIND, tags.TS, tags.API, tags.DATABASE],
@@ -283,7 +291,7 @@ export default [
   {
     slug: "phisherman",
     name: "Phisherman",
-    description: "Phisherman is a centralised database of phishing and scam links. It is designed for use with Discord bots.\nI am contributing to the Phisherman API, docs, and bot as a maintainer.",
+    description: "Phisherman is a centralised database of phishing and scam links. It is designed for use with Discord bots.\n\nI am contributing to the Phisherman API, docs, and bot as a maintainer.",
     shortDescription: "A centralised database of phishing and scam links.",
     year: "2023",
     tags: [tags.CLOUDFLARE_WORKERS, tags.TS, tags.JS, tags.API, tags.DATABASE, tags.NODE, tags.DISCORDJS],
