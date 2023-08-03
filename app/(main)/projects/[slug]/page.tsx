@@ -114,7 +114,7 @@ export default ({ params }: { params: { slug: string } }) => {
           {/* Preview */}
           {/* Only render preview if project.link exists */}
           {!project.hidePreview && project.link && (
-            <GradientBorder extraClasses="mt-5 w-full">
+            <GradientBorder extraClasses="mt-5" hoverable>
               <details className="rounded">
                 <summary className="cursor-pointer p-2 text-center text-lg font-semibold text-white">Preview {project.slug === "leon-home" && "(Inception style)"}</summary>
                 <iframe src={project.link} className="h-[500px] w-full rounded bg-white lg:h-[500px] xl:h-[700px]"></iframe>
@@ -122,19 +122,23 @@ export default ({ params }: { params: { slug: string } }) => {
             </GradientBorder>
           )}
 
-          {/* Only render images if the exist */}
+          {/* Image display */}
+          {/* Only render images if they exist (duh) */}
           {project.images && (
-            <div className="mt-5 w-full">
-              {/* Style: display as many cols as there are images */}
-              <div className={`grid gap-2 ${project.images.length === 1 ? "grid-cols-1" : ""} ${project.images.length === 2 ? "grid-cols-2" : ""} ${project.images.length === 3 ? "grid-cols-3" : ""} max-lg:grid-cols-1`}>
-                {project.images.map((image, index) => (
-                  <div key={index}>
-                    {/* Style: Only use w-full if more than 1 image and on lg and up. Lower than lg means 1 col, where we should not stretch images */}
-                    <Image src={image} quality={100} alt={`Project image for ${project.name}.`} className={`mx-auto select-none ${project.images!.length > 1 ? "lg:w-full" : ""} rounded-lg border border-kinda-black dark:border-kinda-white/50`} priority placeholder="blur" />
-                  </div>
-                ))}
-              </div>
-            </div>
+            <GradientBorder extraClasses="mt-5" from="from-pink-400" via="via-orange-700" to="to-yellow-600" hoverable>
+              <details className="rounded">
+                <summary className="cursor-pointer p-2 text-center text-lg font-semibold text-white">Images</summary>
+                {/* Style: display as many cols as there are images */}
+                <div className={`grid gap-2 rounded bg-kinda-white p-1 dark:bg-kinda-black ${project.images.length === 1 ? "grid-cols-1" : ""} ${project.images.length === 2 ? "grid-cols-2" : ""} ${project.images.length === 3 ? "grid-cols-3" : ""} max-lg:grid-cols-1`}>
+                  {project.images.map((image, index) => (
+                    <div key={index}>
+                      {/* Style: Only use w-full if more than 1 image and on lg and up. Lower than lg means 1 col, where we should not stretch images */}
+                      <Image src={image} quality={100} alt={`Project image for ${project.name}.`} className={`mx-auto select-none ${project.images!.length > 1 ? "lg:w-full" : ""} rounded`} priority placeholder="blur" />
+                    </div>
+                  ))}
+                </div>
+              </details>
+            </GradientBorder>
           )}
         </div>
       ) : (
