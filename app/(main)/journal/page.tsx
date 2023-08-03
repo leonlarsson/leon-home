@@ -32,7 +32,7 @@ export default async () => {
 
   return (
     <div className="flex w-full flex-col items-center justify-center">
-      <div className="text-3xl font-extrabold transition-all max-[450px]:text-2xl">Journal</div>
+      <div className="text-3xl font-extrabold">Journal</div>
       <span className="mb-3">An experimental journal.</span>
 
       <div className="mb-4 flex flex-col justify-center gap-1">
