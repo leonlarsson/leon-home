@@ -38,8 +38,8 @@ export default ({ params }: { params: { slug: string } }) => {
   const nextProject = project && projects[projects.indexOf(project) + 1];
 
   return (
-    <div>
-      <div className="mx-auto mb-2 flex w-full max-w-5xl select-none justify-between font-light text-neutral-800 dark:text-neutral-300 max-[400px]:text-sm">
+    <div className="pb-10 text-start">
+      <div className="mx-auto mb-2 flex max-w-3xl select-none justify-between font-light text-neutral-800 dark:text-neutral-300 max-[400px]:text-sm">
         <div className="w-full text-start">
           {previousProject && (
             <Link className="underline-offset-2 transition-all hover:font-normal hover:text-black hover:underline dark:hover:text-kinda-white" href={`/projects/${previousProject.slug}`} title={`Previous project, ${previousProject.name}.`} draggable={false}>
@@ -67,52 +67,56 @@ export default ({ params }: { params: { slug: string } }) => {
 
       {project ? (
         <div>
-          <span className="text-[2rem] font-extrabold transition-all max-sm:text-2xl">{project.name}</span>
+          {/* Main content (title, description, tags, links) */}
+          <div className="mx-auto max-w-3xl">
+            <span className="text-4xl font-extrabold transition-all">{project.name}</span>
 
-          <p className="whitespace-pre-line">{project.description}</p>
+            <p className="whitespace-pre-line">{project.description}</p>
 
-          {project.tags && (
-            <div className="mb-3 mt-1 flex flex-wrap justify-center gap-1">
-              {project.year && <Tag tag={project.year} clickable />}
-              {project.tags
-                .sort((a, b) => a.localeCompare(b))
-                .map(tag => (
-                  <Tag key={tag} tag={tag} clickable />
-                ))}
-            </div>
-          )}
-
-          {/* Conditionally render project links */}
-          {(project.link || project.githubLink || project.extraLinks) && (
-            <>
-              <span className="text-lg font-bold">Links:</span>
-              <div className="flex flex-wrap justify-center gap-2">
-                {project.link && (
-                  <Link href={project.link} target={!project.link.startsWith("http") ? "_self" : "_blank"} className="button-with-border" draggable={false}>
-                    {project.linkName ?? "Go to project"} <i className="fa-solid fa-link" />
-                  </Link>
-                )}
-
-                {project.githubLink && (
-                  <a href={project.githubLink} target="_blank" className="button-with-border" draggable={false}>
-                    Go to GitHub <i className="fa-brands fa-github" />
-                  </a>
-                )}
-
-                {project.extraLinks?.map(extraLink => (
-                  <a key={extraLink.link} href={extraLink.link} target="_blank" className="button-with-border" draggable={false}>
-                    {extraLink.name} <i className={extraLink.type === "link" ? "fa-solid fa-link" : "fa-brands fa-github"} />
-                  </a>
-                ))}
+            {project.tags && (
+              <div className="mb-3 mt-2 flex flex-wrap gap-1">
+                {project.year && <Tag tag={project.year} clickable />}
+                {project.tags
+                  .sort((a, b) => a.localeCompare(b))
+                  .map(tag => (
+                    <Tag key={tag} tag={tag} clickable />
+                  ))}
               </div>
-            </>
-          )}
+            )}
 
+            {/* Conditionally render project links */}
+            {(project.link || project.githubLink || project.extraLinks) && (
+              <>
+                <span className="text-lg font-bold">Links:</span>
+                <div className="flex flex-wrap gap-2">
+                  {project.link && (
+                    <Link href={project.link} target={!project.link.startsWith("http") ? "_self" : "_blank"} className="button-with-border" draggable={false}>
+                      {project.linkName ?? "Go to project"} <i className="fa-solid fa-link" />
+                    </Link>
+                  )}
+
+                  {project.githubLink && (
+                    <a href={project.githubLink} target="_blank" className="button-with-border" draggable={false}>
+                      Go to GitHub <i className="fa-brands fa-github" />
+                    </a>
+                  )}
+
+                  {project.extraLinks?.map(extraLink => (
+                    <a key={extraLink.link} href={extraLink.link} target="_blank" className="button-with-border" draggable={false}>
+                      {extraLink.name} <i className={extraLink.type === "link" ? "fa-solid fa-link" : "fa-brands fa-github"} />
+                    </a>
+                  ))}
+                </div>
+              </>
+            )}
+          </div>
+
+          {/* Preview */}
           {/* Only render preview if project.link exists */}
           {!project.hidePreview && project.link && (
-            <GradientBorder extraClasses="mt-5">
-              <details className="rounded transition-colors">
-                <summary className="cursor-pointer p-2 text-lg font-semibold text-white">Preview {project.slug === "leon-home" && "(Inception style)"}</summary>
+            <GradientBorder extraClasses="mt-5 w-full">
+              <details className="rounded">
+                <summary className="cursor-pointer p-2 text-center text-lg font-semibold text-white">Preview {project.slug === "leon-home" && "(Inception style)"}</summary>
                 <iframe src={project.link} className="h-[500px] w-full rounded bg-white lg:h-[500px] xl:h-[700px]"></iframe>
               </details>
             </GradientBorder>
@@ -120,15 +124,13 @@ export default ({ params }: { params: { slug: string } }) => {
 
           {/* Only render images if the exist */}
           {project.images && (
-            <div className="mt-5">
-              <span className="text-lg font-bold">Image{project.images.length > 1 && "s"}:</span>
-
+            <div className="mt-5 w-full">
               {/* Style: display as many cols as there are images */}
-              <div className={`container mx-auto grid gap-2 ${project.images.length === 1 ? "grid-cols-1" : ""} ${project.images.length === 2 ? "grid-cols-2" : ""} ${project.images.length === 3 ? "grid-cols-3" : ""} max-lg:grid-cols-1`}>
+              <div className={`grid gap-2 ${project.images.length === 1 ? "grid-cols-1" : ""} ${project.images.length === 2 ? "grid-cols-2" : ""} ${project.images.length === 3 ? "grid-cols-3" : ""} max-lg:grid-cols-1`}>
                 {project.images.map((image, index) => (
-                  <div key={index} className="w-full rounded">
+                  <div key={index}>
                     {/* Style: Only use w-full if more than 1 image and on lg and up. Lower than lg means 1 col, where we should not stretch images */}
-                    <Image src={image} quality={100} alt={`Project image for ${project.name}.`} className={`m-auto select-none ${project.images!.length > 1 ? "lg:w-full" : ""} rounded-lg border border-kinda-black dark:border-kinda-white/50`} priority placeholder="blur" />
+                    <Image src={image} quality={100} alt={`Project image for ${project.name}.`} className={`mx-auto select-none ${project.images!.length > 1 ? "lg:w-full" : ""} rounded-lg border border-kinda-black dark:border-kinda-white/50`} priority placeholder="blur" />
                   </div>
                 ))}
               </div>
@@ -136,14 +138,14 @@ export default ({ params }: { params: { slug: string } }) => {
           )}
         </div>
       ) : (
-        <div className="mt-1 flex flex-col gap-2">
-          <div className="text-red-500 dark:text-red-400">
+        <div>
+          <div className="mb-3 text-center text-red-500 dark:text-red-400">
             Project <span className="rounded bg-black p-1 font-semibold text-white dark:bg-kinda-white dark:text-kinda-black">{decodeURIComponent(params.slug)}</span> not found
           </div>
 
           {projects.filter(project => project.slug.includes(params.slug)).length > 0 && (
-            <div>
-              <span>Maybe you were looking for:</span>
+            <div className={`mx-auto self-center ${projects.filter(project => project.slug.includes(params.slug)).length === 1 ? "max-w-3xl" : ""}`}>
+              <div className="text-center">Maybe you were looking for:</div>
               <ProjectsGrid projects={projects.filter(project => project.slug.includes(params.slug))} />
             </div>
           )}
