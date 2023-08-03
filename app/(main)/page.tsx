@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { getServerSession } from "next-auth";
 import projects from "./projects/data";
+import TypeAnimation from "./components/TypeAnimation";
 import GradientBorder from "./components/GradientBorder";
 import smLogo from "/public/assets/images/smlogo_notext.png";
 import { Project } from "./projects/components/ProjectsGrid";
@@ -22,7 +23,7 @@ export default () => {
 
       <div className="flex flex-col gap-6">
         <div>
-          👋 Hello, I am <span className="font-bold">Leon San José Larsson.</span>
+          👋 <TypeAnimation cursor={false} deletionSpeed={1} sequence={["Hello there!", 2000, "Hello, I am Leon San José Larsson."]} />
         </div>
 
         {/* WORK */}
