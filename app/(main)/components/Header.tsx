@@ -24,7 +24,7 @@ export default () => {
           <div className="hidden gap-1 text-2xl min-[670px]:flex">
             <HeaderLink content={<i className="fa-solid fa-envelope" />} url="mailto:leonlarsson8@gmail.com" title="Email" newTab />
             <HeaderLink content={<i className="fa-brands fa-linkedin" />} url="https://www.linkedin.com/in/leonlarsson/" title="LinkedIn" newTab />
-            <HeaderLink content={<i className="fa-brands fa-twitter" />} url="https://x.com/MozzyFX" title="X / Twitter" newTab />
+            <HeaderLink content={<i className="fa-brands fa-x-twitter" />} url="https://x.com/MozzyFX" title="X / Twitter" newTab />
             <HeaderLink content={<i className="fa-brands fa-github" />} url="https://github.com/leonlarsson" title="GitHub" newTab />
           </div>
         </div>
@@ -46,7 +46,7 @@ export default () => {
           {/* <div className="hidden gap-5 min-[410px]:flex">
             <HeaderLink content={<i className="fa-solid fa-envelope" />} url="mailto:leonlarsson8@gmail.com" title="Email" newTab />
             <HeaderLink content={<i className="fa-brands fa-linkedin" />} url="https://www.linkedin.com/in/leonlarsson/" title="LinkedIn" newTab />
-            <HeaderLink content={<i className="fa-brands fa-twitter" />} url="https://x.com/MozzyFX" title="X / Twitter" newTab />
+            <HeaderLink content={<i className="fa-brands fa-x-twitter" />} url="https://x.com/MozzyFX" title="X / Twitter" newTab />
             <HeaderLink content={<i className="fa-brands fa-github" />} url="https://github.com/leonlarsson" title="GitHub" newTab />
           </div> */}
         </div>
