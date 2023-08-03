@@ -35,7 +35,7 @@ export default async () => {
 
   return (
     <div className="flex w-full flex-col items-center justify-center">
-      <div className="text-3xl font-extrabold transition-all max-[450px]:text-2xl">Guestbook</div>
+      <div className="text-3xl font-extrabold">Guestbook</div>
       <span className="mb-3">A guestbook where you can send an emoji or sign in to send a message.</span>
 
       <div className="mb-4 flex flex-col justify-center gap-1">
