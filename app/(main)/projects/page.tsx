@@ -35,7 +35,9 @@ export default ({ searchParams }: { searchParams: Record<string, string> }) => {
       <div className="flex flex-col space-y-3">
         <div className="text-3xl font-extrabold">Projects</div>
 
-        <Search />
+        <div className="mx-auto w-full transition-all md:w-80">
+          <Search />
+        </div>
 
         {searchParam && (
           <span className={!projects.length ? "text-red-500 dark:text-red-400" : ""}>
