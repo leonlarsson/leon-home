@@ -274,19 +274,12 @@ export default [
   {
     slug: "guestbook",
     name: "Guestbook",
-    description: "A guestbook for my personal website. It uses Next.js experimental Server Actions and Cloudflare D1. It uses authentication from NextAuth.js.",
-    shortDescription: "A guestbook powered by Next.js Server Actions and Cloudflare D1.",
+    description: "A guestbook for my personal website. It uses Next.js experimental Server Actions and PlanetScale. It uses authentication from NextAuth.js.",
+    shortDescription: "A guestbook powered by Next.js Server Actions and PlanetScale.",
     year: "2023",
-    tags: [tags.CLOUDFLARE_WORKERS, tags.REACT, tags.NEXT, tags.TAILWIND, tags.TS, tags.API, tags.DATABASE],
+    tags: [tags.REACT, tags.NEXT, tags.TAILWIND, tags.TS, tags.API, tags.DATABASE],
     link: "/guestbook",
-    githubLink: "https://github.com/leonlarsson/leon-home/tree/main/app/(main)/guestbook",
-    extraLinks: [
-      {
-        name: "API + DB",
-        link: "https://github.com/leonlarsson/leon-home-api",
-        type: "github"
-      }
-    ]
+    githubLink: "https://github.com/leonlarsson/leon-home/tree/main/app/(main)/guestbook"
   },
   {
     slug: "phisherman",
