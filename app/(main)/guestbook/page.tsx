@@ -6,6 +6,7 @@ import { SignInDiscord, SignInGitHub } from "../components/AuthButtons";
 import SendMessageSection from "./components/SendMessageSection";
 import CommenterInfo from "./components/CommenterInfo";
 import Entries from "./components/Entries";
+import GradientBorder from "../components/GradientBorder";
 
 const pageTitle = "Guestbook | Leon San José Larsson";
 const pageDescription = "A guestbook where you can send public messages to me.";
@@ -34,11 +35,11 @@ export default async () => {
   const userIsAdmin = Boolean(session?.user?.email && process.env.ADMIN_EMAIL && session.user.email === process.env.ADMIN_EMAIL);
 
   return (
-    <div className="flex w-full flex-col items-center justify-center">
+    <div className="mx-auto max-w-3xl">
       <div className="text-3xl font-extrabold">Guestbook</div>
-      <span className="mb-3">A guestbook where you can send an emoji or sign in to send a message.</span>
+      <div className="mb-3">A guestbook where you can send an emoji or sign in to send a message.</div>
 
-      <div className="mb-4 flex flex-col justify-center gap-1">
+      <div className="flex flex-col justify-center gap-1">
         {requireAuth ? (
           session?.user?.name ? (
             // If requireAuth, and name exists, user is logged in. Show the message area in text mode and the commenter info
@@ -62,7 +63,9 @@ export default async () => {
         )}
       </div>
 
-      <hr className="border-1 mb-4 h-px w-full border-black dark:border-kinda-white/50" />
+      <GradientBorder extraClasses="my-2">
+        <div className="p-px" />
+      </GradientBorder>
 
       <Suspense fallback="Loading messages...">
         <Entries admin={userIsAdmin} />
