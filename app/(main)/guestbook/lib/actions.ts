@@ -34,7 +34,7 @@ export const postEntry = async (message: string): Promise<boolean> => {
   if (requireAuth && !session && !emojis.includes(message)) message = "👈🛑👮‍♂️";
 
   try {
-    await conn.execute("INSERT INTO entries (body, name) VALUES (?, ?)", [message.trim() || "<Empty message>", session?.user?.name]);
+    await conn.execute("INSERT INTO guestbook_entries (body, name) VALUES (?, ?)", [message.trim() || "<Empty message>", session?.user?.name]);
     return true;
   } catch (error) {
     console.log(error);
