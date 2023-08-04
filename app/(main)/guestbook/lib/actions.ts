@@ -1,14 +1,25 @@
 "use server";
 
 import { getServerSession } from "next-auth";
+import { connect } from "@planetscale/database";
 import { get as getEdgeConfig } from "@vercel/edge-config";
 import emojis from "./emojis";
+import { Entry } from "../components/Entries";
 
-export const getEntries = async (): Promise<Response> => {
-  return await fetch("https://leon-home-api.ragnarok.workers.dev/guestbook/entries", {
-    headers: { "API-KEY": process.env.API_KEY as string },
-    cache: "no-store"
-  });
+const conn = connect({
+  host: process.env.DATABASE_HOST,
+  username: process.env.DATABASE_USERNAME,
+  password: process.env.DATABASE_PASSWORD
+});
+
+export const getEntries = async (): Promise<Entry[] | false> => {
+  try {
+    const { rows } = await conn.execute("SELECT * FROM entries ORDER BY date DESC");
+    return rows as Entry[];
+  } catch (error) {
+    console.log(error);
+    return false;
+  }
 };
 
 export const postEntry = async (message: string): Promise<boolean> => {
@@ -22,25 +33,23 @@ export const postEntry = async (message: string): Promise<boolean> => {
   // Handle cases where auth is enabled, the user is not signed in, and the message is not an emoji (it should be, because not being signed in means emojis only)
   if (requireAuth && !session && !emojis.includes(message)) message = "👈🛑👮‍♂️";
 
-  // Temp debug log
-  console.log({ message, requireAuth, user: session?.user });
-
-  const res = await fetch("https://leon-home-api.ragnarok.workers.dev/guestbook/entries", {
-    method: "POST",
-    headers: { "API-KEY": process.env.API_KEY as string },
-    cache: "no-store",
-    body: JSON.stringify({ body: message.trim() || "<Empty message>", name: session?.user?.name })
-  });
-  return res.ok;
+  try {
+    await conn.execute("INSERT INTO entries (body, name) VALUES (?, ?)", [message.trim() || "<Empty message>", session?.user?.name]);
+    return true;
+  } catch (error) {
+    console.log(error);
+    return false;
+  }
 };
 
 export const deleteEntry = async (idToDelete: string): Promise<boolean> => {
-  const res = await fetch("https://leon-home-api.ragnarok.workers.dev/guestbook/entries", {
-    method: "DELETE",
-    headers: { "API-KEY": process.env.API_KEY as string, "id-to-delete": idToDelete },
-    cache: "no-store"
-  });
-  return res.ok;
+  try {
+    await conn.execute("DELETE FROM entries WHERE id = ?", [idToDelete]);
+    return true;
+  } catch (error) {
+    console.log(error);
+    return false;
+  }
 };
 
 export const getRequireAuth = async (): Promise<boolean> => {

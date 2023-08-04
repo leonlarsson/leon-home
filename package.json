@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@2toad/profanity": "^2.2.0",
+    "@planetscale/database": "^1.10.0",
     "@types/node": "^20.4.2",
     "@types/react": "^18.2.15",
     "@types/react-dom": "^18.2.7",
