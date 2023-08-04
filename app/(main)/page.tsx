@@ -58,7 +58,7 @@ export default () => {
           <i className="fa-solid fa-pencil fa-lg fa-fw me-1" />
           Feel free to{" "}
           <span className="font-semibold">
-            <Link prefetch={false} href="/guestbook" className="underline-offset-2 hover:underline">
+            <Link href="/guestbook" className="underline-offset-2 hover:underline">
               sign my guestbook!
             </Link>{" "}
           </span>
