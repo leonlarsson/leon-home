@@ -14,7 +14,7 @@ const conn = connect({
 
 export const getEntries = async (): Promise<Entry[] | false> => {
   try {
-    const { rows } = await conn.execute("SELECT * FROM entries ORDER BY date DESC");
+    const { rows } = await conn.execute("SELECT * FROM entries ORDER BY date DESC LIMIT 100");
     return rows as Entry[];
   } catch (error) {
     console.log(error);
