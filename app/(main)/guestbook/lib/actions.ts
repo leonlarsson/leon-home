@@ -14,7 +14,7 @@ const conn = connect({
 
 export const getEntries = async (): Promise<Entry[] | false> => {
   try {
-    const { rows } = await conn.execute("SELECT * FROM entries ORDER BY date DESC LIMIT 100");
+    const { rows } = await conn.execute("SELECT * FROM guestbook_entries ORDER BY date DESC LIMIT 100");
     return rows as Entry[];
   } catch (error) {
     console.log(error);
@@ -44,7 +44,7 @@ export const postEntry = async (message: string): Promise<boolean> => {
 
 export const deleteEntry = async (idToDelete: string): Promise<boolean> => {
   try {
-    await conn.execute("DELETE FROM entries WHERE id = ?", [idToDelete]);
+    await conn.execute("DELETE FROM guestbook_entries WHERE id = ?", [idToDelete]);
     return true;
   } catch (error) {
     console.log(error);
