@@ -1,27 +1,40 @@
 "use server";
 
-export const getPosts = async (): Promise<Response> => {
-  return await fetch("https://leon-home-api.ragnarok.workers.dev/journal/posts", {
-    headers: { "API-KEY": process.env.API_KEY as string },
-    cache: "no-store"
-  });
+import { connect } from "@planetscale/database";
+import { Post } from "../components/Posts";
+
+const conn = connect({
+  host: process.env.DATABASE_HOST,
+  username: process.env.DATABASE_USERNAME,
+  password: process.env.DATABASE_PASSWORD
+});
+
+export const getPosts = async (): Promise<Post[] | false> => {
+  try {
+    const { rows } = await conn.execute("SELECT * FROM journal_posts ORDER BY date DESC");
+    return rows as Post[];
+  } catch (error) {
+    console.log(error);
+    return false;
+  }
 };
 
 export const postPost = async (title: string, body: string): Promise<boolean> => {
-  const res = await fetch("https://leon-home-api.ragnarok.workers.dev/journal/posts", {
-    method: "POST",
-    headers: { "API-KEY": process.env.API_KEY as string },
-    cache: "no-store",
-    body: JSON.stringify({ title: title.trim() || "<Empty title>", body: body.trim() || "<Empty body>" })
-  });
-  return res.ok;
+  try {
+    await conn.execute("INSERT INTO journal_posts (title, body) VALUES (?, ?)", [title.trim() || "<No title>", body.trim() || "<No body>"]);
+    return true;
+  } catch (error) {
+    console.log(error);
+    return false;
+  }
 };
 
 export const deletePost = async (idToDelete: string): Promise<boolean> => {
-  const res = await fetch("https://leon-home-api.ragnarok.workers.dev/journal/posts", {
-    method: "DELETE",
-    headers: { "API-KEY": process.env.API_KEY as string, "id-to-delete": idToDelete },
-    cache: "no-store"
-  });
-  return res.ok;
+  try {
+    await conn.execute("DELETE FROM journal_posts WHERE id = ?", [idToDelete]);
+    return true;
+  } catch (error) {
+    console.log(error);
+    return false;
+  }
 };
