@@ -8,20 +8,20 @@ import { postEntry } from "../lib/actions";
 export default ({ mode }: { mode: "text" | "emoji" }) => {
   const router = useRouter();
   const [isPending, startTransition] = useTransition();
-  const [isFetching, setIsFetching] = useState(false);
+  const [isInserting, setIsInserting] = useState(false);
   const [isError, setIsError] = useState(false);
-  const isMutating = isFetching || isPending;
+  const isMutating = isInserting || isPending;
 
-  // Send the message to the API
+  // Insert entry into database
   const postEntryFunc = async (message: string): Promise<boolean> => {
-    setIsFetching(true);
+    setIsInserting(true);
     setIsError(false);
     // SERVER ACTION
-    const postWasOk = await postEntry(message);
-    setIsFetching(false);
+    const entryWasInserted = await postEntry(message);
+    setIsInserting(false);
 
-    postWasOk ? startTransition(() => router.refresh()) : setIsError(true);
-    return postWasOk;
+    entryWasInserted ? startTransition(() => router.refresh()) : setIsError(true);
+    return entryWasInserted;
   };
 
   return (

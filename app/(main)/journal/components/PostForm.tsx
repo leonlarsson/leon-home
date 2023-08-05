@@ -7,20 +7,20 @@ import { postPost } from "../lib/actions";
 export default () => {
   const router = useRouter();
   const [isPending, startTransition] = useTransition();
-  const [isFetching, setIsFetching] = useState(false);
+  const [isInserting, setIsInserting] = useState(false);
   const [isError, setIsError] = useState(false);
-  const isMutating = isFetching || isPending;
+  const isMutating = isInserting || isPending;
 
   // Send the message to the API
   const postPostFunc = async (title: string, body: string): Promise<boolean> => {
-    setIsFetching(true);
+    setIsInserting(true);
     setIsError(false);
     // SERVER ACTION
-    const postWasOk = await postPost(title, body);
-    setIsFetching(false);
+    const postWasInserted = await postPost(title, body);
+    setIsInserting(false);
 
-    postWasOk ? startTransition(() => router.refresh()) : setIsError(true);
-    return postWasOk;
+    postWasInserted ? startTransition(() => router.refresh()) : setIsError(true);
+    return postWasInserted;
   };
 
   return (
