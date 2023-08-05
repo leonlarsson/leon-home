@@ -32,7 +32,6 @@ export default async () => {
   let session;
   const requireAuth = await getRequireAuth();
   if (requireAuth) session = await getServerSession();
-  const userIsAdmin = Boolean(session?.user?.email && process.env.ADMIN_EMAIL && session.user.email === process.env.ADMIN_EMAIL);
 
   return (
     <div className="mx-auto max-w-3xl">
@@ -68,7 +67,7 @@ export default async () => {
       </GradientBorder>
 
       <Suspense fallback="Loading messages...">
-        <Entries admin={userIsAdmin} />
+        <Entries userEmail={session?.user?.email ?? null} />
       </Suspense>
     </div>
   );

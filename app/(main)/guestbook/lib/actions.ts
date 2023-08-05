@@ -28,16 +28,18 @@ export const postEntry = async (message: string): Promise<boolean> => {
 
   let session;
   const requireAuth = await getRequireAuth();
+
   // If requireAuth, get the session
   if (requireAuth) session = await getServerSession();
-  // If requireAuth and session (user is signed in), but no name is available, return false (which will show an error)
-  if (requireAuth && session && !session.user?.name) return false;
+
+  // If requireAuth and session (user is signed in), but no name or email is available, return false (which will show an error)
+  if (requireAuth && session && !session.user?.name && !session.user?.email) return false;
 
   // Handle cases where auth is enabled, the user is not signed in, and the message is not an emoji (it should be, because not being signed in means emojis only)
   if (requireAuth && !session && !emojis.includes(message)) message = "👈🛑👮‍♂️";
 
   try {
-    await conn.execute("INSERT INTO guestbook_entries (body, name) VALUES (?, ?)", [message.trim() || "<Empty message>", session?.user?.name?.slice(0, 50)]);
+    await conn.execute("INSERT INTO guestbook_entries (body, name, email) VALUES (?, ?, ?)", [message.trim() || "<Empty message>", session?.user?.name?.slice(0, 50), session?.user?.email]);
     return true;
   } catch (error) {
     console.log(error);
@@ -47,12 +49,35 @@ export const postEntry = async (message: string): Promise<boolean> => {
 
 export const deleteEntry = async (idToDelete: string): Promise<boolean> => {
   try {
+    // Check if the user can delete this entry
+    if (!(await canDeleteEntry(idToDelete))) return false;
+
+    // If we get here, the user is admin or the entry belongs to the user
     await conn.execute("DELETE FROM guestbook_entries WHERE id = ?", [idToDelete]);
     return true;
   } catch (error) {
     console.log(error);
     return false;
   }
+};
+
+export const canDeleteEntry = async (idToDelete: string): Promise<boolean> => {
+  // Get the session
+  const session = await getServerSession();
+
+  // If session does not have an email, return false
+  if (!session?.user?.email) return false;
+
+  // If user is not admin...
+  if (session.user.email !== process.env.ADMIN_EMAIL) {
+    // Try to get the email for the entry that is being deleted
+    const { rows } = await conn.execute("SELECT 1 FROM guestbook_entries WHERE id = ? AND email = ?", [idToDelete, session.user.email]);
+
+    // If no rows are returned (no entry with that id and email), return false
+    if (!rows.length) return false;
+  }
+
+  return true;
 };
 
 export const getRequireAuth = async (): Promise<boolean> => {
