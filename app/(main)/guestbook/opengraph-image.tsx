@@ -1,16 +1,23 @@
 import { ImageResponse } from "next/server";
+import { connect } from "@planetscale/database";
 import { profanity } from "@2toad/profanity";
 import type { Entry } from "./components/Entries";
 
 export const runtime = "edge";
+
+const conn = connect({
+  host: process.env.DATABASE_HOST,
+  username: process.env.DATABASE_USERNAME,
+  password: process.env.DATABASE_PASSWORD
+});
 
 export default async () => {
   const regularFont = fetch(new URL("/public/assets/fonts/Inter-Regular.ttf", import.meta.url)).then(res => res.arrayBuffer());
   const avatar = fetch(new URL("/public/assets/images/avatar.png", import.meta.url)).then(res => res.arrayBuffer());
   const [regularFontData, avatarData] = await Promise.all([regularFont, avatar]);
 
-  const res = await fetch("https://leon-home-api.ragnarok.workers.dev/guestbook/entries", { headers: { "API-KEY": process.env.API_KEY as string }, cache: "no-store" });
-  const entries: Entry[] = await res.json();
+  const queryResult = await conn.execute("SELECT * FROM guestbook_entries ORDER BY date DESC LIMIT 10");
+  const entries = queryResult.rows as Entry[];
 
   return new ImageResponse(
     (
@@ -20,7 +27,7 @@ export default async () => {
         <div tw="text-[40px] font-[900]">Leon's Guestbook</div>
         <div tw="text-[25px] font-[900] mb-2">Last 10 messages:</div>
 
-        <div tw="flex flex-col items-left">
+        <div tw="flex flex-col">
           {entries.slice(0, 10).map(entry => (
             <div tw="flex mb-2" key={entry.id}>
               <span>
