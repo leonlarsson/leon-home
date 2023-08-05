@@ -25,8 +25,9 @@ export default async ({ userEmail }: { userEmail: string | null }) => {
 
 export type Entry = {
   id: string;
-  date: number;
+  date: string;
   body: string;
-  name?: string;
-  email?: string;
+  name: string | null;
+  email: string | null;
+  deleted: 0 | 1 | null;
 };

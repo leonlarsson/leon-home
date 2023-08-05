@@ -28,7 +28,7 @@ export default async ({ admin }: { admin: boolean }) => {
 
 export type Post = {
   id: string;
-  date: number;
+  date: string;
   title: string;
   body: string;
 };
