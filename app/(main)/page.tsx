@@ -13,7 +13,7 @@ export default () => {
     <div className="mx-auto max-w-3xl pb-10 text-start">
       <div className="mb-6 flex items-center gap-4">
         {/* <GradientBorder rounded="rounded-full" padding="p-1">IMAGE</GradientBorder> */}
-        <Image className="h-full select-none rounded-full shadow-xl transition-all hover:rounded-l-xl hover:shadow-2xl active:-translate-y-1 max-md:w-[50px]" src="/assets/images/avatar.png" alt="Leon image" width={130} height={130} priority draggable={false} />
+        <Image className="h-full select-none rounded-[100px] shadow transition-all hover:rounded-l-[10px] hover:shadow-lg active:translate-x-1 max-md:w-[50px]" src="/assets/images/avatar.png" alt="Leon image" width={130} height={130} priority draggable={false} />
 
         <div className="flex flex-col gap-1 max-md:gap-0">
           <span className="text-4xl font-extrabold leading-none transition-all max-md:text-xl">Leon San José Larsson</span>
