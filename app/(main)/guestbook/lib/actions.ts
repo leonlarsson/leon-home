@@ -4,7 +4,7 @@ import { getServerSession } from "next-auth";
 import { connect } from "@planetscale/database";
 import { get as getEdgeConfig } from "@vercel/edge-config";
 import emojis from "./emojis";
-import { Entry } from "../components/Entries";
+import { Entry } from "@/types";
 
 const conn = connect({
   host: process.env.DATABASE_HOST,

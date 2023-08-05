@@ -1,7 +1,7 @@
 import Link from "next/link";
-import type { Project as ProjectType } from "../data";
 import Tag from "./Tag";
 import GradientBorder from "../../components/GradientBorder";
+import type { Project as ProjectType } from "@/types";
 
 export default ({ projects }: { projects: ProjectType[] }) => {
   return (

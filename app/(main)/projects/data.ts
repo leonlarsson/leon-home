@@ -1,4 +1,3 @@
-import { StaticImageData } from "next/image";
 import bfd1 from "./images/bfd1.png";
 import bfd2 from "./images/bfd2.png";
 import battlebotImage1 from "./images/battlebot1.png";
@@ -11,6 +10,7 @@ import timestamperImage1 from "./images/timestamper1.png";
 import timestamperImage2 from "./images/timestamper2.png";
 import bloodhuntStatsImage1 from "./images/bloodhuntstats1.png";
 import embedWorkerImage1 from "./images/embedworker1.png";
+import { Project } from "@/types";
 
 const tags = {
   HTML: "HTML",
@@ -293,23 +293,3 @@ export default [
     githubLink: "https://github.com/PhishermanGG"
   }
 ] satisfies Project[] as Project[];
-
-export type Project = {
-  slug: string;
-  name: string;
-  description: string;
-  shortDescription: string;
-  year?: string;
-  endYear?: string;
-  tags?: string[];
-  images?: StaticImageData[];
-  link?: string;
-  linkName?: string;
-  hidePreview?: boolean;
-  githubLink?: string;
-  extraLinks?: {
-    name: string;
-    link: string;
-    type: "link" | "github";
-  }[];
-};

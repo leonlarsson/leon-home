@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/server";
 import { connect } from "@planetscale/database";
 import { profanity } from "@2toad/profanity";
-import type { Entry } from "./components/Entries";
+import { Entry } from "@/types";
 
 export const runtime = "edge";
 

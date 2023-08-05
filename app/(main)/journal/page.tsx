@@ -1,8 +1,7 @@
 import { Suspense } from "react";
-import Link from "next/link";
 import type { Metadata } from "next";
 import { getServerSession } from "next-auth";
-import { SignInDiscord, SignInGitHub, SignOut } from "../components/AuthButtons";
+import { SignInGitHub, SignOut } from "../components/AuthButtons";
 import PostForm from "./components/PostForm";
 import Posts from "./components/Posts";
 

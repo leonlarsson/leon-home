@@ -1,7 +1,7 @@
 "use server";
 
 import { connect } from "@planetscale/database";
-import { Post } from "../components/Posts";
+import { Post } from "@/types";
 
 const conn = connect({
   host: process.env.DATABASE_HOST,

@@ -22,12 +22,3 @@ export default async ({ userEmail }: { userEmail: string | null }) => {
     </section>
   );
 };
-
-export type Entry = {
-  id: string;
-  date: string;
-  body: string;
-  name: string | null;
-  email: string | null;
-  deleted: 0 | 1 | null;
-};
