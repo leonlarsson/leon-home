@@ -23,6 +23,9 @@ export const getEntries = async (): Promise<Entry[] | false> => {
 };
 
 export const postEntry = async (message: string): Promise<boolean> => {
+  // Validate length
+  if (message.length > 100) return false;
+
   let session;
   const requireAuth = await getRequireAuth();
   // If requireAuth, get the session
