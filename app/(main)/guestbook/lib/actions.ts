@@ -14,7 +14,8 @@ const conn = connect({
 
 export const getEntries = async (): Promise<Entry[] | false> => {
   try {
-    const { rows } = await conn.execute("SELECT * FROM guestbook_entries ORDER BY date DESC LIMIT 100");
+    // Get all entries that are not deleted (null or 0), sorted by date, limited to 100
+    const { rows } = await conn.execute("SELECT * FROM guestbook_entries WHERE deleted IS NULL OR deleted = 0 ORDER BY date DESC LIMIT 100");
     return rows as Entry[];
   } catch (error) {
     console.log(error);
@@ -53,7 +54,7 @@ export const deleteEntry = async (idToDelete: string): Promise<boolean> => {
     if (!(await canDeleteEntry(idToDelete))) return false;
 
     // If we get here, the user is admin or the entry belongs to the user
-    await conn.execute("DELETE FROM guestbook_entries WHERE id = ?", [idToDelete]);
+    await conn.execute("UPDATE guestbook_entries SET deleted = 1 WHERE id = ?", [idToDelete]);
     return true;
   } catch (error) {
     console.log(error);
