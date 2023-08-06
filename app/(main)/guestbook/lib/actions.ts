@@ -56,7 +56,7 @@ export const editEntry = async (idToEdit: string, newMessage: string): Promise<b
 
   try {
     // Check if the user can edit this entry
-    if (!(await userIsEntryAuthor(idToEdit))) return false;
+    if (!(await userCanModifyEntry(idToEdit))) return false;
 
     const dateTime = new Date().toISOString().slice(0, 19).replace("T", " ");
 
@@ -72,7 +72,7 @@ export const editEntry = async (idToEdit: string, newMessage: string): Promise<b
 export const deleteEntry = async (idToDelete: string): Promise<boolean> => {
   try {
     // Check if the user can delete this entry
-    if (!(await userIsEntryAuthor(idToDelete))) return false;
+    if (!(await userCanModifyEntry(idToDelete))) return false;
 
     // If we get here, the user is admin or the entry belongs to the user
     await conn.execute("UPDATE guestbook_entries SET deleted = 1 WHERE id = ?", [idToDelete]);
@@ -83,7 +83,7 @@ export const deleteEntry = async (idToDelete: string): Promise<boolean> => {
   }
 };
 
-const userIsEntryAuthor = async (entryId: string): Promise<boolean> => {
+const userCanModifyEntry = async (entryId: string): Promise<boolean> => {
   // Get the session
   const session = await getServerSession();
 
@@ -92,13 +92,14 @@ const userIsEntryAuthor = async (entryId: string): Promise<boolean> => {
 
   // If user is not admin...
   if (session.user.email !== process.env.ADMIN_EMAIL) {
-    // Look for a row with the given id and email
+    // See if a row exists with the given id and user email
     const { rows } = await conn.execute("SELECT 1 FROM guestbook_entries WHERE id = ? AND email = ?", [entryId, session.user.email]);
 
     // If no rows are returned (no entry with that id and email), return false
     if (!rows.length) return false;
   }
 
+  // If we get here, the user is admin or the entry belongs to the user
   return true;
 };
 
