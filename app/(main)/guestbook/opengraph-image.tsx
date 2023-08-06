@@ -16,7 +16,7 @@ export default async () => {
   const avatar = fetch(new URL("/public/assets/images/avatar.png", import.meta.url)).then(res => res.arrayBuffer());
   const [regularFontData, avatarData] = await Promise.all([regularFont, avatar]);
 
-  const queryResult = await conn.execute("SELECT * FROM guestbook_entries ORDER BY date DESC LIMIT 10");
+  const queryResult = await conn.execute("SELECT id, body, name FROM guestbook_entries WHERE deleted IS NULL OR deleted = 0 ORDER BY date DESC LIMIT 10");
   const entries = queryResult.rows as Entry[];
 
   return new ImageResponse(
