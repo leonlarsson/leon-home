@@ -17,7 +17,7 @@ export default async ({ userEmail }: { userEmail: string | null }) => {
           </span>{" "}
           <span>{profanity.censor(entry.body.replace(/\s+/g, " "))}</span>
           {entry.last_edited && (
-            <span className="ms-1 select-none break-normal align-bottom text-xs text-neutral-600 dark:text-neutral-400" title={`Edited ${entry.last_edited} UTC`}>
+            <span className="ms-1 select-none break-normal text-xs text-neutral-600 dark:text-neutral-400" title={`Edited ${entry.last_edited} UTC`}>
               (edited)
             </span>
           )}

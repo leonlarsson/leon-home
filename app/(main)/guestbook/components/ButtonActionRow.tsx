@@ -22,15 +22,15 @@ export default ({ entry }: { entry: Entry }) => {
   };
 
   return (
-    <span className="text-red-500 dark:text-red-400">
-      <button className="hover:underline" title={`Edit entry with ID ${entry.id}.`} onClick={onEditClick}>
-        [E]
-      </button>{" "}
-      <button className="hover:underline" title={`Delete entry with ID ${entry.id} and refresh.`} onClick={() => onDeleteClick(true)}>
-        [DR]
-      </button>{" "}
-      <button className="hover:underline" title={`Delete entry with ID ${entry.id}.`} onClick={() => onDeleteClick(false)}>
-        [D]
+    <span className="inline-flex gap-1 text-base">
+      <button className="text-blue-500 transition-colors hover:text-blue-800 dark:text-blue-300" title={`Edit entry with ID ${entry.id}.`} onClick={onEditClick}>
+        <i className="fa-solid fa-pen" />
+      </button>
+      <button className="text-red-500 transition-colors hover:text-red-700 dark:text-red-400" title={`Delete entry with ID ${entry.id}.`} onClick={() => onDeleteClick(false)}>
+        <i className="fa-solid fa-trash" />
+      </button>
+      <button className="text-red-500 transition-colors hover:text-red-700 dark:text-red-400" title={`Delete entry with ID ${entry.id} and refresh.`} onClick={() => onDeleteClick(true)}>
+        <i className="fa-solid fa-trash-arrow-up" />
       </button>
     </span>
   );
