@@ -29,24 +29,14 @@ export default () => {
       </header>
 
       {/* BOTTOM OVERLAY HEADER */}
-      <header className="fixed inset-x-0 bottom-0 z-50 block px-6 pb-6 min-[490px]:hidden" style={{ opacity: 1, transform: "none" }}>
-        <div className="flex h-16 items-center justify-between rounded-xl border-[1px] border-black/40 bg-white/50 px-4 text-xl backdrop-blur-md dark:border-kinda-white/10 dark:bg-[#1e1e1e]/50">
-          {/* Below classes were removed / added after removing the social media icons */}
-          {/* Removed below: min-[410px]:justify-normal */}
-          {/* Added below: text-2xl (can still increase size after we remove social media icons, if they were to be re-added) */}
-          <div className="flex w-full justify-around gap-5 text-2xl">
-            <HeaderLink content={<i className="fa-solid fa-house" />} url="/" title="Home" />
-            <HeaderLink content={<i className="fa-solid fa-tools" />} url="/projects" title="Projects" />
-            <HeaderLink content={<i className="fa-solid fa-pencil" />} url="/guestbook" title="Guestbook" />
-            <HeaderLink content={<i className="fa-solid fa-file-text" />} url="/resume" title="CV/Resume" />
+      <header className="fixed inset-x-0 bottom-0 z-50 block px-6 pb-6 min-[490px]:hidden">
+        <div className="flex h-16 rounded-xl border-[1px] border-black/40 bg-white/50 text-xl backdrop-blur-md dark:border-kinda-white/10 dark:bg-[#1e1e1e]/50">
+          <div className="flex w-full justify-evenly text-2xl [&>*]:px-2">
+            <HeaderLink content={<i className="fa-solid fa-house fa-fw" />} url="/" title="Home" />
+            <HeaderLink content={<i className="fa-solid fa-tools fa-fw" />} url="/projects" title="Projects" />
+            <HeaderLink content={<i className="fa-solid fa-pencil fa-fw" />} url="/guestbook" title="Guestbook" />
+            <HeaderLink content={<i className="fa-solid fa-file-text fa-fw" />} url="/resume" title="CV/Resume" />
           </div>
-
-          {/* <div className="hidden gap-5 min-[410px]:flex">
-            <HeaderLink content={<i className="fa-solid fa-envelope" />} url="mailto:leonlarsson8@gmail.com" title="Email" newTab />
-            <HeaderLink content={<i className="fa-brands fa-linkedin" />} url="https://www.linkedin.com/in/leonlarsson/" title="LinkedIn" newTab />
-            <HeaderLink content={<i className="fa-brands fa-x-twitter" />} url="https://x.com/MozzyFX" title="X / Twitter" newTab />
-            <HeaderLink content={<i className="fa-brands fa-github" />} url="https://github.com/leonlarsson" title="GitHub" newTab />
-          </div> */}
         </div>
       </header>
     </div>
