@@ -10,7 +10,7 @@ export default () => {
         {/* <GradientBorder rounded="rounded-xl" extraClasses="max-w-5xl mx-auto mt-8" hoverable>
           <div className="container mx-auto flex h-16 w-full max-w-5xl items-center justify-between rounded-xl bg-white/50 px-2 backdrop-blur-md dark:bg-[#1e1e1e]/50">REST HERE</div>
         </GradientBorder> */}
-        <div className="container mx-auto mt-8 flex h-16 w-full max-w-5xl items-center justify-between rounded-xl border-[1px] border-black/20 bg-white/50 px-2 backdrop-blur-md dark:border-kinda-white/5 dark:bg-[#1e1e1e]/50">
+        <div className="container mx-auto mt-8 flex h-16 w-full max-w-5xl items-center justify-between rounded-xl border-[1px] border-black/20 bg-white/50 px-2 dark:border-kinda-white/10 dark:bg-[#1e1e1e]/50">
           <div className="flex gap-1">
             <Link className="self-center px-2" href="/" draggable={false}>
               <Image className="rounded-full" src="/assets/images/avatar.png" alt="Leon image" width={40} height={40} priority draggable={false} />
