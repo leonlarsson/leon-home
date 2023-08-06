@@ -10,22 +10,20 @@ export default () => {
         {/* <GradientBorder rounded="rounded-[13px]" extraClasses="max-w-5xl mx-auto mt-8">
           <div className="flex h-16 items-center justify-between rounded-xl bg-white/80 px-2 dark:bg-[#1e1e1e]/70">REST HERE</div>
         </GradientBorder> */}
-        <div className="container mx-auto mt-8 flex h-16 w-full max-w-5xl items-center justify-between rounded-xl border-[1px] border-black/20 bg-white/50 px-2 dark:border-kinda-white/10 dark:bg-[#1e1e1e]/50">
-          <div className="flex gap-1">
-            <Link className="self-center px-2" href="/" draggable={false}>
-              <Image className="rounded-full" src="/assets/images/avatar.png" alt="Leon image" width={40} height={40} priority draggable={false} />
-            </Link>
+        <div className="mx-auto mt-8 flex h-16 w-full max-w-5xl justify-between rounded-xl border-[1px] border-black/20 bg-white/50 px-2 dark:border-kinda-white/10 dark:bg-[#1e1e1e]/50">
+          <div className="flex items-center [&>*]:px-2">
+            <HeaderLink content={<Image className="rounded-full" src="/assets/images/avatar.png" alt="Leon image" width={40} height={40} priority draggable={false} />} url="/" />
             <HeaderLink content="Home" url="/" />
             <HeaderLink content="Projects" url="/projects" />
             <HeaderLink content="Guestbook" url="/guestbook" />
             <HeaderLink content="Resume" url="/resume" />
           </div>
 
-          <div className="hidden gap-1 text-2xl min-[670px]:flex">
-            <HeaderLink content={<i className="fa-solid fa-envelope" />} url="mailto:leonlarsson8@gmail.com" title="Email" newTab />
-            <HeaderLink content={<i className="fa-brands fa-linkedin" />} url="https://www.linkedin.com/in/leonlarsson/" title="LinkedIn" newTab />
-            <HeaderLink content={<i className="fa-brands fa-x-twitter" />} url="https://x.com/MozzyFX" title="X / Twitter" newTab />
-            <HeaderLink content={<i className="fa-brands fa-github" />} url="https://github.com/leonlarsson" title="GitHub" newTab />
+          <div className="hidden items-center text-2xl min-[640px]:flex [&>*]:px-1">
+            <HeaderLink content={<i className="fa-solid fa-envelope fa-fw" />} url="mailto:leonlarsson8@gmail.com" title="Email" newTab />
+            <HeaderLink content={<i className="fa-brands fa-linkedin fa-fw" />} url="https://www.linkedin.com/in/leonlarsson/" title="LinkedIn" newTab />
+            <HeaderLink content={<i className="fa-brands fa-x-twitter fa-fw" />} url="https://x.com/MozzyFX" title="X / Twitter" newTab />
+            <HeaderLink content={<i className="fa-brands fa-github fa-fw" />} url="https://github.com/leonlarsson" title="GitHub" newTab />
           </div>
         </div>
       </header>
