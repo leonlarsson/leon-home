@@ -76,7 +76,7 @@ export default () => {
               { title: "LinkedIn", url: "https://www.linkedin.com/in/leonlarsson/", iconClasses: "fa-brands fa-linkedin" },
               { title: "GitHub", url: "https://github.com/leonlarsson", iconClasses: "fa-brands fa-github" },
               { title: "X / Twitter", url: "https://x.com/MozzyFX", iconClasses: "fa-brands fa-x-twitter" },
-              { title: "Bluesky", url: "https://bsky.app/profile/leon.ms", iconClasses: "fa-solid fa-comments" },
+              { title: "Bluesky", url: "https://bsky.app/profile/leon.ms", iconClasses: "fa-solid fa-globe" },
               { title: "Instagram", url: "https://www.instagram.com/leonsjlarsson/", iconClasses: "fa-brands fa-instagram" },
               { title: "ArtStation", url: "https://www.artstation.com/leonlarsson", iconClasses: "fa-brands fa-artstation" }
             ].map(({ title, url, iconClasses }) => (
