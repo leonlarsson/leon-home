@@ -7,8 +7,8 @@ export default () => {
     <div className="select-none">
       {/* TOP HEADER */}
       <header className="relative z-50 mb-6 hidden px-6 min-[490px]:block">
-        {/* <GradientBorder rounded="rounded-xl" extraClasses="max-w-5xl mx-auto mt-8" hoverable>
-          <div className="container mx-auto flex h-16 w-full max-w-5xl items-center justify-between rounded-xl bg-white/50 px-2 backdrop-blur-md dark:bg-[#1e1e1e]/50">REST HERE</div>
+        {/* <GradientBorder rounded="rounded-[13px]" extraClasses="max-w-5xl mx-auto mt-8">
+          <div className="flex h-16 items-center justify-between rounded-xl bg-white/80 px-2 dark:bg-[#1e1e1e]/70">REST HERE</div>
         </GradientBorder> */}
         <div className="container mx-auto mt-8 flex h-16 w-full max-w-5xl items-center justify-between rounded-xl border-[1px] border-black/20 bg-white/50 px-2 dark:border-kinda-white/10 dark:bg-[#1e1e1e]/50">
           <div className="flex gap-1">
