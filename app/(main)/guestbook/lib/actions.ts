@@ -24,8 +24,9 @@ export const getEntries = async (): Promise<Entry[] | false> => {
 };
 
 export const postEntry = async (message: string): Promise<boolean> => {
-  // Validate length
-  if (message.length > 100) return false;
+  // Validate message
+  let { passed, trimmedMessage } = validateMessageContent(message);
+  if (!passed) return false;
 
   let session;
   const requireAuth = await getRequireAuth();
@@ -37,10 +38,10 @@ export const postEntry = async (message: string): Promise<boolean> => {
   if (requireAuth && session && !session.user?.name && !session.user?.email) return false;
 
   // Handle cases where auth is enabled, the user is not signed in, and the message is not an emoji (it should be, because not being signed in means emojis only)
-  if (requireAuth && !session && !emojis.includes(message)) message = "👈🛑👮‍♂️";
+  if (requireAuth && !session && !emojis.includes(trimmedMessage)) trimmedMessage = "👈🛑👮‍♂️";
 
   try {
-    await conn.execute("INSERT INTO guestbook_entries (body, name, email) VALUES (?, ?, ?)", [message.trim() || "<Empty message>", session?.user?.name?.slice(0, 50), session?.user?.email]);
+    await conn.execute("INSERT INTO guestbook_entries (body, name, email) VALUES (?, ?, ?)", [trimmedMessage, session?.user?.name?.slice(0, 50), session?.user?.email]);
     return true;
   } catch (error) {
     console.log(error);
@@ -49,8 +50,9 @@ export const postEntry = async (message: string): Promise<boolean> => {
 };
 
 export const editEntry = async (idToEdit: string, newMessage: string): Promise<boolean> => {
-  // Validate length (again)
-  if (!newMessage || newMessage.length > 100) return false;
+  // Validate message
+  let { passed, trimmedMessage } = validateMessageContent(newMessage);
+  if (!passed) return false;
 
   try {
     // Check if the user can edit this entry
@@ -59,7 +61,7 @@ export const editEntry = async (idToEdit: string, newMessage: string): Promise<b
     const dateTime = new Date().toISOString().slice(0, 19).replace("T", " ");
 
     // If we get here, the user is admin or the entry belongs to the user
-    await conn.execute("UPDATE guestbook_entries SET body = ?, last_edited = ? WHERE id = ?", [newMessage.trim() || "<Empty message>", dateTime, idToEdit]);
+    await conn.execute("UPDATE guestbook_entries SET body = ?, last_edited = ? WHERE id = ?", [trimmedMessage, dateTime, idToEdit]);
     return true;
   } catch (error) {
     console.log(error);
@@ -81,7 +83,7 @@ export const deleteEntry = async (idToDelete: string): Promise<boolean> => {
   }
 };
 
-export const userIsEntryAuthor = async (entryId: string): Promise<boolean> => {
+const userIsEntryAuthor = async (entryId: string): Promise<boolean> => {
   // Get the session
   const session = await getServerSession();
 
@@ -102,4 +104,17 @@ export const userIsEntryAuthor = async (entryId: string): Promise<boolean> => {
 
 export const getRequireAuth = async (): Promise<boolean> => {
   return ((await getEdgeConfig(process.env.NODE_ENV === "production" ? "requireAuth_prod" : "requireAuth_dev")) as boolean) ?? true;
+};
+
+const validateMessageContent = (message: string): { passed: boolean; trimmedMessage: string } => {
+  // Trim
+  const trimmedMessage = message?.trim();
+
+  // Validate existance and length
+  if (!trimmedMessage || trimmedMessage.length > 100) return { passed: false, trimmedMessage };
+
+  // Validate content
+  if (["﷽", "𒐫", "𒈙", "⸻", "꧅", "ဪ", "௵", "௸", "​", "‮"].includes(trimmedMessage)) return { passed: false, trimmedMessage };
+
+  return { passed: true, trimmedMessage };
 };
