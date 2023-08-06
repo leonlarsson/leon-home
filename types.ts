@@ -27,6 +27,7 @@ export type Entry = {
   name: string | null;
   email: string | null;
   deleted: 0 | 1 | null;
+  last_edited: string | null;
 };
 
 export type Post = {

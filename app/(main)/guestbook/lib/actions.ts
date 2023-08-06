@@ -48,6 +48,25 @@ export const postEntry = async (message: string): Promise<boolean> => {
   }
 };
 
+export const editEntry = async (idToEdit: string, newMessage: string): Promise<boolean> => {
+  // Validate length (again)
+  if (!newMessage || newMessage.length > 100) return false;
+
+  try {
+    // Check if the user can edit this entry
+    if (!(await userIsEntryAuthor(idToEdit))) return false;
+
+    const dateTime = new Date().toISOString().slice(0, 19).replace("T", " ");
+
+    // If we get here, the user is admin or the entry belongs to the user
+    await conn.execute("UPDATE guestbook_entries SET body = ?, last_edited = ? WHERE id = ?", [newMessage.trim() || "<Empty message>", dateTime, idToEdit]);
+    return true;
+  } catch (error) {
+    console.log(error);
+    return false;
+  }
+};
+
 export const deleteEntry = async (idToDelete: string): Promise<boolean> => {
   try {
     // Check if the user can delete this entry

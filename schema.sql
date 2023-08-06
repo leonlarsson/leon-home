@@ -4,7 +4,8 @@ CREATE TABLE guestbook_entries (
     body VARCHAR(100) NOT NULL,
     name VARCHAR(50) DEFAULT NULL,
     email VARCHAR(150) DEFAULT NULL,
-    deleted TINYINT DEFAULT NULL
+    deleted TINYINT DEFAULT NULL,
+    last_edited DATETIME DEFAULT NULL
 );
 
 CREATE TABLE journal_posts (
