@@ -16,21 +16,18 @@ export default ({ entry }: { entry: Entry }) => {
     if (entryWasEdited) router.refresh();
   };
 
-  const onDeleteClick = async (refresh: boolean) => {
+  const onDeleteClick = async () => {
     const entryWasDeleted = await deleteEntry(entry.id);
-    if (refresh && entryWasDeleted) router.refresh();
+    if (entryWasDeleted) router.refresh();
   };
 
   return (
-    <span className="me-1 inline-flex gap-1 text-base">
+    <span className="me-1 inline-flex gap-2 text-base">
       <button className="text-blue-500 transition-colors hover:text-blue-800 dark:text-blue-300" title={`Edit entry with ID ${entry.id}.`} onClick={onEditClick}>
         <i className="fa-solid fa-pen" />
       </button>
-      <button className="text-red-500 transition-colors hover:text-red-700 dark:text-red-400" title={`Delete entry with ID ${entry.id}.`} onClick={() => onDeleteClick(false)}>
+      <button className="text-red-500 transition-colors hover:text-red-700 dark:text-red-400" title={`Delete entry with ID ${entry.id}.`} onClick={onDeleteClick}>
         <i className="fa-solid fa-trash" />
-      </button>
-      <button className="text-red-500 transition-colors hover:text-red-700 dark:text-red-400" title={`Delete entry with ID ${entry.id} and refresh.`} onClick={() => onDeleteClick(true)}>
-        <i className="fa-solid fa-trash-arrow-up" />
       </button>
     </span>
   );
