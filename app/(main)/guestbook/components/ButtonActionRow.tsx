@@ -22,7 +22,7 @@ export default ({ entry }: { entry: Entry }) => {
   };
 
   return (
-    <span className="inline-flex gap-1 text-base">
+    <span className="me-1 inline-flex gap-1 text-base">
       <button className="text-blue-500 transition-colors hover:text-blue-800 dark:text-blue-300" title={`Edit entry with ID ${entry.id}.`} onClick={onEditClick}>
         <i className="fa-solid fa-pen" />
       </button>
