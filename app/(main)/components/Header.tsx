@@ -32,7 +32,7 @@ export default () => {
 
       {/* BOTTOM OVERLAY HEADER */}
       <header className="fixed inset-x-0 bottom-0 z-50 block px-6 pb-6 min-[490px]:hidden" style={{ opacity: 1, transform: "none" }}>
-        <div className="flex h-16 w-full items-center justify-between rounded-xl border-[1px] border-black/20 bg-white/30 px-4 text-xl backdrop-blur-md dark:border-kinda-white/5 dark:bg-[#1e1e1e]/30">
+        <div className="flex h-16 items-center justify-between rounded-xl border-[1px] border-black/40 bg-white/50 px-4 text-xl backdrop-blur-md dark:border-kinda-white/10 dark:bg-[#1e1e1e]/50">
           {/* Below classes were removed / added after removing the social media icons */}
           {/* Removed below: min-[410px]:justify-normal */}
           {/* Added below: text-2xl (can still increase size after we remove social media icons, if they were to be re-added) */}
