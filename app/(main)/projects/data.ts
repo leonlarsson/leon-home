@@ -89,7 +89,7 @@ export default [
     shortDescription: "Also known as Mozzy's Log Sorter. A log-filtering website for moderators.",
     year: "2021",
     tags: [tags.HTML, tags.CSS, tags.JS],
-    link: "https://logsorter.net/",
+    link: "https://logsorter.com/",
     githubLink: "https://github.com/leonlarsson/logsorter"
   },
   {

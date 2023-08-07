@@ -290,7 +290,7 @@ export default () => {
                       . Botten är även fullt översatt till 13 språk med hjälp av hjälpsamma communitymedlemmar.
                       <br />
                       <br />
-                      <a className="inline-href" href="https://logsorter.net/" target="_blank">
+                      <a className="inline-href" href="https://logsorter.com/" target="_blank">
                         Log Sorter-projektet
                       </a>{" "}
                       skapade jag som ett program som kunde hjälpa andra Discord-moderatorer med att snabbt och enkelt sortera ut användar-ID från loggar. Detta är till stor hjälp för att skydda en kanal från stora mängder bot-konton.

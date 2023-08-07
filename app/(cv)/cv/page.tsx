@@ -294,7 +294,7 @@ export default () => {
                       <br />
                       <br />
                       The{" "}
-                      <a className="inline-href" target="_blank" href="https://logsorter.net/">
+                      <a className="inline-href" target="_blank" href="https://logsorter.com/">
                         Log Sorter
                       </a>{" "}
                       was created for Discord moderators like myself to easily sort massive amounts of user IDs from moderation logs to assist a server against bot accounts.
