@@ -16,7 +16,7 @@ export default async () => {
   const avatar = fetch(new URL("/public/assets/images/avatar.png", import.meta.url)).then(res => res.arrayBuffer());
   const [regularFontData, avatarData] = await Promise.all([regularFont, avatar]);
 
-  const queryResult = await conn.execute("SELECT id, body, name FROM guestbook_entries WHERE deleted IS NULL OR deleted = 0 ORDER BY date DESC LIMIT 10");
+  const queryResult = await conn.execute("SELECT id, body, name FROM guestbook_entries WHERE deleted_at IS NULL ORDER BY date DESC LIMIT 10");
   const entries = queryResult.rows as Entry[];
 
   return new ImageResponse(
@@ -27,10 +27,10 @@ export default async () => {
         <div tw="text-[40px] font-[900]">Leon's Guestbook</div>
         <div tw="text-[25px] font-[900] mb-2">Last 10 messages:</div>
 
-        <div tw="flex flex-col">
+        <div tw="flex flex-col w-full p-4">
           {entries.slice(0, 10).map(entry => (
             <div tw="flex mb-2" key={entry.id}>
-              <span>
+              <span className="break-all">
                 {entry.name ?? "Anonymous"}: {profanity.censor(entry.body)}
               </span>
             </div>
