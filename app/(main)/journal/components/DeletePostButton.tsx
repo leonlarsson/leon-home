@@ -3,7 +3,7 @@
 import { useRouter } from "next/navigation";
 import { deletePost } from "../lib/actions";
 
-export default ({ id }: { id: string }) => {
+export default ({ id }: { id: number }) => {
   const router = useRouter();
 
   const onDeleteClick = async () => {
@@ -12,7 +12,7 @@ export default ({ id }: { id: string }) => {
   };
 
   return (
-    <button className="button-with-border mt-4 dark:hover:!border-red-500 hover:bg-red-500" title={`Delete post with ID ${id}.`} onClick={onDeleteClick}>
+    <button className="button-with-border mt-4 hover:bg-red-500 dark:hover:!border-red-500" title={`Delete post with ID ${id}.`} onClick={onDeleteClick}>
       Delete
     </button>
   );

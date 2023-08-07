@@ -29,7 +29,7 @@ export const postPost = async (title: string, body: string): Promise<boolean> =>
   }
 };
 
-export const deletePost = async (idToDelete: string): Promise<boolean> => {
+export const deletePost = async (idToDelete: number): Promise<boolean> => {
   try {
     await conn.execute("DELETE FROM journal_posts WHERE id = ?", [idToDelete]);
     return true;
