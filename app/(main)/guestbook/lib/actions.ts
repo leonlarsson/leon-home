@@ -12,13 +12,22 @@ const conn = connect({
   password: process.env.DATABASE_PASSWORD
 });
 
+export const getEntriesCount = async (): Promise<number | false> => {
+  try {
+    // Get a count of all entries that are not deleted (null or 0)
+    const { rows } = await conn.execute("SELECT COUNT(*) as total_entries FROM guestbook_entries WHERE deleted IS NULL OR deleted = 0");
+    return (rows[0] as { total_entries: number }).total_entries;
+  } catch (error) {
+    return false;
+  }
+};
+
 export const getEntries = async (): Promise<Entry[] | false> => {
   try {
     // Get all entries that are not deleted (null or 0), sorted by date, limited to 100
     const { rows } = await conn.execute("SELECT * FROM guestbook_entries WHERE deleted IS NULL OR deleted = 0 ORDER BY date DESC LIMIT 100");
     return rows as Entry[];
   } catch (error) {
-    console.log(error);
     return false;
   }
 };

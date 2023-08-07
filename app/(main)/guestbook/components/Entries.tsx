@@ -1,14 +1,15 @@
 import { profanity } from "@2toad/profanity";
 import ButtonActionRow from "./ButtonActionRow";
-import { getEntries } from "../lib/actions";
+import { getEntries, getEntriesCount } from "../lib/actions";
 
 export default async ({ userEmail }: { userEmail: string | null }) => {
-  const entries = await getEntries();
+  const [totalEntries, entries] = await Promise.all([getEntriesCount(), getEntries()]);
   if (!entries) return <span className="text-red-500 dark:text-red-400">Failed to fetch messages.</span>;
   const userIsAdmin = !!userEmail && !!process.env.ADMIN_EMAIL && userEmail === process.env.ADMIN_EMAIL;
 
   return (
     <section className="flex flex-col text-start">
+      {totalEntries !== false && <span className="mb-1">{totalEntries.toLocaleString("en")} total entries</span>}
       {entries.map(entry => (
         <div key={entry.id} className="break-all rounded p-1 text-sm hover:bg-gray-300 dark:hover:bg-gray-300/10">
           {userIsAdmin || (userEmail && userEmail === entry.email) ? <ButtonActionRow entry={entry} /> : null}{" "}
