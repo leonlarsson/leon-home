@@ -4,8 +4,8 @@ CREATE TABLE guestbook_entries (
     body VARCHAR(100) NOT NULL,
     name VARCHAR(50) DEFAULT NULL,
     email VARCHAR(150) DEFAULT NULL,
-    deleted TINYINT DEFAULT NULL,
-    edited_at DATETIME DEFAULT NULL
+    edited_at DATETIME DEFAULT NULL,
+    deleted_at DATETIME DEFAULT NULL
 );
 
 CREATE TABLE guestbook_edits (

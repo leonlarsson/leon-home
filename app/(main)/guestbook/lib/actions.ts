@@ -14,8 +14,8 @@ const conn = connect({
 
 export const getEntriesCount = async (): Promise<number | false> => {
   try {
-    // Get a count of all entries that are not deleted (null or 0)
-    const { rows } = await conn.execute("SELECT COUNT(*) as total_entries FROM guestbook_entries WHERE deleted IS NULL OR deleted = 0");
+    // Get a count of all entries that are not deleted
+    const { rows } = await conn.execute("SELECT COUNT(*) as total_entries FROM guestbook_entries WHERE deleted_at IS NULL");
     return (rows[0] as { total_entries: number }).total_entries;
   } catch (error) {
     console.log(error);
@@ -25,8 +25,8 @@ export const getEntriesCount = async (): Promise<number | false> => {
 
 export const getEntries = async (): Promise<Entry[] | false> => {
   try {
-    // Get all entries that are not deleted (null or 0), sorted by date, limited to 100
-    const { rows } = await conn.execute("SELECT * FROM guestbook_entries WHERE deleted IS NULL OR deleted = 0 ORDER BY date DESC LIMIT 100");
+    // Get all entries that are not deleted, sorted by date, limited to 100
+    const { rows } = await conn.execute("SELECT * FROM guestbook_entries WHERE deleted_at IS NULL ORDER BY date DESC LIMIT 100");
     return rows as Entry[];
   } catch (error) {
     console.log(error);
@@ -70,12 +70,10 @@ export const editEntry = async (idToEdit: string, oldMessage: string, newMessage
     const { canModify, email } = await userCanModifyEntry(idToEdit);
     if (!canModify) return false;
 
-    const dateTime = new Date().toISOString().slice(0, 19).replace("T", " ");
-
     // If we get here, the user is admin or the entry belongs to the user
     // Update the entry and insert a new row into guestbook_edits
     await conn.transaction(async tx => {
-      await tx.execute("UPDATE guestbook_entries SET body = ?, edited_at = ? WHERE id = ?", [trimmedMessage, dateTime, idToEdit]);
+      await tx.execute("UPDATE guestbook_entries SET body = ?, edited_at = ? WHERE id = ?", [trimmedMessage, dbDateTime(), idToEdit]);
       await tx.execute("INSERT INTO guestbook_edits (entry_id, old_message, new_message, edited_by) VALUES (?, ?, ?, ?)", [idToEdit, oldMessage, trimmedMessage, email]);
     });
 
@@ -93,7 +91,7 @@ export const deleteEntry = async (idToDelete: string): Promise<boolean> => {
     if (!canModify) return false;
 
     // If we get here, the user is admin or the entry belongs to the user
-    await conn.execute("UPDATE guestbook_entries SET deleted = 1 WHERE id = ?", [idToDelete]);
+    await conn.execute("UPDATE guestbook_entries SET deleted_at = ? WHERE id = ?", [dbDateTime(), idToDelete]);
     return true;
   } catch (error) {
     console.log(error);
@@ -137,3 +135,5 @@ const validateMessageContent = (message: string): { passed: boolean; trimmedMess
 
   return { passed: true, trimmedMessage };
 };
+
+const dbDateTime = () => new Date().toISOString().slice(0, 19).replace("T", " ");
