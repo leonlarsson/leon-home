@@ -11,8 +11,8 @@ export default ({ entry }: { entry: Entry }) => {
     const newMessage = prompt("Enter new message (max 100 chars):", entry.body);
     if (!newMessage) return;
     if (newMessage === entry.body) return;
-    if (newMessage.length > 100) return alert("Message too long or something went wrong.");
-    const entryWasEdited = await editEntry(entry.id, newMessage.trim());
+    if (newMessage.length > 100) return alert("New message is too long.");
+    const entryWasEdited = await editEntry(entry.id, entry.body, newMessage.trim());
     if (entryWasEdited) router.refresh();
   };
 

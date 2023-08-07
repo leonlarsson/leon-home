@@ -49,7 +49,7 @@ export const postEntry = async (message: string): Promise<boolean> => {
   }
 };
 
-export const editEntry = async (idToEdit: string, newMessage: string): Promise<boolean> => {
+export const editEntry = async (idToEdit: string, oldMessage: string, newMessage: string): Promise<boolean> => {
   // Validate message
   let { passed, trimmedMessage } = validateMessageContent(newMessage);
   if (!passed) return false;
@@ -61,7 +61,12 @@ export const editEntry = async (idToEdit: string, newMessage: string): Promise<b
     const dateTime = new Date().toISOString().slice(0, 19).replace("T", " ");
 
     // If we get here, the user is admin or the entry belongs to the user
-    await conn.execute("UPDATE guestbook_entries SET body = ?, last_edited = ? WHERE id = ?", [trimmedMessage, dateTime, idToEdit]);
+    // Update the entry and insert a new row into guestbook_edits
+    await conn.transaction(async tx => {
+      await tx.execute("UPDATE guestbook_entries SET body = ?, last_edited = ? WHERE id = ?", [trimmedMessage, dateTime, idToEdit]);
+      await tx.execute("INSERT INTO guestbook_edits (entry_id, old_message, new_message) VALUES (?, ?, ?)", [idToEdit, oldMessage, trimmedMessage]);
+    });
+
     return true;
   } catch (error) {
     console.log(error);
