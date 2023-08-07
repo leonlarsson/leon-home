@@ -33,7 +33,7 @@ export default async ({ userEmail }: Props) => {
 
 const EntriesCount = async () => {
   const totalEntries = await getEntriesCount();
-  return <span className="mb-1">{totalEntries !== false ? `${totalEntries.toLocaleString("en")} total messages (showing last 100)` : <span className="text-red-500 dark:text-red-400">Failed to get total entry count.</span>}</span>;
+  return <span className="mb-1">{totalEntries !== false ? `${totalEntries.toLocaleString("en")} total entries (showing last 100)` : <span className="text-red-500 dark:text-red-400">Failed to get total entry count.</span>}</span>;
 };
 
 const EntriesList = async ({ userEmail }: Props) => {
@@ -41,7 +41,7 @@ const EntriesList = async ({ userEmail }: Props) => {
   if (!entries) return <span className="text-red-500 dark:text-red-400">Failed to get entries.</span>;
   const userIsAdmin = !!userEmail && !!process.env.ADMIN_EMAIL && userEmail === process.env.ADMIN_EMAIL;
 
-  if (!entries.length) return <span>Awaiting messages... Be the first one!</span>;
+  if (!entries.length) return <span>Awaiting entries... Be the first one!</span>;
 
   return entries.map(entry => (
     <div key={entry.id} className="break-all rounded p-1 text-sm hover:bg-gray-300 dark:hover:bg-gray-300/10">
