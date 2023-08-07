@@ -20,6 +20,8 @@ export default ({ entry }: { entry: Entry }) => {
   };
 
   const onDeleteClick = async () => {
+    const confirmDelete = confirm(`Are you sure you want to delete entry with ID ${entry.id}?\n\nMessage:\n${entry.body}`);
+    if (!confirmDelete) return;
     const entryWasDeleted = await deleteEntry(entry.id);
     if (entryWasDeleted) router.refresh();
   };
