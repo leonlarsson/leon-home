@@ -60,7 +60,7 @@ export const postEntry = async (message: string): Promise<boolean> => {
   }
 };
 
-export const editEntry = async (idToEdit: string, oldMessage: string, newMessage: string): Promise<boolean> => {
+export const editEntry = async (idToEdit: number, oldMessage: string, newMessage: string): Promise<boolean> => {
   // Validate message
   let { passed, trimmedMessage } = validateMessageContent(newMessage);
   if (!passed) return false;
@@ -84,7 +84,7 @@ export const editEntry = async (idToEdit: string, oldMessage: string, newMessage
   }
 };
 
-export const deleteEntry = async (idToDelete: string): Promise<boolean> => {
+export const deleteEntry = async (idToDelete: number): Promise<boolean> => {
   try {
     // Check if the user can delete this entry
     const { canModify } = await userCanModifyEntry(idToDelete);
@@ -99,7 +99,7 @@ export const deleteEntry = async (idToDelete: string): Promise<boolean> => {
   }
 };
 
-const userCanModifyEntry = async (entryId: string): Promise<{ canModify: boolean; email: string }> => {
+const userCanModifyEntry = async (entryId: number): Promise<{ canModify: boolean; email: string }> => {
   // Get the session
   const session = await getServerSession();
 

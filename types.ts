@@ -21,7 +21,7 @@ export type Project = {
 };
 
 export type Entry = {
-  id: string;
+  id: number;
   date: string;
   body: string;
   name: string | null;
@@ -31,7 +31,7 @@ export type Entry = {
 };
 
 export type Post = {
-  id: string;
+  id: number;
   date: string;
   title: string;
   body: string;
