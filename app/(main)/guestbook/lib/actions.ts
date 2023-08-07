@@ -18,6 +18,7 @@ export const getEntriesCount = async (): Promise<number | false> => {
     const { rows } = await conn.execute("SELECT COUNT(*) as total_entries FROM guestbook_entries WHERE deleted IS NULL OR deleted = 0");
     return (rows[0] as { total_entries: number }).total_entries;
   } catch (error) {
+    console.log(error);
     return false;
   }
 };
@@ -28,6 +29,7 @@ export const getEntries = async (): Promise<Entry[] | false> => {
     const { rows } = await conn.execute("SELECT * FROM guestbook_entries WHERE deleted IS NULL OR deleted = 0 ORDER BY date DESC LIMIT 100");
     return rows as Entry[];
   } catch (error) {
+    console.log(error);
     return false;
   }
 };
