@@ -56,7 +56,8 @@ export const editEntry = async (idToEdit: string, oldMessage: string, newMessage
 
   try {
     // Check if the user can edit this entry
-    if (!(await userCanModifyEntry(idToEdit))) return false;
+    const { canModify, email } = await userCanModifyEntry(idToEdit);
+    if (!canModify) return false;
 
     const dateTime = new Date().toISOString().slice(0, 19).replace("T", " ");
 
@@ -64,7 +65,7 @@ export const editEntry = async (idToEdit: string, oldMessage: string, newMessage
     // Update the entry and insert a new row into guestbook_edits
     await conn.transaction(async tx => {
       await tx.execute("UPDATE guestbook_entries SET body = ?, last_edited = ? WHERE id = ?", [trimmedMessage, dateTime, idToEdit]);
-      await tx.execute("INSERT INTO guestbook_edits (entry_id, old_message, new_message) VALUES (?, ?, ?)", [idToEdit, oldMessage, trimmedMessage]);
+      await tx.execute("INSERT INTO guestbook_edits (entry_id, old_message, new_message, edited_by) VALUES (?, ?, ?, ?)", [idToEdit, oldMessage, trimmedMessage, email]);
     });
 
     return true;
@@ -77,7 +78,8 @@ export const editEntry = async (idToEdit: string, oldMessage: string, newMessage
 export const deleteEntry = async (idToDelete: string): Promise<boolean> => {
   try {
     // Check if the user can delete this entry
-    if (!(await userCanModifyEntry(idToDelete))) return false;
+    const { canModify } = await userCanModifyEntry(idToDelete);
+    if (!canModify) return false;
 
     // If we get here, the user is admin or the entry belongs to the user
     await conn.execute("UPDATE guestbook_entries SET deleted = 1 WHERE id = ?", [idToDelete]);
@@ -88,12 +90,12 @@ export const deleteEntry = async (idToDelete: string): Promise<boolean> => {
   }
 };
 
-const userCanModifyEntry = async (entryId: string): Promise<boolean> => {
+const userCanModifyEntry = async (entryId: string): Promise<{ canModify: boolean; email: string }> => {
   // Get the session
   const session = await getServerSession();
 
   // If session does not have an email, return false
-  if (!session?.user?.email) return false;
+  if (!session?.user?.email) return { canModify: false, email: "" };
 
   // If user is not admin...
   if (session.user.email !== process.env.ADMIN_EMAIL) {
@@ -101,11 +103,11 @@ const userCanModifyEntry = async (entryId: string): Promise<boolean> => {
     const { rows } = await conn.execute("SELECT 1 FROM guestbook_entries WHERE id = ? AND email = ?", [entryId, session.user.email]);
 
     // If no rows are returned (no entry with that id and email), return false
-    if (!rows.length) return false;
+    if (!rows.length) return { canModify: false, email: session.user.email };
   }
 
   // If we get here, the user is admin or the entry belongs to the user
-  return true;
+  return { canModify: true, email: session.user.email };
 };
 
 export const getRequireAuth = async (): Promise<boolean> => {
