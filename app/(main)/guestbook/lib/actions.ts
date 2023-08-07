@@ -75,7 +75,7 @@ export const editEntry = async (idToEdit: string, oldMessage: string, newMessage
     // If we get here, the user is admin or the entry belongs to the user
     // Update the entry and insert a new row into guestbook_edits
     await conn.transaction(async tx => {
-      await tx.execute("UPDATE guestbook_entries SET body = ?, last_edited = ? WHERE id = ?", [trimmedMessage, dateTime, idToEdit]);
+      await tx.execute("UPDATE guestbook_entries SET body = ?, edited_at = ? WHERE id = ?", [trimmedMessage, dateTime, idToEdit]);
       await tx.execute("INSERT INTO guestbook_edits (entry_id, old_message, new_message, edited_by) VALUES (?, ?, ?, ?)", [idToEdit, oldMessage, trimmedMessage, email]);
     });
 
