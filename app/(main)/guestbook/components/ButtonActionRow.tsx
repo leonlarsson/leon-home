@@ -28,19 +28,19 @@ export default ({ entry }: { entry: Entry }) => {
     <>
       <EditMessageDialog entry={entry} dialogRef={dialogRef} inputRef={inputRef} saveFunc={onEditModalSaveClick} />
 
-      <span className="me-1 inline-flex gap-2 text-base">
+      <span className="me-2 inline-flex gap-1 text-base">
         <button
-          className="text-blue-500 transition-colors hover:text-blue-800 dark:text-blue-300"
+          className="button-with-border !px-1 !py-0"
           title={`Edit entry message with ID ${entry.id}.`}
           onClick={() => {
             if (inputRef?.current) inputRef.current.value = entry.body;
             dialogRef.current?.showModal();
           }}
         >
-          <i className="fa-solid fa-pen" />
+          <i className="fa-solid fa-pen fa-fw" />
         </button>
-        <button className="text-red-500 transition-colors hover:text-red-700 dark:text-red-400" title={`Delete entry with ID ${entry.id}.`} onClick={onDeleteClick}>
-          <i className="fa-solid fa-trash" />
+        <button className="button-with-border !px-1 !py-0" title={`Delete entry with ID ${entry.id}.`} onClick={onDeleteClick}>
+          <i className="fa-solid fa-trash fa-fw" />
         </button>
       </span>
     </>

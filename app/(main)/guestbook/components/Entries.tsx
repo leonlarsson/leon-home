@@ -45,7 +45,7 @@ const EntriesList = async ({ userEmail }: Props) => {
 
   return entries.map(entry => (
     <div key={entry.id} className="break-all rounded p-1 text-sm hover:bg-gray-300 dark:hover:bg-gray-300/10">
-      {userIsAdmin || (userEmail && userEmail === entry.email) ? <ButtonActionRow entry={entry} /> : null}{" "}
+      {userIsAdmin || (userEmail && userEmail === entry.email) ? <ButtonActionRow entry={entry} /> : null}
       <span className={entry.name ? "font-semibold dark:text-kinda-white" : "text-kinda-black/90 dark:text-kinda-white/75"} title={`${entry.date} UTC`}>
         {entry.name ?? "Anonymous"}:
       </span>{" "}
