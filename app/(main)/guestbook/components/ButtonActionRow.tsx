@@ -9,22 +9,10 @@ export default ({ entry }: { entry: Entry }) => {
   const deleteDialogRef = useRef<HTMLDialogElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
-  const onEditModalSaveClick = async () => {
-    const newMessage = inputRef.current?.value;
-    if (!newMessage) return;
-    if (newMessage === entry.body) return;
-    if (newMessage.length > 100) return alert("New message is too long.");
-    editEntry(entry.id, entry.body, newMessage.trim());
-  };
-
-  const onDeleteModalConfirmClick = async () => {
-    deleteEntry(entry.id);
-  };
-
   return (
     <>
-      <EditMessageDialog entry={entry} editDialogRef={editDialogRef} inputRef={inputRef} saveFunc={onEditModalSaveClick} />
-      <DeleteMessageDialog entry={entry} deleteDialogRef={deleteDialogRef} deleteFunc={onDeleteModalConfirmClick} />
+      <EditMessageDialog entry={entry} editDialogRef={editDialogRef} inputRef={inputRef} />
+      <DeleteMessageDialog entry={entry} deleteDialogRef={deleteDialogRef} />
 
       <span className="me-2 inline-flex gap-1 text-base">
         <button
@@ -49,10 +37,17 @@ type EditDialogProps = {
   entry: Entry;
   editDialogRef: React.RefObject<HTMLDialogElement>;
   inputRef: React.RefObject<HTMLInputElement>;
-  saveFunc: Function;
 };
 
-const EditMessageDialog = ({ entry, editDialogRef, inputRef, saveFunc }: EditDialogProps) => {
+const EditMessageDialog = ({ entry, editDialogRef, inputRef }: EditDialogProps) => {
+  const save = () => {
+    const newMessage = inputRef.current?.value;
+    if (!newMessage) return;
+    if (newMessage === entry.body) return;
+    if (newMessage.length > 100) return alert("New message is too long.");
+    editEntry(entry.id, entry.body, newMessage.trim());
+  };
+
   return (
     <dialog
       className="mx-auto w-full max-w-lg rounded border bg-kinda-white p-2 backdrop:bg-black/30 backdrop:backdrop-blur-sm dark:border-white/20 dark:bg-kinda-black dark:backdrop:bg-black/50"
@@ -79,7 +74,7 @@ const EditMessageDialog = ({ entry, editDialogRef, inputRef, saveFunc }: EditDia
           if (e.key === "Enter") {
             e.preventDefault();
             editDialogRef.current?.close();
-            saveFunc();
+            save();
           }
         }}
       />
@@ -92,7 +87,7 @@ const EditMessageDialog = ({ entry, editDialogRef, inputRef, saveFunc }: EditDia
           className="button-with-border"
           onClick={() => {
             editDialogRef.current?.close();
-            saveFunc();
+            save();
           }}
         >
           Save
@@ -105,10 +100,9 @@ const EditMessageDialog = ({ entry, editDialogRef, inputRef, saveFunc }: EditDia
 type DeleteDialogProps = {
   entry: Entry;
   deleteDialogRef: React.RefObject<HTMLDialogElement>;
-  deleteFunc: Function;
 };
 
-const DeleteMessageDialog = ({ entry, deleteDialogRef, deleteFunc }: DeleteDialogProps) => {
+const DeleteMessageDialog = ({ entry, deleteDialogRef }: DeleteDialogProps) => {
   return (
     <dialog
       className="mx-auto max-w-lg rounded border bg-kinda-white p-2 backdrop:bg-black/30 backdrop:backdrop-blur-sm dark:border-white/20 dark:bg-kinda-black dark:backdrop:bg-black/50"
@@ -134,7 +128,7 @@ const DeleteMessageDialog = ({ entry, deleteDialogRef, deleteFunc }: DeleteDialo
           className="button-with-border hover:!bg-red-600"
           onClick={() => {
             deleteDialogRef.current?.close();
-            deleteFunc();
+            deleteEntry(entry.id);
           }}
         >
           Delete
