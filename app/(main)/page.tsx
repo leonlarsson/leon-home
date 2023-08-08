@@ -73,7 +73,7 @@ export default () => {
               { title: "Instagram", url: "https://www.instagram.com/leonsjlarsson/", iconClasses: "fa-brands fa-instagram" },
               { title: "ArtStation", url: "https://www.artstation.com/leonlarsson", iconClasses: "fa-brands fa-artstation" }
             ].map(({ title, url, iconClasses }) => (
-              <GradientBorder padding="p-[2px]" hoverable>
+              <GradientBorder key={title} padding="p-[2px]" hoverable>
                 <Link href={url} target="_blank" className="flex items-center justify-between rounded bg-gradient-to-bl from-white to-slate-200 p-2 dark:from-kinda-black dark:to-kinda-black">
                   <div>
                     <i className={`${iconClasses} fa-lg fa-fw me-1`} />
