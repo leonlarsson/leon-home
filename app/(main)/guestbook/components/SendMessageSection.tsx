@@ -26,7 +26,7 @@ export default ({ mode }: { mode: "text" | "emoji" }) => {
 
           <div className="flex flex-wrap justify-center gap-1">
             {emojis.map(emote => (
-              <button key={emote} className="button-with-border h-10 w-10 !p-0 text-xl disabled:cursor-not-allowed disabled:bg-gray-300" title={`Send ${emote} anonymously.`} disabled={isWorking} onClick={() => postEntryFunc(emote)}>
+              <button key={emote} className="button-with-border h-10 w-10 !p-0 text-xl disabled:cursor-not-allowed disabled:bg-neutral-300 dark:disabled:bg-neutral-600" title={`Send ${emote} anonymously.`} disabled={isWorking} onClick={() => postEntryFunc(emote)}>
                 {emote}
               </button>
             ))}
