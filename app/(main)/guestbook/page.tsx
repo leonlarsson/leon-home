@@ -1,9 +1,8 @@
 import { Suspense } from "react";
 import type { Metadata } from "next";
 import { getServerSession } from "next-auth";
-import { SignInDiscord, SignInGitHub } from "../components/AuthButtons";
+import { SignInDiscord, SignInGitHub, SignOut } from "../components/AuthButtons";
 import SendMessageSection from "./components/SendMessageSection";
-import CommenterInfo from "./components/CommenterInfo";
 import Entries from "./components/Entries";
 import GradientBorder from "../components/GradientBorder";
 
@@ -55,7 +54,12 @@ const MainSection = async ({ searchParams }: { searchParams: Record<string, stri
             // If requireAuth, and name exists, user is logged in. Show the message area in text mode and the commenter info
             <>
               <SendMessageSection mode="text" />
-              <CommenterInfo name={session.user.name} />
+              <span className="text-sm">
+                Commenting as {session.user.name}{" "}
+                <span className="whitespace-nowrap">
+                  (<SignOut />)
+                </span>
+              </span>
             </>
           ) : (
             // If requireAuth, and name doesn't exist, user is not logged in. Show the message area in emoji mode and the sign in buttons
