@@ -30,7 +30,9 @@ export default async ({ userEmail, namedEntriesOnly }: PageProps) => {
           </span>
         }
       >
-        <EntriesList userEmail={userEmail} namedEntriesOnly={namedEntriesOnly} />
+        <div className="flex flex-col gap-1">
+          <EntriesList userEmail={userEmail} namedEntriesOnly={namedEntriesOnly} />
+        </div>
       </Suspense>
     </section>
   );
@@ -51,7 +53,7 @@ const EntriesList = async ({ userEmail, namedEntriesOnly }: { userEmail: string 
   return entries.map(entry => (
     <div key={entry.id} className="break-all rounded p-1 text-sm hover:bg-gray-300 dark:hover:bg-gray-300/10">
       {userIsAdmin || (userEmail && userEmail === entry.email) ? <ButtonActionRow entry={entry} /> : null}
-      <span className={entry.name ? "font-semibold dark:text-kinda-white" : "text-kinda-black/90 dark:text-kinda-white/75"} title={`${entry.date} UTC`}>
+      <span className={entry.name ? "text-neutral-700 dark:text-neutral-400" : "italic text-neutral-700 dark:text-neutral-400"} title={`${entry.date} UTC`}>
         {entry.name ?? "Anonymous"}:
       </span>{" "}
       <span>{profanity.censor(entry.body.replace(/\s+/g, " "))}</span>
