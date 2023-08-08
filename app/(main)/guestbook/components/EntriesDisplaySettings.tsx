@@ -19,17 +19,17 @@ export default () => {
   };
 
   return (
-    <div>
-      <div className="flex items-center gap-1">
-        <input className="h-4 w-4 cursor-pointer accent-black outline-none dark:accent-kinda-white" type="checkbox" id="named" defaultChecked={searchParams.get("named") === "true"} onChange={onNamedEntriesChange} />
-        <label className="select-none" htmlFor="named">
+    <div className="flex flex-wrap">
+      <div className="me-3 flex items-center gap-1">
+        <input className="peer h-4 w-4 cursor-pointer accent-black outline-none dark:accent-kinda-white" type="checkbox" id="named" defaultChecked={searchParams.get("named") === "true"} onChange={onNamedEntriesChange} />
+        <label className="select-none underline-offset-2 opacity-75 transition-opacity peer-checked:underline peer-checked:opacity-100 dark:opacity-50" htmlFor="named">
           Show only named entries
         </label>
       </div>
 
       <div className="flex items-center gap-1">
-        <input className="h-4 w-4 cursor-pointer accent-black outline-none dark:accent-kinda-white" type="checkbox" id="timestamps" defaultChecked={searchParams.get("timestamps") === "true"} onChange={onTimeStampsChange} />
-        <label className="select-none" htmlFor="timestamps">
+        <input className="peer h-4 w-4 cursor-pointer accent-black outline-none dark:accent-kinda-white" type="checkbox" id="timestamps" defaultChecked={searchParams.get("timestamps") === "true"} onChange={onTimeStampsChange} />
+        <label className="select-none underline-offset-2 opacity-75 transition-opacity peer-checked:underline peer-checked:opacity-100 dark:opacity-50" htmlFor="timestamps">
           Show timestamps
         </label>
       </div>
