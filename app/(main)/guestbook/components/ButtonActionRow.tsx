@@ -53,9 +53,9 @@ const EditMessageDialog = ({ entry, editDialogRef, inputRef }: EditDialogProps) 
       className="mx-auto w-full max-w-lg rounded border bg-kinda-white p-2 backdrop:bg-black/30 backdrop:backdrop-blur-sm dark:border-white/20 dark:bg-kinda-black dark:backdrop:bg-black/50"
       onClick={e => {
         // This code handles clicks outside of the dialog, which closes it
-        // const dialogDimensions = dialogRef.current?.getBoundingClientRect();
+        // const dialogDimensions = editDialogRef.current?.getBoundingClientRect();
         // if (dialogDimensions && (e.clientX < dialogDimensions.left || e.clientX > dialogDimensions.right || e.clientY < dialogDimensions.top || e.clientY > dialogDimensions.bottom)) {
-        //   dialogRef.current?.close();
+        //   editDialogRef.current?.close();
         // }
       }}
       ref={editDialogRef}
@@ -63,36 +63,24 @@ const EditMessageDialog = ({ entry, editDialogRef, inputRef }: EditDialogProps) 
       <div className="select-none text-lg font-semibold">Edit message</div>
       <div className="mb-3 select-none">Max 100 characters.</div>
 
-      <input
-        className="text-input w-full"
-        type="text"
-        maxLength={100}
-        placeholder="Your message..."
-        defaultValue={entry.body}
-        ref={inputRef}
-        onKeyDown={e => {
-          if (e.key === "Enter") {
-            e.preventDefault();
-            editDialogRef.current?.close();
-            save();
-          }
+      <form
+        onSubmit={e => {
+          e.preventDefault();
+          editDialogRef.current?.close();
+          save();
         }}
-      />
+      >
+        <input className="text-input w-full" type="text" maxLength={100} required placeholder="Your message..." defaultValue={entry.body} ref={inputRef} />
 
-      <div className="mt-2 flex justify-end gap-2">
-        <button className="button-with-border" onClick={() => editDialogRef.current?.close()}>
-          Cancel
-        </button>
-        <button
-          className="button-with-border"
-          onClick={() => {
-            editDialogRef.current?.close();
-            save();
-          }}
-        >
-          Save
-        </button>
-      </div>
+        <div className="mt-2 flex justify-end gap-2">
+          <button className="button-with-border" onClick={() => editDialogRef.current?.close()}>
+            Cancel
+          </button>
+          <button className="button-with-border" type="submit">
+            Save
+          </button>
+        </div>
+      </form>
     </dialog>
   );
 };
