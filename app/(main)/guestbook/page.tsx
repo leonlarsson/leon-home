@@ -32,7 +32,8 @@ export default async ({ searchParams }: { searchParams: Record<string, string> }
   let session;
   const requireAuth = await getRequireAuth();
   if (requireAuth) session = await getServerSession();
-  const namedEntriesOnly = searchParams.show === "named";
+  const namedEntriesOnly = searchParams.named === "true";
+  const showTimestamps = searchParams.timestamps === "true";
 
   return (
     <div className="mx-auto max-w-3xl">
@@ -68,7 +69,7 @@ export default async ({ searchParams }: { searchParams: Record<string, string> }
       </GradientBorder>
 
       <Suspense fallback="Loading messages...">
-        <Entries userEmail={session?.user?.email ?? null} namedEntriesOnly={namedEntriesOnly} />
+        <Entries userEmail={session?.user?.email ?? null} namedEntriesOnly={namedEntriesOnly} showTimestamps={showTimestamps} />
       </Suspense>
     </div>
   );
