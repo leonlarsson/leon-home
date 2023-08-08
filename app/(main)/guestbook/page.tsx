@@ -27,18 +27,28 @@ export const metadata: Metadata = {
   }
 };
 
-export default async ({ searchParams }: { searchParams: Record<string, string> }) => {
-  let session;
-  const requireAuth = process.env.REQUIRE_AUTH === "true";
-  if (requireAuth) session = await getServerSession();
-  const namedEntriesOnly = searchParams.named === "true";
-  const showTimestamps = searchParams.timestamps === "true";
-
+export default ({ searchParams }: { searchParams: Record<string, string> }) => {
   return (
     <div className="mx-auto max-w-3xl">
       <div className="text-3xl font-extrabold">Guestbook</div>
       <div className="mb-3">A guestbook where you can send an emoji or sign in to send a message.</div>
 
+      <Suspense fallback="Loading...">
+        <MainSection searchParams={searchParams} />
+      </Suspense>
+    </div>
+  );
+};
+
+const MainSection = async ({ searchParams }: { searchParams: Record<string, string> }) => {
+  const namedEntriesOnly = searchParams.named === "true";
+  const showTimestamps = searchParams.timestamps === "true";
+  let session;
+  const requireAuth = process.env.REQUIRE_AUTH === "true";
+  if (requireAuth) session = await getServerSession();
+
+  return (
+    <>
       <div className="flex flex-col justify-center gap-1">
         {requireAuth ? (
           session?.user?.name ? (
@@ -70,6 +80,6 @@ export default async ({ searchParams }: { searchParams: Record<string, string> }
       <Suspense fallback="Loading messages...">
         <Entries userEmail={session?.user?.email ?? null} namedEntriesOnly={namedEntriesOnly} showTimestamps={showTimestamps} />
       </Suspense>
-    </div>
+    </>
   );
 };
