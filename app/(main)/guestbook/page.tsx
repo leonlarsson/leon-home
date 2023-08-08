@@ -1,7 +1,6 @@
 import { Suspense } from "react";
 import type { Metadata } from "next";
 import { getServerSession } from "next-auth";
-import { getRequireAuth } from "./lib/actions";
 import { SignInDiscord, SignInGitHub } from "../components/AuthButtons";
 import SendMessageSection from "./components/SendMessageSection";
 import CommenterInfo from "./components/CommenterInfo";
@@ -30,7 +29,7 @@ export const metadata: Metadata = {
 
 export default async ({ searchParams }: { searchParams: Record<string, string> }) => {
   let session;
-  const requireAuth = await getRequireAuth();
+  const requireAuth = process.env.REQUIRE_AUTH === "true";
   if (requireAuth) session = await getServerSession();
   const namedEntriesOnly = searchParams.named === "true";
   const showTimestamps = searchParams.timestamps === "true";

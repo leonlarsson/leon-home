@@ -3,7 +3,6 @@
 import { getServerSession } from "next-auth";
 import { revalidatePath } from "next/cache";
 import { connect } from "@planetscale/database";
-import { get as getEdgeConfig } from "@vercel/edge-config";
 import emojis from "./emojis";
 import { Entry } from "@/types";
 
@@ -41,7 +40,7 @@ export const postEntry = async (message: string): Promise<boolean> => {
   if (!passed) return false;
 
   let session;
-  const requireAuth = await getRequireAuth();
+  const requireAuth = process.env.REQUIRE_AUTH === "true";
 
   // If requireAuth, get the session
   if (requireAuth) session = await getServerSession();
@@ -121,10 +120,6 @@ const userCanModifyEntry = async (entryId: number): Promise<{ canModify: boolean
 
   // If we get here, the user is admin or the entry belongs to the user
   return { canModify: true, email: session.user.email };
-};
-
-export const getRequireAuth = async (): Promise<boolean> => {
-  return ((await getEdgeConfig(process.env.NODE_ENV === "production" ? "requireAuth_prod" : "requireAuth_dev")) as boolean) ?? true;
 };
 
 const validateMessageContent = (message: string): { passed: boolean; trimmedMessage: string } => {
