@@ -32,7 +32,7 @@ export default async ({ searchParams }: { searchParams: Record<string, string> }
   let session;
   const requireAuth = await getRequireAuth();
   if (requireAuth) session = await getServerSession();
-  const namedEntriesOnly = searchParams.mode === "named";
+  const namedEntriesOnly = searchParams.show === "named";
 
   return (
     <div className="mx-auto max-w-3xl">
