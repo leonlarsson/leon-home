@@ -1,12 +1,10 @@
 "use client";
 
 import { useState, useTransition } from "react";
-import { useRouter } from "next/navigation";
 import EmojiSection from "./EmojiSection";
 import { postEntry } from "../lib/actions";
 
 export default ({ mode }: { mode: "text" | "emoji" }) => {
-  const router = useRouter();
   const [isPending, startTransition] = useTransition();
   const [isInserting, setIsInserting] = useState(false);
   const [isError, setIsError] = useState(false);
@@ -19,8 +17,7 @@ export default ({ mode }: { mode: "text" | "emoji" }) => {
     // SERVER ACTION
     const entryWasInserted = await postEntry(message);
     setIsInserting(false);
-
-    entryWasInserted ? startTransition(() => router.refresh()) : setIsError(true);
+    if (!entryWasInserted) setIsError(true);
     return entryWasInserted;
   };
 

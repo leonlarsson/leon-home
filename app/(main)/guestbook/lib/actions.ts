@@ -1,6 +1,7 @@
 "use server";
 
 import { getServerSession } from "next-auth";
+import { revalidatePath } from "next/cache";
 import { connect } from "@planetscale/database";
 import { get as getEdgeConfig } from "@vercel/edge-config";
 import emojis from "./emojis";
@@ -53,6 +54,7 @@ export const postEntry = async (message: string): Promise<boolean> => {
 
   try {
     await conn.execute("INSERT INTO guestbook_entries (body, name, email) VALUES (?, ?, ?)", [trimmedMessage, session?.user?.name?.slice(0, 50), session?.user?.email]);
+    revalidatePath("/guestbook");
     return true;
   } catch (error) {
     console.log(error);
@@ -77,6 +79,7 @@ export const editEntry = async (idToEdit: number, oldMessage: string, newMessage
       await tx.execute("INSERT INTO guestbook_edits (entry_id, old_message, new_message, edited_by) VALUES (?, ?, ?, ?)", [idToEdit, oldMessage, trimmedMessage, email]);
     });
 
+    revalidatePath("/guestbook");
     return true;
   } catch (error) {
     console.log(error);
@@ -92,6 +95,7 @@ export const deleteEntry = async (idToDelete: number): Promise<boolean> => {
 
     // If we get here, the user is admin or the entry belongs to the user
     await conn.execute("UPDATE guestbook_entries SET deleted_at = ? WHERE id = ?", [dbDateTime(), idToDelete]);
+    revalidatePath("/guestbook");
     return true;
   } catch (error) {
     console.log(error);

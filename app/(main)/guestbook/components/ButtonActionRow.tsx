@@ -1,12 +1,10 @@
 "use client";
 
 import { useRef } from "react";
-import { useRouter } from "next/navigation";
 import { deleteEntry, editEntry } from "../lib/actions";
 import { Entry } from "@/types";
 
 export default ({ entry }: { entry: Entry }) => {
-  const router = useRouter();
   const editDialogRef = useRef<HTMLDialogElement>(null);
   const deleteDialogRef = useRef<HTMLDialogElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
@@ -16,13 +14,11 @@ export default ({ entry }: { entry: Entry }) => {
     if (!newMessage) return;
     if (newMessage === entry.body) return;
     if (newMessage.length > 100) return alert("New message is too long.");
-    const entryWasEdited = await editEntry(entry.id, entry.body, newMessage.trim());
-    if (entryWasEdited) router.refresh();
+    editEntry(entry.id, entry.body, newMessage.trim());
   };
 
   const onDeleteModalConfirmClick = async () => {
-    const entryWasDeleted = await deleteEntry(entry.id);
-    if (entryWasDeleted) router.refresh();
+    deleteEntry(entry.id);
   };
 
   return (
