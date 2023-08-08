@@ -28,10 +28,11 @@ export const metadata: Metadata = {
   }
 };
 
-export default async () => {
+export default async ({ searchParams }: { searchParams: Record<string, string> }) => {
   let session;
   const requireAuth = await getRequireAuth();
   if (requireAuth) session = await getServerSession();
+  const namedEntriesOnly = searchParams.mode === "named";
 
   return (
     <div className="mx-auto max-w-3xl">
@@ -67,7 +68,7 @@ export default async () => {
       </GradientBorder>
 
       <Suspense fallback="Loading messages...">
-        <Entries userEmail={session?.user?.email ?? null} />
+        <Entries userEmail={session?.user?.email ?? null} namedEntriesOnly={namedEntriesOnly} />
       </Suspense>
     </div>
   );

@@ -12,10 +12,10 @@ const conn = connect({
   password: process.env.DATABASE_PASSWORD
 });
 
-export const getEntriesCount = async (): Promise<number | false> => {
+export const getEntriesCount = async (namedEntriesOnly: boolean): Promise<number | false> => {
   try {
     // Get a count of all entries that are not deleted
-    const { rows } = await conn.execute("SELECT COUNT(*) as total_entries FROM guestbook_entries WHERE deleted_at IS NULL");
+    const { rows } = await conn.execute(`SELECT COUNT(*) as total_entries FROM guestbook_entries WHERE ${namedEntriesOnly ? "name IS NOT NULL AND" : ""} deleted_at IS NULL`);
     return (rows[0] as { total_entries: number }).total_entries;
   } catch (error) {
     console.log(error);
@@ -23,10 +23,10 @@ export const getEntriesCount = async (): Promise<number | false> => {
   }
 };
 
-export const getEntries = async (): Promise<Entry[] | false> => {
+export const getEntries = async (namedEntriesOnly: boolean): Promise<Entry[] | false> => {
   try {
     // Get all entries that are not deleted, sorted by date, limited to 100
-    const { rows } = await conn.execute("SELECT * FROM guestbook_entries WHERE deleted_at IS NULL ORDER BY date DESC LIMIT 100");
+    const { rows } = await conn.execute(`SELECT * FROM guestbook_entries WHERE ${namedEntriesOnly ? "name IS NOT NULL AND" : ""} deleted_at IS NULL ORDER BY date DESC LIMIT 100`);
     return rows as Entry[];
   } catch (error) {
     console.log(error);

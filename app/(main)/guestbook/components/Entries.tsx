@@ -1,13 +1,18 @@
 import { Suspense } from "react";
 import { profanity } from "@2toad/profanity";
+import EntriesModeCheckbox from "./EntriesModeCheckbox";
 import ButtonActionRow from "./ButtonActionRow";
 import { getEntries, getEntriesCount } from "../lib/actions";
 
-type Props = { userEmail: string | null };
+type PageProps = { userEmail: string | null; namedEntriesOnly: boolean };
 
-export default async ({ userEmail }: Props) => {
+export default async ({ userEmail, namedEntriesOnly }: PageProps) => {
   return (
     <section className="flex flex-col text-start">
+      <div className="mb-2">
+        <EntriesModeCheckbox />
+      </div>
+
       <Suspense
         fallback={
           <span>
@@ -15,7 +20,7 @@ export default async ({ userEmail }: Props) => {
           </span>
         }
       >
-        <EntriesCount />
+        <EntriesCount namedEntriesOnly={namedEntriesOnly} />
       </Suspense>
 
       <Suspense
@@ -25,19 +30,19 @@ export default async ({ userEmail }: Props) => {
           </span>
         }
       >
-        <EntriesList userEmail={userEmail} />
+        <EntriesList userEmail={userEmail} namedEntriesOnly={namedEntriesOnly} />
       </Suspense>
     </section>
   );
 };
 
-const EntriesCount = async () => {
-  const totalEntries = await getEntriesCount();
+const EntriesCount = async ({ namedEntriesOnly }: { namedEntriesOnly: boolean }) => {
+  const totalEntries = await getEntriesCount(namedEntriesOnly);
   return <span className="mb-1">{totalEntries !== false ? `${totalEntries.toLocaleString("en")} total entries (showing last 100)` : <span className="text-red-500 dark:text-red-400">Failed to get total entry count.</span>}</span>;
 };
 
-const EntriesList = async ({ userEmail }: Props) => {
-  const entries = await getEntries();
+const EntriesList = async ({ userEmail, namedEntriesOnly }: { userEmail: string | null; namedEntriesOnly: boolean }) => {
+  const entries = await getEntries(namedEntriesOnly);
   if (!entries) return <span className="text-red-500 dark:text-red-400">Failed to get entries.</span>;
   const userIsAdmin = !!userEmail && !!process.env.ADMIN_EMAIL && userEmail === process.env.ADMIN_EMAIL;
 
