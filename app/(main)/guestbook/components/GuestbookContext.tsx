@@ -4,7 +4,7 @@ import { createContext, useState } from "react";
 
 export type GuestbookContextType = {
   showTimestamps: boolean;
-  setShowTimestamps: (showTimestamps: boolean) => void;
+  setShowTimestamps: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
 export const GuestbookContext = createContext<GuestbookContextType | null>(null);
