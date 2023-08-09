@@ -2,11 +2,12 @@ import { Suspense } from "react";
 import { profanity } from "@2toad/profanity";
 import EntriesDisplaySettings from "./EntriesDisplaySettings";
 import ButtonActionRow from "./ButtonActionRow";
+import EntryTimestamp from "./EntryTimestamp";
 import { getEntries, getEntriesCount } from "../lib/actions";
 
-type PageProps = { userEmail: string | null; namedEntriesOnly: boolean; showTimestamps: boolean };
+type PageProps = { userEmail: string | null; namedEntriesOnly: boolean };
 
-export default async ({ userEmail, namedEntriesOnly, showTimestamps }: PageProps) => {
+export default async ({ userEmail, namedEntriesOnly }: PageProps) => {
   return (
     <section className="flex flex-col text-start">
       <div className="mb-2">
@@ -31,7 +32,7 @@ export default async ({ userEmail, namedEntriesOnly, showTimestamps }: PageProps
         }
       >
         <div className="flex flex-col gap-1">
-          <EntriesList userEmail={userEmail} namedEntriesOnly={namedEntriesOnly} showTimestamps={showTimestamps} />
+          <EntriesList userEmail={userEmail} namedEntriesOnly={namedEntriesOnly} />
         </div>
       </Suspense>
     </section>
@@ -43,7 +44,7 @@ const EntriesCount = async ({ namedEntriesOnly }: { namedEntriesOnly: boolean })
   return <span className="mb-1">{totalEntries !== false ? `${totalEntries.toLocaleString("en")} total entries (showing last 100)` : <span className="text-red-500 dark:text-red-400">Failed to get total entry count.</span>}</span>;
 };
 
-const EntriesList = async ({ userEmail, namedEntriesOnly, showTimestamps }: { userEmail: string | null; namedEntriesOnly: boolean; showTimestamps: boolean }) => {
+const EntriesList = async ({ userEmail, namedEntriesOnly }: { userEmail: string | null; namedEntriesOnly: boolean }) => {
   const entries = await getEntries(namedEntriesOnly);
   if (!entries) return <span className="text-red-500 dark:text-red-400">Failed to get entries.</span>;
   const userIsAdmin = !!userEmail && !!process.env.ADMIN_EMAIL && userEmail === process.env.ADMIN_EMAIL;
@@ -52,7 +53,7 @@ const EntriesList = async ({ userEmail, namedEntriesOnly, showTimestamps }: { us
 
   return entries.map(entry => (
     <div key={entry.id} className="break-all rounded p-1 text-sm hover:bg-gray-300 dark:hover:bg-gray-300/10">
-      {showTimestamps && <div className="text-xs text-neutral-600 dark:text-neutral-500">{entry.date} UTC</div>}
+      <EntryTimestamp date={entry.date} />
       {userIsAdmin || (userEmail && userEmail === entry.email) ? <ButtonActionRow entry={entry} /> : null}
       <span className={entry.name ? "text-neutral-700 dark:text-neutral-400" : "italic text-neutral-700 dark:text-neutral-400"} title={`${entry.date} UTC`}>
         {entry.name ?? "Anonymous"}:

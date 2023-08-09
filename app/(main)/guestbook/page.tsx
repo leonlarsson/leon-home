@@ -5,6 +5,7 @@ import { SignInDiscord, SignInGitHub, SignOut } from "../components/AuthButtons"
 import SendMessageSection from "./components/SendMessageSection";
 import Entries from "./components/Entries";
 import GradientBorder from "../components/GradientBorder";
+import { GuestbookProvider } from "./components/GuestbookContext";
 
 const pageTitle = "Guestbook | Leon San José Larsson";
 const pageDescription = "A guestbook where you can send public messages to me.";
@@ -41,7 +42,6 @@ export default ({ searchParams }: { searchParams: Record<string, string> }) => {
 
 const MainSection = async ({ searchParams }: { searchParams: Record<string, string> }) => {
   const namedEntriesOnly = searchParams.named === "true";
-  const showTimestamps = searchParams.timestamps === "true";
   let session;
   const requireAuth = process.env.REQUIRE_AUTH === "true";
   if (requireAuth) session = await getServerSession();
@@ -81,9 +81,11 @@ const MainSection = async ({ searchParams }: { searchParams: Record<string, stri
         <div className="p-px" />
       </GradientBorder>
 
-      <Suspense fallback="Loading messages...">
-        <Entries userEmail={session?.user?.email ?? null} namedEntriesOnly={namedEntriesOnly} showTimestamps={showTimestamps} />
-      </Suspense>
+      <GuestbookProvider>
+        <Suspense fallback="Loading messages...">
+          <Entries userEmail={session?.user?.email ?? null} namedEntriesOnly={namedEntriesOnly} />
+        </Suspense>
+      </GuestbookProvider>
     </>
   );
 };
