@@ -28,7 +28,9 @@ export const generateMetadata = ({ searchParams }: { searchParams: { search: str
 
 export default ({ searchParams }: { searchParams: Record<string, string> }) => {
   const searchParam = searchParams.search;
-  const projects = searchParam ? projectsData.filter(project => [project.name, project.description, project.shortDescription, project.year, project.link?.replace("https://", ""), ...(project.tags ?? [])].some(item => item?.toLowerCase().includes(searchParam?.toLowerCase()))) : projectsData;
+  const projects = searchParam
+    ? projectsData.filter(project => [project.slug, ...(project.slugAliases ?? []), project.name, project.description, project.shortDescription, project.year, project.link?.replace("https://", ""), ...(project.tags ?? [])].some(item => item?.toLowerCase().includes(searchParam?.toLowerCase())))
+    : projectsData;
 
   return (
     <div className="mx-auto">
