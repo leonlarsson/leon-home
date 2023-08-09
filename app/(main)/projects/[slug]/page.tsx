@@ -1,12 +1,14 @@
 import Link from "next/link";
 import Image from "next/image";
+import { redirect } from "next/navigation";
 import type { Metadata } from "next";
 import projects from "../data";
 import ProjectsGrid from "../components/ProjectsGrid";
 import Tag from "../components/Tag";
 import GradientBorder from "../../components/GradientBorder";
 
-const getProject = (slug: string) => projects.find(project => project.slug === slug);
+const getProject = (slug: string) => projects.find(project => project.slug === slug || project.slugAliases?.includes(slug));
+// const getProject = (slug: string) => projects.find(project => project.slug === slug);
 
 export const generateMetadata = ({ params }: { params: { slug: string } }): Metadata => {
   const project = getProject(params.slug);
@@ -36,6 +38,9 @@ export default ({ params }: { params: { slug: string } }) => {
   const project = getProject(params.slug);
   const previousProject = project && projects[projects.indexOf(project) - 1];
   const nextProject = project && projects[projects.indexOf(project) + 1];
+
+  // If project was found and we are currently on a slug alias, redirect to the main slug
+  if (project?.slugAliases?.includes(params.slug)) redirect(`/projects/${project.slug}`);
 
   return (
     <div className="pb-10 text-start">

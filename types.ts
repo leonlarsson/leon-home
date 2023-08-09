@@ -2,6 +2,7 @@ import { StaticImageData } from "next/image";
 
 export type Project = {
   slug: string;
+  slugAliases?: string[];
   name: string;
   description: string;
   shortDescription: string;

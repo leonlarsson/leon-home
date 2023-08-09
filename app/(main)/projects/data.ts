@@ -34,6 +34,7 @@ const tags = {
 export default [
   {
     slug: "battlefield-discord",
+    slugAliases: ["bfd", "bf-discord"],
     name: "The Battlefield Discord",
     description:
       "The Battlefield Discord is a community Discord server for the Battlefield franchise. I have been helping build this community since 2016, and I am currently one of the owners.\n\nFrom 2018 to 2022, it was the official Discord server for the Battlefield franchise. I have seen it go from a couple thousand members to over 170,000 members. We've always worked closely with EA/DICE.",
@@ -47,6 +48,7 @@ export default [
   },
   {
     slug: "bfv-menu-playground",
+    slugAliases: ["bfvmenu"],
     name: "Battlefield V Menu Playground",
     description: "One of my first web projects. It allows you to play around with a copy of the Battlefield V menu.\n\nI did a menu recreation in Photoshop and then exported it to HTML and CSS. I also added some JavaScript for interactivity.",
     shortDescription: "A Battlefield V menu playground that lets you drag items and change images.",
@@ -64,6 +66,7 @@ export default [
   },
   {
     slug: "bf1-palette-recreation",
+    slugAliases: ["bf1palette"],
     name: "Battlefield 1 Palette Recreation",
     description: "This is another Battlefield-related project. It's an attempt at recreating an image using Flexbox.",
     shortDescription: "A Flexbox recreation of an image.",
@@ -74,6 +77,7 @@ export default [
   },
   {
     slug: "joy-meme",
+    slugAliases: ["joy"],
     name: "You Spin Me Right Round",
     description: "Just a fun COVID quarantine project.",
     shortDescription: "Just a fun COVID quarantine project.",
@@ -83,7 +87,8 @@ export default [
     githubLink: "https://github.com/leonlarsson/joy-meme"
   },
   {
-    slug: "log-sorter",
+    slug: "logsorter",
+    slugAliases: ["log-sorter"],
     name: "Log Sorter",
     description: "My first actual useful project. It aims to help (Discord) moderators sort through massive amounts of logs in order to combat bot accounts.\n\nIt has proven to be very useful and has helped a lot of moderators since I launched it.",
     shortDescription: "Also known as Mozzy's Log Sorter. A log-filtering website for moderators.",
@@ -94,6 +99,7 @@ export default [
   },
   {
     slug: "bf1-morse-solver",
+    slugAliases: ["bf1morse"],
     name: "Battlefield 1 Morse Solver",
     description: "Another Battlefield-related project. This has helped hundreds if not thousands of people to solve the 'The Beginning' Battlefield 1 easter egg.\n\nThis project is still being used daily by people to help solve this easter egg.",
     shortDescription: "A tool that helps solve the 'The Beginning' Battlefield 1 easter egg.",
@@ -132,6 +138,7 @@ export default [
   },
   {
     slug: "battlefield-stats",
+    slugAliases: ["bfstats"],
     name: "Battlefield Stats Discord Bot",
     description:
       "My largest and most successful project by far. Battlefield Stats is a Discord bot that provides on-demand Battlefield statistics in Discord. I have also built a website and an API for this project.\n\nUsed by thousands of users in thousands of Discord servers. Built in Node.js with the website being built with Next.js.",
@@ -156,6 +163,7 @@ export default [
   },
   {
     slug: "raccoon-http-api",
+    slugAliases: ["trashttpanda"],
     name: "Raccoon HTTP API",
     description: "A raccoon-themed API that provides HTTP response images. Powered by Cloudflare Workers.",
     shortDescription: "An API that provides HTTP images with trash pandas.",
@@ -167,6 +175,7 @@ export default [
   },
   {
     slug: "zeppelin-case-stats",
+    slugAliases: ["zeppelin-stats", "zeppelinstats"],
     name: "Zeppelin Case Stats",
     description: "A utility website that aims to help Discord moderators gather stats from the moderation bot Zeppelin.",
     shortDescription: "A website used to gather stats from the moderation bot Zeppelin.",
@@ -177,6 +186,7 @@ export default [
   },
   {
     slug: "timestamper-bot",
+    slugAliases: ["timestamper"],
     name: "Timestamper Discord Bot",
     description: "An experimental Discord bot that provides utility commands to build and play with Discord timestamps. Built fully with Cloudflare Workers.",
     shortDescription: "An Discord bot that makes using Discord timestamps easier.",
@@ -188,6 +198,7 @@ export default [
   },
   {
     slug: "redirect-link-service",
+    slugAliases: ["redirector"],
     name: "Redirect / Link Service",
     description: "Small project built with Discord workers. Think of it like Linktree, but much worse.",
     shortDescription: "A much worse version of Linktree.",
@@ -262,7 +273,8 @@ export default [
     githubLink: "https://github.com/leonlarsson/omnis-arg-public"
   },
   {
-    slug: "leon-home",
+    slug: "home",
+    slugAliases: ["leon-home"],
     name: "This website",
     description: "This is the website you're currently on. It is powered by Next.js 13 on Vercel and is styled with Tailwind.",
     shortDescription: "Leon's personal website. You are currently on it.",
