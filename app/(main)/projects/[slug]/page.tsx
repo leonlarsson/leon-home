@@ -152,10 +152,11 @@ export default ({ params }: { params: { slug: string } }) => {
             Project <span className="rounded bg-black p-1 font-semibold text-white dark:bg-kinda-white dark:text-kinda-black">{decodeURIComponent(params.slug)}</span> not found
           </div>
 
-          {projects.filter(project => project.slug.includes(params.slug)).length > 0 && (
-            <div className={`mx-auto self-center ${projects.filter(project => project.slug.includes(params.slug)).length === 1 ? "max-w-3xl" : ""}`}>
+          {/* List projects where the slug or one of the slug aliases match the param */}
+          {projects.filter(project => project.slug.includes(params.slug) || project.slugAliases?.some(slug => slug.includes(params.slug))).length > 0 && (
+            <div className={`mx-auto self-center ${projects.filter(project => project.slug.includes(params.slug) || project.slugAliases?.some(slug => slug.includes(params.slug))).length === 1 ? "max-w-3xl" : ""}`}>
               <div className="text-center">Maybe you were looking for:</div>
-              <ProjectsGrid projects={projects.filter(project => project.slug.includes(params.slug))} />
+              <ProjectsGrid projects={projects.filter(project => project.slug.includes(params.slug) || project.slugAliases?.some(slug => slug.includes(params.slug)))} />
             </div>
           )}
         </div>
