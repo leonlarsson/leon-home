@@ -16,7 +16,7 @@ export default ({ projects }: { projects: ProjectType[] }) => {
 
 export const Project = ({ project }: { project: ProjectType }) => {
   return (
-    <GradientBorder hoverable>
+    <GradientBorder rounded="rounded-[5px]" hoverable>
       <div className="flex h-full rounded bg-gradient-to-bl from-white to-slate-200 text-start transition-colors dark:from-kinda-black dark:to-kinda-black">
         <Link href={`/projects/${project.slug}`} className="group flex flex-1 flex-col p-3" draggable={false} title={`See more info on project ${project.name}.`}>
           <span className="text-lg font-bold">

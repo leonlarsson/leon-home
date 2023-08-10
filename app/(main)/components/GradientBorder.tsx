@@ -7,9 +7,12 @@ export default ({ rounded = "rounded", padding = "p-px", extraClasses = "", hove
 };
 
 type Props = {
-  /** Tailwind rounded class. Defaults to "rounded". */
+  /** Tailwind rounded class. To achieve peak roundness, set this to (padding px + rounding px of inner element). Defaults to "rounded (4px)".
+   *
+   * https://twitter.com/aleksliving/status/1687889580555407361
+   */
   rounded?: string;
-  /** Tailwind padding class. Defaults to "p-px". */
+  /** Tailwind padding class. Defaults to "p-px (1px)". */
   padding?: string;
   /** Extra classes to add to the div. */
   extraClasses?: string;

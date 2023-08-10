@@ -73,7 +73,7 @@ export default () => {
               { title: "Instagram", url: "https://www.instagram.com/leonsjlarsson/", iconClasses: "fa-brands fa-instagram" },
               { title: "ArtStation", url: "https://www.artstation.com/leonlarsson", iconClasses: "fa-brands fa-artstation" }
             ].map(({ title, url, iconClasses }) => (
-              <GradientBorder key={title} padding="p-[2px]" hoverable>
+              <GradientBorder key={title} rounded="rounded-[6px]" padding="p-[2px]" hoverable>
                 <Link href={url} target="_blank" className="flex items-center justify-between rounded bg-gradient-to-bl from-white to-slate-200 p-2 dark:from-kinda-black dark:to-kinda-black">
                   <div>
                     <i className={`${iconClasses} fa-lg fa-fw me-1`} />
@@ -89,7 +89,7 @@ export default () => {
         {/* RESUME */}
         <div className="flex flex-col gap-1">
           <span className="mt-2 text-xl font-semibold">Want to learn more?</span>
-          <GradientBorder padding="p-[2px]" hoverable>
+          <GradientBorder rounded="rounded-[6px]" padding="p-[2px]" hoverable>
             <Link href="/resume" className="flex h-full rounded bg-gradient-to-bl from-white to-slate-200 p-2 dark:from-kinda-black dark:to-kinda-black">
               <span>
                 <i className="fa-solid fa-file-text fa-lg fa-fw me-1" />
