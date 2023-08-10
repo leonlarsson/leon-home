@@ -1,16 +1,23 @@
 "use client";
 
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 
 export default ({ tag, clickable }: { tag: string; clickable?: boolean }) => {
   const router = useRouter();
+  const search = useSearchParams().get("search");
+  const searchMatchesTag = search?.toLowerCase() === tag.toLowerCase();
 
   // Weird in order to please the Tailwind extension
+  // If clickable and not already searching for this tag, make it hoverable
+  // If already searching for this tag, make it a dotted border
   const className = {
-    className: `select-none rounded bg-blue-200 px-2 py-1 text-xs font-bold text-blue-700 transition-colors dark:bg-[#212528] dark:text-[#4b98f2] ${clickable && "border-2 border-transparent hover:border-blue-700"}`
+    className: `select-none border-2 border-transparent rounded bg-blue-200 px-2 py-1 text-xs font-bold text-blue-700 transition-colors dark:bg-[#212528] dark:text-[#4b98f2] ${clickable && !searchMatchesTag ? "hover:border-blue-700" : ""} ${
+      searchMatchesTag ? "border-dotted dark:border-blue-900 border-blue-500" : ""
+    }`
   };
 
-  return clickable ? (
+  // If clickable and not already searching for this tag, make it a button
+  return clickable && !searchMatchesTag ? (
     <button
       {...className}
       title={`See other projects including "${tag}".`}
