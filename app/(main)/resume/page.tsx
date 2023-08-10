@@ -39,7 +39,7 @@ export default () => {
             url: "/cv-swe"
           }
         ].map(({ title, url }) => (
-          <GradientBorder key={url} padding="p-[2px]" hoverable>
+          <GradientBorder key={url} rounded="rounded-[6px]" padding="p-[2px]" hoverable>
             <Link href={url} target="blank" className="flex h-full rounded bg-gradient-to-bl from-white to-slate-200 p-2 dark:from-kinda-black dark:to-kinda-black">
               <div>
                 <i className="fa-solid fa-file-text fa-lg fa-fw me-1" />
