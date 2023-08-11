@@ -35,6 +35,7 @@ export const getEntries = async (namedEntriesOnly: boolean): Promise<Entry[] | f
 };
 
 export const postEntry = async (message: string): Promise<boolean> => {
+  return false;
   // Validate message
   let { passed, trimmedMessage } = validateMessageContent(message);
   if (!passed) return false;
