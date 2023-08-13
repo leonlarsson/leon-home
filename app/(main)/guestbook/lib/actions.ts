@@ -1,10 +1,20 @@
 "use server";
 
+import { headers } from "next/headers";
 import { getServerSession } from "next-auth";
 import { revalidatePath } from "next/cache";
+import { kv } from "@vercel/kv";
+import { Ratelimit } from "@upstash/ratelimit";
 import { connect } from "@planetscale/database";
 import emojis from "./emojis";
 import { Entry } from "@/types";
+
+const ratelimit = new Ratelimit({
+  redis: kv,
+  // rate limit to 5 requests per 1 minute
+  limiter: Ratelimit.slidingWindow(5, "1m"),
+  prefix: "guestbook"
+});
 
 const conn = connect({
   host: process.env.DATABASE_HOST,
@@ -34,7 +44,11 @@ export const getEntries = async (namedEntriesOnly: boolean): Promise<Entry[] | f
   }
 };
 
-export const postEntry = async (message: string): Promise<boolean> => {
+export const postEntry = async (message: string): Promise<boolean | "ratelimited"> => {
+  const ip = headers().get("x-forwarded-for");
+  const { success } = await ratelimit.limit(`ratelimit_${ip}`);
+  if (!success) return "ratelimited";
+
   // Validate message
   let { passed, trimmedMessage } = validateMessageContent(message);
   if (!passed) return false;
