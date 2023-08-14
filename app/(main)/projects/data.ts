@@ -264,13 +264,27 @@ export default [
   },
   {
     slug: "bloodhunt-arg",
+    slugAliases: ["omnis-arg", "omnis-challenge", "the-omnis-challenge"],
     name: "Bloodhunt ARG",
-    description: "A project I built for my role at Sharkmob. It was an ARG that we created for the game Bloodhunt.\n\nOver 500 unique users from 50 different countries participated in the ARG. It was a massive success, garnering satisfaction and engagement from the community.",
+    description:
+      "A project I built for my role at Sharkmob. It was an ARG that we created for the game Bloodhunt.\n\nOver 500 unique users from 50 different countries participated in the ARG. It was a massive success, garnering satisfaction and engagement from the community.\n\nI have also created an implemtation of the website in Next.js, which uses server actions.",
     shortDescription: "The official website for the Bloodhunt ARG, 'The Omnis Challenge'.",
     year: "2023",
-    tags: [tags.CLOUDFLARE_WORKERS, tags.HTML, tags.CSS, tags.TS, tags.API],
+    tags: [tags.CLOUDFLARE_WORKERS, tags.HTML, tags.CSS, tags.TS, tags.API, tags.NEXT, tags.TAILWIND, tags.REACT],
     link: "https://omnis.pages.dev/",
-    githubLink: "https://github.com/leonlarsson/omnis-arg-public"
+    githubLink: "https://github.com/leonlarsson/omnis-arg-public",
+    extraLinks: [
+      {
+        name: "Next.js Implementation",
+        link: "https://omnis-arg-next.vercel.app/",
+        type: "link"
+      },
+      {
+        name: "Next.js Source",
+        link: "https://github.com/leonlarsson/omnis-arg-next",
+        type: "github"
+      }
+    ]
   },
   {
     slug: "home",
