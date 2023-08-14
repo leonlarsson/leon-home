@@ -5,9 +5,9 @@ import { useEffect, useState } from "react";
 import GradientBorder from "../../components/GradientBorder";
 
 export default () => {
-  const [searchQuery, setSearchQuery] = useState("");
-  const router = useRouter();
   const searchParams = new URLSearchParams(useSearchParams().toString());
+  const [searchQuery, setSearchQuery] = useState(searchParams.get("search") ?? "");
+  const router = useRouter();
 
   // On mount and searchParam change (when tags are clicked), set the state from searchParam
   useEffect(() => {
