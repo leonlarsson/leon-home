@@ -26,7 +26,7 @@ export default () => {
 
         {/* WORK */}
         <div>
-          I currently work as the <span className="font-semibold">Community & Support Specialist</span> at{" "}
+          I currently work as the Community & Support Specialist at{" "}
           <Link href="https://sharkmob.com" target="_blank" className="inline-flex items-baseline underline-offset-2 hover:underline" draggable={false}>
             <Image src={smLogo} alt="Sharkmob logo" width={16} height={16} className="mx-1 self-center" />
             <span className="font-semibold underline-offset-2 hover:underline">Sharkmob</span>
