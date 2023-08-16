@@ -5,16 +5,18 @@ import formatDuration from "../lib/formatDuration";
 
 type Props = {
   alwaysRender?: boolean;
+  currentlyPlayingText?: boolean;
   hideSpotifyURI?: boolean;
 };
 
-export default async ({ alwaysRender, hideSpotifyURI }: Props) => {
+export default async ({ alwaysRender, currentlyPlayingText, hideSpotifyURI }: Props) => {
   const currentlyPlayingObject = await getCurrentlyPlaying();
   const track = currentlyPlayingObject?.item ? (currentlyPlayingObject.item as SpotifyApi.TrackObjectFull) : null;
   if (!alwaysRender && (!currentlyPlayingObject || !currentlyPlayingObject.item)) return null;
 
   return (
     <div>
+      {currentlyPlayingText && <span>Currently listening to:</span>}
       <div className="flex items-center gap-5 rounded p-2 hover:bg-gray-300 dark:hover:bg-gray-300/10">
         {/* Album image */}
         <Image src={track?.album?.images[1].url ?? "/assets/images/spotifylogo.png"} className="rounded" alt="Spotify logo" width={80} height={80} />
@@ -29,7 +31,7 @@ export default async ({ alwaysRender, hideSpotifyURI }: Props) => {
                     {track.name}
                   </Link>
                   {!hideSpotifyURI && (
-                    <Link href={track.uri} target="_blank" title="Open in Spotify." className="hover:underline">
+                    <Link href={track.uri} target="_blank" title="Open in Spotify" className="hover:underline">
                       <i className="fa-brands fa-spotify fa-lg ms-2" />
                     </Link>
                   )}
@@ -39,7 +41,12 @@ export default async ({ alwaysRender, hideSpotifyURI }: Props) => {
               )}
             </span>
 
-            {track && <span className="text-sm text-neutral-700 dark:text-neutral-300">{formatDuration(track.duration_ms)}</span>}
+            {track && (
+              <span className="text-sm text-neutral-700 dark:text-neutral-300">
+                {/* {formatDuration(currentlyPlayingObject?.progress_ms ?? 0)}/ */}
+                {formatDuration(track.duration_ms)}
+              </span>
+            )}
           </div>
 
           {/* Artist names */}

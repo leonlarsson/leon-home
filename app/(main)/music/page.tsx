@@ -1,7 +1,7 @@
 import { Suspense } from "react";
-import CurrentTrack from "./components/CurrentTrack";
-import TopTracks from "./components/TopTracks";
-import TopArtists from "./components/TopArtists";
+import SpotifyCurrentTrack from "./components/SpotifyCurrentTrack";
+import SpotifyTopTracks from "./components/SpotifyTopTracks";
+import SpotifyTopArtists from "./components/SpotifyTopArtists";
 
 type Props = {
   searchParams: Record<string, string>;
@@ -17,7 +17,7 @@ export default ({ searchParams }: Props) => {
           <span className="text-xl font-semibold">I am currently listening to:</span>
 
           <Suspense fallback="Loading track...">
-            <CurrentTrack alwaysRender />
+            <SpotifyCurrentTrack alwaysRender />
           </Suspense>
         </div>
 
@@ -25,7 +25,7 @@ export default ({ searchParams }: Props) => {
           <span className="text-xl font-semibold">Top tracks:</span>
 
           <Suspense fallback="Loading tracks...">
-            <TopTracks range={searchParams.range} />
+            <SpotifyTopTracks range={searchParams.range} />
           </Suspense>
         </div>
 
@@ -33,7 +33,7 @@ export default ({ searchParams }: Props) => {
           <span className="text-xl font-semibold">Artists I like:</span>
 
           <Suspense fallback="Loading artists...">
-            <TopArtists />
+            <SpotifyTopArtists />
           </Suspense>
         </div>
       </div>
