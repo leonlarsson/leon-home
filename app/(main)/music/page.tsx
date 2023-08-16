@@ -1,7 +1,28 @@
 import { Suspense } from "react";
+import { Metadata } from "next";
 import SpotifyCurrentTrack from "./components/SpotifyCurrentTrack";
 import SpotifyTopTracks from "./components/SpotifyTopTracks";
 import SpotifyTopArtists from "./components/SpotifyTopArtists";
+
+const pageTitle = "Music | Leon San José Larsson";
+const pageDescription = "Check out the music I listen to.";
+
+export const metadata: Metadata = {
+  title: pageTitle,
+  description: pageDescription,
+  openGraph: {
+    type: "website",
+    url: "https://leonlarsson.com/music",
+    title: pageTitle,
+    description: pageDescription
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: pageTitle,
+    description: pageDescription,
+    creator: "@mozzyfx"
+  }
+};
 
 type Props = {
   searchParams: Record<string, string>;
