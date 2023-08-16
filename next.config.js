@@ -1,14 +1,11 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  images: {
+    domains: ["i.scdn.co"]
+  },
   experimental: {
     serverActions: true
   }
-  // redirects: () => {
-  //   return projects.map(project => ({
-  //     source: `/projects/${project.slug}/go`,
-  //     destination: project.link
-  //   }));
-  // }
 };
 
 module.exports = nextConfig;
