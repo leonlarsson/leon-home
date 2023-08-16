@@ -5,7 +5,7 @@ import formatDuration from "../lib/formatDuration";
 
 type Props = {
   alwaysRender?: boolean;
-  currentlyPlayingText?: boolean;
+  currentlyPlayingText?: React.ReactElement | string;
   hideSpotifyURI?: boolean;
 };
 
@@ -16,7 +16,7 @@ export default async ({ alwaysRender, currentlyPlayingText, hideSpotifyURI }: Pr
 
   return (
     <div>
-      {currentlyPlayingText && <span>Currently listening to:</span>}
+      {currentlyPlayingText}
       <div className="flex items-center gap-5 rounded p-2 hover:bg-gray-300 dark:hover:bg-gray-300/10">
         {/* Album image */}
         <Image src={track?.album?.images[1].url ?? "/assets/images/spotifylogo.png"} className="rounded" alt="Spotify logo" width={80} height={80} />

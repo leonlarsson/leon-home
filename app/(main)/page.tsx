@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import projects from "./projects/data";
+import SpotifyCurrentTrack from "./music/components/SpotifyCurrentTrack";
 import TypeAnimation from "./components/TypeAnimation";
 import GradientBorder from "./components/GradientBorder";
 import smLogo from "/public/assets/images/smlogo_notext.png";
@@ -50,6 +51,15 @@ export default () => {
           </Link>
           .
         </div>
+
+        {/* MUSIC */}
+        <SpotifyCurrentTrack
+          currentlyPlayingText={
+            <Link href="/music" className="font-semibold underline-offset-2 hover:underline">
+              Currently listening to:
+            </Link>
+          }
+        />
 
         {/* GUESTBOOK */}
         <div>
