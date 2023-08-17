@@ -10,7 +10,8 @@ type Props = {
 
 export default async ({ range, hideSpotifyURI }: Props) => {
   const topTracksObject = await getTopTracks(range);
-  const tracks = topTracksObject ? (topTracksObject.items as SpotifyApi.TrackObjectFull[]) : [];
+  const tracks = topTracksObject?.items;
+  if (!tracks) return <span>No tracks found.</span>;
 
   return (
     <div className="flex flex-col gap-1">

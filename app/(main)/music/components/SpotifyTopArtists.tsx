@@ -8,7 +8,8 @@ type Props = {
 
 export default async ({ range }: Props) => {
   const topArtistsObject = await getTopArtists(range);
-  const artists = topArtistsObject ? (topArtistsObject.items as SpotifyApi.ArtistObjectFull[]) : [];
+  const artists = topArtistsObject?.items;
+  if (!artists) return <span>No artists found.</span>;
 
   return (
     <div className="flex flex-wrap gap-2">
