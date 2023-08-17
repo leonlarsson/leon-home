@@ -62,3 +62,17 @@ export default async ({ compact, alwaysRender, currentlyPlayingText, hideSpotify
     </div>
   );
 };
+
+export const CurrentTrackSkeleton = ({ compact, currentlyPlayingText }: { compact?: boolean; currentlyPlayingText?: React.ReactElement | string }) => (
+  <div>
+    {currentlyPlayingText}
+    <div className={`flex items-center rounded ${compact ? "gap-3 p-1" : "gap-5 p-2"} hover:bg-gray-300 dark:hover:bg-gray-300/10`}>
+      <div className={`${compact ? "h-10 w-10" : "h-20 w-20"} rounded bg-neutral-400 dark:bg-neutral-700`}></div>
+
+      <div className="flex flex-col text-start">
+        <span className={`${compact ? "" : "text-xl"} font-semibold`}>Song name</span>
+        <span className={`${compact ? "text-xs" : "text-sm"} text-neutral-700 dark:text-neutral-300`}>Artist name</span>
+      </div>
+    </div>
+  </div>
+);
