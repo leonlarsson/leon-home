@@ -10,6 +10,8 @@ import timestamperImage1 from "./images/timestamper1.png";
 import timestamperImage2 from "./images/timestamper2.png";
 import bloodhuntStatsImage1 from "./images/bloodhuntstats1.png";
 import embedWorkerImage1 from "./images/embedworker1.png";
+import musicShowcaseImage1 from "./images/music1.png";
+import musicShowcaseImage2 from "./images/music2.png";
 import { Project } from "@/types";
 
 const tags = {
@@ -322,10 +324,11 @@ export default [
     slug: "music-showcase",
     slugAliases: ["spotify-showcase", "music-page"],
     name: "Music Showcase",
-    description: "A music showcase that fetches data such as current track, top tracks, and top artists from Spotify.",
-    shortDescription: "A music showcase that fetches data from Spotify.",
+    description: "A music showcase that displays my current Spotify status and my top tracks and artists. It uses the Spotify API.",
+    shortDescription: "A music showcase that displays my Spotify status and favorites.",
     year: "2023",
     tags: [tags.REACT, tags.NEXT, tags.TAILWIND, tags.TS, tags.API],
+    images: [musicShowcaseImage1, musicShowcaseImage2],
     link: "/music",
     githubLink: "https://github.com/leonlarsson/leon-home/tree/main/app/(main)/music"
   }
