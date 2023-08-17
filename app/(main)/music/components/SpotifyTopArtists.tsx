@@ -12,7 +12,7 @@ export default async ({ range }: Props) => {
   if (!artists) return <span>No artists found.</span>;
 
   return (
-    <div className="flex flex-wrap gap-2">
+    <div className="grid grid-cols-1 gap-1 min-[500px]:grid-cols-2 md:grid-cols-3">
       {artists.map(artist => (
         <Link key={artist.id} href={artist.external_urls.spotify} target="_blank" className="flex items-center gap-3 rounded p-2 hover:bg-gray-300 dark:hover:bg-gray-300/10">
           {/* Album image */}
