@@ -15,7 +15,7 @@ export default async ({ range, hideSpotifyURI }: Props) => {
   return (
     <div className="flex flex-col gap-1">
       {tracks.map(track => (
-        <div key={track.id} className="flex items-center gap-5 rounded p-2 hover:bg-gray-300 dark:hover:bg-gray-300/10">
+        <div key={track.id} className="flex items-center gap-4 rounded p-2 hover:bg-gray-300 dark:hover:bg-gray-300/10">
           {/* Album image */}
           <Image src={track.album.images[1].url} className="rounded" alt={`Album art for '${track.album.name}'`} width={50} height={50} loading="lazy" />
 
