@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import projects from "./projects/data";
@@ -53,13 +54,15 @@ export default () => {
         </div>
 
         {/* MUSIC */}
-        <SpotifyCurrentTrack
-          currentlyPlayingText={
-            <Link href="/music" className="font-semibold underline-offset-2 hover:underline">
-              Currently listening to:
-            </Link>
-          }
-        />
+        <Suspense>
+          <SpotifyCurrentTrack
+            currentlyPlayingText={
+              <Link href="/music" className="font-semibold underline-offset-2 hover:underline">
+                I am currently listening to:
+              </Link>
+            }
+          />
+        </Suspense>
 
         {/* GUESTBOOK */}
         <div>
