@@ -17,7 +17,8 @@ const getAccessToken = async () => {
     body: querystring.stringify({
       grant_type: "refresh_token",
       refresh_token
-    })
+    }),
+    cache: "no-cache"
   });
 
   return response.json();
