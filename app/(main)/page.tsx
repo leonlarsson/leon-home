@@ -56,6 +56,7 @@ export default () => {
         {/* MUSIC */}
         <Suspense>
           <SpotifyCurrentTrack
+            compact
             currentlyPlayingText={
               <Link href="/music" className="font-semibold underline-offset-2 hover:underline">
                 I am currently listening to:
