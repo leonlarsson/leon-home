@@ -122,8 +122,10 @@ export default () => {
             </Link>
           </span>
           <div className="flex flex-col gap-2">
-            <Project project={projects[17] ?? projects[17]} />
-            <Project project={projects[7]} />
+            <Suspense>
+              <Project project={projects[17] ?? projects[17]} />
+              <Project project={projects[7]} />
+            </Suspense>
           </div>
         </div>
       </div>
