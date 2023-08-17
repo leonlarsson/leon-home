@@ -44,8 +44,7 @@ export default async ({ compact, alwaysRender, currentlyPlayingText, hideSpotify
 
             {track && (
               <span className="text-sm text-neutral-700 dark:text-neutral-300">
-                {/* {formatDuration(currentlyPlayingObject?.progress_ms ?? 0)}/ */}
-                {formatDuration(track.duration_ms)}
+                {formatDuration(currentlyPlayingObject?.progress_ms ?? 0)} / {formatDuration(track.duration_ms)}
               </span>
             )}
           </div>
