@@ -123,7 +123,6 @@ export default () => {
           </span>
           <div className="flex flex-col gap-2">
             <Project project={projects[17] ?? projects[17]} />
-            <Project project={projects[0]} />
             <Project project={projects[7]} />
           </div>
         </div>
