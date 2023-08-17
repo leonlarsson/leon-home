@@ -1,5 +1,6 @@
 import { Suspense } from "react";
 import { Metadata } from "next";
+import RefreshButton from "./components/RefreshButton";
 import SpotifyCurrentTrack from "./components/SpotifyCurrentTrack";
 import SpotifyTopTracks from "./components/SpotifyTopTracks";
 import SpotifyTopArtists from "./components/SpotifyTopArtists";
@@ -31,7 +32,9 @@ type Props = {
 export default ({ searchParams }: Props) => {
   return (
     <div className="mx-auto max-w-3xl pb-10 text-start">
-      <div className="mb-2 text-3xl font-extrabold">Music</div>
+      <div className="mb-2 text-3xl font-extrabold">
+        Music <RefreshButton />
+      </div>
 
       <div className="flex flex-col gap-6">
         <div className="flex flex-col gap-2">
