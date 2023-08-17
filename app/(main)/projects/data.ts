@@ -317,5 +317,16 @@ export default [
     link: "https://phisherman.gg/",
     hidePreview: true,
     githubLink: "https://github.com/PhishermanGG"
+  },
+  {
+    slug: "music-showcase",
+    slugAliases: ["spotify-showcase", "music-page"],
+    name: "Music Showcase",
+    description: "A music showcase that fetches data such as current track, top tracks, and top artists from Spotify.",
+    shortDescription: "A music showcase that fetches data from Spotify.",
+    year: "2023",
+    tags: [tags.REACT, tags.NEXT, tags.TAILWIND, tags.TS, tags.API],
+    link: "/music",
+    githubLink: "https://github.com/leonlarsson/leon-home/tree/main/app/(main)/music"
   }
 ] satisfies Project[] as Project[];
