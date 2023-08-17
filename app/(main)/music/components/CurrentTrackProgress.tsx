@@ -37,7 +37,7 @@ export default ({ isPlaying, initialProgress, duration, reloadOnEnd }: Props) =>
     }
   }, []);
 
-  // Refresh page when song ends
+  // Refresh page when track ends
   useEffect(() => {
     if (reloadOnEnd && progress >= duration) router.refresh();
   }, [progress]);

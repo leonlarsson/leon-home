@@ -72,7 +72,7 @@ export const getCurrentlyPlaying = async () => {
     cache: "no-cache"
   });
 
-  // Handle no song playing
+  // Handle no track playing
   if (res.status === 204) return null;
 
   return res.ok ? ((await res.json()) as SpotifyApi.CurrentlyPlayingObject) : null;
