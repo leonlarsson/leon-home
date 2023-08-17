@@ -9,7 +9,7 @@ export default async () => {
   return (
     <div className="flex flex-wrap gap-2">
       {artists.map(artist => (
-        <Link href={artist.external_urls.spotify} target="_blank" className="group flex items-center gap-3 rounded p-2 hover:bg-gray-300 dark:hover:bg-gray-300/10">
+        <Link key={artist.id} href={artist.external_urls.spotify} target="_blank" className="group flex items-center gap-3 rounded p-2 hover:bg-gray-300 dark:hover:bg-gray-300/10">
           {/* Album image */}
           <Image src={artist.images[0].url} className="rounded" alt={`Image for '${artist.name}'`} width={50} height={50} loading="lazy" />
 

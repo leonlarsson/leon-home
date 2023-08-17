@@ -53,7 +53,7 @@ export default async ({ alwaysRender, currentlyPlayingText, hideSpotifyURI }: Pr
           <span className="text-sm text-neutral-700 dark:text-neutral-300">
             {track?.artists
               .map<React.ReactNode>(artist => (
-                <Link href={artist.external_urls.spotify} target="_blank" className="hover:underline">
+                <Link key={artist.id} href={artist.external_urls.spotify} target="_blank" className="hover:underline">
                   {artist.name}
                 </Link>
               ))

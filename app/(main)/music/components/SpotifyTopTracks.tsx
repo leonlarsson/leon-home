@@ -17,7 +17,7 @@ export default async ({ range, hideSpotifyURI }: Props) => {
     <div className="flex flex-col gap-1">
       <SpotifyTopTracksRangeSelector />
       {tracks.map(track => (
-        <div className="flex items-center gap-5 rounded p-2 hover:bg-gray-300 dark:hover:bg-gray-300/10">
+        <div key={track.id} className="flex items-center gap-5 rounded p-2 hover:bg-gray-300 dark:hover:bg-gray-300/10">
           {/* Album image */}
           <Image src={track.album.images[1].url} className="rounded" alt={`Album art for '${track.album.name}'`} width={50} height={50} loading="lazy" />
 
@@ -42,7 +42,7 @@ export default async ({ range, hideSpotifyURI }: Props) => {
             <span className="text-sm text-neutral-700 dark:text-neutral-300">
               {track.artists
                 .map<React.ReactNode>(artist => (
-                  <span>
+                  <span key={artist.id}>
                     <Link href={artist.external_urls.spotify} target="_blank" className="hover:underline">
                       {artist.name}
                     </Link>
