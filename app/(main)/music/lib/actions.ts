@@ -46,7 +46,7 @@ export const getTopTracks = async (range: string) => {
 export const getTopArtists = async (range: string) => {
   const { access_token } = await getAccessToken();
 
-  const url = new URL("https://api.spotify.com/v1/me/top/artists");
+  const url = new URL("https://api.spotify.com/v1/me/top/artists?limit=30");
 
   // Excluding medium_term as it's the default
   const validRange = ["short_term", "long_term"].includes(range);
