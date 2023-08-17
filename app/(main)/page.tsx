@@ -2,7 +2,7 @@ import { Suspense } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import projects from "./projects/data";
-import SpotifyCurrentTrack from "./music/components/SpotifyCurrentTrack";
+import SpotifyCurrentTrack, { CurrentTrackSkeleton } from "./music/components/SpotifyCurrentTrack";
 import TypeAnimation from "./components/TypeAnimation";
 import GradientBorder from "./components/GradientBorder";
 import smLogo from "/public/assets/images/smlogo_notext.png";
@@ -54,7 +54,18 @@ export default () => {
         </div>
 
         {/* MUSIC */}
-        <Suspense>
+        <Suspense
+          fallback={
+            <CurrentTrackSkeleton
+              compact
+              currentlyPlayingText={
+                <Link href="/music" className="font-semibold underline-offset-2 hover:underline">
+                  I am currently listening to:
+                </Link>
+              }
+            />
+          }
+        >
           <SpotifyCurrentTrack
             compact
             currentlyPlayingText={
