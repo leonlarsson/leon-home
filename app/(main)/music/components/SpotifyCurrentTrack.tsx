@@ -12,8 +12,8 @@ type Props = {
 
 export default async ({ compact, alwaysRender, currentlyPlayingText, hideSpotifyURI }: Props) => {
   const currentlyPlayingObject = await getCurrentlyPlaying();
-  const track = currentlyPlayingObject?.item ? (currentlyPlayingObject.item as SpotifyApi.TrackObjectFull) : null;
-  if (!alwaysRender && (!currentlyPlayingObject || !currentlyPlayingObject.item)) return null;
+  const track = currentlyPlayingObject?.item?.type === "track" ? currentlyPlayingObject.item : null;
+  if (!alwaysRender && (!currentlyPlayingObject || !track)) return null;
 
   return (
     <div>
