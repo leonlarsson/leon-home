@@ -1,16 +1,17 @@
 import Link from "next/link";
 import Image from "next/image";
 import { getCurrentlyPlaying } from "../lib/actions";
-import formatDuration from "../lib/formatDuration";
+import CurrentTrackProgress from "./CurrentTrackProgress";
 
 type Props = {
   compact?: boolean;
   alwaysRender?: boolean;
   currentlyPlayingText?: React.ReactElement | string;
   hideSpotifyURI?: boolean;
+  reloadOnEnd?: boolean;
 };
 
-export default async ({ compact, alwaysRender, currentlyPlayingText, hideSpotifyURI }: Props) => {
+export default async ({ compact, alwaysRender, currentlyPlayingText, hideSpotifyURI, reloadOnEnd }: Props) => {
   const currentlyPlayingObject = await getCurrentlyPlaying();
   const track = currentlyPlayingObject?.item?.type === "track" ? currentlyPlayingObject.item : null;
   if (!alwaysRender && (!currentlyPlayingObject || !track)) return null;
@@ -42,11 +43,8 @@ export default async ({ compact, alwaysRender, currentlyPlayingText, hideSpotify
               )}
             </span>
 
-            {track && (
-              <span className="text-sm text-neutral-700 dark:text-neutral-300">
-                {currentlyPlayingObject?.is_playing ? formatDuration(currentlyPlayingObject?.progress_ms ?? 0) : <i className="fa-solid fa-pause" />} / {formatDuration(track.duration_ms)}
-              </span>
-            )}
+            {/* Track progress */}
+            {track && <CurrentTrackProgress key={currentlyPlayingObject?.progress_ms ?? 0} isPlaying={!!currentlyPlayingObject?.is_playing} initialProgress={currentlyPlayingObject?.progress_ms ?? 0} duration={track.duration_ms} reloadOnEnd={reloadOnEnd} />}
           </div>
 
           {/* Artist names */}

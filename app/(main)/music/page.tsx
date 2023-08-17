@@ -42,7 +42,7 @@ export default ({ searchParams }: Props) => {
           <span className="text-xl font-semibold">I am currently listening to:</span>
 
           <Suspense fallback="Loading track...">
-            <SpotifyCurrentTrack alwaysRender />
+            <SpotifyCurrentTrack alwaysRender reloadOnEnd />
           </Suspense>
         </div>
 
