@@ -20,7 +20,7 @@
     "@upstash/ratelimit": "^0.4.3",
     "@vercel/kv": "^0.2.2",
     "autoprefixer": "10.4.14",
-    "next": "^13.4.10",
+    "next": "^13.4.17",
     "next-auth": "^4.22.5",
     "nextjs-toploader": "^1.4.2",
     "postcss": "^8.4.26",
