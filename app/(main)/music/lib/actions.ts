@@ -24,7 +24,7 @@ const getAccessToken = async () => {
   return response.json();
 };
 
-export const getTopTracks = async (range: string = "medium_term") => {
+export const getTopTracks = async (range: string) => {
   const { access_token } = await getAccessToken();
 
   const url = new URL("https://api.spotify.com/v1/me/top/tracks");
@@ -43,10 +43,16 @@ export const getTopTracks = async (range: string = "medium_term") => {
   return res.ok ? ((await res.json()) as SpotifyApi.UsersTopTracksResponse) : null;
 };
 
-export const getTopArtists = async () => {
+export const getTopArtists = async (range: string) => {
   const { access_token } = await getAccessToken();
 
-  const res = await fetch("https://api.spotify.com/v1/me/top/artists", {
+  const url = new URL("https://api.spotify.com/v1/me/top/artists");
+
+  // Excluding medium_term as it's the default
+  const validRange = ["short_term", "long_term"].includes(range);
+  if (validRange) url.searchParams.append("time_range", range);
+
+  const res = await fetch(url, {
     headers: {
       Authorization: `Bearer ${access_token}`
     },

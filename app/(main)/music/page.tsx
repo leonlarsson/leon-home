@@ -1,6 +1,7 @@
 import { Suspense } from "react";
 import { Metadata } from "next";
 import RefreshButton from "./components/RefreshButton";
+import SpotifyRangeSelector from "./components/SpotifyRangeSelector";
 import SpotifyCurrentTrack from "./components/SpotifyCurrentTrack";
 import SpotifyTopTracks from "./components/SpotifyTopTracks";
 import SpotifyTopArtists from "./components/SpotifyTopArtists";
@@ -45,11 +46,12 @@ export default ({ searchParams }: Props) => {
           </Suspense>
         </div>
 
+        <SpotifyRangeSelector />
+
         <div className="flex flex-col gap-2">
           <span className="text-xl font-semibold">Top tracks:</span>
-
           <Suspense fallback="Loading tracks...">
-            <SpotifyTopTracks range={searchParams.range} />
+            <SpotifyTopTracks range={searchParams.range ?? ""} />
           </Suspense>
         </div>
 
@@ -57,7 +59,7 @@ export default ({ searchParams }: Props) => {
           <span className="text-xl font-semibold">Artists I like:</span>
 
           <Suspense fallback="Loading artists...">
-            <SpotifyTopArtists />
+            <SpotifyTopArtists range={searchParams.range ?? ""} />
           </Suspense>
         </div>
       </div>

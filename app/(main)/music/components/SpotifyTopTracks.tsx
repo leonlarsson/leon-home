@@ -2,10 +2,9 @@ import Link from "next/link";
 import Image from "next/image";
 import { getTopTracks } from "../lib/actions";
 import formatDuration from "../lib/formatDuration";
-import SpotifyTopTracksRangeSelector from "./SpotifyTopTracksRangeSelector";
 
 type Props = {
-  range?: string;
+  range: string;
   hideSpotifyURI?: boolean;
 };
 
@@ -15,7 +14,6 @@ export default async ({ range, hideSpotifyURI }: Props) => {
 
   return (
     <div className="flex flex-col gap-1">
-      <SpotifyTopTracksRangeSelector />
       {tracks.map(track => (
         <div key={track.id} className="flex items-center gap-5 rounded p-2 hover:bg-gray-300 dark:hover:bg-gray-300/10">
           {/* Album image */}
