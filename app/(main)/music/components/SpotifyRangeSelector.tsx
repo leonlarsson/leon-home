@@ -31,13 +31,13 @@ export default () => {
         <input type="radio" name="range" id="long" />
       </div> */}
 
-        <button className={`button-with-border transition-all ${searchParams.get("range") === "short_term" ? "font-bold dark:border-kinda-white" : ""}`} onClick={() => router.replace("?range=short_term")}>
+        <button className={`button-with-border transition-all disabled:cursor-not-allowed ${searchParams.get("range") === "short_term" ? "font-bold dark:border-kinda-white" : ""}`} onClick={() => router.replace("?range=short_term")} disabled={searchParams.get("range") === "short_term"}>
           Last 4 weeks
         </button>
-        <button className={`button-with-border transition-all ${!searchParams.get("range") ? "font-bold dark:border-kinda-white" : ""}`} onClick={() => router.replace("?")}>
+        <button className={`button-with-border transition-all disabled:cursor-not-allowed ${!searchParams.get("range") ? "font-bold dark:border-kinda-white" : ""}`} onClick={() => router.replace("?")} disabled={!searchParams.get("range")}>
           Last 6 months
         </button>
-        <button className={`button-with-border transition-all ${searchParams.get("range") === "long_term" ? "font-bold dark:border-kinda-white" : ""}`} onClick={() => router.replace("?range=long_term")}>
+        <button className={`button-with-border transition-all disabled:cursor-not-allowed ${searchParams.get("range") === "long_term" ? "font-bold dark:border-kinda-white" : ""}`} onClick={() => router.replace("?range=long_term")} disabled={searchParams.get("range") === "long_term"}>
           Long term
         </button>
       </div>
