@@ -2,35 +2,29 @@ import Link from "next/link";
 import Image from "next/image";
 import { redirect } from "next/navigation";
 import type { Metadata } from "next";
+import generateOGMetadata from "@/app/utils/generateOGMetadata";
 import projects from "../data";
 import ProjectsGrid from "../components/ProjectsGrid";
 import Tag from "../components/Tag";
 import GradientBorder from "../../components/GradientBorder";
 
 const getProject = (slug: string) => projects.find(project => project.slug === slug || project.slugAliases?.includes(slug));
-// const getProject = (slug: string) => projects.find(project => project.slug === slug);
 
 export const generateMetadata = ({ params }: { params: { slug: string } }): Metadata => {
   const project = getProject(params.slug);
 
-  const pageTitle = `${project?.name ?? "Project #404"} | Leon San José Larsson`;
+  const pageTitle = `${project?.name ?? "Project #404"}`;
   const pageDescription = project?.shortDescription ?? "You found Project #404.";
 
   return {
     title: pageTitle,
     description: pageDescription,
-    openGraph: {
-      type: "website",
-      url: `https://leonlarsson.com/projects/${params.slug}`,
-      title: pageTitle,
-      description: pageDescription
-    },
-    twitter: {
-      card: "summary_large_image",
+    ...generateOGMetadata({
       title: pageTitle,
       description: pageDescription,
-      creator: "@mozzyfx"
-    }
+      url: `https://leonlarsson.com/projects${project ? `/${project.slug}` : ""}`,
+      appendNameInOG: true
+    })
   };
 };
 

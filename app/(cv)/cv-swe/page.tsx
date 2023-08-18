@@ -1,27 +1,20 @@
 import { Metadata } from "next";
+import generateOGMetadata from "@/app/utils/generateOGMetadata";
 import CvHeader from "../CVHeader";
 import Employment from "../Employment";
 
-const pageTitle = "Svenskt CV | Leon San José Larsson";
+const pageTitle = "Svenskt CV";
 const pageDescription = "Leon San José Larssons CV/Resume på svenska.";
 
 export const metadata: Metadata = {
   title: pageTitle,
   description: pageDescription,
-  openGraph: {
-    type: "website",
+  ...generateOGMetadata({
+    title: pageTitle,
+    description: pageDescription,
     url: "https://leonlarsson.com/cv-swe",
-    title: pageTitle,
-    description: pageDescription,
-    images: "/assets/images/avatar.png"
-  },
-  twitter: {
-    card: "summary",
-    title: pageTitle,
-    description: pageDescription,
-    creator: "@mozzyfx",
-    images: "/assets/images/avatar.png"
-  }
+    appendNameInOG: true
+  })
 };
 
 export default () => {

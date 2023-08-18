@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import NextTopLoader from "nextjs-toploader";
 const inter = Inter({ subsets: ["latin"] });
+import generateOGMetadata from "../utils/generateOGMetadata";
 import Header from "./components/Header";
 
 import "./globals.css";
@@ -10,24 +11,29 @@ import "/public/fontawesome/css/solid.min.css";
 import "/public/fontawesome/css/brands.min.css";
 
 const pageTitle = "Leon San José Larsson";
-const pageDescription = "Landing page for Leon San José Larsson. Includes links to CV and projects.";
+const pageDescription = "Hobby product engineer working in video games marketing.";
 
 export const metadata: Metadata = {
-  title: pageTitle,
+  title: {
+    default: pageTitle,
+    template: `%s | ${pageTitle}`
+  },
   description: pageDescription,
-  themeColor: "#cdacff",
   metadataBase: new URL("https://leonlarsson.com"),
-  openGraph: {
-    type: "website",
-    url: "https://leonlarsson.com",
+  ...generateOGMetadata({
     title: pageTitle,
     description: pageDescription
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: pageTitle,
-    description: pageDescription,
-    creator: "@mozzyfx"
+  }),
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1
+    }
   }
 };
 

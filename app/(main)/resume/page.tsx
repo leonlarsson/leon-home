@@ -1,25 +1,20 @@
 import { Metadata } from "next";
 import Link from "next/link";
+import generateOGMetadata from "@/app/utils/generateOGMetadata";
 import GradientBorder from "../components/GradientBorder";
 
-const pageTitle = "CV / Resume | Leon San José Larsson";
+const pageTitle = "CV / Resume";
 const pageDescription = "Leon's CV / Resume, available in both English and Swedish.";
 
 export const metadata: Metadata = {
   title: pageTitle,
   description: pageDescription,
-  openGraph: {
-    type: "website",
-    url: "https://leonlarsson.com/resume",
-    title: pageTitle,
-    description: pageDescription
-  },
-  twitter: {
-    card: "summary_large_image",
+  ...generateOGMetadata({
     title: pageTitle,
     description: pageDescription,
-    creator: "@mozzyfx"
-  }
+    url: "https://leonlarsson.com/resume",
+    appendNameInOG: true
+  })
 };
 
 export default () => {

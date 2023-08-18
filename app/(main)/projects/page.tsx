@@ -1,28 +1,23 @@
 import type { Metadata } from "next";
+import generateOGMetadata from "@/app/utils/generateOGMetadata";
 import Search from "./components/Search";
 import ProjectsGrid from "./components/ProjectsGrid";
 import projectsData from "./data";
 
 export const generateMetadata = ({ searchParams }: { searchParams: { search: string } }): Metadata => {
   const search = searchParams.search;
-  const pageTitle = `Projects${search ? ` matching "${search}"` : ""} | Leon San José Larsson`;
+  const pageTitle = `Projects${search ? ` matching "${search}"` : ""}`;
   const pageDescription = `Leon's projects${search ? ` matching "${search}"` : ""}.`;
 
   return {
     title: pageTitle,
     description: pageDescription,
-    openGraph: {
-      type: "website",
-      url: "https://leonlarsson.com/projects",
-      title: pageTitle,
-      description: pageDescription
-    },
-    twitter: {
-      card: "summary_large_image",
+    ...generateOGMetadata({
       title: pageTitle,
       description: pageDescription,
-      creator: "@mozzyfx"
-    }
+      url: "https://leonlarsson.com/projects",
+      appendNameInOG: true
+    })
   };
 };
 

@@ -1,29 +1,24 @@
 import { Suspense } from "react";
 import { Metadata } from "next";
+import generateOGMetadata from "@/app/utils/generateOGMetadata";
 import RefreshButton from "./components/RefreshButton";
 import SpotifyRangeSelector from "./components/SpotifyRangeSelector";
 import SpotifyCurrentTrack, { CurrentTrackSkeleton } from "./components/SpotifyCurrentTrack";
 import SpotifyTopTracks from "./components/SpotifyTopTracks";
 import SpotifyTopArtists from "./components/SpotifyTopArtists";
 
-const pageTitle = "Music | Leon San José Larsson";
+const pageTitle = "Music";
 const pageDescription = "Check out the music I listen to.";
 
 export const metadata: Metadata = {
   title: pageTitle,
   description: pageDescription,
-  openGraph: {
-    type: "website",
-    url: "https://leonlarsson.com/music",
-    title: pageTitle,
-    description: pageDescription
-  },
-  twitter: {
-    card: "summary_large_image",
+  ...generateOGMetadata({
     title: pageTitle,
     description: pageDescription,
-    creator: "@mozzyfx"
-  }
+    url: "https://leonlarsson.com/music",
+    appendNameInOG: true
+  })
 };
 
 type Props = {

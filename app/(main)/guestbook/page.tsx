@@ -1,30 +1,25 @@
 import { Suspense } from "react";
 import type { Metadata } from "next";
 import { getServerSession } from "next-auth";
+import generateOGMetadata from "@/app/utils/generateOGMetadata";
 import { SignInDiscord, SignInGitHub, SignOut } from "../components/AuthButtons";
 import SendMessageSection from "./components/SendMessageSection";
 import Entries from "./components/Entries";
 import GradientBorder from "../components/GradientBorder";
 import { GuestbookProvider } from "./components/GuestbookContext";
 
-const pageTitle = "Guestbook | Leon San José Larsson";
+const pageTitle = "Guestbook";
 const pageDescription = "A guestbook where you can send public messages to me.";
 
 export const metadata: Metadata = {
   title: pageTitle,
   description: pageDescription,
-  openGraph: {
-    type: "website",
-    url: "https://leonlarsson.com/guestbook",
-    title: pageTitle,
-    description: pageDescription
-  },
-  twitter: {
-    card: "summary_large_image",
+  ...generateOGMetadata({
     title: pageTitle,
     description: pageDescription,
-    creator: "@mozzyfx"
-  }
+    url: "https://leonlarsson.com/guestbook",
+    appendNameInOG: true
+  })
 };
 
 export default ({ searchParams }: { searchParams: Record<string, string> }) => {
