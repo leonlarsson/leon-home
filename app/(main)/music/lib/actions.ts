@@ -37,7 +37,7 @@ export const getTopTracks = async (range: string) => {
     headers: {
       Authorization: `Bearer ${access_token}`
     },
-    next: { revalidate: 3600 }
+    next: { revalidate: 86_400 }
   });
 
   return res.ok ? ((await res.json()) as SpotifyApi.UsersTopTracksResponse) : null;
@@ -56,7 +56,7 @@ export const getTopArtists = async (range: string) => {
     headers: {
       Authorization: `Bearer ${access_token}`
     },
-    next: { revalidate: 3600 }
+    next: { revalidate: 86_400 }
   });
 
   return res.ok ? ((await res.json()) as SpotifyApi.UsersTopArtistsResponse) : null;
