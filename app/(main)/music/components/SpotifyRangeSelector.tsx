@@ -32,10 +32,10 @@ export default () => {
       </div> */}
 
         <button className={`button-with-border transition-all ${searchParams.get("range") === "short_term" ? "font-bold dark:border-kinda-white" : ""}`} onClick={() => router.replace("?range=short_term")}>
-          Short term
+          Last 4 weeks
         </button>
         <button className={`button-with-border transition-all ${!searchParams.get("range") ? "font-bold dark:border-kinda-white" : ""}`} onClick={() => router.replace("?")}>
-          Medium term
+          Last 6 months
         </button>
         <button className={`button-with-border transition-all ${searchParams.get("range") === "long_term" ? "font-bold dark:border-kinda-white" : ""}`} onClick={() => router.replace("?range=long_term")}>
           Long term
