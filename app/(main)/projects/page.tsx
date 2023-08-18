@@ -7,7 +7,7 @@ import projectsData from "./data";
 export const generateMetadata = ({ searchParams }: { searchParams: { search: string } }): Metadata => {
   const search = searchParams.search;
   const pageTitle = `Projects${search ? ` matching "${search}"` : ""}`;
-  const pageDescription = `Leon's projects${search ? ` matching "${search}"` : ""}.`;
+  const pageDescription = search ? `Leon's projects matching "${search}".` : "Browse all of Leon's projects.";
 
   return {
     title: pageTitle,
