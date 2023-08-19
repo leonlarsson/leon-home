@@ -33,20 +33,20 @@ export default () => {
             <Image src={smLogo} alt="Sharkmob logo" width={16} height={16} className="mx-1 self-center" />
             <span className="font-semibold underline-offset-2 hover:underline">Sharkmob</span>
           </Link>
-          , where I manage the player support, Bloodhunt's website, and help the community and marketing teams.
+          , where I manage player support, Bloodhunt's website, and assist the player relations and marketing teams.
         </div>
 
         {/* DEV */}
         <div>
-          I'm a hobby software developer in self-training. My main interest areas are web development and Discord bots. I also work a lot with creating various APIs and services on platforms such as Cloudflare Workers.{" "}
+          I'm a hobbyist product engineer in self-training. My primary areas of interest are web development and Discord bots. I also extensively work on creating various APIs and services on platforms such as Cloudflare Workers. Feel free to{" "}
           <Link href="/projects" className="font-semibold underline-offset-2 hover:underline">
-            Browse all my projects!
+            browse all my projects!
           </Link>
         </div>
 
         {/* COMMUNITY */}
         <div>
-          One of my interests is also community building and community management. I have been building communities on Discord since 2016, including moderating and then co-owning the biggest{" "}
+          Some of my other interests include community building and community management. I've been building communities on Discord since 2016, including moderating and eventually co-owning the biggest{" "}
           <Link href="/projects/battlefield-discord" className="whitespace-nowrap font-semibold underline-offset-2 hover:underline">
             Battlefield Discord
           </Link>
