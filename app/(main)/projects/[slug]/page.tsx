@@ -77,7 +77,15 @@ export default ({ params }: { params: { slug: string } }) => {
           <div className="mx-auto max-w-3xl">
             <span className="text-3xl font-extrabold transition-all max-sm:text-xl ">{project.name}</span>
 
-            <p className="whitespace-pre-line">{project.description}</p>
+            {typeof project.description === "string" ? (
+              <p>{project.description}</p>
+            ) : (
+              <div className="flex flex-col gap-5">
+                {project.description.map((text, i) => (
+                  <p key={i}>{text}</p>
+                ))}
+              </div>
+            )}
 
             {project.tags && (
               <div className="mb-3 mt-2 flex flex-wrap gap-1">

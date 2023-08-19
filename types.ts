@@ -4,7 +4,7 @@ export type Project = {
   slug: string;
   slugAliases?: string[];
   name: string;
-  description: string;
+  description: string | string[];
   shortDescription: string;
   year?: string;
   endYear?: string;
