@@ -114,14 +114,22 @@ export default () => {
         {/* RESUME */}
         <div className="flex flex-col gap-1">
           <span className="mt-2 text-xl font-semibold">Want to learn more?</span>
-          <GradientBorder rounded="rounded-[6px]" padding="p-[2px]" hoverable>
-            <Link href="/resume" className="flex h-full rounded bg-gradient-to-bl from-white to-slate-200 p-2 dark:from-kinda-black dark:to-kinda-black">
-              <span>
-                <i className="fa-solid fa-file-text fa-lg fa-fw me-1" />
-                Read my Resume
-              </span>
-            </Link>
-          </GradientBorder>
+          <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
+            {[
+              { title: "Open English Resume", url: "/cv" },
+              { title: "Öppna svenskt CV", url: "/cv-swe" }
+            ].map(({ title, url }) => (
+              <GradientBorder rounded="rounded-[6px]" padding="p-[2px]" hoverable>
+                <Link href={url} target="_blank" className="flex items-center justify-between rounded bg-gradient-to-bl from-white to-slate-200 p-2 dark:from-kinda-black dark:to-kinda-black">
+                  <div>
+                    <i className="fa-solid fa-file-text fa-lg fa-fw me-1" />
+                    <span>{title}</span>
+                  </div>
+                  <i className="fa-solid fa-external-link dark:text-kinda-white" />
+                </Link>
+              </GradientBorder>
+            ))}
+          </div>
         </div>
 
         {/* FEATURED PROJECTS */}
