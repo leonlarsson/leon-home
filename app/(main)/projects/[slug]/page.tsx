@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { redirect } from "next/navigation";
@@ -26,6 +27,12 @@ export const generateMetadata = ({ params }: { params: { slug: string } }): Meta
       appendNameInOG: true
     })
   };
+};
+
+export const generateStaticParams = () => {
+  return projects.map(project => ({
+    slug: project.slug
+  }));
 };
 
 export default ({ params }: { params: { slug: string } }) => {
@@ -74,12 +81,14 @@ export default ({ params }: { params: { slug: string } }) => {
 
             {project.tags && (
               <div className="mb-3 mt-2 flex flex-wrap gap-1">
-                {project.year && <Tag tag={project.year} clickable />}
-                {project.tags
-                  .sort((a, b) => a.localeCompare(b))
-                  .map(tag => (
-                    <Tag key={tag} tag={tag} clickable />
-                  ))}
+                <Suspense>
+                  {project.year && <Tag tag={project.year} clickable />}
+                  {project.tags
+                    .sort((a, b) => a.localeCompare(b))
+                    .map(tag => (
+                      <Tag key={tag} tag={tag} clickable />
+                    ))}
+                </Suspense>
               </div>
             )}
 
