@@ -54,7 +54,7 @@ export default () => {
         </div>
 
         {/* MUSIC */}
-        <Suspense
+        {/* <Suspense
           fallback={
             <CurrentTrackSkeleton
               compact
@@ -74,7 +74,7 @@ export default () => {
               </Link>
             }
           />
-        </Suspense>
+        </Suspense> */}
 
         {/* GUESTBOOK */}
         <div>
