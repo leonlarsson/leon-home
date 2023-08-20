@@ -28,36 +28,34 @@ export default async ({ range, hideSpotifyURI }: Props) => {
           {/* Album image */}
           <Image src={track.album.images[1].url} className="shrink-0 rounded" alt={`Album art for '${track.album.name}'`} width={50} height={50} loading="lazy" />
 
-          <div className="flex w-full flex-col text-start">
-            <div className="flex items-center justify-between">
-              {/* Track name */}
-              <span className="text-lg font-semibold">
-                <Link href={track.external_urls.spotify} target="_blank" className="hover:underline">
-                  {track.name}
-                </Link>
-                {!hideSpotifyURI && (
-                  <Link href={track.uri} target="_blank" title="Open in Spotify" className="hidden hover:underline max-[360px]:inline">
-                    <i className="fa-brands fa-spotify ms-2" />
-                  </Link>
-                )}
-              </span>
+          <div className="flex flex-1 flex-col text-start">
+            {/* Track name */}
+            <div>
+              <Link href={track.external_urls.spotify} target="_blank" className="text-lg font-semibold hover:underline">
+                {track.name}
+              </Link>
 
-              <span className="text-sm text-neutral-700 dark:text-neutral-300">{formatDuration(track.duration_ms)}</span>
+              {!hideSpotifyURI && (
+                <Link href={track.uri} target="_blank" title="Open in Spotify" className="hidden hover:underline max-[360px]:inline">
+                  <i className="fa-brands fa-spotify ms-2" />
+                </Link>
+              )}
             </div>
 
             {/* Artist names */}
-            <span className="text-sm text-neutral-700 dark:text-neutral-300">
+            <div className="text-sm text-neutral-700 dark:text-neutral-300">
               {track.artists
                 .map<React.ReactNode>(artist => (
-                  <span key={artist.id}>
-                    <Link href={artist.external_urls.spotify} target="_blank" className="hover:underline">
-                      {artist.name}
-                    </Link>
-                  </span>
+                  <Link key={artist.id} href={artist.external_urls.spotify} target="_blank" className="hover:underline">
+                    {artist.name}
+                  </Link>
                 ))
                 .reduce((prev, curr) => [prev, ", ", curr])}
-            </span>
+            </div>
           </div>
+
+          {/* Track progress */}
+          <span className="text-right text-sm text-neutral-700 dark:text-neutral-300">{formatDuration(track.duration_ms)}</span>
         </div>
       ))}
     </div>
