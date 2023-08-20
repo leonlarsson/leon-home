@@ -2,7 +2,6 @@ import { Suspense } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import projects from "./projects/data";
-import SpotifyCurrentTrack, { CurrentTrackSkeleton } from "./music/components/SpotifyCurrentTrack";
 import TypeAnimation from "./components/TypeAnimation";
 import GradientBorder from "./components/GradientBorder";
 import smLogo from "/public/assets/images/smlogo_notext.png";
@@ -141,10 +140,8 @@ export default () => {
             </Link>
           </span>
           <div className="flex flex-col gap-2">
-            <Suspense>
-              <Project project={projects[17] ?? projects[17]} />
-              <Project project={projects[7]} />
-            </Suspense>
+            <Project project={projects[17]} displayTags={false} />
+            <Project project={projects[7]} displayTags={false} />
           </div>
         </div>
       </div>
