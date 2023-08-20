@@ -14,7 +14,7 @@ export default async ({ range, hideSpotifyURI }: Props) => {
   if (!tracks) return <span>No tracks found.</span>;
 
   return (
-    <div className="flex flex-col gap-1">
+    <div className="flex flex-col">
       {tracks.map(track => (
         <div key={track.id} className="flex items-center gap-4 rounded p-2 hover:bg-gray-300 dark:hover:bg-gray-300/10">
           {/* Album image */}
