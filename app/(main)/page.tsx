@@ -5,6 +5,7 @@ import projects from "./projects/data";
 import TypeAnimation from "./components/TypeAnimation";
 import GradientBorder from "./components/GradientBorder";
 import smLogo from "/public/assets/images/smlogo_notext.png";
+import SpotifyCurrentTrack from "./music/components/SpotifyCurrentTrack";
 import { Project } from "./projects/components/ProjectsGrid";
 
 export default () => {
@@ -53,27 +54,14 @@ export default () => {
         </div>
 
         {/* MUSIC */}
-        {/* <Suspense
-          fallback={
-            <CurrentTrackSkeleton
-              compact
-              currentlyPlayingText={
-                <Link href="/music" className="font-semibold underline-offset-2 hover:underline">
-                  I am currently listening to:
-                </Link>
-              }
-            />
+        <SpotifyCurrentTrack
+          compact
+          currentlyPlayingText={
+            <Link href="/music" className="font-semibold underline-offset-2 hover:underline">
+              I am currently listening to:
+            </Link>
           }
-        >
-          <SpotifyCurrentTrack
-            compact
-            currentlyPlayingText={
-              <Link href="/music" className="font-semibold underline-offset-2 hover:underline">
-                I am currently listening to:
-              </Link>
-            }
-          />
-        </Suspense> */}
+        />
 
         {/* GUESTBOOK */}
         <div>
