@@ -45,11 +45,8 @@ export const getEntries = async (namedEntriesOnly: boolean): Promise<Entry[] | f
 };
 
 export const postEntry = async (message: string): Promise<boolean | "ratelimited"> => {
-  const ip = headers().get("x-forwarded-for");
-
-  // TEMP
-  const hds = Object.fromEntries(headers().entries());
-  console.log(JSON.stringify(hds));
+  // Cloudflare header because we're behind Cloudflare
+  const ip = headers().get("cf-connecting-ip") ?? "127.0.0.1";
 
   const { success } = await ratelimit.limit(`ratelimit_${ip}`);
   if (!success) return "ratelimited";
