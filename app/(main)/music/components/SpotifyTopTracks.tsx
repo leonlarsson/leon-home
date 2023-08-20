@@ -15,8 +15,16 @@ export default async ({ range, hideSpotifyURI }: Props) => {
 
   return (
     <div className="flex flex-col">
-      {tracks.map(track => (
-        <div key={track.id} className="flex items-center gap-4 rounded p-2 hover:bg-gray-300 dark:hover:bg-gray-300/10">
+      {tracks.map((track, i) => (
+        <div key={track.id} className="group flex items-center gap-4 rounded p-2 hover:bg-gray-300 dark:hover:bg-gray-300/10">
+          {/* Track number / play button */}
+          <div className="ms-2 w-6 shrink-0 text-center text-neutral-700 dark:text-neutral-300 max-[360px]:hidden">
+            <span className="group-hover:hidden">{i + 1}</span>
+            <Link href={track.uri} target="_blank" title="Open in Spotify" className="hidden group-hover:block">
+              <i className="fa-solid fa-play fa-lg" />
+            </Link>
+          </div>
+
           {/* Album image */}
           <Image src={track.album.images[1].url} className="shrink-0 rounded" alt={`Album art for '${track.album.name}'`} width={50} height={50} loading="lazy" />
 
@@ -28,7 +36,7 @@ export default async ({ range, hideSpotifyURI }: Props) => {
                   {track.name}
                 </Link>
                 {!hideSpotifyURI && (
-                  <Link href={track.uri} target="_blank" title="Open in Spotify" className="hover:underline">
+                  <Link href={track.uri} target="_blank" title="Open in Spotify" className="hidden hover:underline max-[360px]:inline">
                     <i className="fa-brands fa-spotify ms-2" />
                   </Link>
                 )}
