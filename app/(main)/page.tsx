@@ -107,7 +107,7 @@ export default () => {
               { title: "Open English Resume", url: "/cv" },
               { title: "Öppna svenskt CV", url: "/cv-swe" }
             ].map(({ title, url }) => (
-              <GradientBorder rounded="rounded-[6px]" padding="p-[2px]" hoverable>
+              <GradientBorder key={title} rounded="rounded-[6px]" padding="p-[2px]" hoverable>
                 <Link href={url} target="_blank" className="flex items-center justify-between rounded bg-gradient-to-bl from-white to-slate-200 p-2 dark:from-kinda-black dark:to-kinda-black">
                   <div>
                     <i className="fa-solid fa-file-text fa-lg fa-fw me-1" />
