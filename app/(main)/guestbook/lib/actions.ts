@@ -46,6 +46,11 @@ export const getEntries = async (namedEntriesOnly: boolean): Promise<Entry[] | f
 
 export const postEntry = async (message: string): Promise<boolean | "ratelimited"> => {
   const ip = headers().get("x-forwarded-for");
+
+  // TEMP
+  const hds = Object.fromEntries(headers().entries());
+  console.log(JSON.stringify(hds));
+
   const { success } = await ratelimit.limit(`ratelimit_${ip}`);
   if (!success) return "ratelimited";
 
