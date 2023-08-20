@@ -39,7 +39,7 @@ export default async ({ compact, alwaysRender, currentlyPlayingText, hideSpotify
                   )}
                 </>
               ) : (
-                "Not listening to anything"
+                "Nothing"
               )}
             </span>
 
