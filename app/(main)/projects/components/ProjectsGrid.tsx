@@ -14,7 +14,7 @@ export default ({ projects }: { projects: ProjectType[] }) => {
   );
 };
 
-export const Project = ({ project }: { project: ProjectType }) => {
+export const Project = ({ project, displayTags = true }: { project: ProjectType; displayTags?: boolean }) => {
   return (
     <GradientBorder rounded="rounded-[5px]" hoverable>
       <div className="flex h-full rounded bg-gradient-to-bl from-white to-slate-200 text-start transition-colors dark:from-kinda-black dark:to-kinda-black">
@@ -32,7 +32,7 @@ export const Project = ({ project }: { project: ProjectType }) => {
 
           <span>{project.shortDescription}</span>
 
-          {project.tags && (
+          {displayTags && project.tags && (
             <div className="mt-1 flex flex-wrap gap-1">
               {project.tags
                 .sort((a, b) => a.localeCompare(b))
