@@ -120,84 +120,115 @@ export default () => {
                   <hr />
 
                   <Employment title="Localization/QA Tester - Swedish" company="Electronic Arts" companyUrl="https://www.ea.com" date="Nov 2019 – Aug 2022">
-                    <p>
-                      Hos Electronic Arts (EA) granskade och säkerställde jag kvaliteten på svenska EA-spel (PC+konsoler) och marknadsföringsmaterial som trailers och webbplatser med mera. Under högsäsong var jag också ansvarig för att granska anställningstest från potentiella kandidater. Jag var
-                      även medverkande med att skapa och bygga innehållet i rekryteringstestet. På The Sims 4 var jag huvudansvarig för kvaliteten av den svenska lokaliseringsinsatsen. Detta inkluderade att granska all text, dess implementering i spelet och rapportera (via JIRA) / eskalera
-                      eventuella problem som inte kunde åtgärdas med en textändring. Jag utförde både ad-hoc-tester och tester baserade på fördesignade testfall.
-                      <br />
-                      <br />
+                    <>
+                      <p>
+                        Hos Electronic Arts (EA) granskade och säkerställde jag kvaliteten på svenska EA-spel (PC+konsoler) och marknadsföringsmaterial som trailers och webbplatser med mera. Under högsäsong var jag också ansvarig för att granska anställningstest från potentiella kandidater. Jag var
+                        även medverkande med att skapa och bygga innehållet i rekryteringstestet. På The Sims 4 var jag huvudansvarig för kvaliteten av den svenska lokaliseringsinsatsen. Detta inkluderade att granska all text, dess implementering i spelet och rapportera (via JIRA) / eskalera
+                        eventuella problem som inte kunde åtgärdas med en textändring. Jag utförde både ad-hoc-tester och tester baserade på fördesignade testfall.
+                      </p>
+
                       <i>Spelreleaser som jag har arbetat på:</i>
-                      <br />
-                      <a style={{ color: "#333" }} href="https://www.ea.com/sv-se/games/the-sims/the-sims-4/packs/expansion-packs/the-sims-4-discover-university" target="_blank">
-                        The Sims™ 4: Studentliv
-                      </a>
-                      <br />
-                      <a style={{ color: "#333" }} href="https://www.ea.com/sv-se/games/the-sims/the-sims-4/packs/stuff-packs/the-sims-4-tiny-living" target="_blank">
-                        The Sims™ 4: Smått och smart
-                      </a>
-                      <br />
-                      <a style={{ color: "#333" }} href="https://www.ea.com/sv-se/games/the-sims/the-sims-4/packs/expansion-packs/the-sims-4-eco-lifestyle" target="_blank">
-                        The Sims™ 4: Eko-liv
-                      </a>
-                      <br />
-                      <a style={{ color: "#333" }} href="https://www.ea.com/sv-se/games/the-sims/the-sims-4/packs/stuff-packs/the-sims-4-nifty-knitting" target="_blank">
-                        The Sims™ 4: Skickligt stickat
-                      </a>
-                      <br />
-                      <a style={{ color: "#333" }} href="https://www.ea.com/sv-se/games/the-sims/the-sims-4/packs/game-packs/the-sims-4-star-wars-journey-to-batuu" target="_blank">
-                        The Sims™ 4: <i>Star Wars™</i>: Resan till Batuu
-                      </a>
-                      <br />
-                      <a style={{ color: "#333" }} href="https://www.ea.com/sv-se/games/the-sims/the-sims-4/packs/expansion-packs/the-sims-4-snowy-escape" target="_blank">
-                        The Sims™ 4: Snöiga bergen
-                      </a>
-                      <br />
-                      <a style={{ color: "#333" }} href="https://www.ea.com/sv-se/games/the-sims/the-sims-4/packs/stuff-packs/the-sims-4-paranormal" target="_blank">
-                        The Sims™ 4: Paranormalt
-                      </a>
-                      <br />
-                      <a style={{ color: "#333" }} href="https://www.ea.com/sv-se/games/the-sims/the-sims-4/packs/game-packs/the-sims-4-dream-home-decorator" target="_blank">
-                        The Sims™ 4: Styla ditt drömhus
-                      </a>
-                      <br />
-                      <a style={{ color: "#333" }} href="https://www.ea.com/sv-se/games/the-sims/the-sims-4/packs/expansion-packs/the-sims-4-cottage-living" target="_blank">
-                        The Sims™ 4: Lantliv
-                      </a>
-                      <br />
-                      <a style={{ color: "#333" }} href="https://www.ea.com/sv-se/games/the-sims/the-sims-4/packs/game-packs/the-sims-4-my-wedding-stories" target="_blank">
-                        The Sims™ 4: Mina bröllopshistorier
-                      </a>
-                      <br />
-                      <a style={{ color: "#333" }} href="https://www.ea.com/sv-se/games/the-sims/the-sims-4/packs/game-packs/the-sims-4-werewolves" target="_blank">
-                        The Sims™ 4: Varulvar
-                      </a>
-                      <br />
-                      <a style={{ color: "#333" }} href="https://www.ea.com/sv-se/games/the-sims/the-sims-4/the-sims-4-high-school-years" target="_blank">
-                        The Sims™ 4: High school-åren
-                      </a>
-                      <br />
-                      <a style={{ color: "#333" }} href="https://www.ea.com/sv-se/games/the-sims/the-sims-4/packs/kits" target="_blank">
-                        The Sims™ 4 Kit: Dammråttor, Lantkök, Retro, Innergårdsoas, Industriloft, Fashion Street, Välkommen till Incheon, Blommande rum, Modernt herrmode, Karnevalmode, Maxad inredning, Ungdomlig elegans, Knattarnas camping, Första modet, Ökenlyx
-                      </a>
-                      <br />
-                      <a style={{ color: "#333" }} href="https://www.ea.com/sv-se/games/fifa/fifa-21" target="_blank">
-                        FIFA 21
-                      </a>
-                      <br />
-                      <a style={{ color: "#333" }} href="https://www.ea.com/games/lord-of-the-rings/the-lord-of-the-rings-heroes-of-middle-earth" target="_blank">
-                        The Lord of the Rings: Midgårds hjältar
-                      </a>
-                    </p>
+                      <ul style={{ margin: 0, padding: 0, listStyle: "none" }}>
+                        <li>
+                          <a style={{ color: "#333" }} href="https://www.ea.com/sv-se/games/the-sims/the-sims-4/packs/expansion-packs/the-sims-4-discover-university" target="_blank">
+                            The Sims™ 4: Studentliv
+                          </a>
+                        </li>
+
+                        <li>
+                          <a style={{ color: "#333" }} href="https://www.ea.com/sv-se/games/the-sims/the-sims-4/packs/stuff-packs/the-sims-4-tiny-living" target="_blank">
+                            The Sims™ 4: Smått och smart
+                          </a>
+                        </li>
+
+                        <li>
+                          <a style={{ color: "#333" }} href="https://www.ea.com/sv-se/games/the-sims/the-sims-4/packs/expansion-packs/the-sims-4-eco-lifestyle" target="_blank">
+                            The Sims™ 4: Eko-liv
+                          </a>
+                        </li>
+
+                        <li>
+                          <a style={{ color: "#333" }} href="https://www.ea.com/sv-se/games/the-sims/the-sims-4/packs/stuff-packs/the-sims-4-nifty-knitting" target="_blank">
+                            The Sims™ 4: Skickligt stickat
+                          </a>
+                        </li>
+
+                        <li>
+                          <a style={{ color: "#333" }} href="https://www.ea.com/sv-se/games/the-sims/the-sims-4/packs/game-packs/the-sims-4-star-wars-journey-to-batuu" target="_blank">
+                            The Sims™ 4: <i>Star Wars™</i>: Resan till Batuu
+                          </a>
+                        </li>
+
+                        <li>
+                          <a style={{ color: "#333" }} href="https://www.ea.com/sv-se/games/the-sims/the-sims-4/packs/expansion-packs/the-sims-4-snowy-escape" target="_blank">
+                            The Sims™ 4: Snöiga bergen
+                          </a>
+                        </li>
+                        <li>
+                          <a style={{ color: "#333" }} href="https://www.ea.com/sv-se/games/the-sims/the-sims-4/packs/stuff-packs/the-sims-4-paranormal" target="_blank">
+                            The Sims™ 4: Paranormalt
+                          </a>
+                        </li>
+
+                        <li>
+                          <a style={{ color: "#333" }} href="https://www.ea.com/sv-se/games/the-sims/the-sims-4/packs/game-packs/the-sims-4-dream-home-decorator" target="_blank">
+                            The Sims™ 4: Styla ditt drömhus
+                          </a>
+                        </li>
+
+                        <li>
+                          <a style={{ color: "#333" }} href="https://www.ea.com/sv-se/games/the-sims/the-sims-4/packs/expansion-packs/the-sims-4-cottage-living" target="_blank">
+                            The Sims™ 4: Lantliv
+                          </a>
+                        </li>
+
+                        <li>
+                          <a style={{ color: "#333" }} href="https://www.ea.com/sv-se/games/the-sims/the-sims-4/packs/game-packs/the-sims-4-my-wedding-stories" target="_blank">
+                            The Sims™ 4: Mina bröllopshistorier
+                          </a>
+                        </li>
+
+                        <li>
+                          <a style={{ color: "#333" }} href="https://www.ea.com/sv-se/games/the-sims/the-sims-4/packs/game-packs/the-sims-4-werewolves" target="_blank">
+                            The Sims™ 4: Varulvar
+                          </a>
+                        </li>
+
+                        <li>
+                          <a style={{ color: "#333" }} href="https://www.ea.com/sv-se/games/the-sims/the-sims-4/the-sims-4-high-school-years" target="_blank">
+                            The Sims™ 4: High school-åren
+                          </a>
+                        </li>
+
+                        <li>
+                          <a style={{ color: "#333" }} href="https://www.ea.com/sv-se/games/the-sims/the-sims-4/packs/kits" target="_blank">
+                            The Sims™ 4 Kit: Dammråttor, Lantkök, Retro, Innergårdsoas, Industriloft, Fashion Street, Välkommen till Incheon, Blommande rum, Modernt herrmode, Karnevalmode, Maxad inredning, Ungdomlig elegans, Knattarnas camping, Första modet, Ökenlyx
+                          </a>
+                        </li>
+
+                        <li>
+                          <a style={{ color: "#333" }} href="https://www.ea.com/sv-se/games/fifa/fifa-21" target="_blank">
+                            FIFA 21
+                          </a>
+                        </li>
+
+                        <li>
+                          <a style={{ color: "#333" }} href="https://www.ea.com/games/lord-of-the-rings/the-lord-of-the-rings-heroes-of-middle-earth" target="_blank">
+                            The Lord of the Rings: Midgårds hjältar
+                          </a>
+                        </li>
+                      </ul>
+                    </>
                   </Employment>
 
                   <hr />
 
                   <Employment title="Terminalarbetare" company="PostNord Logistics AB" companyUrl="https://www.postnord.se/" date="Nov 2018 – Juni 2019">
-                    <p>
-                      Jag jobbade natt på en av PostNords paketterminaler. Timmarna var midnatt till 08:00.
-                      <br />
-                      En uppgift jag hade var att skanna uppemot 1&nbsp;500 paket per natt inför morgonens leveranser. En annan uppgift jag hade var att lasta av paket från lastbilar rakt in till terminalens band. En person brukar lasta av ungefär två- till fyratusen paket om natten.
-                    </p>
+                    <>
+                      <p>Jag jobbade natt på en av PostNords paketterminaler. Timmarna var midnatt till 08:00.</p>
+
+                      <p>En uppgift jag hade var att skanna uppemot 1&nbsp;500 paket per natt inför morgonens leveranser. En annan uppgift jag hade var att lasta av paket från lastbilar rakt in till terminalens band. En person brukar lasta av ungefär två- till fyratusen paket om natten.</p>
+                    </>
                   </Employment>
 
                   <hr />
@@ -206,6 +237,7 @@ export default () => {
                     <p>Jag jobbade i ett kök som del av ett sommarjob i 3 veckor. Detta inkluderade uppgifter som att diska, servera/göra/förbereda mat, besvara telefonsamtal och ta emot leveranser.</p>
                   </Employment>
                 </div>
+
                 <div className="no-pagebreak-header">
                   <div className="sf-heading-holder">
                     <span className="sf-main-title">Utbildning</span>
@@ -224,6 +256,7 @@ export default () => {
                     </span>
                   </div>
                 </div>
+
                 <div className="no-pagebreak-header">
                   <div className="sf-heading-holder">
                     <span className="sf-main-title">Övrigt</span>
@@ -231,20 +264,22 @@ export default () => {
                   <div className="sf-heading-underline" />
                   <div className="small-segment-holder">
                     <span className="datum">Nov 2016 – Pågående</span>
-                    <span className="namn">Volontär Administratör/Moderator, Electronic Arts</span>
-                    <span className="text">
+                    <span className="namn">Community Management / Uppbyggning</span>
+                    <div className="text">
                       <p>
-                        Jag jobbar volontärt som en administratör för den officiella* Battlefield Discord-kanalen.
-                        <br />
-                        <br />
+                        Jag jobbar volontärt som en administratör för den officiella*{" "}
+                        <a className="inline-href" href="/projects/battlefield-discord">
+                          Battlefield Discord
+                        </a>
+                        -kanalen.
+                      </p>
+                      <p>
                         Jag började jobba som en volontärmoderator på Battlefields Discord sent in i 2016 och nu är jag en administratör/ägare där. Sen jag började har Discord-kanalen vuxit från att vara ett litet community med ett par tusen medlemmar till att vara det officiella hemmet för
                         Battlefield på Discord. Den sitter oftast mellan 170K och 190K medlemmar. Detta inkluderade att jobba med EA:s community team för att försäkra att allting går lugnt och fungerar, något som fortsätter än idag.
                         <br />
                         <i>*I oktober 2022 valde vi att återgå till att kanalen ska vara 100% ägd av communityn.</i>
-                        <br />
-                        <br />
-                        Mitt arbete som en moderator/admin för dessa kanaler inkluderar:
                       </p>
+                      Mitt arbete som en moderator/admin för dessa kanaler inkluderar:
                       <ul>
                         <li>Hålla koll så att inga regler blir brutna</li>
                         <li>Ta hand om människor som bryter reglerna</li>
@@ -254,57 +289,50 @@ export default () => {
                         <li>Övervaka och hantera våra Discord-moderatorer</li>
                         <li>Övervaka vårt partnerskap och kommunikation med EA</li>
                       </ul>
-                      Utöver detta var jag också engagerad i community-teamet som tog hand om av Reddit och Discord-kanalerna för Battlefield 1 Incursions. Min roll där var att hjälpa spelare få tillgång till spelet, att säkerställa en bra miljö och samla in feedback från spelarna. Dessutom var jag
-                      också volontärmoderator under Apex Legends tidiga dagar för deras Discord-kanal. Även där var min roll att hjälpa spelarna och att se till att Discorden är en säker miljö för alla.
-                      <p />
-                    </span>
+                      <p>
+                        Utöver detta var jag också engagerad i community-teamet som tog hand om av Reddit och Discord-kanalerna för Battlefield 1 Incursions. Min roll där var att hjälpa spelare få tillgång till spelet, att säkerställa en bra miljö och samla in feedback från spelarna. Dessutom var
+                        jag också volontärmoderator under Apex Legends tidiga dagar för deras Discord-kanal. Även där var min roll att hjälpa spelarna och att se till att Discorden är en säker miljö för alla.
+                      </p>
+                    </div>
                   </div>
                 </div>
+
                 <hr />
+
                 <div className="small-segment-holder">
-                  <span className="datum" />
                   <span className="namn">Programutveckling</span>
-                  <span className="text">
-                    <p>
-                      Jag har ett intresse i programutveckling, både med webb och Node.js.
-                      <br />
-                      <br />
-                      <a className="inline-href" target="_blank" href="https://battlefieldstats.com/">
+                  <div className="text">
+                    <p>Jag har ett mycket starkt intresse för programutveckling och frontend-design. Jag älskar att arbeta med teknologier som React, Next.js, Node.js med JavaScript (och TypeScript). Nedan kan du läsa om ett par av mina projekt.</p>
+
+                    <div>
+                      <a href="/projects/battlefield-stats" style={{ fontWeight: 600, color: "inherit" }}>
                         Battlefield Stats Discord-botten
-                      </a>{" "}
-                      än en bot / ett program utvecklad för användning på plattformen Discord. Denna bot kan personer använda för att enkelt kolla upp sin Battlefield spelstatistik. Programmet är skrivet i JavaScript med{" "}
-                      <a className="inline-href" target="_blank" href="https://nodejs.org/">
-                        Node.js
                       </a>
-                      . Denna bot har blivit inbjuden till över 3,000 Discord-servrar, ett nummer som växer varje dag. Data i realtid finns{" "}
-                      <a className="inline-href" target="_blank" href="https://battlefieldstats.com/data">
+                      <p style={{ marginTop: 0 }}>
+                        Battlefield Stats Discord-botten än en bot utvecklad för användning på plattformen Discord. Denna bot kan personer använda för att enkelt kolla upp sin Battlefield-spelstatistik. Programmet är skrivet i JavaScript med Node.js. Denna bot har blivit inbjuden till över 3,000
+                        Discord-servrar, ett nummer som växer varje dag. Data i realtid finns{" "}
+                        <a className="inline-href" target="_blank" href="https://battlefieldstats.com/data">
+                          här
+                        </a>
+                        . Botten är även fullt översatt till 13 språk med hjälp av hjälpsamma communitymedlemmar.
+                      </p>
+                    </div>
+
+                    <div>
+                      <a href="/projects/home" style={{ fontWeight: 600, color: "inherit" }}>
+                        Min personliga hemsida
+                      </a>
+                      <p style={{ marginTop: 0 }}>Ett av mina största projekt är min egen webbplats, som är byggd med Next.js, ett React-ramverk. Webbplatsen använder toppmodern teknik och experimentella funktioner för att skapa en fantastisk upplevelse.</p>
+                    </div>
+
+                    <p>
+                      Det här är bara en bråkdel av alla mina projekt. Om du vill se mer kan du hitta alla mina projekt{" "}
+                      <a className="inline-href" href="/projects">
                         här
-                      </a>
-                      . Botten är även fullt översatt till 13 språk med hjälp av hjälpsamma communitymedlemmar.
-                      <br />
-                      <br />
-                      <a className="inline-href" href="https://logsorter.com/" target="_blank">
-                        Log Sorter-projektet
-                      </a>{" "}
-                      skapade jag som ett program som kunde hjälpa andra Discord-moderatorer med att snabbt och enkelt sortera ut användar-ID från loggar. Detta är till stor hjälp för att skydda en kanal från stora mängder bot-konton.
-                      <br />
-                      <br />
-                      <a className="inline-href" target="_blank" href="https://api.onlyraccoons.com/">
-                        TrasHTTPandas
-                      </a>{" "}
-                      är ett API jag skapade som ett roligt testprojekt. API:et returnerar HTTP-svar, men med en kul twist. Detta project är byggt med{" "}
-                      <a className="inline-href" target="_blank" href="https://workers.cloudflare.com/">
-                        Cloudflare Workers
                       </a>
                       .
                     </p>
-                    ➡{" "}
-                    <strong>
-                      <a className="inline-href" href="/projects">
-                        Fler projekt
-                      </a>
-                    </strong>
-                  </span>
+                  </div>
                 </div>
               </div>
             </div>
