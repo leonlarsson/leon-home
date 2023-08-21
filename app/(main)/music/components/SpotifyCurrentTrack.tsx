@@ -21,7 +21,7 @@ export default async ({ compact, alwaysRender, currentlyPlayingText, hideSpotify
       {currentlyPlayingText}
       <div className={`flex items-center rounded ${compact ? "gap-3 p-1" : "gap-5 p-2"} hover:bg-gray-300 dark:hover:bg-gray-300/10`}>
         {/* Album image */}
-        <Image src={track?.album?.images[1].url ?? "/assets/images/spotifylogo.png"} className="shrink-0" alt="Spotify logo" width={compact ? 40 : 80} height={compact ? 40 : 80} />
+        <Image src={track?.album?.images[1].url ?? "/assets/images/spotifylogo.png"} className={`${compact ? "h-10 w-10" : "h-20 w-20"} shrink-0`} alt="Spotify logo" width={compact ? 40 : 80} height={compact ? 40 : 80} />
 
         <div className="flex flex-1 flex-col text-start">
           {/* Track name */}
