@@ -5,7 +5,14 @@ import SortCheckbox from "./components/SortCheckbox";
 import ProjectsGrid from "./components/ProjectsGrid";
 import projectsData from "./data";
 
-export const generateMetadata = ({ searchParams }: { searchParams: { search: string } }): Metadata => {
+type Props = {
+  searchParams: {
+    search?: string;
+    sort?: string;
+  };
+};
+
+export const generateMetadata = ({ searchParams }: Props): Metadata => {
   const search = searchParams.search;
   const pageTitle = `Projects${search ? ` matching "${search}"` : ""}`;
   const pageDescription = search ? `Leon's projects matching "${search}".` : "Browse all of Leon's projects.";
@@ -22,7 +29,7 @@ export const generateMetadata = ({ searchParams }: { searchParams: { search: str
   };
 };
 
-export default ({ searchParams }: { searchParams: Record<string, string> }) => {
+export default ({ searchParams }: Props) => {
   const searchParam = searchParams.search;
   const sortParam = searchParams.sort;
 

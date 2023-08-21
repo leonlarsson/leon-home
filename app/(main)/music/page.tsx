@@ -22,7 +22,9 @@ export const metadata: Metadata = {
 };
 
 type Props = {
-  searchParams: Record<string, string | undefined>;
+  searchParams: {
+    range?: string;
+  };
 };
 
 export default ({ searchParams }: Props) => {

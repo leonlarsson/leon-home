@@ -22,7 +22,13 @@ export const metadata: Metadata = {
   })
 };
 
-export default ({ searchParams }: { searchParams: Record<string, string> }) => {
+type Props = {
+  searchParams: {
+    named?: string;
+  };
+};
+
+export default ({ searchParams }: Props) => {
   return (
     <div className="mx-auto max-w-3xl">
       <div className="text-3xl font-extrabold">Guestbook</div>
@@ -35,7 +41,7 @@ export default ({ searchParams }: { searchParams: Record<string, string> }) => {
   );
 };
 
-const MainSection = async ({ searchParams }: { searchParams: Record<string, string> }) => {
+const MainSection = async ({ searchParams }: Props) => {
   const namedEntriesOnly = searchParams.named === "true";
   let session;
   const requireAuth = process.env.REQUIRE_AUTH === "true";
