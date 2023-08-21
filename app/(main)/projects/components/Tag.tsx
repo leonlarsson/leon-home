@@ -4,8 +4,8 @@ import { useRouter, useSearchParams } from "next/navigation";
 
 export default ({ tag, clickable }: { tag: string; clickable?: boolean }) => {
   const router = useRouter();
-  const search = useSearchParams().get("search");
-  const searchMatchesTag = search?.toLowerCase() === tag.toLowerCase();
+  const searchParams = new URLSearchParams(useSearchParams().toString());
+  const searchMatchesTag = searchParams.get("search")?.toLowerCase() === tag.toLowerCase();
 
   // Weird in order to please the Tailwind extension
   // If clickable and not already searching for this tag, make it hoverable
@@ -24,7 +24,8 @@ export default ({ tag, clickable }: { tag: string; clickable?: boolean }) => {
       onClick={e => {
         // We do this to prevent the click event from bubbling up to the parent element (Copilot wrote this, but it sounds smart)
         e.preventDefault();
-        router.push(`/projects?search=${tag}`);
+        searchParams.set("search", tag);
+        router.push(`/projects?${searchParams.toString()}`);
       }}
     >
       {tag}
