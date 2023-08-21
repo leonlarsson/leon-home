@@ -23,7 +23,7 @@ export const Project = ({ project, displayTags = true }: { project: ProjectType;
             <i className="fa-solid fa-arrow-right me-2 transition-transform group-hover:translate-x-1" />
             <span className="underline-offset-2 group-hover:underline">{project.name}</span>{" "}
             {project.year && (
-              <span className="font-mono text-sm text-gray-600 transition-colors dark:text-gray-400" title={`First released ${project.year}.`}>
+              <span className="font-mono text-sm text-neutral-700 transition-colors dark:text-neutral-400" title={`First released ${project.year}.`}>
                 ({project.year}
                 {project.endYear && `-${project.endYear}`})
               </span>
