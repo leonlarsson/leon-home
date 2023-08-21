@@ -16,7 +16,7 @@ export default ({ projects }: { projects: ProjectType[] }) => {
 
 export const Project = ({ project, displayTags = true }: { project: ProjectType; displayTags?: boolean }) => {
   return (
-    <GradientBorder rounded="rounded-[5px]" hoverable>
+    <GradientBorder rounded="rounded-[6px]" padding="p-[2px]" hoverable>
       <div className="flex h-full rounded bg-gradient-to-bl from-white to-slate-200 text-start transition-colors dark:from-kinda-black dark:to-kinda-black">
         <Link href={`/projects/${project.slug}`} className="group flex flex-1 flex-col p-3" draggable={false} title={`See more info on project ${project.name}.`}>
           <span className="text-lg font-bold">
@@ -58,7 +58,7 @@ export const Project = ({ project, displayTags = true }: { project: ProjectType;
 };
 
 export const ProjectSkeleton = () => (
-  <GradientBorder rounded="rounded-[5px]" hoverable>
+  <GradientBorder rounded="rounded-[6px]" padding="p-[2px]" hoverable>
     <div className="flex h-full rounded bg-gradient-to-bl from-white to-slate-200 text-start transition-colors dark:from-kinda-black dark:to-kinda-black">
       <div className="group flex flex-1 flex-col p-3" draggable={false}>
         <span className="text-lg font-bold">
