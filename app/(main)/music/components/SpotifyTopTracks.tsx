@@ -18,7 +18,7 @@ export default async ({ range, hideSpotifyURI }: Props) => {
       {tracks.map((track, i) => (
         <div key={track.id} className="group flex items-center gap-4 rounded p-2 hover:bg-gray-300 dark:hover:bg-gray-300/10">
           {/* Track number / play button */}
-          <div className="ms-2 w-6 shrink-0 text-center text-neutral-700 dark:text-neutral-300 max-[360px]:hidden">
+          <div className="ms-2 w-6 shrink-0 text-center text-neutral-700 dark:text-neutral-300 max-[380px]:hidden">
             <span className="group-hover:hidden">{i + 1}</span>
             <Link href={track.uri} target="_blank" title="Open in Spotify" className="hidden group-hover:block">
               <i className="fa-solid fa-play fa-lg" />
@@ -36,7 +36,7 @@ export default async ({ range, hideSpotifyURI }: Props) => {
               </Link>
 
               {!hideSpotifyURI && (
-                <Link href={track.uri} target="_blank" title="Open in Spotify" className="hidden hover:underline max-[360px]:inline">
+                <Link href={track.uri} target="_blank" title="Open in Spotify" className="hidden hover:underline max-[380px]:inline">
                   <i className="fa-brands fa-spotify ms-2" />
                 </Link>
               )}
@@ -55,7 +55,7 @@ export default async ({ range, hideSpotifyURI }: Props) => {
           </div>
 
           {/* Track progress */}
-          <span className="text-right text-sm text-neutral-700 dark:text-neutral-300">{formatDuration(track.duration_ms)}</span>
+          <span className="text-right text-sm text-neutral-700 dark:text-neutral-300 max-[380px]:hidden">{formatDuration(track.duration_ms)}</span>
         </div>
       ))}
     </div>

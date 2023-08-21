@@ -25,7 +25,7 @@ export default async ({ compact, alwaysRender, currentlyPlayingText, hideSpotify
 
         <div className="flex flex-1 flex-col text-start">
           {/* Track name */}
-          <div className={`${compact ? "" : "text-xl"} font-semibold`}>
+          <div className={`${compact ? "" : "text-xl max-[380px]:text-lg"} font-semibold`}>
             {track ? (
               <>
                 <Link href={track.external_urls.spotify} target="_blank" className="hover:underline">

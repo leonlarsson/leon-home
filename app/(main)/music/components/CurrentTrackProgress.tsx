@@ -43,7 +43,7 @@ export default ({ isPlaying, initialProgress, duration, reloadOnEnd }: Props) =>
   }, [progress]);
 
   return (
-    <span className="text-right text-sm text-neutral-700 dark:text-neutral-300">
+    <span className="text-right text-sm text-neutral-700 dark:text-neutral-300 max-[380px]:hidden">
       {isPlaying ? formatDuration(progress) : <i className="fa-solid fa-pause" />} / {formatDuration(duration)}
     </span>
   );
