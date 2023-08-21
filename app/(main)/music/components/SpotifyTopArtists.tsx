@@ -16,7 +16,9 @@ export default async ({ range }: Props) => {
       {artists.map(artist => (
         <Link key={artist.id} href={artist.external_urls.spotify} target="_blank" className="flex items-center gap-3 rounded p-2 hover:bg-gray-300 dark:hover:bg-gray-300/10">
           {/* Album image */}
-          <Image src={artist.images[0].url} className="shrink-0 rounded" alt={`Image for '${artist.name}'`} width={50.01} height={50.01} loading="lazy" />
+          <div className="h-[50px] w-[50px] overflow-hidden rounded-full">
+            <Image src={artist.images[0].url} className="h-full w-full shrink-0 object-cover" alt={`Image for '${artist.name}'`} width={50.01} height={50.01} loading="lazy" />
+          </div>
 
           <div className="flex flex-col text-start">
             {/* Artist name */}

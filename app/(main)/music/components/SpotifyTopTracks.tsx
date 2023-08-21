@@ -26,7 +26,7 @@ export default async ({ range, hideSpotifyURI }: Props) => {
           </div>
 
           {/* Album image */}
-          <Image src={track.album.images[1].url} className="shrink-0 rounded" alt={`Album art for '${track.album.name}'`} width={50} height={50} loading="lazy" />
+          <Image src={track.album.images[1].url} className="shrink-0" alt={`Album art for '${track.album.name}'`} width={50} height={50} loading="lazy" />
 
           <div className="flex flex-1 flex-col text-start">
             {/* Track name */}
