@@ -87,7 +87,7 @@ export default () => {
               { title: "ArtStation", url: "https://www.artstation.com/leonlarsson", iconClasses: "fa-brands fa-artstation" }
             ].map(({ title, url, iconClasses }) => (
               <GradientBorder key={title} rounded="rounded-[6px]" padding="p-[2px]" hoverable>
-                <Link href={url} target="_blank" className="flex items-center justify-between rounded bg-gradient-to-bl from-white to-slate-200 p-2 dark:from-kinda-black dark:to-kinda-black">
+                <Link href={url} target="_blank" className="flex items-center justify-between rounded bg-slate-100 p-2 dark:bg-kinda-black">
                   <div>
                     <i className={`${iconClasses} fa-lg fa-fw me-1`} />
                     <span>{title}</span>
@@ -108,7 +108,7 @@ export default () => {
               { title: "Öppna svenskt CV", url: "/cv-swe" }
             ].map(({ title, url }) => (
               <GradientBorder key={title} rounded="rounded-[6px]" padding="p-[2px]" hoverable>
-                <Link href={url} target="_blank" className="flex items-center justify-between rounded bg-gradient-to-bl from-white to-slate-200 p-2 dark:from-kinda-black dark:to-kinda-black">
+                <Link href={url} target="_blank" className="flex items-center justify-between rounded bg-slate-100 p-2 dark:bg-kinda-black">
                   <div>
                     <i className="fa-solid fa-file-text fa-lg fa-fw me-1" />
                     <span>{title}</span>
