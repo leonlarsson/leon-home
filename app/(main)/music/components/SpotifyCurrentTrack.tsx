@@ -1,7 +1,8 @@
 import Link from "next/link";
 import Image from "next/image";
 import { getCurrentlyPlaying } from "../lib/actions";
-import CurrentTrackProgress from "./CurrentTrackProgress";
+import CurrentTrackProgressTime from "./CurrentTrackProgressTime";
+import CurrentTrackProgressBar from "./CurrentTrackProgressBar";
 
 type Props = {
   compact?: boolean;
@@ -19,7 +20,7 @@ export default async ({ compact, alwaysRender, currentlyPlayingText, hideSpotify
   return (
     <div>
       {currentlyPlayingText}
-      <div className={`flex items-center rounded ${compact ? "gap-3 p-1" : "gap-5 p-2"} hover:bg-gray-300 dark:hover:bg-gray-300/10`}>
+      <div className={`flex items-center rounded rounded-b-none ${compact ? "gap-3 p-1" : "gap-5 p-2"} hover:bg-gray-300 dark:hover:bg-gray-300/10`}>
         {/* Album image */}
         <Image src={track?.album?.images[1].url ?? "/assets/images/spotifylogo.png"} className={`${compact ? "h-10 w-10" : "h-24 w-24"} shrink-0`} alt="Spotify logo" width={compact ? 40 : 96} height={compact ? 40 : 96} />
 
@@ -62,8 +63,10 @@ export default async ({ compact, alwaysRender, currentlyPlayingText, hideSpotify
         </div>
 
         {/* Track progress */}
-        {track && <CurrentTrackProgress key={currentlyPlayingObject?.progress_ms ?? 0} isPlaying={!!currentlyPlayingObject?.is_playing} initialProgress={currentlyPlayingObject?.progress_ms ?? 0} duration={track.duration_ms} reloadOnEnd={reloadOnEnd} />}
+        {track && <CurrentTrackProgressTime key={currentlyPlayingObject?.progress_ms ?? 0} isPlaying={!!currentlyPlayingObject?.is_playing} initialProgress={currentlyPlayingObject?.progress_ms ?? 0} duration={track.duration_ms} reloadOnEnd={reloadOnEnd} />}
       </div>
+
+      {track && <CurrentTrackProgressBar key={currentlyPlayingObject?.progress_ms ?? 0} isPlaying={!!currentlyPlayingObject?.is_playing} initialProgress={currentlyPlayingObject?.progress_ms ?? 0} duration={track.duration_ms} />}
     </div>
   );
 };
