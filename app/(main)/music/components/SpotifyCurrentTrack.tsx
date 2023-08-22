@@ -31,9 +31,9 @@ export default async ({ compact, alwaysRender, currentlyPlayingText, hideSpotify
                 <Link href={track.external_urls.spotify} target="_blank" className="hover:underline">
                   {track.name}
                 </Link>
-                {!hideSpotifyURI && (
-                  <Link href={track.uri} target="_blank" title="Open in Spotify" className="hover:underline">
-                    <i className={`fa-brands fa-spotify ${compact ? "" : "fa-lg"} ms-2 text-[#1ed760]`} />
+                {!hideSpotifyURI && compact && (
+                  <Link href={track.uri} target="_blank" title="Play on Spotify" className="hover:underline">
+                    <i className={`fa-brands fa-spotify fa-lg ms-2 text-[#1ed760]`} />
                   </Link>
                 )}
               </>
@@ -52,6 +52,13 @@ export default async ({ compact, alwaysRender, currentlyPlayingText, hideSpotify
               ))
               .reduce((prev, curr) => [prev, ", ", curr]) ?? "Come back later"}
           </div>
+
+          {track && !hideSpotifyURI && !compact && (
+            <Link href={track.uri} target="_blank" className="mt-1 hover:underline">
+              <i className={`fa-brands fa-spotify ${compact ? "" : "fa-lg"} me-2 text-[#1ed760]`} />
+              Play on Spotify
+            </Link>
+          )}
         </div>
 
         {/* Track progress */}
