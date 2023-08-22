@@ -60,7 +60,7 @@ export default () => {
           </Link>
 
           <Suspense fallback={<CurrentTrackSkeleton compact />}>
-            <SpotifyCurrentTrack compact alwaysRender />
+            <SpotifyCurrentTrack compact alwaysRender reloadOnEnd />
           </Suspense>
         </div>
 
