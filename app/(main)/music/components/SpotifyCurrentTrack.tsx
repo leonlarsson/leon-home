@@ -17,56 +17,59 @@ export default async ({ compact, alwaysRender, currentlyPlayingText, hideSpotify
   if (!alwaysRender && (!currentlyPlayingObject || !track)) return null;
 
   return (
-    <div>
+    <>
       {currentlyPlayingText}
-      <div className={`flex items-center rounded rounded-b-none ${compact ? "gap-3 p-1" : "gap-5 p-2"} hover:bg-gray-300 dark:hover:bg-gray-300/10`}>
-        {/* Album image */}
-        <Image src={track?.album?.images[1].url ?? "/assets/images/spotifylogo.png"} className={`${compact ? "h-10 w-10" : "h-24 w-24"} shrink-0`} alt="Spotify logo" width={compact ? 40 : 96} height={compact ? 40 : 96} />
+      <div className="rounded hover:bg-gray-300 dark:hover:bg-gray-300/10">
+        <div className={`flex items-center ${compact ? "gap-3 p-1" : "gap-5 p-2"}`}>
+          {/* Album image */}
+          <Image src={track?.album?.images[1].url ?? "/assets/images/spotifylogo.png"} className={`${compact ? "h-10 w-10" : "h-24 w-24"} shrink-0`} alt="Spotify logo" width={compact ? 40 : 96} height={compact ? 40 : 96} />
 
-        <div className="flex flex-1 flex-col text-start">
-          {/* Track name */}
-          <div className={`${compact ? "" : "text-xl max-[380px]:text-lg"} font-semibold`}>
-            {track ? (
-              <>
-                <Link href={track.external_urls.spotify} target="_blank" className="hover:underline">
-                  {track.name}
-                </Link>
-                {!hideSpotifyURI && compact && (
-                  <Link href={track.uri} target="_blank" title="Open in Spotify" className="hover:underline">
-                    <i className={`fa-brands fa-spotify fa-lg ms-2 text-[#1ed760]`} />
+          <div className="flex flex-1 flex-col text-start">
+            {/* Track name */}
+            <div className={`${compact ? "" : "text-xl max-[380px]:text-lg"} font-semibold`}>
+              {track ? (
+                <>
+                  <Link href={track.external_urls.spotify} target="_blank" className="hover:underline">
+                    {track.name}
                   </Link>
-                )}
-              </>
-            ) : (
-              "Nothing"
+                  {!hideSpotifyURI && compact && (
+                    <Link href={track.uri} target="_blank" title="Open in Spotify" className="hover:underline">
+                      <i className={`fa-brands fa-spotify fa-lg ms-2 text-[#1ed760]`} />
+                    </Link>
+                  )}
+                </>
+              ) : (
+                "Nothing"
+              )}
+            </div>
+
+            {/* Artist names */}
+            <div className={`${compact ? "text-xs" : "text-sm"} text-neutral-700 dark:text-neutral-300`}>
+              {track?.artists
+                .map<React.ReactNode>(artist => (
+                  <Link key={artist.id} href={artist.external_urls.spotify} target="_blank" className="hover:underline">
+                    {artist.name}
+                  </Link>
+                ))
+                .reduce((prev, curr) => [prev, ", ", curr]) ?? "Come back later"}
+            </div>
+
+            {track && !hideSpotifyURI && !compact && (
+              <Link href={track.uri} target="_blank" className="mt-1 hover:underline">
+                <i className={`fa-brands fa-spotify ${compact ? "" : "fa-lg"} me-2 text-[#1ed760]`} />
+                Open in Spotify
+              </Link>
             )}
           </div>
 
-          {/* Artist names */}
-          <div className={`${compact ? "text-xs" : "text-sm"} text-neutral-700 dark:text-neutral-300`}>
-            {track?.artists
-              .map<React.ReactNode>(artist => (
-                <Link key={artist.id} href={artist.external_urls.spotify} target="_blank" className="hover:underline">
-                  {artist.name}
-                </Link>
-              ))
-              .reduce((prev, curr) => [prev, ", ", curr]) ?? "Come back later"}
-          </div>
-
-          {track && !hideSpotifyURI && !compact && (
-            <Link href={track.uri} target="_blank" className="mt-1 hover:underline">
-              <i className={`fa-brands fa-spotify ${compact ? "" : "fa-lg"} me-2 text-[#1ed760]`} />
-              Open in Spotify
-            </Link>
-          )}
+          {/* Track progress */}
+          {/* {track && <CurrentTrackProgress key={currentlyPlayingObject?.progress_ms ?? 0} type="time" isPlaying={!!currentlyPlayingObject?.is_playing} initialProgress={currentlyPlayingObject?.progress_ms ?? 0} duration={track.duration_ms} reloadOnEnd={reloadOnEnd} />} */}
         </div>
 
         {/* Track progress */}
-        {/* {track && <CurrentTrackProgress key={currentlyPlayingObject?.progress_ms ?? 0} type="time" isPlaying={!!currentlyPlayingObject?.is_playing} initialProgress={currentlyPlayingObject?.progress_ms ?? 0} duration={track.duration_ms} reloadOnEnd={reloadOnEnd} />} */}
+        {track && <CurrentTrackProgress key={currentlyPlayingObject?.progress_ms ?? 0} type="combined" isPlaying={!!currentlyPlayingObject?.is_playing} initialProgress={currentlyPlayingObject?.progress_ms ?? 0} duration={track.duration_ms} reloadOnEnd={reloadOnEnd} />}
       </div>
-
-      {track && <CurrentTrackProgress key={currentlyPlayingObject?.progress_ms ?? 0} type="combined" isPlaying={!!currentlyPlayingObject?.is_playing} initialProgress={currentlyPlayingObject?.progress_ms ?? 0} duration={track.duration_ms} reloadOnEnd={reloadOnEnd} />}
-    </div>
+    </>
   );
 };
 
