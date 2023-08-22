@@ -30,9 +30,10 @@ type Props = {
 export default ({ searchParams }: Props) => {
   return (
     <div className="mx-auto max-w-3xl pb-10 text-start">
-      <div className="mb-2 text-3xl font-extrabold">
+      <div className="text-3xl font-extrabold">
         Music <RefreshButton />
       </div>
+      <div className="mb-3">All data is freshly sourced from Spotify.</div>
 
       <div className="flex flex-col gap-6">
         <div className="flex flex-col gap-2">
