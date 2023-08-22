@@ -55,18 +55,18 @@ export default ({ type, isPlaying, initialProgress, duration, reloadOnEnd }: Pro
   if (type === "combined")
     return (
       <div className="flex items-center gap-2">
-        <span className="min-w-[40px] text-right text-sm text-neutral-700 dark:text-neutral-300">{isPlaying ? formatDuration(progress) : <PauseIcon />}</span>
+        <span className={`ms-1 ${isPlaying ? "min-w-[40px]" : ""} text-right text-sm text-neutral-700 dark:text-neutral-300`}>{isPlaying ? formatDuration(progress) : <PauseIcon />}</span>
 
         <ProgressBar progress={progress} duration={duration} extraClasses="flex-1" />
 
-        <span className="min-w-[40px] text-left text-sm text-neutral-700 dark:text-neutral-300">{formatDuration(duration)}</span>
+        <span className="me-1 min-w-[40px] text-left text-sm text-neutral-700 dark:text-neutral-300">{formatDuration(duration)}</span>
       </div>
     );
 
   if (type === "combinedTextTop")
     return (
       <div>
-        <div className="flex items-center justify-between">
+        <div className="mx-1 flex items-center justify-between">
           <span className="text-sm text-neutral-700 dark:text-neutral-300">{isPlaying ? formatDuration(progress) : <PauseIcon />}</span>
           <span className="text-sm text-neutral-700 dark:text-neutral-300">{formatDuration(duration)}</span>
         </div>
@@ -78,7 +78,7 @@ export default ({ type, isPlaying, initialProgress, duration, reloadOnEnd }: Pro
     return (
       <div>
         <ProgressBar progress={progress} duration={duration} />
-        <div className="flex items-center justify-between">
+        <div className="mx-1 flex items-center justify-between">
           <span className="text-sm text-neutral-700 dark:text-neutral-300">{isPlaying ? formatDuration(progress) : <PauseIcon />}</span>
           <span className="text-sm text-neutral-700 dark:text-neutral-300">{formatDuration(duration)}</span>
         </div>
