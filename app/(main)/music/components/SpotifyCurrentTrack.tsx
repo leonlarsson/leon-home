@@ -32,7 +32,7 @@ export default async ({ compact, alwaysRender, currentlyPlayingText, hideSpotify
                   {track.name}
                 </Link>
                 {!hideSpotifyURI && compact && (
-                  <Link href={track.uri} target="_blank" title="Play on Spotify" className="hover:underline">
+                  <Link href={track.uri} target="_blank" title="Open in Spotify" className="hover:underline">
                     <i className={`fa-brands fa-spotify fa-lg ms-2 text-[#1ed760]`} />
                   </Link>
                 )}
@@ -56,7 +56,7 @@ export default async ({ compact, alwaysRender, currentlyPlayingText, hideSpotify
           {track && !hideSpotifyURI && !compact && (
             <Link href={track.uri} target="_blank" className="mt-1 hover:underline">
               <i className={`fa-brands fa-spotify ${compact ? "" : "fa-lg"} me-2 text-[#1ed760]`} />
-              Play on Spotify
+              Open in Spotify
             </Link>
           )}
         </div>
