@@ -1,8 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { getCurrentlyPlaying } from "../lib/actions";
-import CurrentTrackProgressTime from "./CurrentTrackProgressTime";
-import CurrentTrackProgressBar from "./CurrentTrackProgressBar";
+import CurrentTrackProgress from "./CurrentTrackProgress";
 
 type Props = {
   compact?: boolean;
@@ -63,10 +62,10 @@ export default async ({ compact, alwaysRender, currentlyPlayingText, hideSpotify
         </div>
 
         {/* Track progress */}
-        {track && <CurrentTrackProgressTime key={currentlyPlayingObject?.progress_ms ?? 0} isPlaying={!!currentlyPlayingObject?.is_playing} initialProgress={currentlyPlayingObject?.progress_ms ?? 0} duration={track.duration_ms} reloadOnEnd={reloadOnEnd} />}
+        {/* {track && <CurrentTrackProgress key={currentlyPlayingObject?.progress_ms ?? 0} type="time" isPlaying={!!currentlyPlayingObject?.is_playing} initialProgress={currentlyPlayingObject?.progress_ms ?? 0} duration={track.duration_ms} reloadOnEnd={reloadOnEnd} />} */}
       </div>
 
-      {track && <CurrentTrackProgressBar key={currentlyPlayingObject?.progress_ms ?? 0} isPlaying={!!currentlyPlayingObject?.is_playing} initialProgress={currentlyPlayingObject?.progress_ms ?? 0} duration={track.duration_ms} />}
+      {track && <CurrentTrackProgress key={currentlyPlayingObject?.progress_ms ?? 0} type="combined" isPlaying={!!currentlyPlayingObject?.is_playing} initialProgress={currentlyPlayingObject?.progress_ms ?? 0} duration={track.duration_ms} reloadOnEnd={reloadOnEnd} />}
     </div>
   );
 };
