@@ -37,7 +37,7 @@ export default async ({ range, hideSpotifyURI }: Props) => {
 
               {!hideSpotifyURI && (
                 <Link href={track.uri} target="_blank" title="Open in Spotify" className="hidden hover:underline max-[380px]:inline">
-                  <i className="fa-brands fa-spotify ms-2" />
+                  <i className="fa-brands fa-spotify ms-2 text-[#1ed760]" />
                 </Link>
               )}
             </div>
