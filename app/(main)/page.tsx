@@ -53,8 +53,8 @@ export default () => {
           .
         </div>
 
-        {/* MUSIC */}
-        <div>
+        {/* MUSIC - DISABLED */}
+        {/* <div>
           <Link href="/music" className="font-semibold underline-offset-2 hover:underline">
             I am currently listening to:
           </Link>
@@ -62,7 +62,7 @@ export default () => {
           <Suspense fallback={<CurrentTrackSkeleton compact />}>
             <SpotifyCurrentTrack compact alwaysRender reloadOnEnd />
           </Suspense>
-        </div>
+        </div> */}
 
         {/* GUESTBOOK */}
         <div>
