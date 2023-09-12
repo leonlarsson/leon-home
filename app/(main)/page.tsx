@@ -1,11 +1,9 @@
-import { Suspense } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import projects from "./projects/data";
 import TypeAnimation from "./components/TypeAnimation";
 import GradientBorder from "./components/GradientBorder";
 import smLogo from "/public/assets/images/smlogo_notext.png";
-import SpotifyCurrentTrack, { CurrentTrackSkeleton } from "./music/components/SpotifyCurrentTrack";
 import { Project } from "./projects/components/ProjectsGrid";
 
 export default () => {
