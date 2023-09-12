@@ -338,5 +338,12 @@ export default [
     images: [musicShowcaseImage1, musicShowcaseImage2],
     link: "/music",
     githubLink: "https://github.com/leonlarsson/leon-home/tree/main/app/(main)/music"
+  },
+  {
+    slug: "redacted",
+    slugAliases: ["nda"],
+    name: "Redacted",
+    description: "A project that represents all the projects I can't talk about. Some of them are very cool.",
+    shortDescription: "A project that represents all the projects I can't talk about."
   }
 ] satisfies Project[] as Project[];
