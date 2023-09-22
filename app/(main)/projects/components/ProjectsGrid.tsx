@@ -19,19 +19,26 @@ export const Project = ({ project, displayTags = true }: { project: ProjectType;
     <GradientBorder rounded="rounded-[6px]" padding="p-[2px]" hoverable>
       <div className="flex h-full rounded bg-slate-100 text-start transition-colors dark:bg-kinda-black">
         <Link href={`/projects/${project.slug}`} className="group flex flex-1 flex-col p-3" draggable={false} title={`See more info on project ${project.name}.`}>
-          <span className="text-lg font-bold">
-            <i className="fa-solid fa-arrow-right me-2 transition-transform group-hover:translate-x-1" />
-            <span className="underline-offset-2 group-hover:underline">{project.name}</span>{" "}
-            {project.year && (
-              <span className="font-mono text-sm text-neutral-700 transition-colors dark:text-neutral-400" title={`First released ${project.year}.`}>
-                ({project.year}
-                {project.endYear && `-${project.endYear}`})
-              </span>
-            )}
-          </span>
+          <div className="flex items-center justify-between">
+            <span className="text-lg font-bold">
+              <i className="fa-solid fa-arrow-right me-2 transition-transform group-hover:translate-x-1" />
+              {/* Name / Year */}
+              <span className="underline-offset-2 group-hover:underline">{project.name}</span>{" "}
+              {project.year && (
+                <span className="font-mono text-sm text-neutral-700 transition-colors dark:text-neutral-400" title={`First released ${project.year}.`}>
+                  ({project.year}
+                  {project.endYear && `-${project.endYear}`})
+                </span>
+              )}
+            </span>
+            {/* Image icon */}
+            {project.images && <i className="fa-solid fa-image" title={`This project has ${project.images.length === 1 ? "an image" : "images"}.`} />}
+          </div>
 
+          {/* Description */}
           <span>{project.shortDescription}</span>
 
+          {/* Tags */}
           {displayTags && project.tags && (
             <div className="mt-1 flex flex-wrap gap-1">
               {project.tags
@@ -43,6 +50,7 @@ export const Project = ({ project, displayTags = true }: { project: ProjectType;
           )}
         </Link>
 
+        {/* Link */}
         {project.link && (
           <>
             <div className="my-3 w-px bg-gray-300" />
