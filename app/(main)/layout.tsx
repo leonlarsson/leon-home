@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Analytics } from "@vercel/analytics/react";
 import { Inter } from "next/font/google";
 import NextTopLoader from "nextjs-toploader";
 const inter = Inter({ subsets: ["latin"] });
@@ -41,6 +42,7 @@ export default ({ children }: { children: React.ReactNode }) => {
   return (
     <html className="min-h-[100svh] overflow-y-scroll bg-gradient-to-bl from-white to-slate-200 dark:from-kinda-black dark:to-kinda-black" lang="en">
       <body className={`${inter.className} text-black dark:text-kinda-white`}>
+        <Analytics />
         <NextTopLoader showSpinner={false} color="#0076ff" />
         <Header />
         {/* Below 460px (no header) width, add bottom margin to accomodate the bottom overlay header. Add relative if issues occur */}
