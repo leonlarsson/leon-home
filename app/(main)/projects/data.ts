@@ -12,6 +12,8 @@ import bloodhuntStatsImage1 from "./images/bloodhuntstats1.png";
 import embedWorkerImage1 from "./images/embedworker1.png";
 import musicShowcaseImage1 from "./images/music1.png";
 import musicShowcaseImage2 from "./images/music2.png";
+import friendlyTime1 from "./images/friendlytime1.png";
+import friendlyTime2 from "./images/friendlytime2.png";
 import { Project } from "@/types";
 
 const tags = {
@@ -338,6 +340,24 @@ export default [
     images: [musicShowcaseImage1, musicShowcaseImage2],
     link: "/music",
     githubLink: "https://github.com/leonlarsson/leon-home/tree/main/app/(main)/music"
+  },
+  {
+    slug: "friendly-time",
+    name: "Friendly Time",
+    description: "A UI that helps convert natural language to various time formats. It is built with Next.js and styled with Tailwind.",
+    shortDescription: "A UI that converts natural language to various time formats.",
+    year: "2023",
+    tags: [tags.REACT, tags.NEXT, tags.TAILWIND, tags.TS],
+    images: [friendlyTime1, friendlyTime2],
+    link: "https://friendly-time.vercel.app/",
+    githubLink: "https://github.com/leonlarsson/friendly-time",
+    extraLinks: [
+      {
+        name: "Date Parser",
+        link: "https://github.com/wanasit/chrono",
+        type: "github"
+      }
+    ]
   },
   {
     slug: "redacted",
