@@ -349,7 +349,7 @@ export default [
     year: "2023",
     tags: [tags.REACT, tags.NEXT, tags.TAILWIND, tags.TS],
     images: [friendlyTime1, friendlyTime2],
-    link: "https://friendly-time.vercel.app/",
+    link: "https://friendly-time.com",
     githubLink: "https://github.com/leonlarsson/friendly-time",
     extraLinks: [
       {
