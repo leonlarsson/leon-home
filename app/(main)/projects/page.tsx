@@ -36,8 +36,8 @@ export default ({ searchParams }: Props) => {
   // Most nauseating code I've ever written
   const projects = searchParam
     ? projectsData.filter(project =>
-        [project.slug, ...(project.slugAliases ?? []), project.name, ...(typeof project.description === "string" ? [project.description] : project.description), project.shortDescription, project.year, project.link?.replace("https://", ""), ...(project.tags ?? [])].some(item =>
-          item?.toLowerCase().includes(searchParam?.toLowerCase())
+        [project.slug, ...(project.slugAliases ?? []), project.name, ...(typeof project.description === "string" ? [project.description] : project.description), project.shortDescription, project.year, project.link?.replace("https://", ""), ...(project.tags ?? [])].some(
+          item => item?.toLowerCase().includes(searchParam?.toLowerCase())
         )
       )
     : projectsData;
@@ -45,7 +45,10 @@ export default ({ searchParams }: Props) => {
   return (
     <div className="mx-auto">
       <div className="flex flex-col space-y-3">
-        <div className="text-3xl font-extrabold">Projects</div>
+        <div>
+          <div className="text-3xl font-extrabold">Projects</div>
+          <div className="mb-3">A directory of all my projects.</div>
+        </div>
 
         <div className="mx-auto w-full space-y-1 transition-all md:w-80">
           <Search />
