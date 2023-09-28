@@ -52,7 +52,7 @@ const EntriesList = async ({ userEmail, namedEntriesOnly }: { userEmail: string 
   if (!entries.length) return <span>Awaiting entries... Be the first one!</span>;
 
   return entries.map(entry => (
-    <div key={entry.id} className="break-all rounded p-1 text-sm hover:bg-gray-300 dark:hover:bg-gray-300/10">
+    <div key={entry.id} className="break-all rounded-r border-l-2 border-transparent p-1 text-sm hover:border-l-black hover:bg-gray-300 dark:hover:border-l-white dark:hover:bg-gray-300/10">
       <EntryTimestamp date={entry.date} />
       {userIsAdmin || (userEmail && userEmail === entry.email) ? <ButtonActionRow entry={entry} /> : null}
       <span className={entry.name ? "text-neutral-700 dark:text-neutral-400" : "italic text-neutral-700 dark:text-neutral-400"} title={`${entry.date} UTC`}>
