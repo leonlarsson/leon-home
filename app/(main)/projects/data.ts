@@ -177,7 +177,7 @@ export default [
     shortDescription: "An API that provides HTTP images with trash pandas.",
     year: "2022",
     tags: [tags.CLOUDFLARE_WORKERS, tags.API, tags.TS],
-    link: "https://api.onlyraccoons.com/",
+    link: "https://httpraccoons.com/",
     images: [raccoonHttpImage1, raccoonHttpImage2],
     githubLink: "https://github.com/leonlarsson/http-raccoons"
   },
