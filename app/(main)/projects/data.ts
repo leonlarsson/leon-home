@@ -28,6 +28,7 @@ const tags = {
   DISCORDJS: "discord.js",
   VITE: "Vite",
   ANTD: "Ant Design",
+  SHADCNUI: "shadcn/ui",
   API: "API",
   DATABASE: "Database",
   CLOUDFLARE_WORKERS: "Cloudflare Workers",
@@ -148,11 +149,11 @@ export default [
     name: "Battlefield Stats Discord Bot",
     description: [
       "My largest and most successful project by far. Battlefield Stats is a Discord bot that provides on-demand Battlefield statistics in Discord. I have also built a website and an API for this project.",
-      "Used by thousands of users in thousands of Discord servers. Built in Node.js with the website being built with Next.js."
+      "Used by thousands of users in thousands of Discord servers, the bot is built with Node.js and the website with Next.js and shadcn/ui."
     ],
     shortDescription: "A bot that provides Battlefield stats right inside Discord.",
     year: "2021",
-    tags: [tags.NODE, tags.DISCORDJS, tags.CLOUDFLARE_WORKERS, tags.API, tags.REACT, tags.NEXT, tags.JS, tags.TS, tags.DATABASE],
+    tags: [tags.NODE, tags.DISCORDJS, tags.CLOUDFLARE_WORKERS, tags.API, tags.REACT, tags.NEXT, tags.JS, tags.TS, tags.DATABASE, tags.SHADCNUI],
     images: [battlefieldStatsImage1, battlefieldStatsImage2],
     link: "https://battlefieldstats.com/",
     githubLink: "https://github.com/leonlarsson/bfstats-web",
