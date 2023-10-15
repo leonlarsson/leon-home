@@ -14,6 +14,7 @@ import musicShowcaseImage1 from "./images/music1.png";
 import musicShowcaseImage2 from "./images/music2.png";
 import friendlyTime1 from "./images/friendlytime1.png";
 import friendlyTime2 from "./images/friendlytime2.png";
+import csCaseUI1 from "./images/cscaseui1.png";
 import { Project } from "@/types";
 
 const tags = {
@@ -345,7 +346,7 @@ export default [
   {
     slug: "friendly-time",
     name: "Friendly Time",
-    description: "A UI that helps convert natural language to various time formats. It is built with Next.js and styled with Tailwind.",
+    description: "A UI that helps convert natural language to various time formats. It is built with Next.js (React) and styled with Tailwind.",
     shortDescription: "A UI that converts natural language to various time formats.",
     year: "2023",
     tags: [tags.REACT, tags.NEXT, tags.TAILWIND, tags.TS],
@@ -359,6 +360,18 @@ export default [
         type: "github"
       }
     ]
+  },
+  {
+    slug: "cs2-case-ui",
+    slugAliases: ["cs-case-ui", "csgo-case-ui"],
+    name: "Counter-Strike 2 Case UI",
+    description: "This is my attempt at recreating the case opening UI from Counter-Strike 2. It is built with Next.js (React) and styled with Tailwind.",
+    shortDescription: "The case opening UI from Counter-Strike 2 recreated in React.",
+    year: "2023",
+    tags: [tags.REACT, tags.NEXT, tags.TAILWIND, tags.TS],
+    images: [csCaseUI1],
+    link: "https://cs2-case-ui.vercel.app",
+    githubLink: "https://github.com/leonlarsson/cs2-case-ui-react"
   },
   {
     slug: "redacted",
