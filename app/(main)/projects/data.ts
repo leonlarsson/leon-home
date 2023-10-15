@@ -363,9 +363,9 @@ export default [
   },
   {
     slug: "cs2-case-ui",
-    slugAliases: ["cs-case-ui", "csgo-case-ui"],
+    slugAliases: ["cs-case-ui", "csgo-case-ui", "case-sim"],
     name: "Counter-Strike 2 Case UI",
-    description: "This is my attempt at recreating the case opening UI from Counter-Strike 2. It is built with Next.js (React) and styled with Tailwind.",
+    description: ["This is my attempt at recreating the case opening UI from Counter-Strike 2. It is built with Next.js (React) and styled with Tailwind.", "I have also implemented the ability to open every case that exists in the game, along with real odds and a stats and history page."],
     shortDescription: "The case opening UI from Counter-Strike 2 recreated in React.",
     year: "2023",
     tags: [tags.REACT, tags.NEXT, tags.TAILWIND, tags.TS],
