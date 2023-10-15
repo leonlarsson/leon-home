@@ -67,19 +67,19 @@ export default () => {
                 </div>
                 <div className="sf-heading-underline-left extra-margin-bottom" />
                 <div className="small-segment-skill-holder">
-                  <span className="text">Kvalitetssäkring</span>
+                  <span className="text">Programutveckling</span>
                 </div>
                 <div className="small-segment-skill-holder">
-                  <span className="text">Språklokalisering</span>
+                  <span className="text">Webbutveckling</span>
                 </div>
                 <div className="small-segment-skill-holder">
                   <span className="text">Community Management</span>
                 </div>
                 <div className="small-segment-skill-holder">
-                  <span className="text">Programutveckling</span>
+                  <span className="text">Språklokalisering</span>
                 </div>
                 <div className="small-segment-skill-holder">
-                  <span className="text">Webbutveckling</span>
+                  <span className="text">Kvalitetssäkring</span>
                 </div>
                 <div className="small-segment-skill-holder">
                   <span className="text">Bild-/videoredigering</span>
@@ -230,12 +230,6 @@ export default () => {
                       <p>En uppgift jag hade var att skanna uppemot 1&nbsp;500 paket per natt inför morgonens leveranser. En annan uppgift jag hade var att lasta av paket från lastbilar rakt in till terminalens band. En person brukar lasta av ungefär två- till fyratusen paket om natten.</p>
                     </>
                   </Employment>
-
-                  <hr />
-
-                  <Employment title="Köksassistant" company="Förenade Care" companyUrl="https://www.forenadecare.com/" date="Juli 2015 – Aug 2015">
-                    <p>Jag jobbade i ett kök som del av ett sommarjob i 3 veckor. Detta inkluderade uppgifter som att diska, servera/göra/förbereda mat, besvara telefonsamtal och ta emot leveranser.</p>
-                  </Employment>
                 </div>
 
                 <div className="no-pagebreak-header">
@@ -261,7 +255,50 @@ export default () => {
                   <div className="sf-heading-holder">
                     <span className="sf-main-title">Övrigt</span>
                   </div>
+
                   <div className="sf-heading-underline" />
+
+                  <div className="small-segment-holder">
+                    <span className="namn">Programutveckling</span>
+                    <div className="text">
+                      <p>
+                        Jag har ett mycket starkt intresse för programutveckling och frontend-design. Jag älskar att arbeta med teknologier som React, Next.js, Node.js med JavaScript (och TypeScript). Jag har också viss erfarenhet av SQLite och MySQL, och jag använder dessa databaser i ett par av
+                        mina projekt. Nedan kan du läsa om ett par av mina projekt.
+                      </p>
+
+                      <div>
+                        <a href="/projects/battlefield-stats" style={{ fontWeight: 600, color: "inherit" }}>
+                          Battlefield Stats Discord-botten
+                        </a>
+                        <p style={{ marginTop: 0 }}>
+                          Battlefield Stats Discord-botten än en bot utvecklad för användning på plattformen Discord. Denna bot kan personer använda för att enkelt kolla upp sin Battlefield-spelstatistik. Programmet är skrivet i JavaScript med Node.js. Denna bot har blivit inbjuden till över 3,000
+                          Discord-servrar, ett nummer som växer varje dag. Data i realtid finns{" "}
+                          <a className="inline-href" target="_blank" href="https://battlefieldstats.com/data">
+                            här
+                          </a>
+                          . Botten är även fullt översatt till 13 språk med hjälp av hjälpsamma communitymedlemmar.
+                        </p>
+                      </div>
+
+                      <div>
+                        <a href="/projects/home" style={{ fontWeight: 600, color: "inherit" }}>
+                          Min personliga hemsida
+                        </a>
+                        <p style={{ marginTop: 0 }}>Ett av mina största projekt är min egen webbplats, som är byggd med Next.js, ett React-ramverk. Webbplatsen använder toppmodern teknik och experimentella funktioner för att skapa en fantastisk upplevelse.</p>
+                      </div>
+
+                      <p>
+                        Det här är bara en bråkdel av alla mina projekt. Om du vill se mer kan du hitta alla mina 20+ projekt{" "}
+                        <a className="inline-href" href="/projects">
+                          här
+                        </a>
+                        .
+                      </p>
+                    </div>
+                  </div>
+
+                  <hr />
+
                   <div className="small-segment-holder">
                     <span className="datum">Nov 2016 – Pågående</span>
                     <span className="namn">Community Management / Uppbyggning</span>
@@ -294,44 +331,6 @@ export default () => {
                         jag också volontärmoderator under Apex Legends tidiga dagar för deras Discord-kanal. Även där var min roll att hjälpa spelarna och att se till att Discorden är en säker miljö för alla.
                       </p>
                     </div>
-                  </div>
-                </div>
-
-                <hr />
-
-                <div className="small-segment-holder">
-                  <span className="namn">Programutveckling</span>
-                  <div className="text">
-                    <p>Jag har ett mycket starkt intresse för programutveckling och frontend-design. Jag älskar att arbeta med teknologier som React, Next.js, Node.js med JavaScript (och TypeScript). Nedan kan du läsa om ett par av mina projekt.</p>
-
-                    <div>
-                      <a href="/projects/battlefield-stats" style={{ fontWeight: 600, color: "inherit" }}>
-                        Battlefield Stats Discord-botten
-                      </a>
-                      <p style={{ marginTop: 0 }}>
-                        Battlefield Stats Discord-botten än en bot utvecklad för användning på plattformen Discord. Denna bot kan personer använda för att enkelt kolla upp sin Battlefield-spelstatistik. Programmet är skrivet i JavaScript med Node.js. Denna bot har blivit inbjuden till över 3,000
-                        Discord-servrar, ett nummer som växer varje dag. Data i realtid finns{" "}
-                        <a className="inline-href" target="_blank" href="https://battlefieldstats.com/data">
-                          här
-                        </a>
-                        . Botten är även fullt översatt till 13 språk med hjälp av hjälpsamma communitymedlemmar.
-                      </p>
-                    </div>
-
-                    <div>
-                      <a href="/projects/home" style={{ fontWeight: 600, color: "inherit" }}>
-                        Min personliga hemsida
-                      </a>
-                      <p style={{ marginTop: 0 }}>Ett av mina största projekt är min egen webbplats, som är byggd med Next.js, ett React-ramverk. Webbplatsen använder toppmodern teknik och experimentella funktioner för att skapa en fantastisk upplevelse.</p>
-                    </div>
-
-                    <p>
-                      Det här är bara en bråkdel av alla mina projekt. Om du vill se mer kan du hitta alla mina projekt{" "}
-                      <a className="inline-href" href="/projects">
-                        här
-                      </a>
-                      .
-                    </p>
                   </div>
                 </div>
               </div>

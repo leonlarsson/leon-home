@@ -67,19 +67,19 @@ export default () => {
                 </div>
                 <div className="sf-heading-underline-left extra-margin-bottom" />
                 <div className="small-segment-skill-holder">
-                  <span className="text">Quality Assurance</span>
+                  <span className="text">Software Engineering</span>
                 </div>
                 <div className="small-segment-skill-holder">
-                  <span className="text">Localization</span>
+                  <span className="text">Web Development</span>
                 </div>
                 <div className="small-segment-skill-holder">
                   <span className="text">Community Management</span>
                 </div>
                 <div className="small-segment-skill-holder">
-                  <span className="text">Software Engineering</span>
+                  <span className="text">Localization</span>
                 </div>
                 <div className="small-segment-skill-holder">
-                  <span className="text">Web Development</span>
+                  <span className="text">Quality Assurance</span>
                 </div>
                 <div className="small-segment-skill-holder">
                   <span className="text">Photo/Video Editing</span>
@@ -235,12 +235,6 @@ export default () => {
                       </p>
                     </>
                   </Employment>
-
-                  <hr />
-
-                  <Employment title="Kitchen Assistant" company="Förenade Care" companyUrl="https://www.forenadecare.com/" date="July 2015 - Aug 2015">
-                    <p>I worked in a kitchen as part of a summer job for 3 weeks. This included tasks like doing the dishes, serving/making/preparing food, answering phonecalls, and taking deliveries.</p>
-                  </Employment>
                 </div>
 
                 <div className="no-pagebreak-header">
@@ -266,7 +260,50 @@ export default () => {
                   <div className="sf-heading-holder">
                     <span className="sf-main-title">Miscellaneous</span>
                   </div>
+
                   <div className="sf-heading-underline" />
+
+                  <div className="small-segment-holder">
+                    <span className="namn">Software Development</span>
+                    <div className="text">
+                      <p>
+                        I have a very strong interest in software engineering and frontend design. I love working with technologies such as React, Next.js, Node.js using JavaScript (and TypeScript). I also have some experience with SQLite and MySQL, and I these databases in a couple of my projects.
+                        Below you can read about a couple of my projects.
+                      </p>
+
+                      <div>
+                        <a href="/projects/battlefield-stats" style={{ fontWeight: 600, color: "inherit" }}>
+                          Battlefield Stats Discord Bot
+                        </a>
+                        <p style={{ marginTop: 0 }}>
+                          The Battlefield Stats Discord Bot is a bot developed for use on the platform Discord. This bot lets users look up their Battlefield game stats easily. This project is being written in JavaScript with Node.js. This bot has been invited to over 3,000 Discord servers, with
+                          more inviting it every day. Data in real-time is found{" "}
+                          <a className="inline-href" target="_blank" href="https://battlefieldstats.com/data">
+                            here
+                          </a>
+                          . The bot has also been fully localized to 13 language with the help of many helpful community members.
+                        </p>
+                      </div>
+
+                      <div>
+                        <a href="/projects/home" style={{ fontWeight: 600, color: "inherit" }}>
+                          My personal website
+                        </a>
+                        <p style={{ marginTop: 0 }}>One of my biggest projects is my own website, which is built with Next.js, a React framework. This website uses state of the art technologies and experimental features to create a great experience.</p>
+                      </div>
+
+                      <p>
+                        These are just a fraction of all my projects. If you want to see more, all 20+ of my projects can be found{" "}
+                        <a className="inline-href" href="/projects">
+                          here
+                        </a>
+                        .
+                      </p>
+                    </div>
+                  </div>
+
+                  <hr />
+
                   <div className="small-segment-holder">
                     <span className="datum">Nov 2016 - Ongoing</span>
                     <span className="namn">Community Management / Building</span>
@@ -299,44 +336,6 @@ export default () => {
                         volunteer moderator in the early days of the Apex Legends Discord, helping users and making sure the Discord was a safe place for all.
                       </p>
                     </div>
-                  </div>
-                </div>
-
-                <hr />
-
-                <div className="small-segment-holder">
-                  <span className="namn">Software Development</span>
-                  <div className="text">
-                    <p>I have a very strong interest in software engineering and frontend design. I love working with technologies such as React, Next.js, Node.js using JavaScript (and TypeScript). Below you can read about a couple of my projects.</p>
-
-                    <div>
-                      <a href="/projects/battlefield-stats" style={{ fontWeight: 600, color: "inherit" }}>
-                        Battlefield Stats Discord Bot
-                      </a>
-                      <p style={{ marginTop: 0 }}>
-                        The Battlefield Stats Discord Bot is a bot developed for use on the platform Discord. This bot lets users look up their Battlefield game stats easily. This project is being written in JavaScript with Node.js. This bot has been invited to over 3,000 Discord servers, with more
-                        inviting it every day. Data in real-time is found{" "}
-                        <a className="inline-href" target="_blank" href="https://battlefieldstats.com/data">
-                          here
-                        </a>
-                        . The bot has also been fully localized to 13 language with the help of many helpful community members.
-                      </p>
-                    </div>
-
-                    <div>
-                      <a href="/projects/home" style={{ fontWeight: 600, color: "inherit" }}>
-                        My personal website
-                      </a>
-                      <p style={{ marginTop: 0 }}>One of my biggest projects is my own website, which is built with Next.js, a React framework. This website uses state of the art technologies and experimental features to create a great experience.</p>
-                    </div>
-
-                    <p>
-                      These are just a fraction of all my projects. If you want to see more, you can find all my projects{" "}
-                      <a className="inline-href" href="/projects">
-                        here
-                      </a>
-                      .
-                    </p>
                   </div>
                 </div>
               </div>
