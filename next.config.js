@@ -8,10 +8,16 @@ const nextConfig = {
     }
   ],
   images: {
-    domains: ["i.scdn.co"]
+    remotePatterns: [
+      {
+        hostname: "i.scdn.co"
+      }
+    ]
   },
-  experimental: {
-    serverActions: true
+  logging: {
+    fetches: {
+      fullUrl: true
+    }
   }
 };
 
