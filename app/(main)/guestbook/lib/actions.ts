@@ -1,11 +1,11 @@
 "use server";
 
 import { headers } from "next/headers";
-import { getServerSession } from "next-auth";
 import { revalidatePath } from "next/cache";
 import { kv } from "@vercel/kv";
 import { Ratelimit } from "@upstash/ratelimit";
 import { connect } from "@planetscale/database";
+import { auth } from "../../auth";
 import emojis from "./emojis";
 import { Entry } from "@/types";
 
@@ -59,7 +59,7 @@ export const postEntry = async (message: string): Promise<boolean | "ratelimited
   const requireAuth = process.env.REQUIRE_AUTH === "true";
 
   // If requireAuth, get the session
-  if (requireAuth) session = await getServerSession();
+  if (requireAuth) session = await auth();
 
   // If requireAuth and session (user is signed in), but no name or email is available, return false (which will show an error)
   if (requireAuth && session && !session.user?.name && !session.user?.email) return false;
@@ -120,7 +120,7 @@ export const deleteEntry = async (idToDelete: number): Promise<boolean> => {
 
 const userCanModifyEntry = async (entryId: number): Promise<{ canModify: boolean; email: string }> => {
   // Get the session
-  const session = await getServerSession();
+  const session = await auth();
 
   // If session does not have an email, return false
   if (!session?.user?.email) return { canModify: false, email: "" };

@@ -1,6 +1,6 @@
 import { Suspense } from "react";
 import type { Metadata } from "next";
-import { getServerSession } from "next-auth";
+import { auth } from "../auth";
 import generateOGMetadata from "@/app/utils/generateOGMetadata";
 import { SignInDiscord, SignInGitHub, SignOut } from "../components/AuthButtons";
 import SendMessageSection from "./components/SendMessageSection";
@@ -45,7 +45,7 @@ const MainSection = async ({ searchParams }: Props) => {
   const namedEntriesOnly = searchParams.named === "true";
   let session;
   const requireAuth = process.env.REQUIRE_AUTH === "true";
-  if (requireAuth) session = await getServerSession();
+  if (requireAuth) session = await auth();
 
   return (
     <>
