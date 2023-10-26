@@ -2,6 +2,7 @@ import Link from "next/link";
 import Tag from "./Tag";
 import GradientBorder from "../../components/GradientBorder";
 import type { Project as ProjectType } from "@/types";
+import Icons from "../../components/icons";
 
 export default ({ projects }: { projects: ProjectType[] }) => {
   return (
@@ -21,7 +22,7 @@ export const Project = ({ project, displayTags = true }: { project: ProjectType;
         <Link href={`/projects/${project.slug}`} className="group flex flex-1 flex-col p-3" draggable={false} title={`See more info on project ${project.name}.`}>
           <div className="flex items-center justify-between">
             <span className="text-lg font-bold">
-              <i className="fa-solid fa-arrow-right me-2 transition-transform group-hover:translate-x-1" />
+              <Icons.arrowRight className="mb-1 me-2 inline h-5 transition-transform group-hover:translate-x-1" />
               {/* Name / Year */}
               <span className="underline-offset-2 group-hover:underline">{project.name}</span>{" "}
               {project.year && (
@@ -32,7 +33,7 @@ export const Project = ({ project, displayTags = true }: { project: ProjectType;
               )}
             </span>
             {/* Image icon */}
-            {project.images && <i className="fa-solid fa-image" title={`This project has ${project.images.length === 1 ? "an image" : "images"}.`} />}
+            {project.images && <Icons.image className="h-4 w-4 shrink-0" title={`This project has ${project.images.length === 1 ? "an image" : "images"}.`} />}
           </div>
 
           {/* Description */}
@@ -56,7 +57,7 @@ export const Project = ({ project, displayTags = true }: { project: ProjectType;
             <div className="my-3 w-px bg-gray-300" />
 
             <Link className="group flex items-center px-3" href={project.link} target={!project.link.startsWith("http") ? "_self" : "_blank"} draggable={false} title={`Go to project ${project.name}.`}>
-              <i className="fa-solid fa-up-right-from-square fa-lg mx-1 transition-transform group-hover:scale-[1.18]" />
+              <Icons.externallink className="mx-1 h-5 transition-transform group-hover:scale-[1.18]" />
             </Link>
           </>
         )}
@@ -86,7 +87,7 @@ export const ProjectSkeleton = () => (
         <div className="my-3 w-px bg-gray-300" />
 
         <div className="group flex items-center px-3">
-          <i className="fa-solid fa-up-right-from-square fa-lg mx-1 transition-transform group-hover:scale-[1.18]" />
+          <Icons.externallink className="mx-1 h-5 transition-transform group-hover:scale-[1.18]" />
         </div>
       </>
     </div>

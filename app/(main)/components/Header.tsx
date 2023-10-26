@@ -1,5 +1,6 @@
 import Image from "next/image";
 import HeaderLink from "./HeaderLink";
+import Icons from "./icons";
 
 export default () => {
   return (
@@ -19,10 +20,10 @@ export default () => {
           </div>
 
           <div className="hidden items-center text-2xl min-[620px]:flex [&>*]:px-1">
-            <HeaderLink content={<i className="fa-solid fa-envelope fa-fw" />} url="mailto:leonlarsson8@gmail.com" title="Email" newTab />
-            <HeaderLink content={<i className="fa-brands fa-linkedin fa-fw" />} url="https://www.linkedin.com/in/leonlarsson/" title="LinkedIn" newTab />
-            <HeaderLink content={<i className="fa-brands fa-x-twitter fa-fw" />} url="https://x.com/MozzyFX" title="X / Twitter" newTab />
-            <HeaderLink content={<i className="fa-brands fa-github fa-fw" />} url="https://github.com/leonlarsson" title="GitHub" newTab />
+            <HeaderLink content={<Icons.envelope className="w-8" />} url="mailto:leonlarsson8@gmail.com" title="Email" newTab />
+            <HeaderLink content={<Icons.linkedin className="w-8" />} url="https://www.linkedin.com/in/leonlarsson/" title="LinkedIn" newTab />
+            <HeaderLink content={<Icons.twitterX className="w-8" />} url="https://x.com/MozzyFX" title="X / Twitter" newTab />
+            <HeaderLink content={<Icons.gitHub className="w-8" />} url="https://github.com/leonlarsson" title="GitHub" newTab />
           </div>
         </div>
       </header>
@@ -31,10 +32,10 @@ export default () => {
       <header className="fixed inset-x-0 bottom-0 z-50 hidden px-6 pb-6 max-[460px]:block">
         <div className="flex h-16 rounded-xl border-[1px] border-black/40 bg-white/50 text-xl backdrop-blur-md dark:border-kinda-white/10 dark:bg-[#1e1e1e]/50">
           <div className="flex w-full justify-evenly text-2xl [&>*]:px-2 max-[275px]:[&>*]:px-0">
-            <HeaderLink content={<i className="fa-solid fa-house fa-fw" />} url="/" title="Home" />
-            <HeaderLink content={<i className="fa-solid fa-tools fa-fw" />} url="/projects" title="Projects" />
-            <HeaderLink content={<i className="fa-solid fa-pencil fa-fw" />} url="/guestbook" title="Guestbook" />
-            <HeaderLink content={<i className="fa-brands fa-spotify fa-fw" />} url="/music" title="Music" />
+            <HeaderLink content={<Icons.house className="w-8" />} url="/" title="Home" />
+            <HeaderLink content={<Icons.tools className="w-8" />} url="/projects" title="Projects" />
+            <HeaderLink content={<Icons.pencil className="w-8" />} url="/guestbook" title="Guestbook" />
+            <HeaderLink content={<Icons.spotify className="w-8" />} url="/music" title="Music" />
           </div>
         </div>
       </header>

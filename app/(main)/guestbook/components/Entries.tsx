@@ -4,6 +4,7 @@ import EntriesDisplaySettings from "./EntriesDisplaySettings";
 import ButtonActionRow from "./ButtonActionRow";
 import EntryTimestamp from "./EntryTimestamp";
 import { getEntries, getEntriesCount } from "../lib/actions";
+import Icons from "../../components/icons";
 
 type PageProps = { userEmail: string | null; namedEntriesOnly: boolean };
 
@@ -16,8 +17,8 @@ export default async ({ userEmail, namedEntriesOnly }: PageProps) => {
 
       <Suspense
         fallback={
-          <span>
-            <i className="fa-solid fa-spinner fa-spin" /> Loading total entries...
+          <span className="flex items-center gap-1">
+            <Icons.spinner className="inline animate-spin" /> Loading total entries...
           </span>
         }
       >
@@ -26,8 +27,8 @@ export default async ({ userEmail, namedEntriesOnly }: PageProps) => {
 
       <Suspense
         fallback={
-          <span>
-            <i className="fa-solid fa-spinner fa-spin" /> Loading entries...
+          <span className="flex items-center gap-1">
+            <Icons.spinner className="inline animate-spin" /> Loading entries...
           </span>
         }
       >

@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { postEntry } from "../lib/actions";
 import emojis from "../lib/emojis";
+import Icons from "../../components/icons";
 
 export default ({ mode }: { mode: "text" | "emoji" }) => {
   const [isWorking, setIsWorking] = useState(false);
@@ -47,8 +48,8 @@ export default ({ mode }: { mode: "text" | "emoji" }) => {
           }}
         >
           <input className="text-input disabled:cursor-not-allowed disabled:bg-neutral-300 dark:disabled:bg-neutral-600" type="text" name="message" placeholder="Your message..." required disabled={isWorking} maxLength={100} />
-          <button className="button-with-border disabled:cursor-not-allowed disabled:bg-neutral-300 dark:disabled:bg-neutral-600" type="submit" disabled={isWorking}>
-            <i className="fa-solid fa-paper-plane" /> Send
+          <button className="button-with-border flex items-center disabled:cursor-not-allowed disabled:bg-neutral-300 dark:disabled:bg-neutral-600" type="submit" disabled={isWorking}>
+            <Icons.paperPlane className="me-1" /> Send
           </button>
         </form>
       )}

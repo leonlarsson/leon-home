@@ -1,6 +1,7 @@
 "use client";
 
 import { signIn, signOut } from "next-auth/react";
+import Icons from "./icons";
 
 export const SignOut = () => {
   return (
@@ -12,16 +13,16 @@ export const SignOut = () => {
 
 export const SignInGitHub = () => {
   return (
-    <button className="button-with-border" title="Sign in with GitHub." onClick={() => signIn("github")}>
-      <i className="fa-brands fa-github fa-xl fa-fw" /> Sign in
+    <button className="button-with-border flex items-center" title="Sign in with GitHub." onClick={() => signIn("github")}>
+      <Icons.gitHub className="me-1 h-6" /> Sign in
     </button>
   );
 };
 
 export const SignInDiscord = () => {
   return (
-    <button className="button-with-border" title="Sign in with Discord." onClick={() => signIn("discord")}>
-      <i className="fa-brands fa-discord fa-xl fa-fw" /> Sign in
+    <button className="button-with-border flex justify-center" title="Sign in with Discord." onClick={() => signIn("discord")}>
+      <Icons.discord className="me-1 h-6" /> Sign in
     </button>
   );
 };

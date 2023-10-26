@@ -5,6 +5,7 @@ import TypeAnimation from "./components/TypeAnimation";
 import GradientBorder from "./components/GradientBorder";
 import smLogo from "/public/assets/images/smlogo_notext.png";
 import { Project } from "./projects/components/ProjectsGrid";
+import Icons from "./components/icons";
 
 export default () => {
   return (
@@ -64,7 +65,7 @@ export default () => {
 
         {/* GUESTBOOK */}
         <div>
-          <i className="fa-solid fa-pencil fa-lg fa-fw me-1" />
+          <Icons.pencil className="mr-2 inline h-5" />
           Feel free to{" "}
           <Link href="/guestbook" className="font-semibold underline-offset-2 hover:underline">
             sign my guestbook!
@@ -76,21 +77,21 @@ export default () => {
           <span className="text-xl font-semibold">Connect with me</span>
           <div className="grid grid-cols-1 gap-2 min-[370px]:grid-cols-2 sm:grid-cols-3">
             {[
-              { title: "Email", url: "mailto:leonlarsson8@gmail.com", iconClasses: "fa-solid fa-envelope" },
-              { title: "LinkedIn", url: "https://www.linkedin.com/in/leonlarsson/", iconClasses: "fa-brands fa-linkedin" },
-              { title: "GitHub", url: "https://github.com/leonlarsson", iconClasses: "fa-brands fa-github" },
-              { title: "X / Twitter", url: "https://x.com/MozzyFX", iconClasses: "fa-brands fa-x-twitter" },
-              { title: "Bluesky", url: "https://bsky.app/profile/leon.ms", iconClasses: "fa-solid fa-globe" },
-              { title: "Instagram", url: "https://www.instagram.com/leonsjlarsson/", iconClasses: "fa-brands fa-instagram" },
-              { title: "ArtStation", url: "https://www.artstation.com/leonlarsson", iconClasses: "fa-brands fa-artstation" }
-            ].map(({ title, url, iconClasses }) => (
+              { title: "Email", url: "mailto:leonlarsson8@gmail.com", icon: <Icons.envelope className="me-2 inline h-5" /> },
+              { title: "LinkedIn", url: "https://www.linkedin.com/in/leonlarsson/", icon: <Icons.linkedin className="me-2 inline h-5" /> },
+              { title: "GitHub", url: "https://github.com/leonlarsson", icon: <Icons.gitHub className="me-2 inline h-5" /> },
+              { title: "X / Twitter", url: "https://x.com/MozzyFX", icon: <Icons.twitterX className="me-2 inline h-5" /> },
+              { title: "Bluesky", url: "https://bsky.app/profile/leon.ms", icon: <Icons.globe className="me-2 inline h-5" /> },
+              { title: "Instagram", url: "https://www.instagram.com/leonsjlarsson/", icon: <Icons.instagram className="me-2 inline h-5" /> },
+              { title: "ArtStation", url: "https://www.artstation.com/leonlarsson", icon: <Icons.artstation className="me-2 inline h-5" /> }
+            ].map(({ title, url, icon }) => (
               <GradientBorder key={title} rounded="rounded-[6px]" padding="p-[2px]" hoverable>
                 <Link href={url} target="_blank" className="flex items-center justify-between rounded bg-slate-100 p-2 dark:bg-kinda-black">
-                  <div>
-                    <i className={`${iconClasses} fa-lg fa-fw me-1`} />
+                  <div className="flex items-center">
+                    {icon}
                     <span>{title}</span>
                   </div>
-                  <i className="fa-solid fa-external-link dark:text-kinda-white" />
+                  <Icons.externallink />
                 </Link>
               </GradientBorder>
             ))}
@@ -107,11 +108,11 @@ export default () => {
             ].map(({ title, url }) => (
               <GradientBorder key={title} rounded="rounded-[6px]" padding="p-[2px]" hoverable>
                 <Link href={url} target="_blank" className="flex items-center justify-between rounded bg-slate-100 p-2 dark:bg-kinda-black">
-                  <div>
-                    <i className="fa-solid fa-file-text fa-lg fa-fw me-1" />
+                  <div className="flex items-center">
+                    <Icons.file className="me-2 inline h-5" />
                     <span>{title}</span>
                   </div>
-                  <i className="fa-solid fa-external-link dark:text-kinda-white" />
+                  <Icons.externallink />
                 </Link>
               </GradientBorder>
             ))}

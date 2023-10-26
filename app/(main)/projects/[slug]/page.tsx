@@ -8,6 +8,7 @@ import projects from "../data";
 import ProjectsGrid from "../components/ProjectsGrid";
 import Tag from "../components/Tag";
 import GradientBorder from "../../components/GradientBorder";
+import Icons from "../../components/icons";
 
 const getProject = (slug: string) => projects.find(project => project.slug === slug || project.slugAliases?.includes(slug));
 
@@ -48,8 +49,8 @@ export default ({ params }: { params: { slug: string } }) => {
       <div className="mx-auto mb-2 flex max-w-3xl select-none justify-between font-light text-neutral-800 dark:text-neutral-300 max-[400px]:text-sm">
         <div className="w-full text-start">
           {previousProject && (
-            <Link className="underline-offset-2 transition-all hover:font-normal hover:text-black hover:underline dark:hover:text-kinda-white" href={`/projects/${previousProject.slug}`} title={`Previous project, ${previousProject.name}.`} draggable={false}>
-              <i className="fa-solid fa-arrow-left me-1" />
+            <Link className="flex items-center underline-offset-2 transition-all hover:font-normal hover:text-black hover:underline dark:hover:text-kinda-white" href={`/projects/${previousProject.slug}`} title={`Previous project, ${previousProject.name}.`} draggable={false}>
+              <Icons.arrowLeft className="me-1 inline" />
               Previous
             </Link>
           )}
@@ -61,11 +62,11 @@ export default ({ params }: { params: { slug: string } }) => {
           </Link>
         </div>
 
-        <div className="w-full text-end">
+        <div className="flex w-full justify-end text-end">
           {nextProject && (
-            <Link className="underline-offset-2 transition-all hover:font-normal hover:text-black hover:underline dark:hover:text-kinda-white" href={`/projects/${nextProject.slug}`} title={`Next project, ${nextProject.name}.`} draggable={false}>
+            <Link className="flex items-center underline-offset-2 transition-all hover:font-normal hover:text-black hover:underline dark:hover:text-kinda-white" href={`/projects/${nextProject.slug}`} title={`Next project, ${nextProject.name}.`} draggable={false}>
               Next
-              <i className="fa-solid fa-arrow-right ms-1" />
+              <Icons.arrowRight className="ms-1" />
             </Link>
           )}
         </div>
@@ -106,20 +107,20 @@ export default ({ params }: { params: { slug: string } }) => {
                 <span className="text-lg font-bold">Links:</span>
                 <div className="flex flex-wrap gap-2">
                   {project.link && (
-                    <Link href={project.link} target={!project.link.startsWith("http") ? "_self" : "_blank"} className="button-with-border" draggable={false}>
-                      {project.linkName ?? "Go to project"} <i className="fa-solid fa-link" />
+                    <Link href={project.link} target={!project.link.startsWith("http") ? "_self" : "_blank"} className="button-with-border flex items-center gap-1" draggable={false}>
+                      {project.linkName ?? "Go to project"} <Icons.link className="inline" />
                     </Link>
                   )}
 
                   {project.githubLink && (
-                    <a href={project.githubLink} target="_blank" className="button-with-border" draggable={false}>
-                      Go to GitHub <i className="fa-brands fa-github" />
+                    <a href={project.githubLink} target="_blank" className="button-with-border flex items-center gap-1" draggable={false}>
+                      Go to GitHub <Icons.gitHub />
                     </a>
                   )}
 
                   {project.extraLinks?.map(extraLink => (
-                    <a key={extraLink.link} href={extraLink.link} target="_blank" className="button-with-border" draggable={false}>
-                      {extraLink.name} <i className={extraLink.type === "link" ? "fa-solid fa-link" : "fa-brands fa-github"} />
+                    <a key={extraLink.link} href={extraLink.link} target="_blank" className="button-with-border flex items-center gap-1" draggable={false}>
+                      {extraLink.name} {extraLink.type === "link" ? <Icons.link /> : <Icons.gitHub />}
                     </a>
                   ))}
                 </div>
