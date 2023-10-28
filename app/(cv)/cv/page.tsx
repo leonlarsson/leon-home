@@ -110,6 +110,14 @@ export default () => {
                   </div>
                   <div className="sf-heading-underline" />
 
+                  <div style={{ marginTop: 5 }}>
+                    Read about my software development experience{" "}
+                    <a href="#softwareDevelopment" style={{ fontWeight: 600, color: "inherit" }}>
+                      here
+                    </a>
+                    .
+                  </div>
+
                   <Employment title="Community & Support Specialist" company="Sharkmob AB" companyUrl="https://sharkmob.com" date="Aug 2022 - Current">
                     <p>
                       At Sharkmob, I manage the player support and related systems. I also own, manage, and build the pages and content on the Bloodhunt website. In addition to this, I also help with community areas such as managing the Bloodhunt Discord and setting up Twitch Drops. In my role, I
@@ -264,7 +272,9 @@ export default () => {
                   <div className="sf-heading-underline" />
 
                   <div className="small-segment-holder">
-                    <span className="namn">Software Development</span>
+                    <span id="softwareDevelopment" className="namn">
+                      Software Development
+                    </span>
                     <div className="text">
                       <p>
                         I have a very strong interest in software engineering and frontend design. I love working with technologies such as React, Next.js, Node.js using JavaScript (and TypeScript). I also have some experience with SQLite and MySQL, and I these databases in a couple of my projects.
