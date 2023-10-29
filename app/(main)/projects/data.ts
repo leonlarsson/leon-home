@@ -364,13 +364,13 @@ export default [
   {
     slug: "cs2-case-ui",
     slugAliases: ["cs-case-ui", "csgo-case-ui", "case-sim"],
-    name: "Counter-Strike 2 Case UI",
+    name: "Counter-Strike Case Simulator",
     description: ["This is my attempt at recreating the case opening UI from Counter-Strike 2. It is built with Next.js (React) and styled with Tailwind.", "I have also implemented the ability to open every case that exists in the game, along with real odds and a stats and history page."],
     shortDescription: "The case opening UI from Counter-Strike 2 recreated in React.",
     year: "2023",
-    tags: [tags.REACT, tags.NEXT, tags.TAILWIND, tags.TS],
+    tags: [tags.REACT, tags.NEXT, tags.TAILWIND, tags.TS, tags.DATABASE],
     images: [csCaseUI1],
-    link: "https://cs2-case-ui.vercel.app",
+    link: "https://case-sim.vercel.app",
     githubLink: "https://github.com/leonlarsson/cs2-case-ui-react"
   },
   {
