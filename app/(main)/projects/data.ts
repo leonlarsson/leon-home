@@ -362,22 +362,15 @@ export default [
     ]
   },
   {
-    slug: "cs2-case-ui",
-    slugAliases: ["cs-case-ui", "csgo-case-ui", "case-sim"],
+    slug: "case-sim",
+    slugAliases: ["cs-case-ui", "csgo-case-ui", "cs2-case-ui", "cs-case-sim"],
     name: "Counter-Strike Case Simulator",
     description: ["This is my attempt at recreating the case opening UI from Counter-Strike 2. It is built with Next.js (React) and styled with Tailwind.", "I have also implemented the ability to open every case that exists in the game, along with real odds and a stats and history page."],
     shortDescription: "The case opening UI from Counter-Strike 2 recreated in React.",
     year: "2023",
     tags: [tags.REACT, tags.NEXT, tags.TAILWIND, tags.TS, tags.DATABASE],
     images: [csCaseUI1],
-    link: "https://case-sim.vercel.app",
-    githubLink: "https://github.com/leonlarsson/cs2-case-ui-react"
-  },
-  {
-    slug: "redacted",
-    slugAliases: ["nda"],
-    name: "Redacted",
-    description: "A project that represents all the projects I can't talk about. Some of them are very cool.",
-    shortDescription: "A project that represents all the projects I can't talk about."
+    link: "https://case-sim.com",
+    githubLink: "https://github.com/leonlarsson/cs-case-sim"
   }
 ] satisfies Project[] as Project[];
