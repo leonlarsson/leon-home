@@ -152,12 +152,12 @@ export default () => {
                   <Employment title="Localization/QA Tester - Swedish" company="Electronic Arts" companyUrl="https://www.ea.com" date="Nov 2019 – Aug 2022">
                     <>
                       <p>
-                        Hos Electronic Arts (EA) granskade och säkerställde jag kvaliteten på svenska EA-spel (PC+konsoler) och marknadsföringsmaterial som trailers och webbplatser med mera. Under högsäsong var jag också ansvarig för att granska anställningstest från potentiella kandidater. Jag var
-                        även medverkande med att skapa och bygga innehållet i rekryteringstestet. På The Sims 4 var jag huvudansvarig för kvaliteten av den svenska lokaliseringsinsatsen. Detta inkluderade att granska all text, dess implementering i spelet och rapportera (via JIRA) / eskalera
-                        eventuella problem som inte kunde åtgärdas med en textändring. Jag utförde både ad-hoc-tester och tester baserade på fördesignade testfall.
+                        På Electronic Arts (EA) granskade och säkerställde jag kvaliteten på EA-spel (PC+konsoler) och marknadsföringsmaterial som trailers och webbplatser med mera. Under högsäsong var jag också ansvarig för att granska anställningstest från potentiella kandidater. Jag var även
+                        medverkande med att skapa och bygga innehållet i rekryteringstestet. På The Sims 4 var jag huvudansvarig för kvaliteten av den svenska lokaliseringsinsatsen. Detta inkluderade att granska all text, dess implementering i spelet och rapportera eventuella problem som inte kunde
+                        åtgärdas med en textändring.
                       </p>
 
-                      <i>Spelreleaser som jag har arbetat på:</i>
+                      <i>Projekt som jag har arbetat på:</i>
                       <ul style={{ margin: 0, padding: 0, listStyle: "none" }}>
                         <li>
                           <a style={{ color: "#333" }} href="https://www.ea.com/sv-se/games/the-sims/the-sims-4/packs/expansion-packs/the-sims-4-discover-university" target="_blank">
