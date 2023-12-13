@@ -251,19 +251,6 @@ export default () => {
                       </ul>
                     </>
                   </Employment>
-
-                  <hr />
-
-                  <Employment title="Terminal worker" company="PostNord Logistics AB" companyUrl="https://www.postnord.se/" date="Nov 2018 - June 2019">
-                    <>
-                      <p>I worked nights at one of PostNord's package terminals. The hours were midnight to 8AM.</p>
-
-                      <p>
-                        One task I had was to scan around 1,500 packages per night and then put them in their correct locations for them to later be delivered. Another task I had was to unload the trucks that deliver the packages to the terminal. One person usually unloads two to four thousand
-                        packages a night.
-                      </p>
-                    </>
-                  </Employment>
                 </div>
 
                 <div className="no-pagebreak-header">

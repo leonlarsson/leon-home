@@ -250,16 +250,6 @@ export default () => {
                       </ul>
                     </>
                   </Employment>
-
-                  <hr />
-
-                  <Employment title="Terminalarbetare" company="PostNord Logistics AB" companyUrl="https://www.postnord.se/" date="Nov 2018 – Juni 2019">
-                    <>
-                      <p>Jag jobbade natt på en av PostNords paketterminaler. Timmarna var midnatt till 08:00.</p>
-
-                      <p>En uppgift jag hade var att skanna uppemot 1&nbsp;500 paket per natt inför morgonens leveranser. En annan uppgift jag hade var att lasta av paket från lastbilar rakt in till terminalens band. En person brukar lasta av ungefär två- till fyratusen paket om natten.</p>
-                    </>
-                  </Employment>
                 </div>
 
                 <div className="no-pagebreak-header">
