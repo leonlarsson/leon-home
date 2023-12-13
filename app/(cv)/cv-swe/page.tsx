@@ -119,10 +119,32 @@ export default () => {
                   </div>
 
                   <Employment title="Community & Support Specialist" company="Sharkmob AB" companyUrl="https://sharkmob.com" date="Aug 2022 – Nuvarande">
-                    <p>
-                      På Sharkmob hanterar jag spelarsupporten och relaterade system. Jag äger, hanterar och bygger också sidorna och innehållet på Bloodhunt-hemsidan. Utöver detta hjälper jag även till med communityområden som att hantera Bloodhunts Discord och sätta upp Twitch Drops. I min roll
-                      arbetar jag alltid nära marketing och player relations för att se till att allt är synkat och i bästa möjligaste skick för våra spelare. Jag arbetar också direkt med utvecklarna i områden som antifusk och ser till att både våra utvecklare och supportteam har allt de behöver.
-                    </p>
+                    <>
+                      <p>
+                        På Sharkmob hanterar jag spelarsupporten och relaterade system. Jag äger, hanterar och bygger också sidorna och innehållet på{" "}
+                        <a href="https://bloodhunt.com/en-us" target="_blank" className="inline-href">
+                          Bloodhunt-hemsidan
+                        </a>
+                        . Utöver detta hjälper jag även till med communityområden som att hantera Bloodhunts Discord och sätta upp Twitch Drops. I min roll arbetar jag alltid nära marketing och player relations för att se till att allt är synkat och i bästa möjligaste skick för våra spelare. Jag
+                        arbetar också direkt med utvecklarna i områden som antifusk och ser till att både våra utvecklare och supportteam har allt de behöver.
+                      </p>
+
+                      <p>
+                        På vårt{" "}
+                        <a href="https://www.youtube.com/watch?v=Zu2z5M4gmno&t=10018s" target="_blank" className="inline-href">
+                          nyligen uppvisade spel
+                        </a>{" "}
+                        Exoborne arbetar jag, förutom med community management, nära de team som bygger både{" "}
+                        <a href="https://exoborne.com/" target="_blank" className="inline-href">
+                          huvudhemsidan
+                        </a>{" "}
+                        och{" "}
+                        <a href="https://exoborne.com/" target="_blank" className="inline-href">
+                          hemsidan för ARG:et RE_HACK
+                        </a>
+                        . För ARG:et hjälpte jag till med de tekniska specifikationerna och kraven för hemsidan samt pusslen, vilket inkluderade att bygga flera funktionella prototyper (där jag använde Next.js).
+                      </p>
+                    </>
                   </Employment>
 
                   <hr />

@@ -119,11 +119,32 @@ export default () => {
                   </div>
 
                   <Employment title="Community & Support Specialist" company="Sharkmob AB" companyUrl="https://sharkmob.com" date="Aug 2022 - Current">
-                    <p>
-                      At Sharkmob, I manage the player support and related systems. I also own, manage, and build the pages and content on the Bloodhunt website. In addition to this, I also help with community areas such as managing the Bloodhunt Discord and setting up Twitch Drops. In my role, I
-                      always work closely with the marketing team and the player relations team to make sure everything is synced and in the best condition for our players. I also work directly with the developers on areas such as anti-cheat, making sure that both our developers and support teams
-                      have everything they need.
-                    </p>
+                    <>
+                      <p>
+                        At Sharkmob, I manage the player support and related systems. I also own, manage, and build the pages and content on the{" "}
+                        <a href="https://bloodhunt.com/en-us" target="_blank" className="inline-href">
+                          Bloodhunt website
+                        </a>
+                        . In addition to this, I also help with community areas such as managing the Bloodhunt Discord and setting up Twitch Drops. In my role, I always work closely with the marketing team and the player relations team to make sure everything is synced and in the best condition for
+                        our players. I also work directly with the developers on areas such as anti-cheat, making sure that both our developers and support teams have everything they need.
+                      </p>
+
+                      <p>
+                        On our{" "}
+                        <a href="https://www.youtube.com/watch?v=Zu2z5M4gmno&t=10018s" target="_blank" className="inline-href">
+                          newly announced game
+                        </a>
+                        , Exoborne, in addition to community management, I work closely with the teams building both the{" "}
+                        <a href="https://exoborne.com/" target="_blank" className="inline-href">
+                          main website
+                        </a>{" "}
+                        and the{" "}
+                        <a href="https://exoborne.com/" target="_blank" className="inline-href">
+                          RE_HACK ARG website
+                        </a>
+                        . For the ARG, I provided the technical specifications and requirements for the website and puzzles, which included building several functional prototypes (where I used Next.js).
+                      </p>
+                    </>
                   </Employment>
 
                   <hr />
