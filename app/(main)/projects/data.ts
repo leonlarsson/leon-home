@@ -210,7 +210,7 @@ export default [
     slug: "redirect-link-service",
     slugAliases: ["redirector"],
     name: "Redirect / Link Service",
-    description: "Small link-shortener and redirector project built with Discord workers.",
+    description: "A small link-shortener and redirector project built on Cloudflare Workers.",
     shortDescription: "Link-shortener/redirector built on Cloudflare Workers.",
     year: "2022",
     tags: [tags.CLOUDFLARE_WORKERS, tags.TS],
