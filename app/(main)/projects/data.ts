@@ -210,12 +210,12 @@ export default [
     slug: "redirect-link-service",
     slugAliases: ["redirector"],
     name: "Redirect / Link Service",
-    description: "Small project built with Discord workers. Think of it like Linktree, but much worse.",
-    shortDescription: "A much worse version of Linktree.",
+    description: "Small link-shortener and redirector project built with Discord workers.",
+    shortDescription: "Link-shortener/redirector built on Cloudflare Workers.",
     year: "2022",
     tags: [tags.CLOUDFLARE_WORKERS, tags.TS],
-    link: "https://x.leon.ms/",
-    githubLink: "https://github.com/leonlarsson/link-redirector-worker"
+    link: "https://github.com/leonlarsson/link-redirector-worker",
+    hidePreview: true
   },
   {
     slug: "bloodhunt-stats",
@@ -268,7 +268,7 @@ export default [
     description: "A fun project that creates a better leaderboard for the game THE FINALS from Embark Studios. Built with React + Vite.",
     shortDescription: "An external leaderboard for the game THE FINALS.",
     year: "2023",
-    tags: [tags.REACT, tags.VITE],
+    tags: [tags.REACT, tags.VITE, tags.SHADCNUI],
     link: "https://the-finals-leaderboard.leonlarsson.com/",
     githubLink: "https://github.com/leonlarsson/the-finals-leaderboard"
   },
