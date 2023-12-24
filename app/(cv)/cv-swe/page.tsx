@@ -139,7 +139,7 @@ export default () => {
                           huvudhemsidan
                         </a>{" "}
                         och{" "}
-                        <a href="https://exoborne.com/" target="_blank" className="inline-href">
+                        <a href="https://exoborne.com/rehack" target="_blank" className="inline-href">
                           hemsidan för ARG:et RE_HACK
                         </a>
                         . För ARG:et hjälpte jag till med de tekniska specifikationerna och kraven för hemsidan samt pusslen, vilket inkluderade att bygga flera funktionella prototyper (där jag använde Next.js).

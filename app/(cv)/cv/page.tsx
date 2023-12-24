@@ -139,7 +139,7 @@ export default () => {
                           main website
                         </a>{" "}
                         and the{" "}
-                        <a href="https://exoborne.com/" target="_blank" className="inline-href">
+                        <a href="https://exoborne.com/rehack" target="_blank" className="inline-href">
                           RE_HACK ARG website
                         </a>
                         . For the ARG, I provided the technical specifications and requirements for the website and puzzles, which included building several functional prototypes (where I used Next.js).
