@@ -284,8 +284,8 @@ export default () => {
                     </span>
                     <div className="text">
                       <p>
-                        Jag har ett mycket starkt intresse för programutveckling och frontend-design. Jag älskar att arbeta med teknologier som React, Next.js, Node.js med JavaScript (och TypeScript). Jag har också viss erfarenhet av SQLite och MySQL, och jag använder dessa databaser i ett par av
-                        mina projekt. Nedan kan du läsa om ett par av mina projekt.
+                        Jag har ett mycket starkt intresse för programutveckling och frontend-design. Jag älskar att arbeta med teknologier som React, Next.js, Node.js med JavaScript (och TypeScript). Jag har också viss erfarenhet av SQLite och MySQL, och jag använder dessa databaser i några av mina
+                        projekt. Nedan kan du läsa om några av mina projekt.
                       </p>
 
                       <div>
@@ -295,10 +295,33 @@ export default () => {
                         <p style={{ marginTop: 0 }}>
                           Battlefield Stats Discord-botten än en bot utvecklad för användning på plattformen Discord. Denna bot kan personer använda för att enkelt kolla upp sin Battlefield-spelstatistik. Programmet är skrivet i JavaScript med Node.js. Denna bot har blivit inbjuden till över 3,000
                           Discord-servrar, ett nummer som växer varje dag. Data i realtid finns{" "}
-                          <a className="inline-href" target="_blank" href="https://battlefieldstats.com/data">
+                          <a href="https://battlefieldstats.com/data" target="_blank" className="inline-href">
                             här
                           </a>
                           . Botten är även fullt översatt till 13 språk med hjälp av hjälpsamma communitymedlemmar.
+                        </p>
+                      </div>
+
+                      <div>
+                        <a href="/projects/the-finals-leaderboard" style={{ fontWeight: 600, color: "inherit" }}>
+                          THE FINALS Leaderboard
+                        </a>
+                        <p style={{ marginTop: 0 }}>
+                          Den förbättrade THE FINALS Leaderboard är ett av mina projekt som levererar en förbättrad version av den officiella leaderboarden för spelet THE FINALS från Embark Studios. Den har funktioner för sökning, sortering, filtrering och stöder alla tidigare speltester. Den är
+                          byggd med React, Vite, TypeScript, shadcn/ui, Tailwind och TanStack Query.
+                        </p>
+                      </div>
+
+                      <div>
+                        <a href="/projects/case-sim" style={{ fontWeight: 600, color: "inherit" }}>
+                          Counter-Strike Case Simulator
+                        </a>
+                        <p style={{ marginTop: 0 }}>
+                          The Counter-Strike Case Simulator is a project of mine that simulates opening cases in the game Counter-Strike. It features items from the game. Tillsammans med ett troget återskapat UI finns det också en{" "}
+                          <a href="https://case-sim.com/unboxed" className="inline-href">
+                            Global Unbox History
+                          </a>{" "}
+                          som spårar alla föremål som unboxats i appen globalt. Detta projekt är byggt med React, Next.js, TypeScript och Tailwind.
                         </p>
                       </div>
 
@@ -311,7 +334,7 @@ export default () => {
 
                       <p>
                         Det här är bara en bråkdel av alla mina projekt. Om du vill se mer kan du hitta alla mina 20+ projekt{" "}
-                        <a className="inline-href" href="/projects">
+                        <a href="/projects" className="inline-href">
                           här
                         </a>
                         .

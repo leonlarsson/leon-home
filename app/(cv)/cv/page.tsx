@@ -286,7 +286,7 @@ export default () => {
                     <div className="text">
                       <p>
                         I have a very strong interest in software engineering and frontend design. I love working with technologies such as React, Next.js, Node.js using JavaScript (and TypeScript). I also have some experience with SQLite and MySQL, and I these databases in a couple of my projects.
-                        Below you can read about a couple of my projects.
+                        Below you can read about a few of my projects.
                       </p>
 
                       <div>
@@ -296,10 +296,33 @@ export default () => {
                         <p style={{ marginTop: 0 }}>
                           The Battlefield Stats Discord Bot is a bot developed for use on the platform Discord. This bot lets users look up their Battlefield game stats easily. This project is being written in JavaScript with Node.js. This bot has been invited to over 3,000 Discord servers, with
                           more inviting it every day. Data in real-time is found{" "}
-                          <a className="inline-href" target="_blank" href="https://battlefieldstats.com/data">
+                          <a href="https://battlefieldstats.com/data" target="_blank" className="inline-href">
                             here
                           </a>
                           . The bot has also been fully localized to 13 language with the help of many helpful community members.
+                        </p>
+                      </div>
+
+                      <div>
+                        <a href="/projects/the-finals-leaderboard" style={{ fontWeight: 600, color: "inherit" }}>
+                          THE FINALS Leaderboard
+                        </a>
+                        <p style={{ marginTop: 0 }}>
+                          The Enhanced THE FINALS Leaderboard is a project of mine that delivers an improved version of the official leaderboard for the game THE FINALS from Embark Studios. It features, searching, sorting, filtering, and supports all past playtests. It's built using React, Vite,
+                          TypeScript, shadcn/ui, Tailwind, and TanStack Query.
+                        </p>
+                      </div>
+
+                      <div>
+                        <a href="/projects/case-sim" style={{ fontWeight: 600, color: "inherit" }}>
+                          Counter-Strike Case Simulator
+                        </a>
+                        <p style={{ marginTop: 0 }}>
+                          The Counter-Strike Case Simulator is a project of mine that simulates opening cases in the game Counter-Strike. It features items from the game. Along with a faithfully recreated UI, there is also a{" "}
+                          <a href="https://case-sim.com/unboxed" className="inline-href">
+                            Global Unbox History
+                          </a>{" "}
+                          that tracks all the items unboxed in the app globally. This project is built using React, Next.js, TypeScript, and Tailwind.
                         </p>
                       </div>
 
@@ -312,7 +335,7 @@ export default () => {
 
                       <p>
                         These are just a fraction of all my projects. If you want to see more, all 20+ of my projects can be found{" "}
-                        <a className="inline-href" href="/projects">
+                        <a href="/projects" className="inline-href">
                           here
                         </a>
                         .
