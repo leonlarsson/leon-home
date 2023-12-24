@@ -269,7 +269,7 @@ export default [
     shortDescription: "An external leaderboard for the game THE FINALS.",
     year: "2023",
     tags: [tags.REACT, tags.VITE, tags.SHADCNUI],
-    link: "https://the-finals-leaderboard.leonlarsson.com/",
+    link: "https://the-finals-leaderboard.com/",
     githubLink: "https://github.com/leonlarsson/the-finals-leaderboard"
   },
   {
