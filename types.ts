@@ -6,9 +6,9 @@ export type Project = {
   name: string;
   description: string | string[];
   shortDescription: string;
+  tags?: string[];
   year?: string;
   endYear?: string;
-  tags?: string[];
   images?: StaticImageData[];
   link?: string;
   linkName?: string;
@@ -19,6 +19,7 @@ export type Project = {
     link: string;
     type: "link" | "github";
   }[];
+  displayInCv?: boolean;
 };
 
 export type Entry = {

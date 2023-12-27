@@ -34,7 +34,7 @@ const tags = {
   DATABASE: "Database",
   CLOUDFLARE_WORKERS: "Cloudflare Workers",
   COMMUNITY: "Community",
-  MODERATION: "Moderation"
+  MODERATION: "Moderation",
 };
 
 export default [
@@ -44,7 +44,7 @@ export default [
     name: "The Battlefield Discord",
     description: [
       "The Battlefield Discord is a community Discord server for the Battlefield franchise. I have been helping build this community since 2016, and I am currently one of the owners.",
-      "From 2018 to 2022, it was the official Discord server for the Battlefield franchise. I have seen it go from a couple thousand members to over 170,000 members. We've always worked closely with EA/DICE."
+      "From 2018 to 2022, it was the official Discord server for the Battlefield franchise. I have seen it go from a couple thousand members to over 170,000 members. We've always worked closely with EA/DICE.",
     ],
     shortDescription: "The biggest and most successful Battlefield Discord server.",
     year: "2016",
@@ -52,7 +52,8 @@ export default [
     images: [bfd1, bfd2],
     link: "https://discord.gg/battlefield",
     linkName: "Go to Discord",
-    hidePreview: true
+    hidePreview: true,
+    displayInCv: true,
   },
   {
     slug: "bfv-menu-playground",
@@ -68,9 +69,9 @@ export default [
       {
         name: "Photoshop Recreation",
         link: "https://www.youtube.com/watch?v=P3zMuMp6aGc",
-        type: "link"
-      }
-    ]
+        type: "link",
+      },
+    ],
   },
   {
     slug: "bf1-palette-recreation",
@@ -81,7 +82,7 @@ export default [
     year: "2019",
     tags: [tags.HTML, tags.CSS],
     link: "https://bf1palette.leonlarsson.com/",
-    githubLink: "https://github.com/leonlarsson/bf1palette"
+    githubLink: "https://github.com/leonlarsson/bf1palette",
   },
   {
     slug: "joy-meme",
@@ -92,7 +93,7 @@ export default [
     year: "2020",
     tags: [tags.HTML, tags.CSS, tags.JS],
     link: "https://joy.leonlarsson.com/",
-    githubLink: "https://github.com/leonlarsson/joy-meme"
+    githubLink: "https://github.com/leonlarsson/joy-meme",
   },
   {
     slug: "logsorter",
@@ -103,7 +104,8 @@ export default [
     year: "2021",
     tags: [tags.HTML, tags.CSS, tags.JS],
     link: "https://logsorter.com/",
-    githubLink: "https://github.com/leonlarsson/logsorter"
+    githubLink: "https://github.com/leonlarsson/logsorter",
+    displayInCv: true,
   },
   {
     slug: "bf1-morse-solver",
@@ -119,14 +121,15 @@ export default [
       {
         name: "API",
         link: "https://bf1morse-api.leonlarsson.com",
-        type: "link"
+        type: "link",
       },
       {
         name: "API Source",
         link: "https://github.com/leonlarsson/bf1morse-api",
-        type: "github"
-      }
-    ]
+        type: "github",
+      },
+    ],
+    displayInCv: true,
   },
   {
     slug: "battlebot",
@@ -140,9 +143,9 @@ export default [
       {
         name: "Cooldowns API",
         link: "https://github.com/leonlarsson/battlebot-api",
-        type: "github"
-      }
-    ]
+        type: "github",
+      },
+    ],
   },
   {
     slug: "battlefield-stats",
@@ -150,7 +153,7 @@ export default [
     name: "Battlefield Stats Discord Bot",
     description: [
       "My largest and most successful project by far. Battlefield Stats is a Discord bot that provides on-demand Battlefield statistics in Discord. I have also built a website and an API for this project.",
-      "Used by thousands of users in thousands of Discord servers, the bot is built with Node.js and the website with Next.js and shadcn/ui."
+      "Used by thousands of users in thousands of Discord servers, the bot is built with Node.js and the website with Next.js and shadcn/ui.",
     ],
     shortDescription: "A bot that provides Battlefield stats right inside Discord.",
     year: "2021",
@@ -162,14 +165,15 @@ export default [
       {
         name: "API",
         link: "https://api.battlefieldstats.com/",
-        type: "link"
+        type: "link",
       },
       {
         name: "API Source",
         link: "https://github.com/leonlarsson/bfstats-api",
-        type: "github"
-      }
-    ]
+        type: "github",
+      },
+    ],
+    displayInCv: true,
   },
   {
     slug: "raccoon-http-api",
@@ -181,7 +185,8 @@ export default [
     tags: [tags.CLOUDFLARE_WORKERS, tags.API, tags.TS],
     link: "https://httpraccoons.com/",
     images: [raccoonHttpImage1, raccoonHttpImage2],
-    githubLink: "https://github.com/leonlarsson/http-raccoons"
+    githubLink: "https://github.com/leonlarsson/http-raccoons",
+    displayInCv: true,
   },
   {
     slug: "zeppelin-case-stats",
@@ -192,7 +197,7 @@ export default [
     year: "2022",
     tags: [tags.HTML, tags.CSS, tags.JS],
     link: "https://zeppelin-stats.leonlarsson.com/",
-    githubLink: "https://github.com/leonlarsson/zeppelin-case-stats"
+    githubLink: "https://github.com/leonlarsson/zeppelin-case-stats",
   },
   {
     slug: "timestamper-bot",
@@ -204,7 +209,7 @@ export default [
     tags: [tags.CLOUDFLARE_WORKERS, tags.TS],
     images: [timestamperImage1, timestamperImage2],
     link: "https://github.com/leonlarsson/timestamper-bot",
-    hidePreview: true
+    hidePreview: true,
   },
   {
     slug: "redirect-link-service",
@@ -215,7 +220,7 @@ export default [
     year: "2022",
     tags: [tags.CLOUDFLARE_WORKERS, tags.TS],
     link: "https://github.com/leonlarsson/link-redirector-worker",
-    hidePreview: true
+    hidePreview: true,
   },
   {
     slug: "bloodhunt-stats",
@@ -232,14 +237,14 @@ export default [
       {
         name: "API",
         link: "https://bhstats-api.leonlarsson.com/",
-        type: "link"
+        type: "link",
       },
       {
         name: "API Source",
         link: "https://github.com/leonlarsson/bhstats-api",
-        type: "github"
-      }
-    ]
+        type: "github",
+      },
+    ],
   },
   {
     slug: "embed-worker",
@@ -250,7 +255,7 @@ export default [
     tags: [tags.CLOUDFLARE_WORKERS, tags.TS],
     images: [embedWorkerImage1],
     link: "https://embed-worker.ragnarok.workers.dev/",
-    githubLink: "https://github.com/leonlarsson/embed-worker"
+    githubLink: "https://github.com/leonlarsson/embed-worker",
   },
   {
     slug: "react-ant-design-ui",
@@ -260,7 +265,8 @@ export default [
     year: "2023",
     tags: [tags.REACT, tags.VITE, tags.ANTD],
     link: "https://react-ant-design-ui.pages.dev/",
-    githubLink: "https://github.com/leonlarsson/react-ant-design-ui"
+    githubLink: "https://github.com/leonlarsson/react-ant-design-ui",
+    displayInCv: true,
   },
   {
     slug: "the-finals-leaderboard",
@@ -270,7 +276,8 @@ export default [
     year: "2023",
     tags: [tags.REACT, tags.VITE, tags.SHADCNUI],
     link: "https://the-finals-leaderboard.com/",
-    githubLink: "https://github.com/leonlarsson/the-finals-leaderboard"
+    githubLink: "https://github.com/leonlarsson/the-finals-leaderboard",
+    displayInCv: true,
   },
   {
     slug: "bloodhunt-arg",
@@ -279,7 +286,7 @@ export default [
     description: [
       "A project I built for my role at Sharkmob. It was an ARG that we created for the game Bloodhunt.",
       "Over 500 unique users from 50 different countries participated in the ARG. It was a massive success, garnering satisfaction and engagement from the community.",
-      "I have also created an implemtation of the website in Next.js, which uses server actions."
+      "I have also created an implemtation of the website in Next.js, which uses server actions.",
     ],
     shortDescription: "The official website for the Bloodhunt ARG, 'The Omnis Challenge'.",
     year: "2023",
@@ -290,14 +297,15 @@ export default [
       {
         name: "Next.js Implementation",
         link: "https://omnis-arg-next.vercel.app/",
-        type: "link"
+        type: "link",
       },
       {
         name: "Next.js Source",
         link: "https://github.com/leonlarsson/omnis-arg-next",
-        type: "github"
-      }
-    ]
+        type: "github",
+      },
+    ],
+    displayInCv: true,
   },
   {
     slug: "home",
@@ -308,7 +316,8 @@ export default [
     year: "2023",
     tags: [tags.REACT, tags.NEXT, tags.TAILWIND, tags.TS],
     link: "/",
-    githubLink: "https://github.com/leonlarsson/leon-home"
+    githubLink: "https://github.com/leonlarsson/leon-home",
+    displayInCv: true,
   },
   {
     slug: "guestbook",
@@ -318,7 +327,7 @@ export default [
     year: "2023",
     tags: [tags.REACT, tags.NEXT, tags.TAILWIND, tags.TS, tags.API, tags.DATABASE],
     link: "/guestbook",
-    githubLink: "https://github.com/leonlarsson/leon-home/tree/main/app/(main)/guestbook"
+    githubLink: "https://github.com/leonlarsson/leon-home/tree/main/app/(main)/guestbook",
   },
   {
     slug: "phisherman",
@@ -329,7 +338,7 @@ export default [
     tags: [tags.CLOUDFLARE_WORKERS, tags.TS, tags.JS, tags.API, tags.DATABASE, tags.NODE, tags.DISCORDJS],
     link: "https://phisherman.gg/",
     hidePreview: true,
-    githubLink: "https://github.com/PhishermanGG"
+    githubLink: "https://github.com/PhishermanGG",
   },
   {
     slug: "music-showcase",
@@ -341,7 +350,7 @@ export default [
     tags: [tags.REACT, tags.NEXT, tags.TAILWIND, tags.TS, tags.API],
     images: [musicShowcaseImage1, musicShowcaseImage2],
     link: "/music",
-    githubLink: "https://github.com/leonlarsson/leon-home/tree/main/app/(main)/music"
+    githubLink: "https://github.com/leonlarsson/leon-home/tree/main/app/(main)/music",
   },
   {
     slug: "friendly-time",
@@ -357,9 +366,10 @@ export default [
       {
         name: "Date Parser",
         link: "https://github.com/wanasit/chrono",
-        type: "github"
-      }
-    ]
+        type: "github",
+      },
+    ],
+    displayInCv: true,
   },
   {
     slug: "case-sim",
@@ -371,6 +381,7 @@ export default [
     tags: [tags.REACT, tags.NEXT, tags.TAILWIND, tags.TS, tags.DATABASE],
     images: [csCaseUI1],
     link: "https://case-sim.com",
-    githubLink: "https://github.com/leonlarsson/cs-case-sim"
-  }
+    githubLink: "https://github.com/leonlarsson/cs-case-sim",
+    displayInCv: true,
+  },
 ] satisfies Project[] as Project[];
