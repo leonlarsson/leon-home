@@ -52,13 +52,13 @@ export default () => {
 
       {/* About */}
       <div className="flex flex-col gap-2">
-        <h2 className="text-xl font-bold">About</h2>
+        <h2 className="text-xl font-bold underline">About</h2>
         <p className="font-geist-mono text-sm text-neutral-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
       </div>
 
       {/* Work */}
       <div className="flex flex-col gap-2">
-        <h2 className="text-xl font-bold">Work Experience</h2>
+        <h2 className="text-xl font-bold underline">Work Experience</h2>
         <div className="flex flex-col gap-2">
           {[
             {
@@ -77,10 +77,10 @@ export default () => {
               end: "2022",
             },
           ].map(({ title, company, companyUrl, description, start, end }) => (
-            <div key={title} className="flex flex-col gap-2 rounded-xl p-1 hover:bg-neutral-200">
+            <div key={title} className="flex flex-col gap-2 rounded-lg p-1 hover:bg-neutral-200">
               <div className="flex flex-col">
                 {/* Company and dates */}
-                <div className="flex items-center justify-between">
+                <div className="flex items-baseline justify-between">
                   <Link href={companyUrl} target="_blank" className="font-semibold hover:underline">
                     {company}
                   </Link>
@@ -101,15 +101,49 @@ export default () => {
         </div>
       </div>
 
+      {/* Education */}
+      <div className="flex flex-col gap-2">
+        <h2 className="text-xl font-bold underline">Education</h2>
+        <div className="flex flex-col gap-2">
+          {[
+            {
+              school: "Sundsgymnasiet",
+              schoolUrl: "https://vellinge.se/sundsgymnasiet/",
+              description: "Civics, media, communication, marketing, and content creation.",
+              start: "2015",
+              end: "2018",
+            },
+          ].map(({ school, schoolUrl, description, start, end }) => (
+            <div key={school} className="flex flex-col gap-[2px] rounded-lg p-1 hover:bg-neutral-200">
+              <div className="flex flex-col">
+                {/* School and dates */}
+                <div className="flex items-baseline justify-between">
+                  <Link href={schoolUrl} target="_blank" className="font-semibold hover:underline">
+                    {school}
+                  </Link>
+
+                  <span className="text-xs text-neutral-600">
+                    {start} - {end ?? "Present"}
+                  </span>
+                </div>
+              </div>
+
+              {/* Description */}
+              <p className="font-geist-mono text-sm text-neutral-600">{description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
       {/* Projects */}
       <div className="flex flex-col gap-2">
-        <h2 className="text-xl font-bold">Projects</h2>
+        <h2 className="text-xl font-bold underline">Projects</h2>
 
         <div className="flex flex-col gap-2">
           {projects
             .filter(x => x.displayInCv)
             .map(({ name, shortDescription, slug, tags, year }) => (
-              <div className="group flex flex-col gap-[2px] rounded-xl p-1 hover:bg-neutral-200">
+              <div className="group flex flex-col gap-[2px] rounded-lg p-1 hover:bg-neutral-200">
                 <div className="flex items-baseline justify-between">
                   <Link href={`/projects/${slug}`} target="_blank" className="font-semibold hover:underline">
                     {name}
