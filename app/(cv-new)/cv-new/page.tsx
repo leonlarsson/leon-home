@@ -99,11 +99,42 @@ export default () => {
       {/* Projects */}
       <div className="flex flex-col gap-2">
         <h2 className="text-xl font-bold">Projects</h2>
+
+        <div className="flex flex-col gap-3">
+          {projects
+            .filter(x => x.displayInCv)
+            .map(({ name, shortDescription, slug, tags, year }) => (
+              <div className="flex flex-col">
+                <div className="flex items-baseline justify-between">
+                  <Link href={`/projects/${slug}`} target="_blank" className="font-semibold hover:underline">
+                    {name}
+                  </Link>
+
+                  <span className="text-xs opacity-75">{year}</span>
+                </div>
+
+                <p className="font-mono text-sm opacity-75">{shortDescription}</p>
+
+                <div className="flex flex-wrap gap-1">
+                  {tags?.map(tag => (
+                    <span key={tag} className="rounded bg-neutral-200 p-1 text-xs">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            ))}
+
+          <Link href="/projects" target="_blank" className="font-semibold hover:underline">
+            <Icons.arrowRight className="inline" /> Browse all projects
+          </Link>
+        </div>
+
         <div className="grid grid-cols-1 grid-rows-[masonry] gap-2 sm:grid-cols-2 md:grid-cols-3">
           {projects
             .filter(x => x.displayInCv)
             .map(({ name, shortDescription, slug, tags }) => (
-              <Link key={slug} href={`/projects/${slug}`} className="flex flex-col justify-between gap-2 rounded-xl border border-neutral-200 p-2 transition-colors hover:border-neutral-400">
+              <Link key={slug} href={`/projects/${slug}`} target="_blank" className="flex flex-col justify-between gap-2 rounded-xl border border-neutral-200 p-2 transition-colors hover:border-neutral-400">
                 <div>
                   <h3 className="font-semibold">{name}</h3>
 
