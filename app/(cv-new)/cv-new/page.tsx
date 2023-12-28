@@ -53,7 +53,7 @@ export default () => {
       {/* About */}
       <div className="flex flex-col gap-2">
         <h2 className="text-xl font-bold underline">About</h2>
-        <p className="font-geist-mono text-sm text-neutral-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        <p className="font-geist-mono text-xs text-neutral-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
       </div>
 
       {/* Work */}
@@ -95,7 +95,7 @@ export default () => {
               </div>
 
               {/* Description */}
-              <p className="font-geist-mono text-sm text-neutral-600">{description}</p>
+              <p className="font-geist-mono text-xs text-neutral-600">{description}</p>
             </div>
           ))}
         </div>
@@ -129,7 +129,7 @@ export default () => {
               </div>
 
               {/* Description */}
-              <p className="font-geist-mono text-sm text-neutral-600">{description}</p>
+              <p className="font-geist-mono text-xs text-neutral-600">{description}</p>
             </div>
           ))}
         </div>
@@ -152,7 +152,7 @@ export default () => {
                   <span className="text-xs text-neutral-600">{year}</span>
                 </div>
 
-                <p className="font-geist-mono text-sm text-neutral-600">{shortDescription}</p>
+                <p className="font-geist-mono text-xs text-neutral-600">{shortDescription}</p>
 
                 <div className="flex flex-wrap gap-1">
                   {tags?.map(tag => (
@@ -177,7 +177,7 @@ export default () => {
                 <div>
                   <h3 className="font-semibold">{name}</h3>
 
-                  <p className="font-geist-mono text-sm text-neutral-600">{shortDescription}</p>
+                  <p className="font-geist-mono text-xs text-neutral-600">{shortDescription}</p>
                 </div>
 
                 {/* Project tags (might be killed) */}
