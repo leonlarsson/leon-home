@@ -11,12 +11,17 @@ export default () => {
   return (
     <div className="flex flex-col gap-6">
       {/* Top */}
-      <div className="flex items-center justify-between gap-4">
+      <div className="flex items-center justify-between gap-10">
         <div className="flex flex-col gap-2">
           <h1 className="text-2xl font-bold">Leon San José Larsson</h1>
-          <p className="text-balance font-mono text-sm opacity-75">Work in progress redesign.</p>
-          <Link href="https://www.google.com/maps/place/Malm%C3%B6" target="_blank" className="font-mono text-xs opacity-75 hover:underline">
-            Malmö, Sweden, CET
+          <p className="font-mono text-sm opacity-75">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+
+          <Link href="https://leonlarsson.com" target="_blank" className="inline-flex items-center gap-1 font-mono text-xs opacity-75 hover:underline">
+            <Icons.link className="size-4" /> leonlarsson.com
+          </Link>
+
+          <Link href="https://www.google.com/maps/place/Malm%C3%B6" target="_blank" className="inline-flex items-center gap-1 font-mono text-xs opacity-75 hover:underline">
+            <Icons.globe className="size-4" /> Malmö, Sweden, CET
           </Link>
 
           {/* Links */}
