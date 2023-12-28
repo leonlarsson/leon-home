@@ -1,0 +1,5 @@
+/* GLOBAL CSS */
+
+/* base is added to individual route groups. Might just say fuck it and add it here one I kill the old CV */
+@tailwind components;
+@tailwind utilities;

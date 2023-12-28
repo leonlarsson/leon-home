@@ -3,6 +3,10 @@ import projects from "@/app/(main)/projects/data";
 import Image from "next/image";
 import Link from "next/link";
 
+export const metadata = {
+  title: "CV",
+};
+
 export default () => {
   return (
     <div className="flex flex-col gap-6">

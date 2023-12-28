@@ -1,6 +1,6 @@
+/* MAIN CSS */
+
 @tailwind base;
-@tailwind components;
-@tailwind utilities;
 
 :root {
   @apply dark:[color-scheme:light_dark];

@@ -4,13 +4,13 @@ import Icons from "./icons";
 
 export default () => {
   return (
-    <div className="select-none">
+    <div className="select-none min-[460px]:pt-8">
       {/* TOP HEADER */}
       <header className="relative z-50 mb-6 block px-6 max-[460px]:hidden">
-        {/* <GradientBorder rounded="rounded-[13px]" extraClasses="max-w-5xl mx-auto mt-8">
+        {/* <GradientBorder rounded="rounded-[13px]" extraClasses="max-w-5xl mx-auto">
           <div className="flex h-16 items-center justify-between rounded-xl bg-white/80 px-2 dark:bg-[#1e1e1e]/70">REST HERE</div>
         </GradientBorder> */}
-        <div className="mx-auto mt-8 flex h-16 w-full max-w-5xl justify-between rounded-xl border-[1px] border-black/20 bg-white/50 px-2 dark:border-kinda-white/10 dark:bg-[#1e1e1e]/50">
+        <div className="mx-auto flex h-16 w-full max-w-5xl justify-between rounded-xl border-[1px] border-black/20 bg-white/50 px-2 dark:border-kinda-white/10 dark:bg-[#1e1e1e]/50">
           <div className="flex items-center [&>*]:px-2">
             <HeaderLink content={<Image className="rounded-full" src="/assets/images/avatar.png" alt="Leon image" width={40} height={40} priority draggable={false} />} url="/" />
             <HeaderLink content="Home" url="/" />

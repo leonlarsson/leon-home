@@ -5,10 +5,13 @@ export default {
   plugins: [],
   theme: {
     extend: {
+      fontFamily: {
+        sans: "var(--font-inter)",
+      },
       colors: {
         "kinda-black": "#0e1011",
-        "kinda-white": "#f2f0ed"
-      }
-    }
-  }
+        "kinda-white": "#f2f0ed",
+      },
+    },
+  },
 } satisfies Config;
