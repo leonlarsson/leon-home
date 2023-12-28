@@ -77,7 +77,7 @@ export default () => {
               end: "2022",
             },
           ].map(({ title, company, companyUrl, description, start, end }) => (
-            <div key={title} className="flex flex-col gap-2">
+            <div key={title} className="flex flex-col gap-2 rounded-xl p-1 hover:bg-neutral-200">
               <div className="flex flex-col">
                 {/* Company and dates */}
                 <div className="flex items-center justify-between">
@@ -105,11 +105,11 @@ export default () => {
       <div className="flex flex-col gap-2">
         <h2 className="text-xl font-bold">Projects</h2>
 
-        <div className="flex flex-col gap-3">
+        <div className="flex flex-col gap-2">
           {projects
             .filter(x => x.displayInCv)
             .map(({ name, shortDescription, slug, tags, year }) => (
-              <div className="flex flex-col gap-[2px]">
+              <div className="group flex flex-col gap-[2px] rounded-xl p-1 hover:bg-neutral-200">
                 <div className="flex items-baseline justify-between">
                   <Link href={`/projects/${slug}`} target="_blank" className="font-semibold hover:underline">
                     {name}
@@ -122,7 +122,7 @@ export default () => {
 
                 <div className="flex flex-wrap gap-1">
                   {tags?.map(tag => (
-                    <span key={tag} className="rounded bg-neutral-200 p-1 text-xs">
+                    <span key={tag} className="rounded bg-neutral-200 p-1 text-xs group-hover:bg-neutral-300">
                       {tag}
                     </span>
                   ))}
