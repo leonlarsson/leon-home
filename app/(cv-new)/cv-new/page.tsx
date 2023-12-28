@@ -14,13 +14,13 @@ export default () => {
       <div className="flex items-center justify-between gap-10">
         <div className="flex flex-col gap-2">
           <h1 className="text-2xl font-bold">Leon San José Larsson</h1>
-          <p className="font-geist-mono text-sm text-neutral-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          <p className="font-geist-mono text-sm text-neutral-600">Aspiring Full Stack Engineer working in vidoe games marketing.</p>
 
-          <Link href="https://leonlarsson.com" target="_blank" className="font-geist-mono inline-flex items-center gap-1 text-xs text-neutral-600 hover:underline">
+          <Link href="https://leonlarsson.com" target="_blank" className="inline-flex items-center gap-1 font-geist-mono text-xs text-neutral-600 hover:underline">
             <Icons.link className="size-4" /> leonlarsson.com
           </Link>
 
-          <Link href="https://www.google.com/maps/place/Malm%C3%B6" target="_blank" className="font-geist-mono inline-flex items-center gap-1 text-xs text-neutral-600 hover:underline">
+          <Link href="https://www.google.com/maps/place/Malm%C3%B6" target="_blank" className="inline-flex items-center gap-1 font-geist-mono text-xs text-neutral-600 hover:underline">
             <Icons.globe className="size-4" /> Malmö, Sweden, CET
           </Link>
 
@@ -53,7 +53,7 @@ export default () => {
       {/* About */}
       <div className="flex flex-col gap-2">
         <h2 className="text-xl font-bold underline">About</h2>
-        <p className="font-geist-mono text-xs text-neutral-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        <p className="font-geist-mono text-xs text-neutral-600">I'm an aspiring Full Stack Engineer in self-training. My primary areas of interest are web development and Discord bots. I also extensively work on creating various APIs and services on platforms such as Cloudflare Workers.</p>
       </div>
 
       {/* Work */}
@@ -65,14 +65,15 @@ export default () => {
               title: "Community & Support Specialist",
               company: "Sharkmob",
               companyUrl: "https://sharkmob.com",
-              description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+              description:
+                "Managing player support and content on the Bloodhunt website at Sharkmob involves close collaboration with marketing, player relations, and developers.\n\nAdditionally, overseeing community management, Discord, and Twitch Drops. For our newly announced game Exoborne, contributing to website development and providing technical specifications for the RE_HACK ARG website.",
               start: "2022",
             },
             {
               title: "Localization/QA Tester - Swedish",
               company: "Electronic Arts",
               companyUrl: "https://ea.com",
-              description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+              description: "Reviewed and ensured the quality of EA games, including marketing materials. Also managed candidate tests and contributed to crafting application test materials during peak seasons. Worked on 27 DLCs for The Sims 4, as well as FIFA 21, LOTR: Heroes of Middle-earth.",
               start: "2019",
               end: "2022",
             },
@@ -95,7 +96,7 @@ export default () => {
               </div>
 
               {/* Description */}
-              <p className="font-geist-mono text-xs text-neutral-600">{description}</p>
+              <p className="whitespace-pre-line font-geist-mono text-xs text-neutral-600">{description}</p>
             </div>
           ))}
         </div>
@@ -140,10 +141,11 @@ export default () => {
         <h2 className="text-xl font-bold underline">Projects</h2>
 
         <div className="flex flex-col gap-2">
-          {projects
+          {[...projects]
+            .reverse()
             .filter(x => x.displayInCv)
             .map(({ name, shortDescription, slug, tags, year }) => (
-              <div className="group flex flex-col gap-[2px] rounded-lg p-1 hover:bg-neutral-200">
+              <div key={slug} className="group flex flex-col gap-[2px] rounded-lg p-1 hover:bg-neutral-200">
                 <div className="flex items-baseline justify-between">
                   <Link href={`/projects/${slug}`} target="_blank" className="font-semibold hover:underline">
                     {name}
