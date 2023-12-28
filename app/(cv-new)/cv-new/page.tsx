@@ -14,13 +14,13 @@ export default () => {
       <div className="flex items-center justify-between gap-10">
         <div className="flex flex-col gap-2">
           <h1 className="text-2xl font-bold">Leon San José Larsson</h1>
-          <p className="font-mono text-sm opacity-75">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          <p className="font-geist-mono text-sm text-neutral-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
 
-          <Link href="https://leonlarsson.com" target="_blank" className="inline-flex items-center gap-1 font-mono text-xs opacity-75 hover:underline">
+          <Link href="https://leonlarsson.com" target="_blank" className="font-geist-mono inline-flex items-center gap-1 text-xs text-neutral-600 hover:underline">
             <Icons.link className="size-4" /> leonlarsson.com
           </Link>
 
-          <Link href="https://www.google.com/maps/place/Malm%C3%B6" target="_blank" className="inline-flex items-center gap-1 font-mono text-xs opacity-75 hover:underline">
+          <Link href="https://www.google.com/maps/place/Malm%C3%B6" target="_blank" className="font-geist-mono inline-flex items-center gap-1 text-xs text-neutral-600 hover:underline">
             <Icons.globe className="size-4" /> Malmö, Sweden, CET
           </Link>
 
@@ -53,7 +53,7 @@ export default () => {
       {/* About */}
       <div className="flex flex-col gap-2">
         <h2 className="text-xl font-bold">About</h2>
-        <p className="font-mono text-sm opacity-75">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        <p className="font-geist-mono text-sm text-neutral-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
       </div>
 
       {/* Work */}
@@ -85,17 +85,17 @@ export default () => {
                     {company}
                   </Link>
 
-                  <span className="text-xs opacity-75">
+                  <span className="text-xs text-neutral-600">
                     {start} - {end ?? "Present"}
                   </span>
                 </div>
 
                 {/* Title */}
-                <span className="font-mono text-sm">{title}</span>
+                <span className="font-geist-mono text-sm">{title}</span>
               </div>
 
               {/* Description */}
-              <p className="font-mono text-sm opacity-75">{description}</p>
+              <p className="font-geist-mono text-sm text-neutral-600">{description}</p>
             </div>
           ))}
         </div>
@@ -109,16 +109,16 @@ export default () => {
           {projects
             .filter(x => x.displayInCv)
             .map(({ name, shortDescription, slug, tags, year }) => (
-              <div className="flex flex-col">
+              <div className="flex flex-col gap-[2px]">
                 <div className="flex items-baseline justify-between">
                   <Link href={`/projects/${slug}`} target="_blank" className="font-semibold hover:underline">
                     {name}
                   </Link>
 
-                  <span className="text-xs opacity-75">{year}</span>
+                  <span className="text-xs text-neutral-600">{year}</span>
                 </div>
 
-                <p className="font-mono text-sm opacity-75">{shortDescription}</p>
+                <p className="font-geist-mono text-sm text-neutral-600">{shortDescription}</p>
 
                 <div className="flex flex-wrap gap-1">
                   {tags?.map(tag => (
@@ -143,7 +143,7 @@ export default () => {
                 <div>
                   <h3 className="font-semibold">{name}</h3>
 
-                  <p className="font-mono text-sm opacity-75">{shortDescription}</p>
+                  <p className="font-geist-mono text-sm text-neutral-600">{shortDescription}</p>
                 </div>
 
                 {/* Project tags (might be killed) */}

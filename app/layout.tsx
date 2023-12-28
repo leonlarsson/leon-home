@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import { Analytics } from "@vercel/analytics/react";
 import { Inter } from "next/font/google";
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
+import { GeistMono } from "geist/font/mono";
 import generateOGMetadata from "./utils/generateOGMetadata";
 
 import "./globals.css";
@@ -40,7 +41,7 @@ export const metadata: Metadata = {
 
 export default ({ children }: { children: React.ReactNode }) => {
   return (
-    <html className={`${inter.variable} overflow-y-scroll`} lang="en">
+    <html className={`${inter.variable} ${GeistMono.variable} overflow-y-scroll`} lang="en">
       <body>
         <Analytics />
         {children}

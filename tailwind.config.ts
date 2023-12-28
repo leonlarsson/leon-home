@@ -7,6 +7,7 @@ export default {
     extend: {
       fontFamily: {
         sans: "var(--font-inter)",
+        "geist-mono": "var(--font-geist-mono)",
       },
       colors: {
         "kinda-black": "#0e1011",
