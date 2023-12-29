@@ -1,3 +1,4 @@
+import { Fragment } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Icons from "@/app/(main)/components/icons";
@@ -94,35 +95,39 @@ export default () => {
       {employmentSection.history.length > 0 && (
         <div className="flex flex-col gap-2">
           <h2 className="text-xl font-bold underline">{employmentSection.sectionTitle}</h2>
-          <div className="flex flex-col gap-2">
-            {employmentSection.history.map(({ title, company, companyUrl, description, start, end }) => (
-              // Graphic design is my passion: flex flex-col gap-2 rounded-bl border-b-2 border-l-2 border-b-transparent border-l-transparent p-1 transition-all hover:border-black hover:shadow-2xl
-              <div key={title} className="flex flex-col gap-2 rounded-lg p-1 hover:bg-neutral-200">
-                <div className="flex flex-col">
-                  {/* Company and dates */}
-                  <div className="flex items-baseline justify-between">
-                    <Link href={companyUrl} target="_blank" className="font-semibold hover:underline">
-                      {company}
-                    </Link>
+          <div className="flex flex-col gap-3">
+            {employmentSection.history.map(({ title, company, companyUrl, description, start, end }, i) => (
+              <Fragment key={i}>
+                {/* Graphic design is my passion: flex flex-col gap-2 rounded-bl border-b-2 border-l-2 border-b-transparent border-l-transparent p-1 transition-all hover:border-black hover:shadow-2xl */}
+                <div className="flex flex-col gap-2">
+                  <div className="flex flex-col">
+                    {/* Company and dates */}
+                    <div className="flex items-baseline justify-between">
+                      <Link href={companyUrl} target="_blank" className="font-semibold hover:underline">
+                        {company}
+                      </Link>
 
-                    <span className="text-xs text-neutral-600">
-                      {start} - {end ?? "Present"}
-                    </span>
+                      <span className="text-xs text-neutral-600">
+                        {start} - {end ?? "Present"}
+                      </span>
+                    </div>
+
+                    {/* Title */}
+                    <span className="font-geist-mono text-sm">{title}</span>
                   </div>
 
-                  {/* Title */}
-                  <span className="font-geist-mono text-sm">{title}</span>
+                  {/* Description */}
+                  <div className="flex flex-col gap-2">
+                    {description.map(text => (
+                      <p key={text} className="font-geist-mono text-xs text-neutral-600">
+                        {text}
+                      </p>
+                    ))}
+                  </div>
                 </div>
 
-                {/* Description */}
-                <div className="flex flex-col gap-2">
-                  {description.map(text => (
-                    <p key={text} className="font-geist-mono text-xs text-neutral-600">
-                      {text}
-                    </p>
-                  ))}
-                </div>
-              </div>
+                {i !== employmentSection.history.length - 1 && <hr className="maybeborder-dotted" />}
+              </Fragment>
             ))}
           </div>
         </div>
@@ -132,31 +137,35 @@ export default () => {
       {educationSection.history.length > 0 && (
         <div className="flex flex-col gap-2">
           <h2 className="text-xl font-bold underline">{educationSection.sectionTitle}</h2>
-          <div className="flex flex-col gap-2">
-            {educationSection.history.map(({ school, schoolUrl, description, start, end }) => (
-              <div key={school} className="flex flex-col gap-[2px] rounded-lg p-1 hover:bg-neutral-200">
-                <div className="flex flex-col">
-                  {/* School and dates */}
-                  <div className="flex items-baseline justify-between">
-                    <Link href={schoolUrl} target="_blank" className="font-semibold hover:underline">
-                      {school}
-                    </Link>
+          <div className="flex flex-col gap-3">
+            {educationSection.history.map(({ school, schoolUrl, description, start, end }, i) => (
+              <Fragment key={i}>
+                <div className="flex flex-col gap-[2px]">
+                  <div className="flex flex-col">
+                    {/* School and dates */}
+                    <div className="flex items-baseline justify-between">
+                      <Link href={schoolUrl} target="_blank" className="font-semibold hover:underline">
+                        {school}
+                      </Link>
 
-                    <span className="text-xs text-neutral-600">
-                      {start} - {end ?? "Present"}
-                    </span>
+                      <span className="text-xs text-neutral-600">
+                        {start} - {end ?? "Present"}
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Description */}
+                  <div className="flex flex-col gap-2">
+                    {description.map(text => (
+                      <p key={text} className="font-geist-mono text-xs text-neutral-600">
+                        {text}
+                      </p>
+                    ))}
                   </div>
                 </div>
 
-                {/* Description */}
-                <div className="flex flex-col gap-2">
-                  {description.map(text => (
-                    <p key={text} className="font-geist-mono text-xs text-neutral-600">
-                      {text}
-                    </p>
-                  ))}
-                </div>
-              </div>
+                {i !== educationSection.history.length - 1 && <hr className="maybeborder-dotted" />}
+              </Fragment>
             ))}
           </div>
         </div>
