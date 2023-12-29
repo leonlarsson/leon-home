@@ -17,11 +17,11 @@ export default () => {
           <h1 className="text-2xl font-bold">Leon San José Larsson</h1>
           <p className="font-geist-mono text-sm text-neutral-600">Aspiring Full Stack Engineer working in vidoe games marketing.</p>
 
-          <Link href="https://leonlarsson.com" target="_blank" className="inline-flex items-center gap-1 font-geist-mono text-xs text-neutral-600 hover:underline">
+          <Link href="https://leonlarsson.com" target="_blank" className="flex w-fit items-center gap-1 font-geist-mono text-xs text-neutral-600 hover:underline">
             <Icons.link className="size-4" /> leonlarsson.com
           </Link>
 
-          <Link href="https://www.google.com/maps/place/Malm%C3%B6" target="_blank" className="inline-flex items-center gap-1 font-geist-mono text-xs text-neutral-600 hover:underline">
+          <Link href="https://www.google.com/maps/place/Malm%C3%B6" target="_blank" className="flex w-fit items-center gap-1 font-geist-mono text-xs text-neutral-600 hover:underline">
             <Icons.globe className="size-4" /> Malmö, Sweden, CET
             <span suppressHydrationWarning className="print:hidden">
               (<CurrentTime timeZone="Europe/Stockholm" />)
