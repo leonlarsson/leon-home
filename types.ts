@@ -38,3 +38,68 @@ export type Post = {
   title: string;
   body: string;
 };
+
+// CV
+export type ProfileSection = {
+  name: string;
+  tagline: string;
+  taglineSwedish: string;
+  title: string;
+  url?: {
+    href: string;
+    text: string;
+  };
+  location?: {
+    href: string;
+    text: string;
+    timezone?: `${string}/${string}`;
+  };
+  iconLinks?: {
+    icon: "envelope" | "github" | "linkedin";
+    href: string;
+    text: string;
+  }[];
+};
+
+export type AboutSection = {
+  sectionTitle: string;
+  sectionTitleSwedish: string;
+  description: string[];
+  descriptionSwedish: string[];
+} | null;
+
+export type EmploymentSection = {
+  sectionTitle: string;
+  sectionTitleSwedish: string;
+  history: {
+    title: string;
+    company: string;
+    companyUrl: string;
+    description: string[];
+    descriptionSwedish: string[];
+    start: string;
+    end?: string;
+  }[];
+};
+
+export type EducationSection = {
+  sectionTitle: string;
+  sectionTitleSwedish: string;
+  history: {
+    school: string;
+    schoolUrl: string;
+    description: string[];
+    start: string;
+    end?: string;
+  }[];
+};
+
+export type ProjectsSection = {
+  sectionTitle: string;
+  sectionTitleSwedish: string;
+  sectionDescription?: string;
+  sectionDescriptionSwedish?: string;
+  browseAllText: string;
+  browseAllTextSwedish: string;
+  projects: Project[];
+};
