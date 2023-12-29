@@ -1,3 +1,4 @@
+import avatar from "./images/avatar.png";
 import projects from "../projects";
 import { AboutSection, EducationSection, EmploymentSection, ProfileSection, ProjectsSection } from "@/types";
 
@@ -11,6 +12,7 @@ import { AboutSection, EducationSection, EmploymentSection, ProfileSection, Proj
 
 export const profileSection: ProfileSection = {
   name: "Leon San José Larsson",
+  avatar: avatar,
   tagline: "Aspiring Full Stack Engineer working in video games marketing.",
   taglineSwedish: "Aspirerande Full Stack-utvecklare som arbetar med marknadsföring av datorspel.",
   title: "Community & Support Specialist",

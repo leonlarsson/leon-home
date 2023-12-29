@@ -62,7 +62,7 @@ export default () => {
           )}
         </div>
 
-        <Image className="hidden rounded-xl sm:block" src="/assets/images/avatar.png" alt="Leon Image" width={100} height={100} />
+        {profileSection.avatar && <Image className="hidden rounded-xl sm:block" src={profileSection.avatar} alt={profileSection.name} width={100} height={100} />}
       </div>
 
       {/* About */}

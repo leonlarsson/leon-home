@@ -42,6 +42,7 @@ export type Post = {
 // CV
 export type ProfileSection = {
   name: string;
+  avatar?: StaticImageData;
   tagline: string;
   taglineSwedish: string;
   title: string;
