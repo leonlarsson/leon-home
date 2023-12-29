@@ -1,7 +1,8 @@
-import Icons from "@/app/(main)/components/icons";
-import projects from "@/app/(main)/projects/data";
 import Image from "next/image";
 import Link from "next/link";
+import Icons from "@/app/(main)/components/icons";
+import projects from "@/app/(main)/projects/data";
+import CurrentTime from "./components/CurrentTime";
 
 export const metadata = {
   title: "CV",
@@ -22,6 +23,9 @@ export default () => {
 
           <Link href="https://www.google.com/maps/place/Malm%C3%B6" target="_blank" className="inline-flex items-center gap-1 font-geist-mono text-xs text-neutral-600 hover:underline">
             <Icons.globe className="size-4" /> Malmö, Sweden, CET
+            <span suppressHydrationWarning className="print:hidden">
+              (<CurrentTime timeZone="Europe/Stockholm" />)
+            </span>
           </Link>
 
           {/* Links */}
@@ -78,6 +82,7 @@ export default () => {
               end: "2022",
             },
           ].map(({ title, company, companyUrl, description, start, end }) => (
+            // Graphic design is my passion: flex flex-col gap-2 rounded-bl border-b-2 border-l-2 border-b-transparent border-l-transparent p-1 transition-all hover:border-black hover:shadow-2xl
             <div key={title} className="flex flex-col gap-2 rounded-lg p-1 hover:bg-neutral-200">
               <div className="flex flex-col">
                 {/* Company and dates */}
