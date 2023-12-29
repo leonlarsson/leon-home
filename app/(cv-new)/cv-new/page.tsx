@@ -69,15 +69,17 @@ export default () => {
               title: "Community & Support Specialist",
               company: "Sharkmob",
               companyUrl: "https://sharkmob.com",
-              description:
-                "Managing player support and content on the Bloodhunt website at Sharkmob involves close collaboration with marketing, player relations, and developers.\n\nAdditionally, overseeing community management, Discord, and Twitch Drops. For our newly announced game Exoborne, contributing to website development and providing technical specifications for the RE_HACK ARG website.",
+              description: [
+                "Managing player support and content on the Bloodhunt website at Sharkmob involves close collaboration with marketing, player relations, and developers.",
+                "Additionally, overseeing community management, Discord, and Twitch Drops. For our newly announced game Exoborne, contributing to website development and providing technical specifications for the RE_HACK ARG website.",
+              ],
               start: "2022",
             },
             {
               title: "Localization/QA Tester - Swedish",
               company: "Electronic Arts",
               companyUrl: "https://ea.com",
-              description: "Reviewed and ensured the quality of EA games, including marketing materials. Also managed candidate tests and contributed to crafting application test materials during peak seasons. Worked on 27 DLCs for The Sims 4, as well as FIFA 21, LOTR: Heroes of Middle-earth.",
+              description: ["Reviewed and ensured the quality of EA games, including marketing materials. Also managed candidate tests and contributed to crafting application test materials during peak seasons.", "Worked on 27 DLCs for The Sims 4, as well as FIFA 21, LOTR: Heroes of Middle-earth."],
               start: "2019",
               end: "2022",
             },
@@ -101,7 +103,13 @@ export default () => {
               </div>
 
               {/* Description */}
-              <p className="whitespace-pre-line font-geist-mono text-xs text-neutral-600">{description}</p>
+              <div className="flex flex-col gap-2">
+                {description.map(text => (
+                  <p key={text} className="font-geist-mono text-xs text-neutral-600">
+                    {text}
+                  </p>
+                ))}
+              </div>
             </div>
           ))}
         </div>
@@ -115,7 +123,7 @@ export default () => {
             {
               school: "Sundsgymnasiet",
               schoolUrl: "https://vellinge.se/sundsgymnasiet/",
-              description: "Civics, media, communication, marketing, and content creation.",
+              description: ["Civics, media, communication, marketing, and content creation."],
               start: "2015",
               end: "2018",
             },
@@ -135,7 +143,13 @@ export default () => {
               </div>
 
               {/* Description */}
-              <p className="font-geist-mono text-xs text-neutral-600">{description}</p>
+              <div className="flex flex-col gap-2">
+                {description.map(text => (
+                  <p key={text} className="font-geist-mono text-xs text-neutral-600">
+                    {text}
+                  </p>
+                ))}
+              </div>
             </div>
           ))}
         </div>
