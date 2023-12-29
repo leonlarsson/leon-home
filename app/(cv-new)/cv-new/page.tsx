@@ -64,7 +64,7 @@ export default () => {
                 }
 
                 return (
-                  <Link key={href} href={href} title={text} className="group rounded-lg border p-2 transition-colors hover:bg-neutral-100">
+                  <Link key={href} href={href} target="_blank" title={text} className="group rounded-lg border p-2 transition-colors hover:bg-neutral-100">
                     <IconComponent className="size-4 text-neutral-600 transition-colors group-hover:text-black" />
                   </Link>
                 );
