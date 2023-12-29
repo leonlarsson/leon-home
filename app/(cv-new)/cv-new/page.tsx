@@ -4,6 +4,7 @@ import Link from "next/link";
 import Icons from "@/app/(main)/components/icons";
 import CurrentTime from "./components/CurrentTime";
 import { aboutSection, educationSection, employmentSection, profileSection, projectsSection } from "@/data/cv";
+import { CVIcon } from "@/types";
 
 export const metadata = {
   title: "CV",
@@ -49,20 +50,7 @@ export default () => {
           {profileSection.iconLinks?.length && (
             <div className="flex gap-1">
               {profileSection.iconLinks.map(({ icon, href, text }) => {
-                let IconComponent: React.ElementType;
-                switch (icon) {
-                  case "envelope":
-                    IconComponent = Icons.envelope;
-                    break;
-                  case "github":
-                    IconComponent = Icons.gitHub;
-                    break;
-                  case "linkedin":
-                    IconComponent = Icons.linkedin;
-                    break;
-                  default:
-                    IconComponent = Icons.globe;
-                }
+                const IconComponent = getIconComponent(icon);
 
                 return (
                   <Link key={href} href={href} target="_blank" title={text} className="group rounded-lg border p-2 transition-colors hover:bg-neutral-100">
@@ -209,4 +197,17 @@ export default () => {
       )}
     </div>
   );
+};
+
+const getIconComponent = (icon: CVIcon) => {
+  switch (icon) {
+    case "envelope":
+      return Icons.envelope;
+    case "github":
+      return Icons.gitHub;
+    case "linkedin":
+      return Icons.linkedin;
+    default:
+      return Icons.globe;
+  }
 };

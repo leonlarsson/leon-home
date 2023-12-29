@@ -55,11 +55,13 @@ export type ProfileSection = {
     timezone?: `${string}/${string}`;
   };
   iconLinks?: {
-    icon: "envelope" | "github" | "linkedin";
+    icon: CVIcon;
     href: string;
     text: string;
   }[];
 };
+
+export type CVIcon = "envelope" | "github" | "linkedin";
 
 export type AboutSection = {
   sectionTitle: string;
