@@ -80,7 +80,7 @@ export default () => {
       {/* About */}
       {aboutSection && (
         <div className="flex flex-col gap-2">
-          <h2 className="text-xl font-bold underline">{aboutSection.sectionTitle}</h2>
+          <h2 className="text-xl font-bold underline decoration-1 underline-offset-2">{aboutSection.sectionTitle}</h2>
           <div className="flex flex-col gap-2">
             {aboutSection.description.map(text => (
               <p key={text} className="font-geist-mono text-xs text-neutral-600">
@@ -94,7 +94,7 @@ export default () => {
       {/* Work */}
       {employmentSection.history.length > 0 && (
         <div className="flex flex-col gap-2">
-          <h2 className="text-xl font-bold underline">{employmentSection.sectionTitle}</h2>
+          <h2 className="text-xl font-bold underline decoration-1 underline-offset-2">{employmentSection.sectionTitle}</h2>
           <div className="flex flex-col gap-3">
             {employmentSection.history.map(({ title, company, companyUrl, description, start, end }, i) => (
               <Fragment key={i}>
@@ -136,7 +136,7 @@ export default () => {
       {/* Education */}
       {educationSection.history.length > 0 && (
         <div className="flex flex-col gap-2">
-          <h2 className="text-xl font-bold underline">{educationSection.sectionTitle}</h2>
+          <h2 className="text-xl font-bold underline decoration-1 underline-offset-2">{educationSection.sectionTitle}</h2>
           <div className="flex flex-col gap-3">
             {educationSection.history.map(({ school, schoolUrl, description, start, end }, i) => (
               <Fragment key={i}>
@@ -174,7 +174,7 @@ export default () => {
       {/* Projects */}
       {projectsSection.projects.length > 0 && (
         <div className="flex flex-col gap-2">
-          <h2 className="text-xl font-bold underline">{projectsSection.sectionTitle}</h2>
+          <h2 className="text-xl font-bold underline decoration-1 underline-offset-2">{projectsSection.sectionTitle}</h2>
 
           <p className="font-geist-mono text-xs text-neutral-600">{projectsSection.sectionDescription}</p>
 
