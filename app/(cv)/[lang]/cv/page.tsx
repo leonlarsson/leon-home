@@ -85,7 +85,7 @@ export default ({ params: { lang } }: Props) => {
           )}
         </div>
 
-        {profileSection.avatar && <Image className="hidden rounded-xl sm:block" src={profileSection.avatar} alt={profileSection.name} width={100} height={100} />}
+        {profileSection.avatar && <Image className="hidden rounded-xl sm:block" src={profileSection.avatar} alt={profileSection.name} width={100} height={100} priority placeholder="blur" />}
       </div>
 
       {/* About */}
