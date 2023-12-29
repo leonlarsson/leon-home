@@ -15,7 +15,7 @@ export default () => {
       <div className="flex items-center justify-between gap-10">
         <div className="flex flex-col gap-2">
           <h1 className="text-2xl font-bold">Leon San José Larsson</h1>
-          <p className="font-geist-mono text-sm text-neutral-600">Aspiring Full Stack Engineer working in vidoe games marketing.</p>
+          <p className="font-geist-mono text-sm text-neutral-600">Aspiring Full Stack Engineer working in video games marketing.</p>
 
           <Link href="https://leonlarsson.com" target="_blank" className="flex w-fit items-center gap-1 font-geist-mono text-xs text-neutral-600 hover:underline">
             <Icons.link className="size-4" /> leonlarsson.com
@@ -51,7 +51,7 @@ export default () => {
           </div>
         </div>
 
-        <Image className="rounded-xl" src="/assets/images/avatar.png" alt="Leon Image" width={100} height={100} />
+        <Image className="hidden rounded-xl sm:block" src="/assets/images/avatar.png" alt="Leon Image" width={100} height={100} />
       </div>
 
       {/* About */}
