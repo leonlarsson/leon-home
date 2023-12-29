@@ -1,8 +1,19 @@
 import avatar from "./images/avatar.png";
 import projects from "../projects";
-import { AboutSection, EducationSection, EmploymentSection, ProfileSection, ProjectsSection } from "@/types";
+import { CVAboutSection, CVEducationSection, CVEmploymentSection, CVMetadata, CVProfileSection, CVProjectsSection } from "@/types";
 
-export const profileSection: ProfileSection = {
+export const metadata: CVMetadata = {
+  title: {
+    en: "English CV",
+    sv: "Svenskt CV",
+  },
+  description: {
+    en: "Leon San José Larsson's CV/Resume in English.",
+    sv: "Leon San José Larssons CV/Resume på svenska.",
+  },
+} satisfies CVMetadata;
+
+export const profileSection: CVProfileSection = {
   name: "Leon San José Larsson",
   avatar: avatar,
   tagline: {
@@ -40,9 +51,9 @@ export const profileSection: ProfileSection = {
     },
   ],
   showPrintButton: true,
-} satisfies ProfileSection;
+} satisfies CVProfileSection;
 
-export const aboutSection: AboutSection = {
+export const aboutSection: CVAboutSection = {
   sectionTitle: {
     en: "About me",
     sv: "Om mig",
@@ -51,9 +62,9 @@ export const aboutSection: AboutSection = {
     en: ["I'm an aspiring Full Stack Engineer in self-training. My primary areas of interest are web development and Discord bots. I also extensively work on creating various APIs and services on platforms such as Cloudflare Workers."],
     sv: ["Jag är en aspirerande Full Stack-utvecklare. Mina primära intresseområden är webbutveckling och Discord-bottar. Jag arbetar också omfattande med att skapa olika API:er och tjänster på plattformar som Cloudflare Workers."],
   },
-} satisfies AboutSection;
+} satisfies CVAboutSection;
 
-export const employmentSection: EmploymentSection = {
+export const employmentSection: CVEmploymentSection = {
   sectionTitle: {
     en: "Work Experience",
     sv: "Arbetslivserfarenhet",
@@ -87,9 +98,9 @@ export const employmentSection: EmploymentSection = {
       end: "2022",
     },
   ],
-} satisfies EmploymentSection;
+} satisfies CVEmploymentSection;
 
-export const educationSection: EducationSection = {
+export const educationSection: CVEducationSection = {
   sectionTitle: {
     en: "Education",
     sv: "Utbildning",
@@ -106,9 +117,9 @@ export const educationSection: EducationSection = {
       end: "2018",
     },
   ],
-} satisfies EducationSection;
+} satisfies CVEducationSection;
 
-export const projectsSection: ProjectsSection = {
+export const projectsSection: CVProjectsSection = {
   sectionTitle: {
     en: "Projects",
     sv: "Projekt",
@@ -122,4 +133,4 @@ export const projectsSection: ProjectsSection = {
     sv: "Bläddra bland alla projekt",
   },
   projects: [...projects].reverse().filter(x => x.displayInCv),
-} satisfies ProjectsSection;
+} satisfies CVProjectsSection;

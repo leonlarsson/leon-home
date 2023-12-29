@@ -4,7 +4,7 @@ import Link from "next/link";
 import Icons from "@/app/(main)/components/icons";
 import CurrentTime from "../components/CurrentTime";
 import PrintButton from "../components/PrintButton";
-import { aboutSection, educationSection, employmentSection, profileSection, projectsSection } from "@/data/cv";
+import { aboutSection, educationSection, employmentSection, metadata, profileSection, projectsSection } from "@/data/cv";
 import { CVIcon } from "@/types";
 import { redirect } from "next/navigation";
 
@@ -15,9 +15,11 @@ type Props = {
 };
 
 export const generateMetadata = ({ params: { locale } }: Props) => {
+  if (locale !== "en" && locale !== "sv") return;
+
   return {
-    title: locale === "en" ? "English CV" : "Svenskt CV",
-    description: locale === "en" ? "Leon San José Larsson's CV/Resume in English." : "Leon San José Larssons CV/Resume på svenska.",
+    title: metadata.title[locale],
+    description: metadata.description[locale],
   };
 };
 

@@ -40,7 +40,19 @@ export type Post = {
 };
 
 // CV
-export type ProfileSection = {
+
+export type CVMetadata = {
+  title: {
+    en: string;
+    sv: string;
+  };
+  description: {
+    en: string;
+    sv: string;
+  };
+};
+
+export type CVProfileSection = {
   name: string;
   avatar?: StaticImageData;
   tagline: {
@@ -71,7 +83,7 @@ export type ProfileSection = {
 
 export type CVIcon = "envelope" | "github" | "linkedin";
 
-export type AboutSection = {
+export type CVAboutSection = {
   sectionTitle: {
     en: string;
     sv: string;
@@ -82,7 +94,7 @@ export type AboutSection = {
   };
 } | null;
 
-export type EmploymentSection = {
+export type CVEmploymentSection = {
   sectionTitle: {
     en: string;
     sv: string;
@@ -100,7 +112,7 @@ export type EmploymentSection = {
   }[];
 };
 
-export type EducationSection = {
+export type CVEducationSection = {
   sectionTitle: {
     en: string;
     sv: string;
@@ -117,7 +129,7 @@ export type EducationSection = {
   }[];
 };
 
-export type ProjectsSection = {
+export type CVProjectsSection = {
   sectionTitle: {
     en: string;
     sv: string;
