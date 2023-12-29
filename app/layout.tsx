@@ -14,7 +14,7 @@ import "/public/fontawesome/css/solid.min.css";
 import "/public/fontawesome/css/brands.min.css";
 
 const pageTitle = "Leon San José Larsson";
-const pageDescription = "Hobby product engineer working in video games marketing.";
+const pageDescription = "Aspiring Full Stack Engineer working in video games marketing.";
 
 export const metadata: Metadata = {
   title: {

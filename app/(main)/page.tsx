@@ -37,7 +37,7 @@ export default () => {
 
         {/* DEV */}
         <div>
-          I'm a hobbyist product engineer in self-training. My primary areas of interest are web development and Discord bots. I also extensively work on creating various APIs and services on platforms such as Cloudflare Workers. Feel free to{" "}
+          I'm an aspiring Full Stack Engineer in self-training. My primary areas of interest are web development and Discord bots. I also extensively work on creating various APIs and services on platforms such as Cloudflare Workers. Feel free to{" "}
           <Link href="/projects" className="font-semibold underline-offset-2 hover:underline">
             browse all my projects!
           </Link>
