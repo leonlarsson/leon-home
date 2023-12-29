@@ -60,6 +60,8 @@ export type ProfileSection = {
     href: string;
     text: string;
   }[];
+  /** Whether to render a print button last in the iconLinks array. */
+  showPrintButton?: boolean;
 };
 
 export type CVIcon = "envelope" | "github" | "linkedin";

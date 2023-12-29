@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Icons from "@/app/(main)/components/icons";
 import CurrentTime from "./components/CurrentTime";
+import PrintButton from "./components/PrintButton";
 import { aboutSection, educationSection, employmentSection, profileSection, projectsSection } from "@/data/cv";
 import { CVIcon } from "@/types";
 
@@ -49,13 +50,22 @@ export default () => {
           {/* Icon Links */}
           {profileSection.iconLinks?.length && (
             <div className="flex gap-1">
-              {profileSection.iconLinks.map(({ icon, href, text }) => {
+              {profileSection.iconLinks.map(({ icon, href, text }, i) => {
                 const IconComponent = getIconComponent(icon);
 
                 return (
-                  <Link key={href} href={href} target="_blank" title={text} className="group rounded-lg border p-2 transition-colors hover:bg-neutral-100">
-                    <IconComponent className="size-4 text-neutral-600 transition-colors group-hover:text-black" />
-                  </Link>
+                  <>
+                    <Link key={href} href={href} target="_blank" title={text} className="group rounded-lg border p-2 transition-colors hover:bg-neutral-100">
+                      <IconComponent className="size-4 text-neutral-600 transition-colors group-hover:text-black" />
+                    </Link>
+
+                    {/* Show print button if last index and enabled */}
+                    {i === profileSection.iconLinks!.length! - 1 && profileSection.showPrintButton && (
+                      <PrintButton title="Print this page." className="group rounded-lg border p-2 transition-colors hover:bg-neutral-100 print:hidden">
+                        <Icons.print className="size-4 text-neutral-600 transition-colors group-hover:text-black" />
+                      </PrintButton>
+                    )}
+                  </>
                 );
               })}
             </div>

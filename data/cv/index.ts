@@ -42,6 +42,7 @@ export const profileSection: ProfileSection = {
       text: "LinkedIn",
     },
   ],
+  showPrintButton: true,
 } satisfies ProfileSection;
 
 export const aboutSection: AboutSection = {
