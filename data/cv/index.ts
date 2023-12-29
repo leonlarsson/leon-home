@@ -18,7 +18,7 @@ export const profileSection: CVProfileSection = {
   avatar: avatar,
   tagline: {
     en: "Aspiring Full Stack Engineer working in video games marketing.",
-    sv: "Aspirerande Full Stack-utvecklare som arbetar med marknadsföring av datorspel.",
+    sv: "Aspirerande Full Stack-utvecklare som arbetar med marknadsföring.",
   },
   title: "Community & Support Specialist",
   url: {
