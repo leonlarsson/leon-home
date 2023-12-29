@@ -13,25 +13,30 @@ export default () => {
     <div className="flex flex-col gap-6">
       {/* Top */}
       <div className="flex items-center justify-between gap-10">
-        <div className="flex flex-col gap-2">
-          <h1 className="text-2xl font-bold">Leon San José Larsson</h1>
-          <p className="font-geist-mono text-sm text-neutral-600">Aspiring Full Stack Engineer working in video games marketing.</p>
-
-          <Link href="https://leonlarsson.com" target="_blank" className="flex w-fit items-center gap-1 font-geist-mono text-xs text-neutral-600 hover:underline">
-            <Icons.link className="size-4" /> leonlarsson.com
-          </Link>
-
-          <Link href="https://www.google.com/maps/place/Malm%C3%B6" target="_blank" className="w-fit font-geist-mono text-xs text-neutral-600 hover:underline">
-            <span className="flex items-center gap-1">
-              <Icons.globe className="size-4 shrink-0" />
-              <span suppressHydrationWarning>
-                Malmö, Sweden, CET (<CurrentTime timeZone="Europe/Stockholm" />)
-              </span>
-            </span>
-          </Link>
+        <div className="flex flex-col gap-3">
+          <div>
+            <h1 className="text-2xl font-bold">Leon San José Larsson</h1>
+            <p className="font-geist-mono text-sm text-neutral-600">Aspiring Full Stack Engineer working in video games marketing.</p>
+          </div>
 
           {/* Links */}
-          <div className="flex gap-2">
+          <div className="flex flex-col gap-1">
+            <Link href="https://leonlarsson.com" target="_blank" className="flex w-fit items-center gap-1 font-geist-mono text-xs text-neutral-600 hover:underline">
+              <Icons.link className="size-4" /> leonlarsson.com
+            </Link>
+
+            <Link href="https://www.google.com/maps/place/Malm%C3%B6" target="_blank" className="w-fit font-geist-mono text-xs text-neutral-600 hover:underline">
+              <span className="flex items-center gap-1">
+                <Icons.globe className="size-4 shrink-0" />
+                <span suppressHydrationWarning>
+                  Malmö, Sweden, CET (<CurrentTime timeZone="Europe/Stockholm" />)
+                </span>
+              </span>
+            </Link>
+          </div>
+
+          {/* Icon Links */}
+          <div className="flex gap-1">
             {[
               {
                 icon: <Icons.envelope className="size-4 text-neutral-600 transition-colors group-hover:text-black" />,
