@@ -32,7 +32,14 @@ export default ({ params: { locale } }: Props) => {
       <div className="flex items-center justify-between gap-10">
         <div className="flex flex-col gap-3">
           <div>
-            <h1 className="text-2xl font-bold">{profileSection.name}</h1>
+            <h1 className="text-xl font-bold min-[400px]:text-2xl">
+              <span>
+                {profileSection.name}{" "}
+                <Link href={locale === "en" ? "/sv/cv" : "/en/cv"} title={locale === "en" ? "Read the Swedish version" : "Read the English version"}>
+                  {locale === "en" ? <Icons.sweden className="inline size-8" /> : getRandomEnglishFlagIcon()}
+                </Link>
+              </span>
+            </h1>
             <p className="font-geist-mono text-sm text-neutral-600">{profileSection.tagline[locale]}</p>
           </div>
 
@@ -85,10 +92,8 @@ export default ({ params: { locale } }: Props) => {
             </div>
           )}
         </div>
-
         {profileSection.avatar && <Image className="hidden rounded-xl sm:block" src={profileSection.avatar} alt={profileSection.name} width={100} height={100} priority placeholder="blur" />}
       </div>
-
       {/* About */}
       {aboutSection && (
         <div className="flex flex-col gap-2">
@@ -102,7 +107,6 @@ export default ({ params: { locale } }: Props) => {
           </div>
         </div>
       )}
-
       {/* Work */}
       {employmentSection.history.length > 0 && (
         <div className="flex flex-col gap-2">
@@ -144,7 +148,6 @@ export default ({ params: { locale } }: Props) => {
           </div>
         </div>
       )}
-
       {/* Education */}
       {educationSection.history.length > 0 && (
         <div className="flex flex-col gap-2">
@@ -182,7 +185,6 @@ export default ({ params: { locale } }: Props) => {
           </div>
         </div>
       )}
-
       {/* Projects */}
       {projectsSection.projects.length > 0 && (
         <div className="flex flex-col gap-2">
@@ -234,4 +236,10 @@ const getIconComponent = (icon: CVIcon) => {
     default:
       return Icons.globe;
   }
+};
+
+const getRandomEnglishFlagIcon = () => {
+  const icons = [Icons.unitedKingdom, Icons.unitedStates];
+  const RandomIcon = icons[Math.floor(Math.random() * icons.length)];
+  return <RandomIcon className="inline size-8" />;
 };

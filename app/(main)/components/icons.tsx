@@ -182,4 +182,48 @@ export default {
       />
     </svg>
   ),
+  sweden: (props: IconProps) => (
+    <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 16 10" {...props}>
+      <path fill="#006aa7" d="M0,0H16V10H0Z" />
+      <path fill="#fecc00" d="M0,4H5V0H7V4H16V6H7V10H5V6H0Z" />
+    </svg>
+  ),
+  unitedStates: (props: IconProps) => (
+    <svg xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" height="1em" viewBox="0 0 7410 3900" {...props}>
+      <rect width="7410" height="3900" fill="#b22234" />
+      <path d="M0,450H7410m0,600H0m0,600H7410m0,600H0m0,600H7410m0,600H0" stroke="#fff" strokeWidth="300" />
+      <rect width="2964" height="2100" fill="#3c3b6e" />
+      <g fill="#fff">
+        <g id="s18">
+          <g id="s9">
+            <g id="s5">
+              <g id="s4">
+                <path id="s" d="M247,90 317.534230,307.082039 132.873218,172.917961H361.126782L176.465770,307.082039z" />
+                <use xlinkHref="#s" y="420" />
+                <use xlinkHref="#s" y="840" />
+                <use xlinkHref="#s" y="1260" />
+              </g>
+              <use xlinkHref="#s" y="1680" />
+            </g>
+            <use xlinkHref="#s4" x="247" y="210" />
+          </g>
+          <use xlinkHref="#s9" x="494" />
+        </g>
+        <use xlinkHref="#s18" x="988" />
+        <use xlinkHref="#s9" x="1976" />
+        <use xlinkHref="#s5" x="2470" />
+      </g>
+    </svg>
+  ),
+  unitedKingdom: (props: IconProps) => (
+    <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 50 30" {...props}>
+      <clipPath id="t">
+        <path d="M25,15h25v15zv15h-25zh-25v-15zv-15h25z" />
+      </clipPath>
+      <path d="M0,0v30h50v-30z" fill="#012169" />
+      <path d="M0,0 50,30M50,0 0,30" stroke="#fff" strokeWidth="6" />
+      <path d="M0,0 50,30M50,0 0,30" clipPath="url(#t)" stroke="#C8102E" strokeWidth="4" />
+      <path d="M-1 11h22v-12h8v12h22v8h-22v12h-8v-12h-22z" fill="#C8102E" stroke="#FFF" strokeWidth="2" />
+    </svg>
+  ),
 };
