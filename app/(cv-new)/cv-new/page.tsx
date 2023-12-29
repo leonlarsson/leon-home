@@ -149,7 +149,7 @@ export default () => {
             .reverse()
             .filter(x => x.displayInCv)
             .map(({ name, shortDescription, slug, tags, year }) => (
-              <div key={slug} className="group flex flex-col gap-[2px] rounded-lg p-1 hover:bg-neutral-200">
+              <div key={slug} className="flex flex-col gap-[2px] rounded-lg border border-neutral-200 p-2 transition-colors hover:border-neutral-400">
                 <div className="flex items-baseline justify-between">
                   <Link href={`/projects/${slug}`} target="_blank" className="font-semibold hover:underline">
                     {name}
@@ -162,7 +162,7 @@ export default () => {
 
                 <div className="flex flex-wrap gap-1">
                   {tags?.map(tag => (
-                    <Link key={tag} href={`/projects?search=${tag}`} target="_blank" title={`See other projects with the tag ${tag}.`} className="rounded bg-neutral-200 p-1 font-geist-mono text-xs text-neutral-800 outline-1 hover:outline group-hover:bg-neutral-300">
+                    <Link key={tag} href={`/projects?search=${tag}`} target="_blank" title={`See other projects tagged with ${tag}.`} className="rounded bg-neutral-200 p-1 font-geist-mono text-xs text-neutral-800 outline-1 hover:outline">
                       {tag}
                     </Link>
                   ))}
@@ -170,32 +170,9 @@ export default () => {
               </div>
             ))}
 
-          <Link href="/projects" target="_blank" className="font-semibold hover:underline">
-            <Icons.arrowRight className="inline" /> Browse all projects
+          <Link href="/projects" target="_blank" className="group font-semibold">
+            <Icons.arrowRight className="inline" /> <span className="group-hover:underline">Browse all projects</span>
           </Link>
-        </div>
-
-        <div className="grid grid-cols-1 grid-rows-[masonry] gap-2 sm:grid-cols-2 md:grid-cols-3">
-          {projects
-            .filter(x => x.displayInCv)
-            .map(({ name, shortDescription, slug, tags }) => (
-              <Link key={slug} href={`/projects/${slug}`} target="_blank" className="flex flex-col justify-between gap-2 rounded-xl border border-neutral-200 p-2 transition-colors hover:border-neutral-400">
-                <div>
-                  <h3 className="font-semibold">{name}</h3>
-
-                  <p className="font-geist-mono text-xs text-neutral-600">{shortDescription}</p>
-                </div>
-
-                {/* Project tags (might be killed) */}
-                <div className="flex flex-wrap gap-1">
-                  {tags?.map(tag => (
-                    <span key={tag} className="rounded bg-neutral-200 p-1 text-xs">
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              </Link>
-            ))}
         </div>
       </div>
     </div>
