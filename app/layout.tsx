@@ -1,7 +1,7 @@
 // ROOT LAYOUT - SETS UP METADATA AND FONTS
 
 import type { Metadata } from "next";
-import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Inter } from "next/font/google";
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 import { GeistMono } from "geist/font/mono";
@@ -43,7 +43,7 @@ export default ({ children }: { children: React.ReactNode }) => {
   return (
     <html className={`${inter.variable} ${GeistMono.variable} overflow-y-scroll`} lang="en">
       <body>
-        <Analytics />
+        <SpeedInsights />
         {children}
       </body>
     </html>
