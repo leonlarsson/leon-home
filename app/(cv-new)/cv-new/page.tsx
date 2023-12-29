@@ -158,9 +158,9 @@ export default () => {
 
                 <div className="flex flex-wrap gap-1">
                   {tags?.map(tag => (
-                    <span key={tag} className="rounded bg-neutral-200 p-1 text-xs group-hover:bg-neutral-300">
+                    <Link key={tag} href={`/projects?search=${tag}`} target="_blank" title={`See other projects with the tag ${tag}.`} className="rounded bg-neutral-200 p-1 font-geist-mono text-xs text-neutral-800 outline-1 hover:outline group-hover:bg-neutral-300">
                       {tag}
-                    </span>
+                    </Link>
                   ))}
                 </div>
               </div>
