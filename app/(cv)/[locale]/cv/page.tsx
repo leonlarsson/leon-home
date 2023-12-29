@@ -55,12 +55,12 @@ export default ({ params: { locale } }: Props) => {
               <Link href={profileSection.location.href} target="_blank" className="w-fit font-geist-mono text-xs text-neutral-600 hover:underline">
                 <span className="flex items-center gap-1">
                   <Icons.globe className="size-4 shrink-0" />
-                  <span suppressHydrationWarning>
+                  <span>
                     {profileSection.location.text[locale]}{" "}
                     {profileSection.location.timezone && (
-                      <>
+                      <span suppressHydrationWarning className="print:hidden">
                         (<CurrentTime locale={locale} timeZone={profileSection.location.timezone} />)
-                      </>
+                      </span>
                     )}
                   </span>
                 </span>
