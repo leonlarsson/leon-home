@@ -2,16 +2,28 @@ import { Fragment } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Icons from "@/app/(main)/components/icons";
-import CurrentTime from "./components/CurrentTime";
-import PrintButton from "./components/PrintButton";
+import CurrentTime from "../cv-new/components/CurrentTime";
+import PrintButton from "../cv-new/components/PrintButton";
 import { aboutSection, educationSection, employmentSection, profileSection, projectsSection } from "@/data/cv";
 import { CVIcon } from "@/types";
+import { notFound } from "next/navigation";
 
-export const metadata = {
-  title: "CV",
+type Props = {
+  params: {
+    lang: string;
+  };
 };
 
-export default () => {
+export const generateMetadata = ({ params: { lang } }: Props) => {
+  return {
+    title: lang === "cv-new" ? "English CV" : "Svenskt CV",
+    description: lang === "cv-new" ? "Leon San José Larsson's CV/Resume in English." : "Leon San José Larssons CV/Resume på svenska.",
+  };
+};
+
+export default ({ params: { lang } }: Props) => {
+  const language = ["cv-new", "cv-new-swe"].includes(lang) ? (lang === "cv-new" ? "en" : "sv") : notFound();
+
   return (
     <div className="flex flex-col gap-6">
       {/* Profile */}
@@ -19,7 +31,7 @@ export default () => {
         <div className="flex flex-col gap-3">
           <div>
             <h1 className="text-2xl font-bold">{profileSection.name}</h1>
-            <p className="font-geist-mono text-sm text-neutral-600">{profileSection.tagline}</p>
+            <p className="font-geist-mono text-sm text-neutral-600">{profileSection.tagline[language]}</p>
           </div>
 
           {/* Links */}
@@ -78,9 +90,9 @@ export default () => {
       {/* About */}
       {aboutSection && (
         <div className="flex flex-col gap-2">
-          <h2 className="text-xl font-bold underline decoration-1 underline-offset-2">{aboutSection.sectionTitle}</h2>
+          <h2 className="text-xl font-bold underline decoration-1 underline-offset-2">{aboutSection.sectionTitle[language]}</h2>
           <div className="flex flex-col gap-2">
-            {aboutSection.description.map(text => (
+            {aboutSection.description[language].map(text => (
               <p key={text} className="font-geist-mono text-xs text-neutral-600">
                 {text}
               </p>
@@ -92,7 +104,7 @@ export default () => {
       {/* Work */}
       {employmentSection.history.length > 0 && (
         <div className="flex flex-col gap-2">
-          <h2 className="text-xl font-bold underline decoration-1 underline-offset-2">{employmentSection.sectionTitle}</h2>
+          <h2 className="text-xl font-bold underline decoration-1 underline-offset-2">{employmentSection.sectionTitle[language]}</h2>
           <div className="flex flex-col gap-3">
             {employmentSection.history.map(({ title, company, companyUrl, description, start, end }, i) => (
               <Fragment key={i}>
@@ -116,7 +128,7 @@ export default () => {
 
                   {/* Description */}
                   <div className="flex flex-col gap-2">
-                    {description.map(text => (
+                    {description[language].map(text => (
                       <p key={text} className="font-geist-mono text-xs text-neutral-600">
                         {text}
                       </p>
@@ -134,7 +146,7 @@ export default () => {
       {/* Education */}
       {educationSection.history.length > 0 && (
         <div className="flex flex-col gap-2">
-          <h2 className="text-xl font-bold underline decoration-1 underline-offset-2">{educationSection.sectionTitle}</h2>
+          <h2 className="text-xl font-bold underline decoration-1 underline-offset-2">{educationSection.sectionTitle[language]}</h2>
           <div className="flex flex-col gap-3">
             {educationSection.history.map(({ school, schoolUrl, description, start, end }, i) => (
               <Fragment key={i}>
@@ -154,7 +166,7 @@ export default () => {
 
                   {/* Description */}
                   <div className="flex flex-col gap-2">
-                    {description.map(text => (
+                    {description[language].map(text => (
                       <p key={text} className="font-geist-mono text-xs text-neutral-600">
                         {text}
                       </p>
@@ -172,9 +184,9 @@ export default () => {
       {/* Projects */}
       {projectsSection.projects.length > 0 && (
         <div className="flex flex-col gap-2">
-          <h2 className="text-xl font-bold underline decoration-1 underline-offset-2">{projectsSection.sectionTitle}</h2>
+          <h2 className="text-xl font-bold underline decoration-1 underline-offset-2">{projectsSection.sectionTitle[language]}</h2>
 
-          <p className="font-geist-mono text-xs text-neutral-600">{projectsSection.sectionDescription}</p>
+          <p className="font-geist-mono text-xs text-neutral-600">{projectsSection.sectionDescription[language]}</p>
 
           <div className="flex flex-col gap-2">
             {projectsSection.projects.map(({ name, shortDescription, slug, tags, year }) => (
@@ -200,7 +212,7 @@ export default () => {
             ))}
 
             <Link href="/projects" target="_blank" className="group font-semibold">
-              <Icons.arrowRight className="inline" /> <span className="group-hover:underline">{projectsSection.browseAllText}</span>
+              <Icons.arrowRight className="inline" /> <span className="group-hover:underline">{projectsSection.browseAllText[language]}</span>
             </Link>
           </div>
         </div>

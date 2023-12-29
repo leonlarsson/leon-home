@@ -43,8 +43,10 @@ export type Post = {
 export type ProfileSection = {
   name: string;
   avatar?: StaticImageData;
-  tagline: string;
-  taglineSwedish: string;
+  tagline: {
+    en: string;
+    sv: string;
+  };
   title: string;
   url?: {
     href: string;
@@ -67,44 +69,63 @@ export type ProfileSection = {
 export type CVIcon = "envelope" | "github" | "linkedin";
 
 export type AboutSection = {
-  sectionTitle: string;
-  sectionTitleSwedish: string;
-  description: string[];
-  descriptionSwedish: string[];
+  sectionTitle: {
+    en: string;
+    sv: string;
+  };
+  description: {
+    en: string[];
+    sv: string[];
+  };
 } | null;
 
 export type EmploymentSection = {
-  sectionTitle: string;
-  sectionTitleSwedish: string;
+  sectionTitle: {
+    en: string;
+    sv: string;
+  };
   history: {
     title: string;
     company: string;
     companyUrl: string;
-    description: string[];
-    descriptionSwedish: string[];
+    description: {
+      en: string[];
+      sv: string[];
+    };
     start: string;
     end?: string;
   }[];
 };
 
 export type EducationSection = {
-  sectionTitle: string;
-  sectionTitleSwedish: string;
+  sectionTitle: {
+    en: string;
+    sv: string;
+  };
   history: {
     school: string;
     schoolUrl: string;
-    description: string[];
+    description: {
+      en: string[];
+      sv: string[];
+    };
     start: string;
     end?: string;
   }[];
 };
 
 export type ProjectsSection = {
-  sectionTitle: string;
-  sectionTitleSwedish: string;
-  sectionDescription?: string;
-  sectionDescriptionSwedish?: string;
-  browseAllText: string;
-  browseAllTextSwedish: string;
+  sectionTitle: {
+    en: string;
+    sv: string;
+  };
+  sectionDescription: {
+    en: string;
+    sv: string;
+  };
+  browseAllText: {
+    en: string;
+    sv: string;
+  };
   projects: Project[];
 };
