@@ -51,7 +51,7 @@ export default ({ params: { lang } }: Props) => {
                     {profileSection.location.text}{" "}
                     {profileSection.location.timezone && (
                       <>
-                        (<CurrentTime timeZone={profileSection.location.timezone} />)
+                        (<CurrentTime locale={lang} timeZone={profileSection.location.timezone} />)
                       </>
                     )}
                   </span>
