@@ -10,20 +10,19 @@ import { redirect } from "next/navigation";
 
 type Props = {
   params: {
-    lang: string;
+    locale: string;
   };
 };
 
-export const generateMetadata = ({ params: { lang } }: Props) => {
+export const generateMetadata = ({ params: { locale } }: Props) => {
   return {
-    title: lang === "en" ? "English CV" : "Svenskt CV",
-    description: lang === "en" ? "Leon San José Larsson's CV/Resume in English." : "Leon San José Larssons CV/Resume på svenska.",
+    title: locale === "en" ? "English CV" : "Svenskt CV",
+    description: locale === "en" ? "Leon San José Larsson's CV/Resume in English." : "Leon San José Larssons CV/Resume på svenska.",
   };
 };
 
-export default ({ params: { lang } }: Props) => {
-  if (!["en", "sv"].includes(lang)) redirect("/en/cv");
-  const locale = lang === "en" ? "en" : "sv";
+export default ({ params: { locale } }: Props) => {
+  if (locale !== "en" && locale !== "sv") return redirect("/en/cv");
 
   return (
     <div className="flex flex-col gap-6">
