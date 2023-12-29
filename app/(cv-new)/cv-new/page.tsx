@@ -140,6 +140,10 @@ export default () => {
       <div className="flex flex-col gap-2">
         <h2 className="text-xl font-bold underline">Projects</h2>
 
+        <p className="font-geist-mono text-xs text-neutral-600">
+          I have a strong interest in software engineering and frontend design. I love working with technologies such as React, Next.js, Node.js using JavaScript (and TypeScript). I also have some experience with SQLite and MySQL. Below you can read about a few of my projects.
+        </p>
+
         <div className="flex flex-col gap-2">
           {[...projects]
             .reverse()
