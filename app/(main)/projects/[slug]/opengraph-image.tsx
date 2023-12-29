@@ -1,5 +1,5 @@
 import { ImageResponse } from "next/og";
-import projects from "../data";
+import projects from "@/data/projects";
 
 export const runtime = "edge";
 
@@ -37,9 +37,9 @@ export default async ({ params }: { params: { slug: string } }) => {
         {
           name: "Inter",
           data: regularFontData,
-          weight: 400
-        }
-      ]
-    }
+          weight: 400,
+        },
+      ],
+    },
   );
 };

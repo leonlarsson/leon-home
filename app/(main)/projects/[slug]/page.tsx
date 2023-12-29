@@ -4,7 +4,7 @@ import Image from "next/image";
 import { redirect } from "next/navigation";
 import type { Metadata } from "next";
 import generateOGMetadata from "@/app/utils/generateOGMetadata";
-import projects from "../data";
+import projects from "@/data/projects";
 import ProjectsGrid from "../components/ProjectsGrid";
 import Tag from "../components/Tag";
 import GradientBorder from "../../components/GradientBorder";
@@ -25,14 +25,14 @@ export const generateMetadata = ({ params }: { params: { slug: string } }): Meta
       title: pageTitle,
       description: pageDescription,
       url: `https://leonlarsson.com/projects${project ? `/${project.slug}` : ""}`,
-      appendNameInOG: true
-    })
+      appendNameInOG: true,
+    }),
   };
 };
 
 export const generateStaticParams = () => {
   return projects.map(project => ({
-    slug: project.slug
+    slug: project.slug,
   }));
 };
 
@@ -46,7 +46,7 @@ export default ({ params }: { params: { slug: string } }) => {
 
   return (
     <div className="pb-10 text-start">
-      <div className="mx-auto mb-2 flex max-w-3xl select-none justify-between font-light text-neutral-800 dark:text-neutral-300 max-[400px]:text-sm">
+      <div className="mx-auto mb-2 flex max-w-3xl select-none justify-between font-light text-neutral-800 max-[400px]:text-sm dark:text-neutral-300">
         <div className="w-full text-start">
           {previousProject && (
             <Link className="flex items-center underline-offset-2 transition-all hover:font-normal hover:text-black hover:underline dark:hover:text-kinda-white" href={`/projects/${previousProject.slug}`} title={`Previous project, ${previousProject.name}.`} draggable={false}>

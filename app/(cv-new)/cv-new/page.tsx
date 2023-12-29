@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import Icons from "@/app/(main)/components/icons";
-import projects from "@/app/(main)/projects/data";
+import projects from "@/data/projects";
 import CurrentTime from "./components/CurrentTime";
 
 export const metadata = {

@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import projects from "./projects/data";
+import projects from "@/data/projects";
 import TypeAnimation from "./components/TypeAnimation";
 import GradientBorder from "./components/GradientBorder";
 import smLogo from "/public/assets/images/smlogo_notext.png";
@@ -83,7 +83,7 @@ export default () => {
               { title: "X / Twitter", url: "https://x.com/MozzyFX", icon: <Icons.twitterX className="me-2 inline h-5" /> },
               { title: "Bluesky", url: "https://bsky.app/profile/leon.ms", icon: <Icons.globe className="me-2 inline h-5" /> },
               { title: "Instagram", url: "https://www.instagram.com/leonsjlarsson/", icon: <Icons.instagram className="me-2 inline h-5" /> },
-              { title: "ArtStation", url: "https://www.artstation.com/leonlarsson", icon: <Icons.artstation className="me-2 inline h-5" /> }
+              { title: "ArtStation", url: "https://www.artstation.com/leonlarsson", icon: <Icons.artstation className="me-2 inline h-5" /> },
             ].map(({ title, url, icon }) => (
               <GradientBorder key={title} rounded="rounded-[6px]" padding="p-[2px]" hoverable>
                 <Link href={url} target="_blank" className="flex items-center justify-between rounded bg-slate-100 p-2 dark:bg-kinda-black">
@@ -104,7 +104,7 @@ export default () => {
           <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
             {[
               { title: "Open English Resume", url: "/cv" },
-              { title: "Öppna svenskt CV", url: "/cv-swe" }
+              { title: "Öppna svenskt CV", url: "/cv-swe" },
             ].map(({ title, url }) => (
               <GradientBorder key={title} rounded="rounded-[6px]" padding="p-[2px]" hoverable>
                 <Link href={url} target="_blank" className="flex items-center justify-between rounded bg-slate-100 p-2 dark:bg-kinda-black">

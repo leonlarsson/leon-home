@@ -1,5 +1,5 @@
 import { ImageResponse } from "next/og";
-import projects from "./data";
+import projects from "@/data/projects";
 
 export const runtime = "edge";
 
@@ -14,8 +14,8 @@ export default async () => {
         .filter(x => Array.isArray(x.tags))
         .map(x => x.tags)
         .flat()
-        .sort((a, b) => (a ?? "").localeCompare(b ?? ""))
-    )
+        .sort((a, b) => (a ?? "").localeCompare(b ?? "")),
+    ),
   ) as string[];
 
   return new ImageResponse(
@@ -45,9 +45,9 @@ export default async () => {
         {
           name: "Inter",
           data: regularFontData,
-          weight: 400
-        }
-      ]
-    }
+          weight: 400,
+        },
+      ],
+    },
   );
 };

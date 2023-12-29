@@ -3,7 +3,7 @@ import generateOGMetadata from "@/app/utils/generateOGMetadata";
 import Search from "./components/Search";
 import SortCheckbox from "./components/SortCheckbox";
 import ProjectsGrid from "./components/ProjectsGrid";
-import projectsData from "./data";
+import projectsData from "@/data/projects";
 
 type Props = {
   searchParams: {
@@ -24,8 +24,8 @@ export const generateMetadata = ({ searchParams }: Props): Metadata => {
       title: pageTitle,
       description: pageDescription,
       url: "https://leonlarsson.com/projects",
-      appendNameInOG: true
-    })
+      appendNameInOG: true,
+    }),
   };
 };
 
@@ -37,8 +37,8 @@ export default ({ searchParams }: Props) => {
   const projects = searchParam
     ? projectsData.filter(project =>
         [project.slug, ...(project.slugAliases ?? []), project.name, ...(typeof project.description === "string" ? [project.description] : project.description), project.shortDescription, project.year, project.link?.replace("https://", ""), ...(project.tags ?? [])].some(
-          item => item?.toLowerCase().includes(searchParam?.toLowerCase())
-        )
+          item => item?.toLowerCase().includes(searchParam?.toLowerCase()),
+        ),
       )
     : projectsData;
 
