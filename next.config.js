@@ -3,22 +3,37 @@ const nextConfig = {
   redirects: async () => [
     {
       source: "/resume",
-      destination: "/cv",
-      permanent: true
-    }
+      destination: "/en/cv",
+      permanent: true,
+    },
+    {
+      source: "/cv",
+      destination: "/en/cv",
+      permanent: true,
+    },
+    {
+      source: "/cv-swe",
+      destination: "/se/cv",
+      permanent: true,
+    },
+    {
+      source: "/se/cv",
+      destination: "/sv/cv",
+      permanent: true,
+    },
   ],
   images: {
     remotePatterns: [
       {
-        hostname: "i.scdn.co"
-      }
-    ]
+        hostname: "i.scdn.co",
+      },
+    ],
   },
   logging: {
     fetches: {
-      fullUrl: true
-    }
-  }
+      fullUrl: true,
+    },
+  },
 };
 
 module.exports = nextConfig;

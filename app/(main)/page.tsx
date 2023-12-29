@@ -103,8 +103,8 @@ export default () => {
           <span className="mt-2 text-xl font-semibold">Want to learn more?</span>
           <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
             {[
-              { title: "Open English Resume", url: "/cv" },
-              { title: "Öppna svenskt CV", url: "/cv-swe" },
+              { title: "Open English Resume", url: "/en/cv" },
+              { title: "Öppna svenskt CV", url: "/sv/cv" },
             ].map(({ title, url }) => (
               <GradientBorder key={title} rounded="rounded-[6px]" padding="p-[2px]" hoverable>
                 <Link href={url} target="_blank" className="flex items-center justify-between rounded bg-slate-100 p-2 dark:bg-kinda-black">

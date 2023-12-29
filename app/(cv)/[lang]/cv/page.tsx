@@ -2,11 +2,11 @@ import { Fragment } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Icons from "@/app/(main)/components/icons";
-import CurrentTime from "../cv-new/components/CurrentTime";
-import PrintButton from "../cv-new/components/PrintButton";
+import CurrentTime from "../components/CurrentTime";
+import PrintButton from "../components/PrintButton";
 import { aboutSection, educationSection, employmentSection, profileSection, projectsSection } from "@/data/cv";
 import { CVIcon } from "@/types";
-import { notFound } from "next/navigation";
+import { redirect } from "next/navigation";
 
 type Props = {
   params: {
@@ -16,13 +16,14 @@ type Props = {
 
 export const generateMetadata = ({ params: { lang } }: Props) => {
   return {
-    title: lang === "cv-new" ? "English CV" : "Svenskt CV",
-    description: lang === "cv-new" ? "Leon San José Larsson's CV/Resume in English." : "Leon San José Larssons CV/Resume på svenska.",
+    title: lang === "en" ? "English CV" : "Svenskt CV",
+    description: lang === "en" ? "Leon San José Larsson's CV/Resume in English." : "Leon San José Larssons CV/Resume på svenska.",
   };
 };
 
 export default ({ params: { lang } }: Props) => {
-  const language = ["cv-new", "cv-new-swe"].includes(lang) ? (lang === "cv-new" ? "en" : "sv") : notFound();
+  if (!["en", "sv"].includes(lang)) redirect("/en/cv");
+  const language = lang === "en" ? "en" : "sv";
 
   return (
     <div className="flex flex-col gap-6">
