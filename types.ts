@@ -54,7 +54,10 @@ export type ProfileSection = {
   };
   location?: {
     href: string;
-    text: string;
+    text: {
+      en: string;
+      sv: string;
+    };
     timezone?: `${string}/${string}`;
   };
   iconLinks?: {

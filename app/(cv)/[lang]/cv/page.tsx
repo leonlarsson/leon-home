@@ -23,7 +23,7 @@ export const generateMetadata = ({ params: { lang } }: Props) => {
 
 export default ({ params: { lang } }: Props) => {
   if (!["en", "sv"].includes(lang)) redirect("/en/cv");
-  const language = lang === "en" ? "en" : "sv";
+  const locale = lang === "en" ? "en" : "sv";
 
   return (
     <div className="flex flex-col gap-6">
@@ -32,7 +32,7 @@ export default ({ params: { lang } }: Props) => {
         <div className="flex flex-col gap-3">
           <div>
             <h1 className="text-2xl font-bold">{profileSection.name}</h1>
-            <p className="font-geist-mono text-sm text-neutral-600">{profileSection.tagline[language]}</p>
+            <p className="font-geist-mono text-sm text-neutral-600">{profileSection.tagline[locale]}</p>
           </div>
 
           {/* Links */}
@@ -48,10 +48,10 @@ export default ({ params: { lang } }: Props) => {
                 <span className="flex items-center gap-1">
                   <Icons.globe className="size-4 shrink-0" />
                   <span suppressHydrationWarning>
-                    {profileSection.location.text}{" "}
+                    {profileSection.location.text[locale]}{" "}
                     {profileSection.location.timezone && (
                       <>
-                        (<CurrentTime locale={lang} timeZone={profileSection.location.timezone} />)
+                        (<CurrentTime locale={locale} timeZone={profileSection.location.timezone} />)
                       </>
                     )}
                   </span>
@@ -74,7 +74,7 @@ export default ({ params: { lang } }: Props) => {
 
                     {/* Show print button if last index and enabled */}
                     {i === profileSection.iconLinks!.length! - 1 && profileSection.showPrintButton && (
-                      <PrintButton title="Print this page." className="group rounded-lg border p-2 transition-colors hover:bg-neutral-100 print:hidden">
+                      <PrintButton title="Print this page" className="group rounded-lg border p-2 transition-colors hover:bg-neutral-100 print:hidden">
                         <Icons.print className="size-4 text-neutral-600 transition-colors group-hover:text-black" />
                       </PrintButton>
                     )}
@@ -91,9 +91,9 @@ export default ({ params: { lang } }: Props) => {
       {/* About */}
       {aboutSection && (
         <div className="flex flex-col gap-2">
-          <h2 className="text-xl font-bold underline decoration-1 underline-offset-2">{aboutSection.sectionTitle[language]}</h2>
+          <h2 className="text-xl font-bold underline decoration-1 underline-offset-2">{aboutSection.sectionTitle[locale]}</h2>
           <div className="flex flex-col gap-2">
-            {aboutSection.description[language].map(text => (
+            {aboutSection.description[locale].map(text => (
               <p key={text} className="font-geist-mono text-xs text-neutral-600">
                 {text}
               </p>
@@ -105,7 +105,7 @@ export default ({ params: { lang } }: Props) => {
       {/* Work */}
       {employmentSection.history.length > 0 && (
         <div className="flex flex-col gap-2">
-          <h2 className="text-xl font-bold underline decoration-1 underline-offset-2">{employmentSection.sectionTitle[language]}</h2>
+          <h2 className="text-xl font-bold underline decoration-1 underline-offset-2">{employmentSection.sectionTitle[locale]}</h2>
           <div className="flex flex-col gap-3">
             {employmentSection.history.map(({ title, company, companyUrl, description, start, end }, i) => (
               <Fragment key={i}>
@@ -129,7 +129,7 @@ export default ({ params: { lang } }: Props) => {
 
                   {/* Description */}
                   <div className="flex flex-col gap-2">
-                    {description[language].map(text => (
+                    {description[locale].map(text => (
                       <p key={text} className="font-geist-mono text-xs text-neutral-600">
                         {text}
                       </p>
@@ -147,7 +147,7 @@ export default ({ params: { lang } }: Props) => {
       {/* Education */}
       {educationSection.history.length > 0 && (
         <div className="flex flex-col gap-2">
-          <h2 className="text-xl font-bold underline decoration-1 underline-offset-2">{educationSection.sectionTitle[language]}</h2>
+          <h2 className="text-xl font-bold underline decoration-1 underline-offset-2">{educationSection.sectionTitle[locale]}</h2>
           <div className="flex flex-col gap-3">
             {educationSection.history.map(({ school, schoolUrl, description, start, end }, i) => (
               <Fragment key={i}>
@@ -167,7 +167,7 @@ export default ({ params: { lang } }: Props) => {
 
                   {/* Description */}
                   <div className="flex flex-col gap-2">
-                    {description[language].map(text => (
+                    {description[locale].map(text => (
                       <p key={text} className="font-geist-mono text-xs text-neutral-600">
                         {text}
                       </p>
@@ -185,9 +185,9 @@ export default ({ params: { lang } }: Props) => {
       {/* Projects */}
       {projectsSection.projects.length > 0 && (
         <div className="flex flex-col gap-2">
-          <h2 className="text-xl font-bold underline decoration-1 underline-offset-2">{projectsSection.sectionTitle[language]}</h2>
+          <h2 className="text-xl font-bold underline decoration-1 underline-offset-2">{projectsSection.sectionTitle[locale]}</h2>
 
-          <p className="font-geist-mono text-xs text-neutral-600">{projectsSection.sectionDescription[language]}</p>
+          <p className="font-geist-mono text-xs text-neutral-600">{projectsSection.sectionDescription[locale]}</p>
 
           <div className="flex flex-col gap-2">
             {projectsSection.projects.map(({ name, shortDescription, slug, tags, year }) => (
@@ -213,7 +213,7 @@ export default ({ params: { lang } }: Props) => {
             ))}
 
             <Link href="/projects" target="_blank" className="group font-semibold">
-              <Icons.arrowRight className="inline" /> <span className="group-hover:underline">{projectsSection.browseAllText[language]}</span>
+              <Icons.arrowRight className="inline" /> <span className="group-hover:underline">{projectsSection.browseAllText[locale]}</span>
             </Link>
           </div>
         </div>

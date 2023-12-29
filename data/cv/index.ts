@@ -2,14 +2,6 @@ import avatar from "./images/avatar.png";
 import projects from "../projects";
 import { AboutSection, EducationSection, EmploymentSection, ProfileSection, ProjectsSection } from "@/types";
 
-/**
- * TODO: Change language structure to be more like this:
- * sectionTitle: {
- *  en: "English title",
- *  sv: "Swedish title",
- * }
- */
-
 export const profileSection: ProfileSection = {
   name: "Leon San José Larsson",
   avatar: avatar,
@@ -24,7 +16,10 @@ export const profileSection: ProfileSection = {
   },
   location: {
     href: "https://www.google.com/maps/place/Malm%C3%B6",
-    text: "Stockholm, Sweden, CET",
+    text: {
+      en: "Malmö, Sweden, CET",
+      sv: "Malmö, Sverige, CET",
+    },
     timezone: "Europe/Stockholm",
   },
   iconLinks: [
