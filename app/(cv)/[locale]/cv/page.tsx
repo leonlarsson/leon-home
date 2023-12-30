@@ -61,7 +61,8 @@ export default ({ params: { locale } }: Props) => {
                   <span className="flex items-center gap-1">
                     <Icons.globe className="size-4 shrink-0" />
                     <span>
-                      {profileSection.location.text[locale]} {profileSection.location.timezone && <CurrentTime locale={locale} timeZone={profileSection.location.timezone} />}
+                      {profileSection.location.text[locale]}, {new Intl.DateTimeFormat(locale, { timeZone: profileSection.location.timezone, timeZoneName: "shortOffset" }).formatToParts().find(x => x.type === "timeZoneName")!.value}{" "}
+                      {profileSection.location.timezone && <CurrentTime locale={locale} timeZone={profileSection.location.timezone} />}
                     </span>
                   </span>
                 </Link>
