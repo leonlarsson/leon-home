@@ -19,5 +19,9 @@ export default ({ locale, timeZone }: Props) => {
     return () => clearInterval(intervalId);
   }, []);
 
-  return time;
+  return (
+    <span className="print:hidden" suppressHydrationWarning>
+      ({time})
+    </span>
+  );
 };

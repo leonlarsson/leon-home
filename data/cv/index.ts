@@ -28,8 +28,8 @@ export const profileSection: CVProfileSection = {
   location: {
     href: "https://www.google.com/maps/place/Malm%C3%B6",
     text: {
-      en: "Malmö, Sweden, CET",
-      sv: "Malmö, Sverige, CET",
+      en: "Malmö, Sweden",
+      sv: "Malmö, Sverige",
     },
     timezone: "Europe/Stockholm",
   },

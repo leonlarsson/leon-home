@@ -61,12 +61,7 @@ export default ({ params: { locale } }: Props) => {
                   <span className="flex items-center gap-1">
                     <Icons.globe className="size-4 shrink-0" />
                     <span>
-                      {profileSection.location.text[locale]}{" "}
-                      {profileSection.location.timezone && (
-                        <span suppressHydrationWarning className="print:hidden">
-                          (<CurrentTime locale={locale} timeZone={profileSection.location.timezone} />)
-                        </span>
-                      )}
+                      {profileSection.location.text[locale]} {profileSection.location.timezone && <CurrentTime locale={locale} timeZone={profileSection.location.timezone} />}
                     </span>
                   </span>
                 </Link>
