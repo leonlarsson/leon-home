@@ -21,8 +21,12 @@ export default ({ swedish = false }) => {
         {swedish ? "Kontakta mig" : "Contact me"}
       </a>
 
-      <Link style={{ fontWeight: 300 }} href={swedish ? "/cv" : "/cv-swe"}>
-        {swedish ? "English Resume" : "Swedish Resume"}
+      <Link style={{ fontWeight: 300 }} href={swedish ? "/cv-old" : "/cv-swe-old"}>
+        {swedish ? "English" : "Swedish"}
+      </Link>
+
+      <Link style={{ fontWeight: 300 }} href={swedish ? "/sv/cv" : "/en/cv"} target="_blank">
+        !! {swedish ? "Läs mitt nya CV" : "Read my new CV"} !!
       </Link>
     </div>
   );
