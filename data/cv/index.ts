@@ -76,12 +76,12 @@ export const employmentSection: CVEmploymentSection = {
       companyUrl: "https://sharkmob.com",
       description: {
         en: [
-          "Managing player support and content on the Bloodhunt website, which involves close collaboration with marketing, player relations, and developers.",
-          "Additionally, overseeing community management, Discord, and Twitch Drops. For our newly announced game Exoborne, contributing to website development and providing technical specifications for the RE_HACK ARG website.",
+          "Managing player support and content on the [Bloodhunt website](https://bloodhunt.com), which involves close collaboration with marketing, player relations, and developers.",
+          "Additionally, overseeing community management, Discord, and Twitch Drops. For our newly announced game [Exoborne](https://exoborne.com), contributing to website development and providing technical specifications for the [RE_HACK ARG website](https://exoborne.com/rehack).",
         ],
         sv: [
-          "Hanterar spelarsupport och innehåll på Bloodhunt-webbplatsen, vilket innebär nära samarbete med marketing, player relations och utvecklare.",
-          "Utför även hantering av community, Discord och Twitch Drops med mera. För vårt nyligen uppvisade spel Exoborne bidrar jag även till webbutveckling och hjälper med tekniska specifikationer för RE_HACK ARG-webbplatsen.",
+          "Hanterar spelarsupport och innehåll på [Bloodhunt-webbplatsen](https://bloodhunt.com), vilket innebär nära samarbete med marketing, player relations och utvecklare.",
+          "Utför även hantering av community, Discord och Twitch Drops med mera. För vårt nyligen uppvisade spel [Exoborne](https://exoborne.com) bidrar jag även till webbutveckling och hjälper med tekniska specifikationer för RE_HACK ARG-webbplatsen.",
         ],
       },
       start: "2022",

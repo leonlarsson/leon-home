@@ -40,6 +40,7 @@ export default ({ params: { locale } }: Props) => {
                 </Link>
               </span>
             </h1>
+
             <p className="font-geist-mono text-sm text-neutral-600">{profileSection.tagline[locale]}</p>
           </div>
 
@@ -94,6 +95,7 @@ export default ({ params: { locale } }: Props) => {
         </div>
         {profileSection.avatar && <Image className="hidden rounded-xl sm:block" src={profileSection.avatar} alt={profileSection.name} width={100} height={100} priority placeholder="blur" />}
       </div>
+
       {/* About */}
       {aboutSection && (
         <div className="flex flex-col gap-2">
@@ -101,12 +103,13 @@ export default ({ params: { locale } }: Props) => {
           <div className="flex flex-col gap-2">
             {aboutSection.description[locale].map(text => (
               <p key={text} className="font-geist-mono text-xs text-neutral-600">
-                {text}
+                {linkify(text)}
               </p>
             ))}
           </div>
         </div>
       )}
+
       {/* Work */}
       {employmentSection.history.length > 0 && (
         <div className="flex flex-col gap-2">
@@ -114,7 +117,6 @@ export default ({ params: { locale } }: Props) => {
           <div className="flex flex-col gap-3">
             {employmentSection.history.map(({ title, company, companyUrl, description, start, end }, i) => (
               <Fragment key={i}>
-                {/* Graphic design is my passion: flex flex-col gap-2 rounded-bl border-b-2 border-l-2 border-b-transparent border-l-transparent p-1 transition-all hover:border-black hover:shadow-2xl */}
                 <div className="flex flex-col gap-2">
                   <div className="flex flex-col">
                     {/* Company and dates */}
@@ -136,18 +138,19 @@ export default ({ params: { locale } }: Props) => {
                   <div className="flex flex-col gap-2">
                     {description[locale].map(text => (
                       <p key={text} className="font-geist-mono text-xs text-neutral-600">
-                        {text}
+                        {linkify(text)}
                       </p>
                     ))}
                   </div>
                 </div>
 
-                {i !== employmentSection.history.length - 1 && <hr className="maybeborder-dotted" />}
+                {i !== employmentSection.history.length - 1 && <hr />}
               </Fragment>
             ))}
           </div>
         </div>
       )}
+
       {/* Education */}
       {educationSection.history.length > 0 && (
         <div className="flex flex-col gap-2">
@@ -173,24 +176,25 @@ export default ({ params: { locale } }: Props) => {
                   <div className="flex flex-col gap-2">
                     {description[locale].map(text => (
                       <p key={text} className="font-geist-mono text-xs text-neutral-600">
-                        {text}
+                        {linkify(text)}
                       </p>
                     ))}
                   </div>
                 </div>
 
-                {i !== educationSection.history.length - 1 && <hr className="maybeborder-dotted" />}
+                {i !== educationSection.history.length - 1 && <hr />}
               </Fragment>
             ))}
           </div>
         </div>
       )}
+
       {/* Projects */}
       {projectsSection.projects.length > 0 && (
         <div className="flex flex-col gap-2">
           <h2 className="text-xl font-bold underline decoration-1 underline-offset-2">{projectsSection.sectionTitle[locale]}</h2>
 
-          <p className="font-geist-mono text-xs text-neutral-600">{projectsSection.sectionDescription[locale]}</p>
+          <p className="font-geist-mono text-xs text-neutral-600">{linkify(projectsSection.sectionDescription[locale])}</p>
 
           <div className="flex flex-col gap-2">
             {projectsSection.projects.map(({ name, shortDescription, slug, tags, year }) => (
@@ -242,4 +246,27 @@ const getRandomEnglishFlagIcon = () => {
   const icons = [Icons.unitedKingdom, Icons.unitedStates];
   const RandomIcon = icons[Math.floor(Math.random() * icons.length)];
   return <RandomIcon className="inline size-8" />;
+};
+
+const linkify = (text: string) => {
+  const parts = text.split(/\[([^\]]+)]\(([^)]+)\)/);
+
+  const elements = parts.map((part, index) => {
+    if (index % 3 === 1) {
+      // This is the link text
+      return (
+        <Link key={index} href={parts[index + 1]} target="_blank" className="font-semibold hover:underline">
+          {part}
+        </Link>
+      );
+    } else if (index % 3 === 2) {
+      // This is the link URL, ignore
+      return null;
+    } else {
+      // This is regular text
+      return part;
+    }
+  });
+
+  return elements;
 };
