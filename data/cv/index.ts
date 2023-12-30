@@ -81,7 +81,7 @@ export const employmentSection: CVEmploymentSection = {
         ],
         sv: [
           "Hanterar spelarsupport och innehåll på [Bloodhunt-hemsidan](https://bloodhunt.com), vilket innebär nära samarbete med marketing, player relations och utvecklare.",
-          "Utför även hantering av community, Discord och Twitch Drops med mera. För vårt nyligen uppvisade spel [Exoborne](https://exoborne.com) bidrar jag även till webbutveckling och hjälper med tekniska specifikationer för RE_HACK ARG-webbplatsen.",
+          "Utför även hantering av community, Discord och Twitch Drops med mera. För vårt nyligen uppvisade spel [Exoborne](https://exoborne.com) bidrar jag även till webbutveckling och hjälper med tekniska specifikationer för [RE_HACK ARG-hemsidan](https://exoborne.com/rehack).",
         ],
       },
       start: "2022",
