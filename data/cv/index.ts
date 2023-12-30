@@ -77,10 +77,10 @@ export const employmentSection: CVEmploymentSection = {
       description: {
         en: [
           "Managing player support and content on the [Bloodhunt website](https://bloodhunt.com), which involves close collaboration with marketing, player relations, and developers.",
-          "Additionally, overseeing community management, Discord, and Twitch Drops. For our newly announced game [Exoborne](https://exoborne.com), contributing to website development and providing technical specifications for the [RE_HACK ARG website](https://exoborne.com/rehack).",
+          "Additionally, community management, Discord, and Twitch Drops. For our newly announced game [Exoborne](https://exoborne.com), contributing to website development and providing technical specifications for the [RE_HACK ARG website](https://exoborne.com/rehack).",
         ],
         sv: [
-          "Hanterar spelarsupport och innehåll på [Bloodhunt-webbplatsen](https://bloodhunt.com), vilket innebär nära samarbete med marketing, player relations och utvecklare.",
+          "Hanterar spelarsupport och innehåll på [Bloodhunt-hemsidan](https://bloodhunt.com), vilket innebär nära samarbete med marketing, player relations och utvecklare.",
           "Utför även hantering av community, Discord och Twitch Drops med mera. För vårt nyligen uppvisade spel [Exoborne](https://exoborne.com) bidrar jag även till webbutveckling och hjälper med tekniska specifikationer för RE_HACK ARG-webbplatsen.",
         ],
       },
@@ -125,8 +125,8 @@ export const projectsSection: CVProjectsSection = {
     sv: "Projekt",
   },
   sectionDescription: {
-    en: "I have a strong interest in software engineering and frontend design. I love working with technologies such as React, Next.js, Node.js using JavaScript (and TypeScript). I also have some experience with SQLite and MySQL. Below you can read about a few of my projects.",
-    sv: "Jag har ett starkt intresse för mjukvaruutveckling och frontend-design. Jag älskar att arbeta med tekniker som React, Next.js, Node.js med JavaScript (och TypeScript). Jag har också viss erfarenhet av SQLite och MySQL. Nedan kan du läsa om några av mina projekt.",
+    en: "I have a strong interest in software engineering and frontend design. I love working with technologies such as React, Next.js, Node.js using JavaScript (and TypeScript). I also have some experience with SQLite and MySQL. Below you can read about a few of my projects. Click on a title to read more.",
+    sv: "Jag har ett starkt intresse för mjukvaruutveckling och frontend-design. Jag älskar att arbeta med tekniker som React, Next.js, Node.js med JavaScript (och TypeScript). Jag har också viss erfarenhet av SQLite och MySQL. Nedan kan du läsa om några av mina projekt. Klicka på en titel för att läsa mer.",
   },
   browseAllText: {
     en: "Browse all projects",
