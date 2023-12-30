@@ -4,9 +4,9 @@ import Icons from "./icons";
 
 export default () => {
   return (
-    <div className="select-none min-[460px]:pt-8">
+    <div className="select-none min-[510px]:pt-8">
       {/* TOP HEADER */}
-      <header className="relative z-50 mb-6 block px-6 max-[460px]:hidden">
+      <header className="relative z-50 mb-6 block px-6 max-[510px]:hidden">
         {/* <GradientBorder rounded="rounded-[13px]" extraClasses="max-w-5xl mx-auto">
           <div className="flex h-16 items-center justify-between rounded-xl bg-white/80 px-2 dark:bg-[#1e1e1e]/70">REST HERE</div>
         </GradientBorder> */}
@@ -17,9 +17,18 @@ export default () => {
             <HeaderLink content="Projects" url="/projects" />
             <HeaderLink content="Guestbook" url="/guestbook" />
             <HeaderLink content="Music" url="/music" />
+            <HeaderLink
+              content={
+                <>
+                  CV <Icons.externallink className="ms-1 size-3" />
+                </>
+              }
+              url="/en/cv"
+              newTab
+            />
           </div>
 
-          <div className="hidden items-center text-2xl min-[620px]:flex [&>*]:px-1">
+          <div className="hidden items-center text-2xl min-[680px]:flex [&>*]:px-1">
             <HeaderLink content={<Icons.envelope className="w-8" />} url="mailto:leonlarsson8@gmail.com" title="Email" newTab />
             <HeaderLink content={<Icons.linkedin className="w-8" />} url="https://www.linkedin.com/in/leonlarsson/" title="LinkedIn" newTab />
             <HeaderLink content={<Icons.twitterX className="w-8" />} url="https://x.com/MozzyFX" title="X / Twitter" newTab />
@@ -29,7 +38,7 @@ export default () => {
       </header>
 
       {/* BOTTOM OVERLAY HEADER */}
-      <header className="fixed inset-x-0 bottom-0 z-50 hidden px-6 pb-6 max-[460px]:block">
+      <header className="fixed inset-x-0 bottom-0 z-50 hidden px-6 pb-6 max-[510px]:block">
         <div className="flex h-16 rounded-xl border-[1px] border-black/40 bg-white/50 text-xl backdrop-blur-md dark:border-kinda-white/10 dark:bg-[#1e1e1e]/50">
           <div className="flex w-full justify-evenly text-2xl [&>*]:px-2 max-[275px]:[&>*]:px-0">
             <HeaderLink content={<Icons.house className="w-8" />} url="/" title="Home" />
