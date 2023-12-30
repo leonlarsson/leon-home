@@ -59,8 +59,8 @@ export const aboutSection: CVAboutSection = {
     sv: "Om mig",
   },
   description: {
-    en: ["I'm an aspiring Full Stack Engineer in self-training. My primary areas of interest are web development and Discord bots. I also extensively work on creating various APIs and services on platforms such as Cloudflare Workers."],
-    sv: ["Jag är en aspirerande Full Stack-utvecklare. Mina primära intresseområden är webbutveckling och Discord-bottar. Jag arbetar också omfattande med att skapa olika API:er och tjänster på plattformar som Cloudflare Workers."],
+    en: ["I'm an aspiring Full Stack Engineer in self-training. My primary areas of interest are web development and Discord bots. I also extensively work on creating various APIs and services on platforms such as Cloudflare Workers. My old CV can be found [here](https://leonlarsson.com/cv-old)."],
+    sv: ["Jag är en aspirerande Full Stack-utvecklare. Mina primära intresseområden är webbutveckling och Discord-bottar. Jag arbetar också omfattande med att skapa olika API:er och tjänster på plattformar som Cloudflare Workers. Mitt gamla CV finns [här](https://leonlarsson.com/cv-old-swe)."],
   },
 } satisfies CVAboutSection;
 
