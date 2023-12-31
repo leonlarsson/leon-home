@@ -250,7 +250,7 @@ const linkify = (text: string) => {
     if (index % 3 === 1) {
       // This is the link text
       return (
-        <Link key={index} href={parts[index + 1]} target="_blank" className="font-semibold hover:underline">
+        <Link key={index} href={parts[index + 1]} target="_blank" className="underline hover:font-bold">
           {part}
         </Link>
       );
