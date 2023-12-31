@@ -9,7 +9,7 @@ export default ({ children }: { children: React.ReactNode }) => {
       <Header />
       {/* Below 510px (no header) width, add bottom margin to accomodate the bottom overlay header. Add relative if issues occur */}
       {/* Also below 510px width, add some padding to the top */}
-      <div className="container mx-auto px-4 pb-10 text-center transition-all max-[510px]:pb-28 max-[510px]:pt-3">{children}</div>
+      <div className="container mx-auto px-4 pb-28 pt-3 text-center transition-all min-[510px]:pb-10 min-[510px]:pt-0">{children}</div>
     </div>
   );
 };
