@@ -15,6 +15,7 @@ import musicShowcaseImage2 from "./images/music2.png";
 import friendlyTime1 from "./images/friendlytime1.png";
 import friendlyTime2 from "./images/friendlytime2.png";
 import csCaseUI1 from "./images/cscaseui1.png";
+import timezoneracer1 from "./images/timezoneracer1.png";
 import { Project } from "@/types";
 
 const tags = {
@@ -23,6 +24,7 @@ const tags = {
   JS: "JavaScript",
   TS: "TypeScript",
   REACT: "React",
+  VUE: "Vue",
   NEXT: "Next.js",
   TAILWIND: "Tailwind",
   NODE: "Node.js",
@@ -383,5 +385,17 @@ export default [
     link: "https://case-sim.com",
     githubLink: "https://github.com/leonlarsson/cs-case-sim",
     displayInCv: true,
+  },
+  {
+    slug: "timezone-racer",
+    slugAliases: ["new-years-countdown"],
+    name: "Timezone Racer",
+    description: ["This is my first experience with Vue. It is a website that shows the progress towards the new year in multiple timezones.", "It is built with Vue and styled with Tailwind."],
+    shortDescription: "A website that tracks multiple timezones' progress towards the new year.",
+    year: "2024",
+    tags: [tags.VUE, tags.VITE, tags.TAILWIND, tags.TS],
+    images: [timezoneracer1],
+    link: "https://timezone-racer.pages.dev/",
+    githubLink: "https://github.com/leonlarsson/timezone-racer",
   },
 ] satisfies Project[] as Project[];
