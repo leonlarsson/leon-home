@@ -2,7 +2,7 @@ import avatar from "./images/avatar.png";
 import projects from "../projects";
 import { CVAboutSection, CVEducationSection, CVEmploymentSection, CVMetadata, CVProfileSection, CVProjectsSection } from "@/types";
 
-export const metadata: CVMetadata = {
+export const pageMetadata: CVMetadata = {
   title: {
     en: "English CV",
     sv: "Svenskt CV",
