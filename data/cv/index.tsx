@@ -1,4 +1,5 @@
 import avatar from "./images/avatar.png";
+import Icons from "@/app/(main)/components/icons";
 import projects from "../projects";
 import { CVAboutSection, CVEducationSection, CVEmploymentSection, CVMetadata, CVProfileSection, CVProjectsSection } from "@/types";
 
@@ -36,17 +37,17 @@ export const profileSection: CVProfileSection = {
   },
   iconLinks: [
     {
-      icon: "envelope",
+      icon: <Icons.envelopeThin className="size-4 text-neutral-600 transition-colors group-hover:text-black" />,
       href: "mailto:leonlarsson8@gmail.com",
       text: "Email",
     },
     {
-      icon: "github",
+      icon: <Icons.gitHub className="size-4 text-neutral-600 transition-colors group-hover:text-black" />,
       href: "https://github.com/leonlarsson",
       text: "GitHub",
     },
     {
-      icon: "linkedin",
+      icon: <Icons.linkedin className="size-4 text-neutral-600 transition-colors group-hover:text-black" />,
       href: "https://www.linkedin.com/in/leonlarsson/",
       text: "LinkedIn",
     },

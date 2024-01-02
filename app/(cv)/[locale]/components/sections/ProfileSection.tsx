@@ -26,7 +26,7 @@ export const ProfileSection = ({ data, locale }: { data: CVProfileSection; local
           {data.location && (
             <Link href={data.location.href} target="_blank" className="w-fit font-geist-mono text-xs text-neutral-600 hover:underline">
               <span className="flex items-center gap-1">
-                <Icons.globe className="size-4 shrink-0" />
+                <Icons.map className="size-4 shrink-0" />
                 <span>
                   {data.location.text[locale]}, {new Intl.DateTimeFormat(locale, { timeZone: data.location.timezone, timeZoneName: "shortOffset" }).formatToParts().find(x => x.type === "timeZoneName")!.value}{" "}
                   {data.location.timezone && <CurrentTime locale={locale} timeZone={data.location.timezone} />}
@@ -40,12 +40,10 @@ export const ProfileSection = ({ data, locale }: { data: CVProfileSection; local
         {data.iconLinks?.length && (
           <div className="flex gap-1">
             {data.iconLinks.map(({ icon, href, text }, i) => {
-              const IconComponent = getIconComponent(icon);
-
               return (
                 <Fragment key={i}>
                   <Link href={href} target="_blank" title={text} className="group rounded-lg border p-2 transition-colors hover:bg-neutral-100">
-                    <IconComponent className="size-4 text-neutral-600 transition-colors group-hover:text-black" />
+                    {icon}
                   </Link>
 
                   {/* Show print button if last index and enabled */}
@@ -63,17 +61,4 @@ export const ProfileSection = ({ data, locale }: { data: CVProfileSection; local
       {data.avatar && <Image className="hidden rounded-xl sm:block" src={data.avatar} alt={data.name} width={100} height={100} priority placeholder="blur" />}
     </div>
   );
-};
-
-const getIconComponent = (icon: CVIcon) => {
-  switch (icon) {
-    case "envelope":
-      return Icons.envelope;
-    case "github":
-      return Icons.gitHub;
-    case "linkedin":
-      return Icons.linkedin;
-    default:
-      return Icons.globe;
-  }
 };

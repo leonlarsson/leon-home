@@ -76,7 +76,7 @@ export type CVProfileSection = {
     timezone?: `${string}/${string}`;
   };
   iconLinks?: {
-    icon: CVIcon;
+    icon: JSX.Element;
     href: string;
     text: string;
   }[];
