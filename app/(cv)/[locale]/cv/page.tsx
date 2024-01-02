@@ -99,7 +99,8 @@ export default ({ params: { locale } }: Props) => {
         {/* About */}
         {aboutSection && (
           <div className="flex flex-col gap-2">
-            <h2 className="text-xl font-bold underline decoration-1 underline-offset-2">{aboutSection.sectionTitle[locale]}</h2>
+            <SectionTitle title={aboutSection.sectionTitle[locale]} url={aboutSection.sectionTitleUrl} />
+
             <div className="flex flex-col gap-2">
               {aboutSection.description[locale].map(text => (
                 <p key={text} className="font-geist-mono text-xs text-neutral-600">
@@ -113,7 +114,8 @@ export default ({ params: { locale } }: Props) => {
         {/* Work */}
         {employmentSection.history.length > 0 && (
           <div className="flex flex-col gap-2">
-            <h2 className="text-xl font-bold underline decoration-1 underline-offset-2">{employmentSection.sectionTitle[locale]}</h2>
+            <SectionTitle title={employmentSection.sectionTitle[locale]} url={employmentSection.sectionTitleUrl} />
+
             <div className="flex flex-col gap-3">
               {employmentSection.history.map(({ title, company, companyUrl, description, start, end }, i) => (
                 <Fragment key={i}>
@@ -154,7 +156,8 @@ export default ({ params: { locale } }: Props) => {
         {/* Education */}
         {educationSection.history.length > 0 && (
           <div className="flex flex-col gap-2">
-            <h2 className="text-xl font-bold underline decoration-1 underline-offset-2">{educationSection.sectionTitle[locale]}</h2>
+            <SectionTitle title={educationSection.sectionTitle[locale]} url={educationSection.sectionTitleUrl} />
+
             <div className="flex flex-col gap-3">
               {educationSection.history.map(({ school, schoolUrl, description, start, end }, i) => (
                 <Fragment key={i}>
@@ -192,8 +195,7 @@ export default ({ params: { locale } }: Props) => {
         {/* Projects */}
         {projectsSection.projects.length > 0 && (
           <div className="flex flex-col gap-2">
-            <h2 className="text-xl font-bold underline decoration-1 underline-offset-2">{projectsSection.sectionTitle[locale]}</h2>
-
+            <SectionTitle title={projectsSection.sectionTitle[locale]} url={projectsSection.sectionTitleUrl} />
             <p className="font-geist-mono text-xs text-neutral-600">{linkify(projectsSection.sectionDescription[locale])}</p>
 
             <div className="flex flex-col gap-2">
@@ -264,4 +266,14 @@ const linkify = (text: string) => {
   });
 
   return elements;
+};
+
+const SectionTitle = ({ title, url }: { title: string; url?: string }) => {
+  return url ? (
+    <Link href={url} target="_blank" className="w-fit text-xl font-bold underline decoration-1 underline-offset-2 hover:decoration-2">
+      {title}
+    </Link>
+  ) : (
+    <h2 className="text-xl font-bold underline decoration-1 underline-offset-2">{title}</h2>
+  );
 };

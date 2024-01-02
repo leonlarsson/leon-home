@@ -88,6 +88,7 @@ export type CVAboutSection = {
     en: string;
     sv: string;
   };
+  sectionTitleUrl?: string;
   description: {
     en: string[];
     sv: string[];
@@ -99,6 +100,7 @@ export type CVEmploymentSection = {
     en: string;
     sv: string;
   };
+  sectionTitleUrl?: string;
   history: {
     title: string;
     company: string;
@@ -117,6 +119,7 @@ export type CVEducationSection = {
     en: string;
     sv: string;
   };
+  sectionTitleUrl?: string;
   history: {
     school: string;
     schoolUrl: string;
@@ -134,6 +137,7 @@ export type CVProjectsSection = {
     en: string;
     sv: string;
   };
+  sectionTitleUrl?: string;
   sectionDescription: {
     en: string;
     sv: string;
