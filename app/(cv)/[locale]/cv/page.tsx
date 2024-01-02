@@ -43,15 +43,15 @@ export default ({ params: { locale } }: Props) => {
         {sections.map(section => {
           switch (section.sectionId) {
             case "profile":
-              return <ProfileSection key={section.sectionId} profileSection={section} locale={locale} />;
+              return <ProfileSection key={section.sectionId} data={section} locale={locale} />;
             case "about":
-              return <AboutSection key={section.sectionId} aboutSection={section} locale={locale} />;
+              return <AboutSection key={section.sectionId} data={section} locale={locale} />;
             case "employment":
-              return <EmploymentSection key={section.sectionId} employmentSection={section} locale={locale} />;
+              return <EmploymentSection key={section.sectionId} data={section} locale={locale} />;
             case "education":
-              return <EducationSection key={section.sectionId} educationSection={section} locale={locale} />;
+              return <EducationSection key={section.sectionId} data={section} locale={locale} />;
             case "projects":
-              return <ProjectsSection key={section.sectionId} projectsSection={section} locale={locale} />;
+              return <ProjectsSection key={section.sectionId} data={section} locale={locale} />;
           }
         })}
       </div>
@@ -116,30 +116,30 @@ const SectionDescription = ({ description }: { description?: string[] }) => {
   ));
 };
 
-const ProfileSection = ({ profileSection, locale }: { profileSection: CVProfileSection; locale: "en" | "sv" }) => {
+const ProfileSection = ({ data, locale }: { data: CVProfileSection; locale: CVLocale }) => {
   return (
     <div className="flex items-center justify-between gap-10">
       <div className="flex flex-col gap-3">
         <div>
-          <h1 className="text-xl font-bold min-[400px]:text-2xl">{profileSection.name}</h1>
-          <p className="font-geist-mono text-sm text-neutral-600">{profileSection.tagline[locale]}</p>
+          <h1 className="text-xl font-bold min-[400px]:text-2xl">{data.name}</h1>
+          <p className="font-geist-mono text-sm text-neutral-600">{data.tagline[locale]}</p>
         </div>
 
         {/* Links */}
         <div className="flex flex-col gap-1">
-          {profileSection.url && (
-            <Link href={profileSection.url.href} target="_blank" className="flex w-fit items-center gap-1 font-geist-mono text-xs text-neutral-600 hover:underline">
-              <Icons.link className="size-4" /> {profileSection.url.text}
+          {data.url && (
+            <Link href={data.url.href} target="_blank" className="flex w-fit items-center gap-1 font-geist-mono text-xs text-neutral-600 hover:underline">
+              <Icons.link className="size-4" /> {data.url.text}
             </Link>
           )}
 
-          {profileSection.location && (
-            <Link href={profileSection.location.href} target="_blank" className="w-fit font-geist-mono text-xs text-neutral-600 hover:underline">
+          {data.location && (
+            <Link href={data.location.href} target="_blank" className="w-fit font-geist-mono text-xs text-neutral-600 hover:underline">
               <span className="flex items-center gap-1">
                 <Icons.globe className="size-4 shrink-0" />
                 <span>
-                  {profileSection.location.text[locale]}, {new Intl.DateTimeFormat(locale, { timeZone: profileSection.location.timezone, timeZoneName: "shortOffset" }).formatToParts().find(x => x.type === "timeZoneName")!.value}{" "}
-                  {profileSection.location.timezone && <CurrentTime locale={locale} timeZone={profileSection.location.timezone} />}
+                  {data.location.text[locale]}, {new Intl.DateTimeFormat(locale, { timeZone: data.location.timezone, timeZoneName: "shortOffset" }).formatToParts().find(x => x.type === "timeZoneName")!.value}{" "}
+                  {data.location.timezone && <CurrentTime locale={locale} timeZone={data.location.timezone} />}
                 </span>
               </span>
             </Link>
@@ -147,9 +147,9 @@ const ProfileSection = ({ profileSection, locale }: { profileSection: CVProfileS
         </div>
 
         {/* Icon Links */}
-        {profileSection.iconLinks?.length && (
+        {data.iconLinks?.length && (
           <div className="flex gap-1">
-            {profileSection.iconLinks.map(({ icon, href, text }, i) => {
+            {data.iconLinks.map(({ icon, href, text }, i) => {
               const IconComponent = getIconComponent(icon);
 
               return (
@@ -159,7 +159,7 @@ const ProfileSection = ({ profileSection, locale }: { profileSection: CVProfileS
                   </Link>
 
                   {/* Show print button if last index and enabled */}
-                  {i === profileSection.iconLinks!.length! - 1 && profileSection.showPrintButton && (
+                  {i === data.iconLinks!.length! - 1 && data.showPrintButton && (
                     <PrintButton title="Print this page" className="group rounded-lg border p-2 transition-colors hover:bg-neutral-100 print:hidden">
                       <Icons.print className="size-4 text-neutral-600 transition-colors group-hover:text-black" />
                     </PrintButton>
@@ -170,32 +170,32 @@ const ProfileSection = ({ profileSection, locale }: { profileSection: CVProfileS
           </div>
         )}
       </div>
-      {profileSection.avatar && <Image className="hidden rounded-xl sm:block" src={profileSection.avatar} alt={profileSection.name} width={100} height={100} priority placeholder="blur" />}
+      {data.avatar && <Image className="hidden rounded-xl sm:block" src={data.avatar} alt={data.name} width={100} height={100} priority placeholder="blur" />}
     </div>
   );
 };
 
-const AboutSection = ({ aboutSection, locale }: { aboutSection: CVAboutSection; locale: CVLocale }) => {
-  if (!aboutSection) return null;
+const AboutSection = ({ data, locale }: { data: CVAboutSection; locale: CVLocale }) => {
+  if (!data) return null;
 
   return (
     <div className="flex flex-col gap-2">
-      <SectionTitle title={aboutSection.sectionTitle[locale]} url={aboutSection.sectionTitleUrl} />
-      <SectionDescription description={aboutSection.sectionDescription?.[locale]} />
+      <SectionTitle title={data.sectionTitle[locale]} url={data.sectionTitleUrl} />
+      <SectionDescription description={data.sectionDescription?.[locale]} />
     </div>
   );
 };
 
-const EmploymentSection = ({ employmentSection, locale }: { employmentSection: CVEmploymentSection; locale: CVLocale }) => {
-  if (!employmentSection.history.length) return null;
+const EmploymentSection = ({ data, locale }: { data: CVEmploymentSection; locale: CVLocale }) => {
+  if (!data.history.length) return null;
 
   return (
     <div className="flex flex-col gap-2">
-      <SectionTitle title={employmentSection.sectionTitle[locale]} url={employmentSection.sectionTitleUrl} />
-      <SectionDescription description={employmentSection.sectionDescription?.[locale]} />
+      <SectionTitle title={data.sectionTitle[locale]} url={data.sectionTitleUrl} />
+      <SectionDescription description={data.sectionDescription?.[locale]} />
 
       <div className="flex flex-col gap-3">
-        {employmentSection.history.map(({ title, company, companyUrl, description, start, end }, i) => (
+        {data.history.map(({ title, company, companyUrl, description, start, end }, i) => (
           <Fragment key={i}>
             <div className="flex flex-col gap-2">
               <div className="flex flex-col">
@@ -222,7 +222,7 @@ const EmploymentSection = ({ employmentSection, locale }: { employmentSection: C
               </div>
             </div>
 
-            {i !== employmentSection.history.length - 1 && <hr />}
+            {i !== data.history.length - 1 && <hr />}
           </Fragment>
         ))}
       </div>
@@ -230,16 +230,16 @@ const EmploymentSection = ({ employmentSection, locale }: { employmentSection: C
   );
 };
 
-const EducationSection = ({ educationSection, locale }: { educationSection: CVEducationSection; locale: CVLocale }) => {
-  if (!educationSection.history.length) return null;
+const EducationSection = ({ data, locale }: { data: CVEducationSection; locale: CVLocale }) => {
+  if (!data.history.length) return null;
 
   return (
     <div className="flex flex-col gap-2">
-      <SectionTitle title={educationSection.sectionTitle[locale]} url={educationSection.sectionTitleUrl} />
-      <SectionDescription description={educationSection.sectionDescription?.[locale]} />
+      <SectionTitle title={data.sectionTitle[locale]} url={data.sectionTitleUrl} />
+      <SectionDescription description={data.sectionDescription?.[locale]} />
 
       <div className="flex flex-col gap-3">
-        {educationSection.history.map(({ school, schoolUrl, description, start, end }, i) => (
+        {data.history.map(({ school, schoolUrl, description, start, end }, i) => (
           <Fragment key={i}>
             <div className="flex flex-col gap-[2px]">
               <div className="flex flex-col">
@@ -263,7 +263,7 @@ const EducationSection = ({ educationSection, locale }: { educationSection: CVEd
               </div>
             </div>
 
-            {i !== educationSection.history.length - 1 && <hr />}
+            {i !== data.history.length - 1 && <hr />}
           </Fragment>
         ))}
       </div>
@@ -271,16 +271,16 @@ const EducationSection = ({ educationSection, locale }: { educationSection: CVEd
   );
 };
 
-const ProjectsSection = ({ projectsSection, locale }: { projectsSection: CVProjectsSection; locale: CVLocale }) => {
-  if (!projectsSection.projects.length) return null;
+const ProjectsSection = ({ data, locale }: { data: CVProjectsSection; locale: CVLocale }) => {
+  if (!data.projects.length) return null;
 
   return (
     <div className="flex flex-col gap-2">
-      <SectionTitle title={projectsSection.sectionTitle[locale]} url={projectsSection.sectionTitleUrl} />
-      <SectionDescription description={projectsSection.sectionDescription?.[locale]} />
+      <SectionTitle title={data.sectionTitle[locale]} url={data.sectionTitleUrl} />
+      <SectionDescription description={data.sectionDescription?.[locale]} />
 
       <div className="flex flex-col gap-2">
-        {projectsSection.projects.map(({ name, shortDescription, slug, tags, year }) => (
+        {data.projects.map(({ name, shortDescription, slug, tags, year }) => (
           <div key={slug} className="flex flex-col gap-[2px] rounded-lg border border-neutral-200 p-2 transition-colors hover:border-neutral-400">
             <div className="flex items-baseline justify-between">
               <Link href={`/projects/${slug}`} target="_blank" className="font-semibold hover:underline">
@@ -303,7 +303,7 @@ const ProjectsSection = ({ projectsSection, locale }: { projectsSection: CVProje
         ))}
 
         <Link href="/projects" target="_blank" className="group font-semibold">
-          <Icons.arrowRight className="inline" /> <span className="group-hover:underline">{projectsSection.browseAllText[locale]}</span>
+          <Icons.arrowRight className="inline" /> <span className="group-hover:underline">{data.browseAllText[locale]}</span>
         </Link>
       </div>
     </div>
