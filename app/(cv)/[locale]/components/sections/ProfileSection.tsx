@@ -18,14 +18,14 @@ export const ProfileSection = ({ data, locale }: { data: CVProfileSection; local
         {/* Links */}
         <div className="flex flex-col gap-1">
           {data.url && (
-            <Link href={data.url.href} target="_blank" className="flex w-fit items-center gap-1 font-geist-mono text-xs text-neutral-600 hover:underline">
+            <Link href={data.url.href} target="_blank" className="flex w-fit items-center gap-2 font-geist-mono text-xs text-neutral-600 hover:underline">
               <Icons.link className="size-4" /> {data.url.text}
             </Link>
           )}
 
           {data.location && (
             <Link href={data.location.href} target="_blank" className="w-fit font-geist-mono text-xs text-neutral-600 hover:underline">
-              <span className="flex items-center gap-1">
+              <span className="flex items-center gap-2">
                 <Icons.map className="size-4 shrink-0" />
                 <span>
                   {data.location.text[locale]}, {new Intl.DateTimeFormat(locale, { timeZone: data.location.timezone, timeZoneName: "shortOffset" }).formatToParts().find(x => x.type === "timeZoneName")!.value}{" "}
