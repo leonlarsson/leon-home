@@ -42,7 +42,7 @@ export const profileSection: CVProfileSection = {
       text: "Email",
     },
     {
-      icon: <Icons.gitHub className="size-4 text-neutral-600 transition-colors group-hover:text-black" />,
+      icon: <Icons.github className="size-4 text-neutral-600 transition-colors group-hover:text-black" />,
       href: "https://github.com/leonlarsson",
       text: "GitHub",
     },

@@ -79,7 +79,7 @@ export default () => {
             {[
               { title: "Email", url: "mailto:leonlarsson8@gmail.com", icon: <Icons.envelope className="me-2 inline h-5" /> },
               { title: "LinkedIn", url: "https://www.linkedin.com/in/leonlarsson/", icon: <Icons.linkedin className="me-2 inline h-5" /> },
-              { title: "GitHub", url: "https://github.com/leonlarsson", icon: <Icons.gitHub className="me-2 inline h-5" /> },
+              { title: "GitHub", url: "https://github.com/leonlarsson", icon: <Icons.github className="me-2 inline h-5" /> },
               { title: "X / Twitter", url: "https://x.com/MozzyFX", icon: <Icons.twitterX className="me-2 inline h-5" /> },
               { title: "Bluesky", url: "https://bsky.app/profile/leon.ms", icon: <Icons.globe className="me-2 inline h-5" /> },
               { title: "Instagram", url: "https://www.instagram.com/leonsjlarsson/", icon: <Icons.instagram className="me-2 inline h-5" /> },

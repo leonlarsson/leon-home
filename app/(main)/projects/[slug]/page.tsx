@@ -114,13 +114,13 @@ export default ({ params }: { params: { slug: string } }) => {
 
                   {project.githubLink && (
                     <a href={project.githubLink} target="_blank" className="button-with-border flex items-center gap-1" draggable={false}>
-                      Go to GitHub <Icons.gitHub />
+                      Go to GitHub <Icons.github />
                     </a>
                   )}
 
                   {project.extraLinks?.map(extraLink => (
                     <a key={extraLink.link} href={extraLink.link} target="_blank" className="button-with-border flex items-center gap-1" draggable={false}>
-                      {extraLink.name} {extraLink.type === "link" ? <Icons.link /> : <Icons.gitHub />}
+                      {extraLink.name} {extraLink.type === "link" ? <Icons.link /> : <Icons.github />}
                     </a>
                   ))}
                 </div>

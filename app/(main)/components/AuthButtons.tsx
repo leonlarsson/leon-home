@@ -14,7 +14,7 @@ export const SignOut = () => {
 export const SignInGitHub = () => {
   return (
     <button className="button-with-border flex items-center" title="Sign in with GitHub." onClick={() => signIn("github")}>
-      <Icons.gitHub className="me-1 h-6" /> Sign in
+      <Icons.github className="me-1 h-6" /> Sign in
     </button>
   );
 };

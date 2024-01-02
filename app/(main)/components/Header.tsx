@@ -32,7 +32,7 @@ export default () => {
             <HeaderLink content={<Icons.envelope className="w-8" />} url="mailto:leonlarsson8@gmail.com" title="Email" newTab />
             <HeaderLink content={<Icons.linkedin className="w-8" />} url="https://www.linkedin.com/in/leonlarsson/" title="LinkedIn" newTab />
             <HeaderLink content={<Icons.twitterX className="w-8" />} url="https://x.com/MozzyFX" title="X / Twitter" newTab />
-            <HeaderLink content={<Icons.gitHub className="w-8" />} url="https://github.com/leonlarsson" title="GitHub" newTab />
+            <HeaderLink content={<Icons.github className="w-8" />} url="https://github.com/leonlarsson" title="GitHub" newTab />
           </div>
         </div>
       </header>

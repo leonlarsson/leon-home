@@ -14,7 +14,7 @@ export default {
       />
     </svg>
   ),
-  gitHub: (props: IconProps) => (
+  github: (props: IconProps) => (
     <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 438.549 438.549" {...props}>
       <path
         fill="currentColor"
