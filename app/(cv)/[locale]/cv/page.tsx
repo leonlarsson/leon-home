@@ -1,12 +1,12 @@
 import { Fragment } from "react";
+import { redirect } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import Icons from "@/app/(main)/components/icons";
 import CurrentTime from "../components/CurrentTime";
 import PrintButton from "../components/PrintButton";
-import { aboutSection, educationSection, employmentSection, metadata, profileSection, projectsSection } from "@/data/cv";
-import { CVIcon } from "@/types";
-import { redirect } from "next/navigation";
+import { metadata, sections } from "@/data/cv";
+import { CVAboutSection, CVEducationSection, CVEmploymentSection, CVIcon, CVLocale, CVProfileSection, CVProjectsSection } from "@/types";
 
 type Props = {
   params: {
@@ -38,186 +38,22 @@ export default ({ params: { locale } }: Props) => {
         </Link>
       </div>
 
-      {/* CV */}
+      {/* Render sections based on the sections array in @/data/cv */}
       <div className="flex flex-col gap-6">
-        {/* Profile */}
-        <div className="flex items-center justify-between gap-10">
-          <div className="flex flex-col gap-3">
-            <div>
-              <h1 className="text-xl font-bold min-[400px]:text-2xl">{profileSection.name}</h1>
-              <p className="font-geist-mono text-sm text-neutral-600">{profileSection.tagline[locale]}</p>
-            </div>
-
-            {/* Links */}
-            <div className="flex flex-col gap-1">
-              {profileSection.url && (
-                <Link href={profileSection.url.href} target="_blank" className="flex w-fit items-center gap-1 font-geist-mono text-xs text-neutral-600 hover:underline">
-                  <Icons.link className="size-4" /> {profileSection.url.text}
-                </Link>
-              )}
-
-              {profileSection.location && (
-                <Link href={profileSection.location.href} target="_blank" className="w-fit font-geist-mono text-xs text-neutral-600 hover:underline">
-                  <span className="flex items-center gap-1">
-                    <Icons.globe className="size-4 shrink-0" />
-                    <span>
-                      {profileSection.location.text[locale]}, {new Intl.DateTimeFormat(locale, { timeZone: profileSection.location.timezone, timeZoneName: "shortOffset" }).formatToParts().find(x => x.type === "timeZoneName")!.value}{" "}
-                      {profileSection.location.timezone && <CurrentTime locale={locale} timeZone={profileSection.location.timezone} />}
-                    </span>
-                  </span>
-                </Link>
-              )}
-            </div>
-
-            {/* Icon Links */}
-            {profileSection.iconLinks?.length && (
-              <div className="flex gap-1">
-                {profileSection.iconLinks.map(({ icon, href, text }, i) => {
-                  const IconComponent = getIconComponent(icon);
-
-                  return (
-                    <Fragment key={i}>
-                      <Link href={href} target="_blank" title={text} className="group rounded-lg border p-2 transition-colors hover:bg-neutral-100">
-                        <IconComponent className="size-4 text-neutral-600 transition-colors group-hover:text-black" />
-                      </Link>
-
-                      {/* Show print button if last index and enabled */}
-                      {i === profileSection.iconLinks!.length! - 1 && profileSection.showPrintButton && (
-                        <PrintButton title="Print this page" className="group rounded-lg border p-2 transition-colors hover:bg-neutral-100 print:hidden">
-                          <Icons.print className="size-4 text-neutral-600 transition-colors group-hover:text-black" />
-                        </PrintButton>
-                      )}
-                    </Fragment>
-                  );
-                })}
-              </div>
-            )}
-          </div>
-          {profileSection.avatar && <Image className="hidden rounded-xl sm:block" src={profileSection.avatar} alt={profileSection.name} width={100} height={100} priority placeholder="blur" />}
-        </div>
-
-        {/* About */}
-        {aboutSection && (
-          <div className="flex flex-col gap-2">
-            <SectionTitle title={aboutSection.sectionTitle[locale]} url={aboutSection.sectionTitleUrl} />
-            <SectionDescription description={aboutSection.sectionDescription?.[locale]} />
-          </div>
-        )}
-
-        {/* Work */}
-        {employmentSection.history.length > 0 && (
-          <div className="flex flex-col gap-2">
-            <SectionTitle title={employmentSection.sectionTitle[locale]} url={employmentSection.sectionTitleUrl} />
-            <SectionDescription description={employmentSection.sectionDescription?.[locale]} />
-
-            <div className="flex flex-col gap-3">
-              {employmentSection.history.map(({ title, company, companyUrl, description, start, end }, i) => (
-                <Fragment key={i}>
-                  <div className="flex flex-col gap-2">
-                    <div className="flex flex-col">
-                      {/* Company and dates */}
-                      <div className="flex items-baseline justify-between">
-                        <Link href={companyUrl} target="_blank" className="font-semibold hover:underline">
-                          {company}
-                        </Link>
-
-                        <span className="text-xs text-neutral-600">
-                          {start} - {end ?? "Present"}
-                        </span>
-                      </div>
-
-                      {/* Title */}
-                      <span className="font-geist-mono text-sm">{title}</span>
-                    </div>
-
-                    {/* Description */}
-                    <div className="flex flex-col gap-2">
-                      {description[locale].map(text => (
-                        <SectionDescription key={text} description={[text]} />
-                      ))}
-                    </div>
-                  </div>
-
-                  {i !== employmentSection.history.length - 1 && <hr />}
-                </Fragment>
-              ))}
-            </div>
-          </div>
-        )}
-
-        {/* Education */}
-        {educationSection.history.length > 0 && (
-          <div className="flex flex-col gap-2">
-            <SectionTitle title={educationSection.sectionTitle[locale]} url={educationSection.sectionTitleUrl} />
-            <SectionDescription description={educationSection.sectionDescription?.[locale]} />
-
-            <div className="flex flex-col gap-3">
-              {educationSection.history.map(({ school, schoolUrl, description, start, end }, i) => (
-                <Fragment key={i}>
-                  <div className="flex flex-col gap-[2px]">
-                    <div className="flex flex-col">
-                      {/* School and dates */}
-                      <div className="flex items-baseline justify-between">
-                        <Link href={schoolUrl} target="_blank" className="font-semibold hover:underline">
-                          {school}
-                        </Link>
-
-                        <span className="text-xs text-neutral-600">
-                          {start} - {end ?? "Present"}
-                        </span>
-                      </div>
-                    </div>
-
-                    {/* Description */}
-                    <div className="flex flex-col gap-2">
-                      {description[locale].map(text => (
-                        <SectionDescription key={text} description={[text]} />
-                      ))}
-                    </div>
-                  </div>
-
-                  {i !== educationSection.history.length - 1 && <hr />}
-                </Fragment>
-              ))}
-            </div>
-          </div>
-        )}
-
-        {/* Projects */}
-        {projectsSection.projects.length > 0 && (
-          <div className="flex flex-col gap-2">
-            <SectionTitle title={projectsSection.sectionTitle[locale]} url={projectsSection.sectionTitleUrl} />
-            <SectionDescription description={projectsSection.sectionDescription?.[locale]} />
-
-            <div className="flex flex-col gap-2">
-              {projectsSection.projects.map(({ name, shortDescription, slug, tags, year }) => (
-                <div key={slug} className="flex flex-col gap-[2px] rounded-lg border border-neutral-200 p-2 transition-colors hover:border-neutral-400">
-                  <div className="flex items-baseline justify-between">
-                    <Link href={`/projects/${slug}`} target="_blank" className="font-semibold hover:underline">
-                      {name}
-                    </Link>
-
-                    <span className="text-xs text-neutral-600">{year}</span>
-                  </div>
-
-                  <p className="font-geist-mono text-xs text-neutral-600">{shortDescription}</p>
-
-                  <div className="flex flex-wrap gap-1">
-                    {tags?.map(tag => (
-                      <Link key={tag} href={`/projects?search=${tag}`} target="_blank" title={`See other projects tagged with ${tag}.`} className="rounded bg-neutral-200 p-1 font-geist-mono text-xs text-neutral-800 outline-1 hover:outline">
-                        {tag}
-                      </Link>
-                    ))}
-                  </div>
-                </div>
-              ))}
-
-              <Link href="/projects" target="_blank" className="group font-semibold">
-                <Icons.arrowRight className="inline" /> <span className="group-hover:underline">{projectsSection.browseAllText[locale]}</span>
-              </Link>
-            </div>
-          </div>
-        )}
+        {sections.map(section => {
+          switch (section.sectionId) {
+            case "profile":
+              return <ProfileSection key={section.sectionId} profileSection={section} locale={locale} />;
+            case "about":
+              return <AboutSection key={section.sectionId} aboutSection={section} locale={locale} />;
+            case "employment":
+              return <EmploymentSection key={section.sectionId} employmentSection={section} locale={locale} />;
+            case "education":
+              return <EducationSection key={section.sectionId} educationSection={section} locale={locale} />;
+            case "projects":
+              return <ProjectsSection key={section.sectionId} projectsSection={section} locale={locale} />;
+          }
+        })}
       </div>
     </div>
   );
@@ -278,4 +114,198 @@ const SectionDescription = ({ description }: { description?: string[] }) => {
       {linkify(text)}
     </p>
   ));
+};
+
+const ProfileSection = ({ profileSection, locale }: { profileSection: CVProfileSection; locale: "en" | "sv" }) => {
+  return (
+    <div className="flex items-center justify-between gap-10">
+      <div className="flex flex-col gap-3">
+        <div>
+          <h1 className="text-xl font-bold min-[400px]:text-2xl">{profileSection.name}</h1>
+          <p className="font-geist-mono text-sm text-neutral-600">{profileSection.tagline[locale]}</p>
+        </div>
+
+        {/* Links */}
+        <div className="flex flex-col gap-1">
+          {profileSection.url && (
+            <Link href={profileSection.url.href} target="_blank" className="flex w-fit items-center gap-1 font-geist-mono text-xs text-neutral-600 hover:underline">
+              <Icons.link className="size-4" /> {profileSection.url.text}
+            </Link>
+          )}
+
+          {profileSection.location && (
+            <Link href={profileSection.location.href} target="_blank" className="w-fit font-geist-mono text-xs text-neutral-600 hover:underline">
+              <span className="flex items-center gap-1">
+                <Icons.globe className="size-4 shrink-0" />
+                <span>
+                  {profileSection.location.text[locale]}, {new Intl.DateTimeFormat(locale, { timeZone: profileSection.location.timezone, timeZoneName: "shortOffset" }).formatToParts().find(x => x.type === "timeZoneName")!.value}{" "}
+                  {profileSection.location.timezone && <CurrentTime locale={locale} timeZone={profileSection.location.timezone} />}
+                </span>
+              </span>
+            </Link>
+          )}
+        </div>
+
+        {/* Icon Links */}
+        {profileSection.iconLinks?.length && (
+          <div className="flex gap-1">
+            {profileSection.iconLinks.map(({ icon, href, text }, i) => {
+              const IconComponent = getIconComponent(icon);
+
+              return (
+                <Fragment key={i}>
+                  <Link href={href} target="_blank" title={text} className="group rounded-lg border p-2 transition-colors hover:bg-neutral-100">
+                    <IconComponent className="size-4 text-neutral-600 transition-colors group-hover:text-black" />
+                  </Link>
+
+                  {/* Show print button if last index and enabled */}
+                  {i === profileSection.iconLinks!.length! - 1 && profileSection.showPrintButton && (
+                    <PrintButton title="Print this page" className="group rounded-lg border p-2 transition-colors hover:bg-neutral-100 print:hidden">
+                      <Icons.print className="size-4 text-neutral-600 transition-colors group-hover:text-black" />
+                    </PrintButton>
+                  )}
+                </Fragment>
+              );
+            })}
+          </div>
+        )}
+      </div>
+      {profileSection.avatar && <Image className="hidden rounded-xl sm:block" src={profileSection.avatar} alt={profileSection.name} width={100} height={100} priority placeholder="blur" />}
+    </div>
+  );
+};
+
+const AboutSection = ({ aboutSection, locale }: { aboutSection: CVAboutSection; locale: CVLocale }) => {
+  if (!aboutSection) return null;
+
+  return (
+    <div className="flex flex-col gap-2">
+      <SectionTitle title={aboutSection.sectionTitle[locale]} url={aboutSection.sectionTitleUrl} />
+      <SectionDescription description={aboutSection.sectionDescription?.[locale]} />
+    </div>
+  );
+};
+
+const EmploymentSection = ({ employmentSection, locale }: { employmentSection: CVEmploymentSection; locale: CVLocale }) => {
+  if (!employmentSection.history.length) return null;
+
+  return (
+    <div className="flex flex-col gap-2">
+      <SectionTitle title={employmentSection.sectionTitle[locale]} url={employmentSection.sectionTitleUrl} />
+      <SectionDescription description={employmentSection.sectionDescription?.[locale]} />
+
+      <div className="flex flex-col gap-3">
+        {employmentSection.history.map(({ title, company, companyUrl, description, start, end }, i) => (
+          <Fragment key={i}>
+            <div className="flex flex-col gap-2">
+              <div className="flex flex-col">
+                {/* Company and dates */}
+                <div className="flex items-baseline justify-between">
+                  <Link href={companyUrl} target="_blank" className="font-semibold hover:underline">
+                    {company}
+                  </Link>
+
+                  <span className="text-xs text-neutral-600">
+                    {start} - {end ?? "Present"}
+                  </span>
+                </div>
+
+                {/* Title */}
+                <span className="font-geist-mono text-sm">{title}</span>
+              </div>
+
+              {/* Description */}
+              <div className="flex flex-col gap-2">
+                {description[locale].map(text => (
+                  <SectionDescription key={text} description={[text]} />
+                ))}
+              </div>
+            </div>
+
+            {i !== employmentSection.history.length - 1 && <hr />}
+          </Fragment>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+const EducationSection = ({ educationSection, locale }: { educationSection: CVEducationSection; locale: CVLocale }) => {
+  if (!educationSection.history.length) return null;
+
+  return (
+    <div className="flex flex-col gap-2">
+      <SectionTitle title={educationSection.sectionTitle[locale]} url={educationSection.sectionTitleUrl} />
+      <SectionDescription description={educationSection.sectionDescription?.[locale]} />
+
+      <div className="flex flex-col gap-3">
+        {educationSection.history.map(({ school, schoolUrl, description, start, end }, i) => (
+          <Fragment key={i}>
+            <div className="flex flex-col gap-[2px]">
+              <div className="flex flex-col">
+                {/* School and dates */}
+                <div className="flex items-baseline justify-between">
+                  <Link href={schoolUrl} target="_blank" className="font-semibold hover:underline">
+                    {school}
+                  </Link>
+
+                  <span className="text-xs text-neutral-600">
+                    {start} - {end ?? "Present"}
+                  </span>
+                </div>
+              </div>
+
+              {/* Description */}
+              <div className="flex flex-col gap-2">
+                {description[locale].map(text => (
+                  <SectionDescription key={text} description={[text]} />
+                ))}
+              </div>
+            </div>
+
+            {i !== educationSection.history.length - 1 && <hr />}
+          </Fragment>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+const ProjectsSection = ({ projectsSection, locale }: { projectsSection: CVProjectsSection; locale: CVLocale }) => {
+  if (!projectsSection.projects.length) return null;
+
+  return (
+    <div className="flex flex-col gap-2">
+      <SectionTitle title={projectsSection.sectionTitle[locale]} url={projectsSection.sectionTitleUrl} />
+      <SectionDescription description={projectsSection.sectionDescription?.[locale]} />
+
+      <div className="flex flex-col gap-2">
+        {projectsSection.projects.map(({ name, shortDescription, slug, tags, year }) => (
+          <div key={slug} className="flex flex-col gap-[2px] rounded-lg border border-neutral-200 p-2 transition-colors hover:border-neutral-400">
+            <div className="flex items-baseline justify-between">
+              <Link href={`/projects/${slug}`} target="_blank" className="font-semibold hover:underline">
+                {name}
+              </Link>
+
+              <span className="text-xs text-neutral-600">{year}</span>
+            </div>
+
+            <p className="font-geist-mono text-xs text-neutral-600">{shortDescription}</p>
+
+            <div className="flex flex-wrap gap-1">
+              {tags?.map(tag => (
+                <Link key={tag} href={`/projects?search=${tag}`} target="_blank" title={`See other projects tagged with ${tag}.`} className="rounded bg-neutral-200 p-1 font-geist-mono text-xs text-neutral-800 outline-1 hover:outline">
+                  {tag}
+                </Link>
+              ))}
+            </div>
+          </div>
+        ))}
+
+        <Link href="/projects" target="_blank" className="group font-semibold">
+          <Icons.arrowRight className="inline" /> <span className="group-hover:underline">{projectsSection.browseAllText[locale]}</span>
+        </Link>
+      </div>
+    </div>
+  );
 };

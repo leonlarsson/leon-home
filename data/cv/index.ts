@@ -14,6 +14,7 @@ export const metadata: CVMetadata = {
 } satisfies CVMetadata;
 
 export const profileSection: CVProfileSection = {
+  sectionId: "profile",
   name: "Leon San José Larsson",
   avatar: avatar,
   tagline: {
@@ -54,6 +55,7 @@ export const profileSection: CVProfileSection = {
 } satisfies CVProfileSection;
 
 export const aboutSection: CVAboutSection = {
+  sectionId: "about",
   sectionTitle: {
     en: "About me",
     sv: "Om mig",
@@ -65,6 +67,7 @@ export const aboutSection: CVAboutSection = {
 } satisfies CVAboutSection;
 
 export const employmentSection: CVEmploymentSection = {
+  sectionId: "employment",
   sectionTitle: {
     en: "Work Experience",
     sv: "Arbetslivserfarenhet",
@@ -101,6 +104,7 @@ export const employmentSection: CVEmploymentSection = {
 } satisfies CVEmploymentSection;
 
 export const educationSection: CVEducationSection = {
+  sectionId: "education",
   sectionTitle: {
     en: "Education",
     sv: "Utbildning",
@@ -120,6 +124,7 @@ export const educationSection: CVEducationSection = {
 } satisfies CVEducationSection;
 
 export const projectsSection: CVProjectsSection = {
+  sectionId: "projects",
   sectionTitle: {
     en: "Projects",
     sv: "Projekt",
@@ -139,3 +144,6 @@ export const projectsSection: CVProjectsSection = {
   },
   projects: [...projects].reverse().filter(x => x.displayInCv),
 } satisfies CVProjectsSection;
+
+// This defined which sections and in which order they should be displayed in the CV
+export const sections = [profileSection, aboutSection, employmentSection, educationSection, projectsSection];
