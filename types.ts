@@ -89,7 +89,7 @@ export type CVAboutSection = {
     sv: string;
   };
   sectionTitleUrl?: string;
-  description: {
+  sectionDescription: {
     en: string[];
     sv: string[];
   };
@@ -101,6 +101,10 @@ export type CVEmploymentSection = {
     sv: string;
   };
   sectionTitleUrl?: string;
+  sectionDescription?: {
+    en: string[];
+    sv: string[];
+  };
   history: {
     title: string;
     company: string;
@@ -120,6 +124,10 @@ export type CVEducationSection = {
     sv: string;
   };
   sectionTitleUrl?: string;
+  sectionDescription?: {
+    en: string[];
+    sv: string[];
+  };
   history: {
     school: string;
     schoolUrl: string;
@@ -138,9 +146,9 @@ export type CVProjectsSection = {
     sv: string;
   };
   sectionTitleUrl?: string;
-  sectionDescription: {
-    en: string;
-    sv: string;
+  sectionDescription?: {
+    en: string[];
+    sv: string[];
   };
   browseAllText: {
     en: string;

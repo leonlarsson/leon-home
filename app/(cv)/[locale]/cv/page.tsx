@@ -100,14 +100,7 @@ export default ({ params: { locale } }: Props) => {
         {aboutSection && (
           <div className="flex flex-col gap-2">
             <SectionTitle title={aboutSection.sectionTitle[locale]} url={aboutSection.sectionTitleUrl} />
-
-            <div className="flex flex-col gap-2">
-              {aboutSection.description[locale].map(text => (
-                <p key={text} className="font-geist-mono text-xs text-neutral-600">
-                  {linkify(text)}
-                </p>
-              ))}
-            </div>
+            <SectionDescription description={aboutSection.sectionDescription?.[locale]} />
           </div>
         )}
 
@@ -115,6 +108,7 @@ export default ({ params: { locale } }: Props) => {
         {employmentSection.history.length > 0 && (
           <div className="flex flex-col gap-2">
             <SectionTitle title={employmentSection.sectionTitle[locale]} url={employmentSection.sectionTitleUrl} />
+            <SectionDescription description={employmentSection.sectionDescription?.[locale]} />
 
             <div className="flex flex-col gap-3">
               {employmentSection.history.map(({ title, company, companyUrl, description, start, end }, i) => (
@@ -139,9 +133,7 @@ export default ({ params: { locale } }: Props) => {
                     {/* Description */}
                     <div className="flex flex-col gap-2">
                       {description[locale].map(text => (
-                        <p key={text} className="font-geist-mono text-xs text-neutral-600">
-                          {linkify(text)}
-                        </p>
+                        <SectionDescription key={text} description={[text]} />
                       ))}
                     </div>
                   </div>
@@ -157,6 +149,7 @@ export default ({ params: { locale } }: Props) => {
         {educationSection.history.length > 0 && (
           <div className="flex flex-col gap-2">
             <SectionTitle title={educationSection.sectionTitle[locale]} url={educationSection.sectionTitleUrl} />
+            <SectionDescription description={educationSection.sectionDescription?.[locale]} />
 
             <div className="flex flex-col gap-3">
               {educationSection.history.map(({ school, schoolUrl, description, start, end }, i) => (
@@ -178,9 +171,7 @@ export default ({ params: { locale } }: Props) => {
                     {/* Description */}
                     <div className="flex flex-col gap-2">
                       {description[locale].map(text => (
-                        <p key={text} className="font-geist-mono text-xs text-neutral-600">
-                          {linkify(text)}
-                        </p>
+                        <SectionDescription key={text} description={[text]} />
                       ))}
                     </div>
                   </div>
@@ -196,7 +187,7 @@ export default ({ params: { locale } }: Props) => {
         {projectsSection.projects.length > 0 && (
           <div className="flex flex-col gap-2">
             <SectionTitle title={projectsSection.sectionTitle[locale]} url={projectsSection.sectionTitleUrl} />
-            <p className="font-geist-mono text-xs text-neutral-600">{linkify(projectsSection.sectionDescription[locale])}</p>
+            <SectionDescription description={projectsSection.sectionDescription?.[locale]} />
 
             <div className="flex flex-col gap-2">
               {projectsSection.projects.map(({ name, shortDescription, slug, tags, year }) => (
@@ -268,6 +259,7 @@ const linkify = (text: string) => {
   return elements;
 };
 
+// Takes a string and returns a title with an optional url
 const SectionTitle = ({ title, url }: { title: string; url?: string }) => {
   return url ? (
     <Link href={url} target="_blank" className="w-fit text-xl font-bold underline decoration-1 underline-offset-2 hover:decoration-2">
@@ -276,4 +268,14 @@ const SectionTitle = ({ title, url }: { title: string; url?: string }) => {
   ) : (
     <h2 className="text-xl font-bold underline decoration-1 underline-offset-2">{title}</h2>
   );
+};
+
+// Takes an array of strings and returns a list of paragraphs
+const SectionDescription = ({ description }: { description?: string[] }) => {
+  if (!description) return null;
+  return description.map(text => (
+    <p key={text} className="font-geist-mono text-xs text-neutral-600">
+      {linkify(text)}
+    </p>
+  ));
 };

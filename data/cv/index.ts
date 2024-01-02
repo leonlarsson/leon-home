@@ -58,7 +58,7 @@ export const aboutSection: CVAboutSection = {
     en: "About me",
     sv: "Om mig",
   },
-  description: {
+  sectionDescription: {
     en: ["I'm an aspiring Full Stack Engineer in self-training. My primary areas of interest are web development and Discord bots. I also extensively work on creating various APIs and services on platforms such as Cloudflare Workers. My old CV can be found [here](https://leonlarsson.com/cv-old)."],
     sv: ["Jag är en aspirerande Full Stack-utvecklare. Mina primära intresseområden är webbutveckling och Discord-bottar. Jag arbetar också omfattande med att skapa olika API:er och tjänster på plattformar som Cloudflare Workers. Mitt gamla CV finns [här](https://leonlarsson.com/cv-old-swe)."],
   },
@@ -126,8 +126,12 @@ export const projectsSection: CVProjectsSection = {
   },
   sectionTitleUrl: "https://leonlarsson.com/projects",
   sectionDescription: {
-    en: "I have a strong interest in software engineering and frontend design. I love working with technologies such as React, Next.js, Node.js using JavaScript (and TypeScript). I also have some experience with SQLite and MySQL. Below you can read about a few of my projects. Click on a title to read more.",
-    sv: "Jag har ett starkt intresse för mjukvaruutveckling och frontend-design. Jag älskar att arbeta med tekniker som React, Next.js, Node.js med JavaScript (och TypeScript). Jag har också viss erfarenhet av SQLite och MySQL. Nedan kan du läsa om några av mina projekt. Klicka på en titel för att läsa mer.",
+    en: [
+      "I have a strong interest in software engineering and frontend design. I love working with technologies such as React, Next.js, Node.js using JavaScript (and TypeScript). I also have some experience with SQLite and MySQL. Below you can read about a few of my projects. Click on a title to read more.",
+    ],
+    sv: [
+      "Jag har ett starkt intresse för mjukvaruutveckling och frontend-design. Jag älskar att arbeta med tekniker som React, Next.js, Node.js med JavaScript (och TypeScript). Jag har också viss erfarenhet av SQLite och MySQL. Nedan kan du läsa om några av mina projekt. Klicka på en titel för att läsa mer.",
+    ],
   },
   browseAllText: {
     en: "Browse all projects",
