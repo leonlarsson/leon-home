@@ -1,7 +1,7 @@
+import { Fragment } from "react";
 import { redirect } from "next/navigation";
 import Link from "next/link";
 import Icons from "@/app/(main)/components/icons";
-import { AboutSection, EducationSection, EmploymentSection, ProfileSection, ProjectsSection } from "../components/sections";
 import { pageMetadata, sections } from "@/data/cv";
 
 type Props = {
@@ -36,20 +36,9 @@ export default ({ params: { locale } }: Props) => {
 
       {/* Render sections based on the sections array in @/data/cv */}
       <div className="flex flex-col gap-6">
-        {sections.map(section => {
-          switch (section.sectionId) {
-            case "profile":
-              return <ProfileSection key={section.sectionId} data={section} locale={locale} />;
-            case "about":
-              return <AboutSection key={section.sectionId} data={section} locale={locale} />;
-            case "employment":
-              return <EmploymentSection key={section.sectionId} data={section} locale={locale} />;
-            case "education":
-              return <EducationSection key={section.sectionId} data={section} locale={locale} />;
-            case "projects":
-              return <ProjectsSection key={section.sectionId} data={section} locale={locale} />;
-          }
-        })}
+        {sections(locale).map((section, i) => (
+          <Fragment key={i}>{section}</Fragment>
+        ))}
       </div>
     </div>
   );

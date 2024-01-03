@@ -1,7 +1,8 @@
 import avatar from "./images/avatar.png";
 import Icons from "@/app/(main)/components/icons";
 import projects from "../projects";
-import { CVAboutSection, CVEducationSection, CVEmploymentSection, CVMetadata, CVProfileSection, CVProjectsSection } from "@/types";
+import { CVAboutSection, CVEducationSection, CVEmploymentSection, CVLocale, CVMetadata, CVProfileSection, CVProjectsSection } from "@/types";
+import { AboutSection, EducationSection, EmploymentSection, ProfileSection, ProjectsSection } from "@/app/(cv)/[locale]/components/sections";
 
 export const pageMetadata: CVMetadata = {
   title: {
@@ -147,4 +148,10 @@ export const projectsSection: CVProjectsSection = {
 } satisfies CVProjectsSection;
 
 // This defined which sections and in which order they should be displayed in the CV
-export const sections = [profileSection, aboutSection, employmentSection, educationSection, projectsSection];
+export const sections = (locale: CVLocale) => [
+  <ProfileSection data={profileSection} locale={locale} />,
+  <AboutSection data={aboutSection} locale={locale} />,
+  <EmploymentSection data={employmentSection} locale={locale} />,
+  <EducationSection data={educationSection} locale={locale} />,
+  <ProjectsSection data={projectsSection} locale={locale} />,
+];
