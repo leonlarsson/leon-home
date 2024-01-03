@@ -1,7 +1,8 @@
 "use client";
 
-import { useRouter } from "next/navigation";
 import { useTransition } from "react";
+import { useRouter } from "next/navigation";
+import Icons from "../../components/icons";
 
 export default () => {
   const router = useRouter();
@@ -9,7 +10,7 @@ export default () => {
 
   return (
     <button title="Click to refresh." onClick={() => startTransition(() => router.refresh())}>
-      <i className={`fa-solid fa-refresh fa-sm ${pending ? "animate-spin" : ""}`} />
+      <Icons.arrowRotate className={`size-6 ${pending ? "animate-spin" : ""}`} />
     </button>
   );
 };

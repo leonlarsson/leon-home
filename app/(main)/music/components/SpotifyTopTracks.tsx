@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { getTopTracks } from "../lib/actions";
 import formatDuration from "../lib/formatDuration";
+import Icons from "../../components/icons";
 
 type Props = {
   range: string;
@@ -18,10 +19,10 @@ export default async ({ range, hideSpotifyURI }: Props) => {
       {tracks.map((track, i) => (
         <div key={track.id} className="group flex items-center gap-4 rounded p-2 hover:bg-gray-300 dark:hover:bg-gray-300/10">
           {/* Track number / play button */}
-          <div className="ms-2 w-6 shrink-0 text-center text-neutral-700 dark:text-neutral-300 max-[380px]:hidden">
+          <div className="ms-2 w-6 shrink-0 text-center text-neutral-700 max-[380px]:hidden dark:text-neutral-300">
             <span className="group-hover:hidden">{i + 1}</span>
             <Link href={track.uri} target="_blank" title="Open in Spotify" className="hidden group-hover:block">
-              <i className="fa-solid fa-play fa-lg" />
+              <Icons.play className="size-6" />
             </Link>
           </div>
 
@@ -30,17 +31,17 @@ export default async ({ range, hideSpotifyURI }: Props) => {
 
           <div className="flex flex-1 flex-col text-start">
             {/* Track name */}
-            <div>
+            <span className="space-x-2">
               <Link href={track.external_urls.spotify} target="_blank" className="text-lg font-semibold hover:underline">
                 {track.name}
               </Link>
 
               {!hideSpotifyURI && (
                 <Link href={track.uri} target="_blank" title="Open in Spotify" className="hidden hover:underline max-[380px]:inline">
-                  <i className="fa-brands fa-spotify ms-2 text-[#1ed760]" />
+                  <Icons.spotify className="inline size-4 text-[#1ed760]" />
                 </Link>
               )}
-            </div>
+            </span>
 
             {/* Artist names */}
             <div className="text-sm text-neutral-700 dark:text-neutral-300">
@@ -55,7 +56,7 @@ export default async ({ range, hideSpotifyURI }: Props) => {
           </div>
 
           {/* Track progress */}
-          <span className="text-right text-sm text-neutral-700 dark:text-neutral-300 max-[380px]:hidden">{formatDuration(track.duration_ms)}</span>
+          <span className="text-right text-sm text-neutral-700 max-[380px]:hidden dark:text-neutral-300">{formatDuration(track.duration_ms)}</span>
         </div>
       ))}
     </div>

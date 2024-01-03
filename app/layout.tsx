@@ -9,9 +9,6 @@ import { GeistMono } from "geist/font/mono";
 import generateOGMetadata from "./utils/generateOGMetadata";
 
 import "./globals.css";
-import "/public/fontawesome/css/fontawesome.min.css";
-import "/public/fontawesome/css/solid.min.css";
-import "/public/fontawesome/css/brands.min.css";
 
 const pageTitle = "Leon San José Larsson";
 const pageDescription = "Aspiring Full Stack Engineer working in video games marketing.";

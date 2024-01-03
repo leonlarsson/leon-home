@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { getCurrentlyPlaying } from "../lib/actions";
+import Icons from "../../components/icons";
 import CurrentTrackProgress from "./CurrentTrackProgress";
 
 type Props = {
@@ -28,16 +29,17 @@ export default async ({ compact, alwaysRender, currentlyPlayingText, hideSpotify
             {/* Track name */}
             <div className={`${compact ? "" : "text-xl max-[380px]:text-lg"} font-semibold`}>
               {track ? (
-                <>
+                <span className="flex items-center gap-2">
                   <Link href={track.external_urls.spotify} target="_blank" className="hover:underline">
                     {track.name}
                   </Link>
+
                   {!hideSpotifyURI && compact && (
                     <Link href={track.uri} target="_blank" title="Open in Spotify" className="hover:underline">
-                      <i className={`fa-brands fa-spotify fa-lg ms-2 text-[#1ed760]`} />
+                      <Icons.spotify className="size-4 text-[#1ed760]" />
                     </Link>
                   )}
-                </>
+                </span>
               ) : (
                 "Nothing"
               )}
@@ -55,17 +57,12 @@ export default async ({ compact, alwaysRender, currentlyPlayingText, hideSpotify
             </div>
 
             {track && !hideSpotifyURI && !compact && (
-              <span>
-                <Link href={track.uri} target="_blank" className="mt-1 hover:underline">
-                  <i className={`fa-brands fa-spotify ${compact ? "" : "fa-lg"} me-2 text-[#1ed760]`} />
-                  Open in Spotify
-                </Link>
-              </span>
+              <Link href={track.uri} target="_blank" className="mt-1 flex w-fit flex-wrap items-center gap-1 hover:underline">
+                <Icons.spotify className="size-5 text-[#1ed760]" />
+                Open in Spotify
+              </Link>
             )}
           </div>
-
-          {/* Track progress */}
-          {/* {track && <CurrentTrackProgress key={currentlyPlayingObject?.progress_ms ?? 0} type="time" isPlaying={!!currentlyPlayingObject?.is_playing} initialProgress={currentlyPlayingObject?.progress_ms ?? 0} duration={track.duration_ms} reloadOnEnd={reloadOnEnd} />} */}
         </div>
 
         {/* Track progress */}

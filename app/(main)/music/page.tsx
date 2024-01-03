@@ -17,8 +17,8 @@ export const metadata: Metadata = {
     title: pageTitle,
     description: pageDescription,
     url: "https://leonlarsson.com/music",
-    appendNameInOG: true
-  })
+    appendNameInOG: true,
+  }),
 };
 
 type Props = {
@@ -30,7 +30,7 @@ type Props = {
 export default ({ searchParams }: Props) => {
   return (
     <div className="mx-auto max-w-3xl pb-10 text-start">
-      <div className="text-3xl font-extrabold">
+      <div className="flex gap-2 text-3xl font-extrabold">
         Music <RefreshButton />
       </div>
       <div className="mb-3">All data is freshly sourced from Spotify.</div>

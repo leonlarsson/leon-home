@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import formatDuration from "../lib/formatDuration";
+import Icons from "../../components/icons";
 
 type Props = {
   type: "time" | "bar" | "combined" | "combinedTextTop" | "combinedTextBottom";
@@ -45,7 +46,7 @@ export default ({ type, isPlaying, initialProgress, duration, reloadOnEnd }: Pro
 
   if (type === "time")
     return (
-      <span className="text-right text-sm text-neutral-700 dark:text-neutral-300 max-[380px]:hidden">
+      <span className="text-right text-sm text-neutral-700 max-[380px]:hidden dark:text-neutral-300">
         {isPlaying ? formatDuration(progress) : <PauseIcon />} / {formatDuration(duration)}
       </span>
     );
@@ -94,4 +95,4 @@ const ProgressBar = ({ progress, duration, extraClasses }: { extraClasses?: stri
   </div>
 );
 
-const PauseIcon = () => <i className="fa-solid fa-pause" />;
+const PauseIcon = () => <Icons.pause className="size-4" />;

@@ -71,7 +71,7 @@ export const ProjectSkeleton = () => (
     <div className="flex h-full rounded bg-slate-100 text-start transition-colors dark:bg-kinda-black">
       <div className="group flex flex-1 flex-col p-3" draggable={false}>
         <span className="text-lg font-bold">
-          <i className="fa-solid fa-arrow-right me-2 transition-transform group-hover:translate-x-1" />
+          <Icons.arrowRight className="mb-1 me-2 inline h-5 transition-transform group-hover:translate-x-1" />
           <span className="underline-offset-2 group-hover:underline">Lorem ipsum</span>{" "}
         </span>
 

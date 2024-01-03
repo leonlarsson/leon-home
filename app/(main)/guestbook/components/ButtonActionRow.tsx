@@ -3,6 +3,7 @@
 import { useRef } from "react";
 import { deleteEntry, editEntry } from "../lib/actions";
 import { Entry } from "@/types";
+import Icons from "../../components/icons";
 
 export default ({ entry }: { entry: Entry }) => {
   const editDialogRef = useRef<HTMLDialogElement>(null);
@@ -14,19 +15,19 @@ export default ({ entry }: { entry: Entry }) => {
       <EditMessageDialog entry={entry} editDialogRef={editDialogRef} inputRef={inputRef} />
       <DeleteMessageDialog entry={entry} deleteDialogRef={deleteDialogRef} />
 
-      <span className="me-2 inline-flex gap-1 text-base">
+      <span className="me-2 inline-flex gap-1 text-base text-kinda-black dark:text-kinda-white">
         <button
-          className="button-with-border !px-1 !py-0"
+          className="hover:opacity-70"
           title={`Edit entry message with ID ${entry.id}.`}
           onClick={() => {
             if (inputRef?.current) inputRef.current.value = entry.body;
             editDialogRef.current?.showModal();
           }}
         >
-          <i className="fa-solid fa-pen fa-fw" />
+          <Icons.pencil />
         </button>
-        <button className="button-with-border !px-1 !py-0" title={`Delete entry with ID ${entry.id}.`} onClick={() => deleteDialogRef.current?.showModal()}>
-          <i className="fa-solid fa-trash fa-fw" />
+        <button className="hover:opacity-70" title={`Delete entry with ID ${entry.id}.`} onClick={() => deleteDialogRef.current?.showModal()}>
+          <Icons.trash />
         </button>
       </span>
     </>

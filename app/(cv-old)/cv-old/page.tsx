@@ -13,8 +13,8 @@ export const metadata: Metadata = {
     title: pageTitle,
     description: pageDescription,
     url: "https://leonlarsson.com/cv",
-    appendNameInOG: true
-  })
+    appendNameInOG: true,
+  }),
 };
 
 export default () => {
@@ -50,15 +50,15 @@ export default () => {
 								<span class="text">AM/B</span>
 							</div> */}
                 <div className="sf-top-social">
-                  <span style={{ marginBottom: "10px" }} className="sf-contact-heading">
-                    External Links
-                  </span>
-                  <a title="LinkedIn" style={{ textDecoration: "none", color: "black" }} href="https://www.linkedin.com/in/leonlarsson/" target="_blank">
-                    <i className="fa-brands fa-linkedin-in fa-2xl" />
-                  </a>
-                  <a title="GitHub" style={{ textDecoration: "none", color: "black", marginLeft: "8px" }} href="https://github.com/leonlarsson/" target="_blank">
-                    <i className="fa-brands fa-github fa-2xl" />
-                  </a>
+                  <span className="sf-contact-heading">External Links</span>
+                  <div className="flex flex-col items-end text-sm">
+                    <a title="LinkedIn" href="https://www.linkedin.com/in/leonlarsson/" target="_blank" className="!text-black hover:underline">
+                      LinkedIn
+                    </a>
+                    <a title="GitHub" href="https://github.com/leonlarsson/" target="_blank" className="!text-black hover:underline">
+                      GitHub
+                    </a>
+                  </div>
                 </div>
                 {/* SKILLS */}
                 <div className="no-pagebreak-header" />
