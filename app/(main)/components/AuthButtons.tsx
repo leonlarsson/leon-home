@@ -5,7 +5,7 @@ import Icons from "./icons";
 
 export const SignOut = () => {
   return (
-    <button className="text-red-500 hover:underline dark:text-red-400" title="Sign out." onClick={() => signOut()}>
+    <button className="link font-normal text-red-500 dark:text-red-400" title="Sign out." onClick={() => signOut()}>
       Sign out
     </button>
   );

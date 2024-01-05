@@ -28,9 +28,9 @@ export default () => {
         {/* WORK */}
         <div>
           I currently work as the Community & Support Specialist at{" "}
-          <Link href="https://sharkmob.com" target="_blank" className="inline-flex items-baseline underline-offset-2 hover:underline" draggable={false}>
+          <Link href="https://sharkmob.com" target="_blank" className="link inline-flex items-baseline" draggable={false}>
             <Image src={smLogo} alt="Sharkmob logo" width={16} height={16} className="mx-1 self-center" />
-            <span className="font-semibold underline-offset-2 hover:underline">Sharkmob</span>
+            <span>Sharkmob</span>
           </Link>
           , where I manage player support, Bloodhunt's website, and assist the player relations and marketing teams.
         </div>
@@ -38,7 +38,7 @@ export default () => {
         {/* DEV */}
         <div>
           I'm an aspiring Full Stack Engineer in self-training. My primary areas of interest are web development and Discord bots. I also extensively work on creating various APIs and services on platforms such as Cloudflare Workers. Feel free to{" "}
-          <Link href="/projects" className="font-semibold underline-offset-2 hover:underline">
+          <Link href="/projects" className="link">
             browse all my projects!
           </Link>
         </div>
@@ -46,7 +46,7 @@ export default () => {
         {/* COMMUNITY */}
         <div>
           Some of my other interests include community building and community management. I've been building communities on Discord since 2016, including moderating and eventually co-owning the biggest{" "}
-          <Link href="/projects/battlefield-discord" className="whitespace-nowrap font-semibold underline-offset-2 hover:underline">
+          <Link href="/projects/battlefield-discord" className="link whitespace-nowrap">
             Battlefield Discord
           </Link>
           .
@@ -54,7 +54,7 @@ export default () => {
 
         {/* MUSIC - DISABLED */}
         {/* <div>
-          <Link href="/music" className="font-semibold underline-offset-2 hover:underline">
+          <Link href="/music" className="link">
             I am currently listening to:
           </Link>
 
@@ -67,7 +67,7 @@ export default () => {
         <div>
           <Icons.pencil className="mr-2 inline h-5" />
           Feel free to{" "}
-          <Link href="/guestbook" className="font-semibold underline-offset-2 hover:underline">
+          <Link href="/guestbook" className="link">
             sign my guestbook!
           </Link>
         </div>
@@ -123,7 +123,7 @@ export default () => {
         <div className="flex flex-col gap-1">
           <span className="mt-2 text-xl font-semibold">
             Featured{" "}
-            <Link href="/projects" className="underline-offset-2 hover:underline">
+            <Link href="/projects" className="link font-semibold">
               projects
             </Link>
           </span>
@@ -145,7 +145,7 @@ const Employment = ({ title, companyName, companyUrl }: { title: string; company
         <>
           {" "}
           @{" "}
-          <a href={companyUrl} target="_blank" className="underline-offset-2 hover:underline" draggable={false}>
+          <a href={companyUrl} target="_blank" className="link font-normal" draggable={false}>
             {companyName}
           </a>
         </>
