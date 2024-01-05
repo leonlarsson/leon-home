@@ -16,7 +16,7 @@ export const ProjectsSection = ({ data, locale }: { data: CVProjectsSection; loc
         {data.projects.map(({ name, shortDescription, slug, tags, year }) => (
           <div key={slug} className="flex flex-col gap-[2px] rounded-lg border border-neutral-200 p-2 transition-colors hover:border-neutral-400">
             <div className="flex items-baseline justify-between">
-              <Link href={`/projects/${slug}`} target="_blank" className="font-semibold hover:underline">
+              <Link href={`/projects/${slug}`} target="_blank" className="link font-semibold">
                 {name}
               </Link>
 

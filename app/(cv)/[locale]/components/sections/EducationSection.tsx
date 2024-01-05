@@ -19,7 +19,7 @@ export const EducationSection = ({ data, locale }: { data: CVEducationSection; l
               <div className="flex flex-col">
                 {/* School and dates */}
                 <div className="flex items-baseline justify-between">
-                  <Link href={schoolUrl} target="_blank" className="font-semibold hover:underline">
+                  <Link href={schoolUrl} target="_blank" className="link">
                     {school}
                   </Link>
 

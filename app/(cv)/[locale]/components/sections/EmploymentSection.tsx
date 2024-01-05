@@ -19,7 +19,7 @@ export const EmploymentSection = ({ data, locale }: { data: CVEmploymentSection;
               <div className="flex flex-col">
                 {/* Company and dates */}
                 <div className="flex items-baseline justify-between">
-                  <Link href={companyUrl} target="_blank" className="font-semibold hover:underline">
+                  <Link href={companyUrl} target="_blank" className="link">
                     {company}
                   </Link>
 
