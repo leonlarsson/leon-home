@@ -34,6 +34,9 @@ const nextConfig = {
       fullUrl: true,
     },
   },
+  experimental: {
+    ppr: true,
+  },
 };
 
 module.exports = nextConfig;
