@@ -24,7 +24,7 @@ export const EmploymentSection = ({ data, locale }: { data: CVEmploymentSection;
                   </Link>
 
                   <span className="text-xs text-neutral-600">
-                    {start} - {end ?? "Present"}
+                    {start} {locale === "en" ? "-" : "–"} {end ?? (locale === "en" ? "Present" : "Nuvarande")}
                   </span>
                 </div>
 

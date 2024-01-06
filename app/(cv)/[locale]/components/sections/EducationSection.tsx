@@ -24,7 +24,7 @@ export const EducationSection = ({ data, locale }: { data: CVEducationSection; l
                   </Link>
 
                   <span className="text-xs text-neutral-600">
-                    {start} - {end ?? "Present"}
+                    {start} {locale === "en" ? "-" : "–"} {end ?? (locale === "en" ? "Present" : "Nuvarande")}
                   </span>
                 </div>
               </div>
