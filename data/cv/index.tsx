@@ -134,10 +134,10 @@ export const projectsSection: CVProjectsSection = {
   sectionTitleUrl: "https://leonlarsson.com/projects",
   sectionDescription: {
     en: [
-      "I have a strong interest in software engineering and frontend design. I love working with technologies such as React, Next.js, Node.js using JavaScript (and TypeScript). I also have some experience with SQLite and MySQL. Below you can read about a few of my projects. Click on a title to read more.",
+      "I have a strong interest in software engineering and frontend design. I love working with technologies such as React, Next.js, Node.js using JavaScript and TypeScript. I also have some experience with SQLite and MySQL. Below you can read about a few of my projects. Click on a title to read more.",
     ],
     sv: [
-      "Jag har ett starkt intresse för mjukvaruutveckling och frontend-design. Jag älskar att arbeta med tekniker som React, Next.js, Node.js med JavaScript (och TypeScript). Jag har också viss erfarenhet av SQLite och MySQL. Nedan kan du läsa om några av mina projekt. Klicka på en titel för att läsa mer.",
+      "Jag har ett starkt intresse för mjukvaruutveckling och frontend-design. Jag älskar att arbeta med tekniker som React, Next.js, Node.js med JavaScript och TypeScript. Jag har också viss erfarenhet av SQLite och MySQL. Nedan kan du läsa om några av mina projekt. Klicka på en titel för att läsa mer.",
     ],
   },
   browseAllText: {
