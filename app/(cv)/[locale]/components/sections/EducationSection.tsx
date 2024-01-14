@@ -2,6 +2,7 @@ import { Fragment } from "react";
 import Link from "next/link";
 import SectionTitle from "../SectionTitle";
 import SectionDescription from "../SectionDescription";
+import DateRange from "../DateRange";
 import { CVEducationSection, CVLocale } from "@/types";
 
 export const EducationSection = ({ data, locale }: { data: CVEducationSection; locale: CVLocale }) => {
@@ -23,9 +24,7 @@ export const EducationSection = ({ data, locale }: { data: CVEducationSection; l
                     {school}
                   </Link>
 
-                  <span className="text-xs text-neutral-600">
-                    {start} {locale === "en" ? "-" : "–"} {end ?? (locale === "en" ? "Present" : "Nuvarande")}
-                  </span>
+                  <DateRange locale={locale} start={start} end={end} />
                 </div>
               </div>
 

@@ -89,7 +89,7 @@ export const employmentSection: CVEmploymentSection = {
           "Utför även hantering av community, Discord och Twitch Drops med mera. För vårt nyligen uppvisade spel [Exoborne](https://exoborne.com) bidrar jag även till webbutveckling och hjälper med tekniska specifikationer för [RE_HACK ARG-hemsidan](https://exoborne.com/rehack).",
         ],
       },
-      start: "2022",
+      start: "2022-08-10",
     },
     {
       title: "Localization/QA Tester - Swedish",
@@ -99,8 +99,8 @@ export const employmentSection: CVEmploymentSection = {
         en: ["Reviewed and ensured the quality of EA games, including marketing materials. Also managed candidate tests and contributed to crafting application test materials during peak seasons.", "Worked on 27 DLCs for The Sims 4, as well as FIFA 21 and LOTR: Heroes of Middle-earth."],
         sv: ["Granskade och säkerställde kvaliteten på EA-spel, inklusive marknadsföringsmaterial. Hanterade också kandidattester och bidrog till att utforma testmaterial för ansökningar under högsäsong.", "Arbetade med 27 DLC:er för The Sims 4, samt FIFA 21 och LOTR: Heroes of Middle-earth."],
       },
-      start: "2019",
-      end: "2022",
+      start: "2019-11-11",
+      end: "2022-07-29",
     },
   ],
 } satisfies CVEmploymentSection;
@@ -119,8 +119,8 @@ export const educationSection: CVEducationSection = {
         en: ["Civics, media, communication, marketing, and digital content creation."],
         sv: ["Samhällskunskap, media, kommunikation, marknadsföring och digitalt skapande."],
       },
-      start: "2015",
-      end: "2018",
+      start: "2015-08-17",
+      end: "2018-06-07",
     },
   ],
 } satisfies CVEducationSection;

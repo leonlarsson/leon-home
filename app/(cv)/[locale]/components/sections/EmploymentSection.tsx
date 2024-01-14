@@ -2,6 +2,7 @@ import { Fragment } from "react";
 import Link from "next/link";
 import SectionTitle from "../SectionTitle";
 import SectionDescription from "../SectionDescription";
+import DateRange from "../DateRange";
 import { CVEmploymentSection, CVLocale } from "@/types";
 
 export const EmploymentSection = ({ data, locale }: { data: CVEmploymentSection; locale: CVLocale }) => {
@@ -23,9 +24,7 @@ export const EmploymentSection = ({ data, locale }: { data: CVEmploymentSection;
                     {company}
                   </Link>
 
-                  <span className="text-xs text-neutral-600">
-                    {start} {locale === "en" ? "-" : "–"} {end ?? (locale === "en" ? "Present" : "Nuvarande")}
-                  </span>
+                  <DateRange locale={locale} start={start} end={end} />
                 </div>
 
                 {/* Title */}
