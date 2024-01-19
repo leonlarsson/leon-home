@@ -13,20 +13,20 @@ const ratelimit = new Ratelimit({
   redis: kv,
   // rate limit to 5 requests per 1 minute
   limiter: Ratelimit.slidingWindow(5, "1m"),
-  prefix: "guestbook"
+  prefix: "guestbook",
 });
 
 const conn = connect({
   host: process.env.DATABASE_HOST,
   username: process.env.DATABASE_USERNAME,
-  password: process.env.DATABASE_PASSWORD
+  password: process.env.DATABASE_PASSWORD,
 });
 
 export const getEntriesCount = async (namedEntriesOnly: boolean): Promise<number | false> => {
   try {
     // Get a count of all entries that are not deleted
-    const { rows } = await conn.execute(`SELECT COUNT(*) as total_entries FROM guestbook_entries WHERE ${namedEntriesOnly ? "name IS NOT NULL AND" : ""} deleted_at IS NULL`);
-    return (rows[0] as { total_entries: number }).total_entries;
+    const { rows } = await conn.execute<{ total_entries: number }>(`SELECT COUNT(*) as total_entries FROM guestbook_entries WHERE ${namedEntriesOnly ? "name IS NOT NULL AND" : ""} deleted_at IS NULL`);
+    return rows[0].total_entries;
   } catch (error) {
     console.log(error);
     return false;
@@ -36,8 +36,8 @@ export const getEntriesCount = async (namedEntriesOnly: boolean): Promise<number
 export const getEntries = async (namedEntriesOnly: boolean): Promise<Entry[] | false> => {
   try {
     // Get all entries that are not deleted, sorted by date, limited to 100
-    const { rows } = await conn.execute(`SELECT * FROM guestbook_entries WHERE ${namedEntriesOnly ? "name IS NOT NULL AND" : ""} deleted_at IS NULL ORDER BY date DESC LIMIT 100`);
-    return rows as Entry[];
+    const { rows } = await conn.execute<Entry>(`SELECT * FROM guestbook_entries WHERE ${namedEntriesOnly ? "name IS NOT NULL AND" : ""} deleted_at IS NULL ORDER BY date DESC LIMIT 100`);
+    return rows;
   } catch (error) {
     console.log(error);
     return false;
