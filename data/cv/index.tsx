@@ -96,8 +96,11 @@ export const employmentSection: CVEmploymentSection = {
       company: "Electronic Arts",
       companyUrl: "https://ea.com",
       description: {
-        en: ["Reviewed and ensured the quality of EA games, including marketing materials. Also managed candidate tests and contributed to crafting application test materials during peak seasons.", "Worked on 27 DLCs for The Sims 4, as well as FIFA 21 and LOTR: Heroes of Middle-earth."],
-        sv: ["Granskade och säkerställde kvaliteten på EA-spel, inklusive marknadsföringsmaterial. Hanterade också kandidattester och bidrog till att utforma testmaterial för ansökningar under högsäsong.", "Arbetade med 27 DLC:er för The Sims 4, samt FIFA 21 och LOTR: Heroes of Middle-earth."],
+        en: ["Reviewed and ensured the quality of EA games, including marketing materials. Also managed candidate tests and contributed to crafting application test materials during peak seasons.", "Worked on 27 DLCs for The Sims 4, as well as FIFA 21, LOTR: Heroes of Middle-earth, and PvZ 3."],
+        sv: [
+          "Granskade och säkerställde kvaliteten på EA-spel, inklusive marknadsföringsmaterial. Hanterade också kandidattester och bidrog till att utforma testmaterial för ansökningar under högsäsong.",
+          "Arbetade med 27 DLC:er för The Sims 4, samt FIFA 21, LOTR: Heroes of Middle-earth och PvZ 3.",
+        ],
       },
       start: "2019-11-11",
       end: "2022-07-29",
