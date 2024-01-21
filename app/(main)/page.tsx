@@ -65,7 +65,7 @@ export default () => {
 
         {/* GUESTBOOK */}
         <div>
-          <Icons.pencil className="mr-2 inline h-5" />
+          <Icons.pencil className="mr-2 inline size-5" />
           Feel free to{" "}
           <Link href="/guestbook" className="link">
             sign my guestbook!
@@ -77,13 +77,14 @@ export default () => {
           <span className="text-xl font-semibold">Connect with me</span>
           <div className="grid grid-cols-1 gap-2 min-[370px]:grid-cols-2 sm:grid-cols-3">
             {[
-              { title: "Email", url: "mailto:leonlarsson8@gmail.com", icon: <Icons.envelope className="me-2 inline h-5" /> },
-              { title: "LinkedIn", url: "https://www.linkedin.com/in/leonlarsson/", icon: <Icons.linkedin className="me-2 inline h-5" /> },
-              { title: "GitHub", url: "https://github.com/leonlarsson", icon: <Icons.github className="me-2 inline h-5" /> },
-              { title: "X / Twitter", url: "https://x.com/MozzyFX", icon: <Icons.twitterX className="me-2 inline h-5" /> },
-              { title: "Bluesky", url: "https://bsky.app/profile/leon.ms", icon: <Icons.globe className="me-2 inline h-5" /> },
-              { title: "Instagram", url: "https://www.instagram.com/leonsjlarsson/", icon: <Icons.instagram className="me-2 inline h-5" /> },
-              { title: "ArtStation", url: "https://www.artstation.com/leonlarsson", icon: <Icons.artstation className="me-2 inline h-5" /> },
+              { title: "Email", url: "mailto:leonlarsson8@gmail.com", icon: <Icons.envelope className="me-2 inline size-5" /> },
+              { title: "LinkedIn", url: "https://www.linkedin.com/in/leonlarsson/", icon: <Icons.linkedin className="me-2 inline size-5" /> },
+              { title: "GitHub", url: "https://github.com/leonlarsson", icon: <Icons.github className="me-2 inline size-5" /> },
+              { title: "X / Twitter", url: "https://x.com/MozzyFX", icon: <Icons.twitterX className="me-2 inline size-5" /> },
+              { title: "Twitter 2", url: "https://bsky.app/profile/leon.ms", icon: <Icons.bluesky className="me-2 inline size-5" /> },
+              { title: "Twitter 3", url: "https://www.threads.net/@leonsjlarsson", icon: <Icons.threads className="me-2 inline size-5" /> },
+              { title: "Instagram", url: "https://www.instagram.com/leonsjlarsson/", icon: <Icons.instagram className="me-2 inline size-5" /> },
+              { title: "ArtStation", url: "https://www.artstation.com/leonlarsson", icon: <Icons.artstation className="me-2 inline size-5" /> },
             ].map(({ title, url, icon }) => (
               <GradientBorder key={title} rounded="rounded-[6px]" padding="p-[2px]" hoverable>
                 <Link href={url} target="_blank" className="flex items-center justify-between rounded bg-slate-100 p-2 dark:bg-kinda-black">
@@ -109,7 +110,7 @@ export default () => {
               <GradientBorder key={title} rounded="rounded-[6px]" padding="p-[2px]" hoverable>
                 <Link href={url} target="_blank" className="flex items-center justify-between rounded bg-slate-100 p-2 dark:bg-kinda-black">
                   <div className="flex items-center">
-                    <Icons.file className="me-2 inline h-5" />
+                    <Icons.file className="me-2 inline size-5" />
                     <span>{title}</span>
                   </div>
                   <Icons.externallink />
