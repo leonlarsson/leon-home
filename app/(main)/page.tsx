@@ -136,6 +136,7 @@ export default () => {
           <div className="flex flex-col gap-2">
             <Project project={projects[17]} displayTags={false} />
             <Project project={projects[7]} displayTags={false} />
+            <Project project={projects[15]} displayTags={false} />
           </div>
         </div>
       </div>
