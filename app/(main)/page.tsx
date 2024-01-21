@@ -16,7 +16,12 @@ export default () => {
 
         <div className="flex flex-col gap-1 max-md:gap-0">
           <span className="text-4xl font-extrabold leading-none transition-all max-md:text-xl">Leon San José Larsson</span>
-          <Employment title="Community & Support Specialist" companyName="Sharkmob" companyUrl="https://sharkmob.com" />
+          <span className="text-xl transition-all max-md:text-sm">
+            Community & Support Specialist @{" "}
+            <a href="https://sharkmob.com" target="_blank" className="link font-normal" draggable={false}>
+              Sharkmob
+            </a>
+          </span>
         </div>
       </div>
 
@@ -135,22 +140,5 @@ export default () => {
         </div>
       </div>
     </div>
-  );
-};
-
-const Employment = ({ title, companyName, companyUrl }: { title: string; companyName?: string; companyUrl?: string }) => {
-  return (
-    <span className="text-xl transition-all max-md:text-sm">
-      {title}
-      {companyName && (
-        <>
-          {" "}
-          @{" "}
-          <a href={companyUrl} target="_blank" className="link font-normal" draggable={false}>
-            {companyName}
-          </a>
-        </>
-      )}
-    </span>
   );
 };
