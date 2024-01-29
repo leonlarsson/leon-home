@@ -20,9 +20,9 @@ export default async ({ params }: { params: { slug: string } }) => {
   return new ImageResponse(
     (
       <div tw="h-full w-full flex flex-col justify-center items-center text-center bg-slate-200 font-normal">
-        {/* @ts-ignore src is confused */}
         <img
           tw="rounded-full shadow-xl"
+          // @ts-ignore src is confused
           src={avatarData}
           width={100}
           height={100}
