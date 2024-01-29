@@ -56,12 +56,12 @@ const EntriesList = async ({ userEmail, namedEntriesOnly }: { userEmail: string 
     <div key={entry.id} className="break-all rounded-r border-l-2 border-transparent p-1 text-sm hover:border-l-black hover:bg-gray-300 dark:hover:border-l-white dark:hover:bg-gray-300/10">
       <EntryTimestamp date={entry.date} />
       {userIsAdmin || (userEmail && userEmail === entry.email) ? <ButtonActionRow entry={entry} /> : null}
-      <span className={entry.name ? "text-neutral-700 dark:text-neutral-400" : "italic text-neutral-700 dark:text-neutral-400"} title={`${entry.date} UTC`}>
+      <span className={entry.name ? "text-neutral-700 dark:text-neutral-400" : "italic text-neutral-700 dark:text-neutral-400"} title={entry.date.toLocaleString()}>
         {entry.name ?? "Anonymous"}:
       </span>{" "}
       <span>{profanity.censor(entry.body.replace(/\s+/g, " "))}</span>
       {entry.edited_at && (
-        <span className="ms-1 select-none break-normal text-xs text-neutral-600 dark:text-neutral-400" title={`Edited ${entry.edited_at} UTC`}>
+        <span className="ms-1 select-none break-normal text-xs text-neutral-600 dark:text-neutral-400" title={`Edited ${entry.edited_at.toLocaleString()}`}>
           (edited)
         </span>
       )}

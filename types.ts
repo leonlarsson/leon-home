@@ -1,4 +1,5 @@
 import { StaticImageData } from "next/image";
+import { guestbookEntries } from "./lib/db/schema";
 
 export type Project = {
   slug: string;
@@ -22,22 +23,7 @@ export type Project = {
   displayInCv?: boolean;
 };
 
-export type Entry = {
-  id: number;
-  date: string;
-  body: string;
-  name: string | null;
-  email: string | null;
-  edited_at: string | null;
-  deleted_at: string | null;
-};
-
-export type Post = {
-  id: number;
-  date: string;
-  title: string;
-  body: string;
-};
+export type Entry = typeof guestbookEntries.$inferSelect;
 
 // CV
 
