@@ -18,7 +18,12 @@ const linkify = (text: string) => {
     if (index % 3 === 1) {
       // This is the link text
       return (
-        <Link key={index} href={parts[index + 1]} target="_blank" className="link">
+        <Link
+          key={index}
+          href={parts[index + 1]}
+          target="_blank"
+          className="link"
+        >
           {part}
         </Link>
       );

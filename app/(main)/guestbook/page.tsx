@@ -2,7 +2,11 @@ import { Suspense } from "react";
 import type { Metadata } from "next";
 import { auth } from "../auth";
 import generateOGMetadata from "@/app/utils/generateOGMetadata";
-import { SignInDiscord, SignInGitHub, SignOut } from "../components/AuthButtons";
+import {
+  SignInDiscord,
+  SignInGitHub,
+  SignOut,
+} from "../components/AuthButtons";
 import SendMessageSection from "./components/SendMessageSection";
 import Entries from "./components/Entries";
 import GradientBorder from "../components/GradientBorder";
@@ -18,8 +22,8 @@ export const metadata: Metadata = {
     title: pageTitle,
     description: pageDescription,
     url: "https://leonlarsson.com/guestbook",
-    appendNameInOG: true
-  })
+    appendNameInOG: true,
+  }),
 };
 
 type Props = {
@@ -32,7 +36,9 @@ export default ({ searchParams }: Props) => {
   return (
     <div className="mx-auto max-w-3xl">
       <div className="text-3xl font-extrabold">Guestbook</div>
-      <div className="mb-3">A guestbook where you can send an emoji or sign in to send a message.</div>
+      <div className="mb-3">
+        A guestbook where you can send an emoji or sign in to send a message.
+      </div>
 
       <Suspense fallback="Loading...">
         <MainSection searchParams={searchParams} />
@@ -84,7 +90,10 @@ const MainSection = async ({ searchParams }: Props) => {
 
       <GuestbookProvider>
         <Suspense fallback="Loading messages...">
-          <Entries userEmail={session?.user?.email ?? null} namedEntriesOnly={namedEntriesOnly} />
+          <Entries
+            userEmail={session?.user?.email ?? null}
+            namedEntriesOnly={namedEntriesOnly}
+          />
         </Suspense>
       </GuestbookProvider>
     </>

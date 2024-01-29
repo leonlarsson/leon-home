@@ -13,13 +13,13 @@ export default ({ title, description, url, appendNameInOG }: Props) => {
       url: url ?? "https://leonlarsson.com",
       siteName: "Leon San José Larsson",
       locale: "en-US",
-      type: "website"
+      type: "website",
     },
     twitter: {
       card: "summary_large_image",
       title: appendNameInOG ? `${title} | Leon San José Larsson` : title,
       description: description,
-      creator: "@mozzyfx"
-    }
+      creator: "@mozzyfx",
+    },
   };
 };

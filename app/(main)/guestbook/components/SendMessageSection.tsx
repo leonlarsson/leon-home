@@ -11,7 +11,9 @@ export default ({ mode }: { mode: "text" | "emoji" }) => {
   const [isRatelimited, setIsRatelimited] = useState(false);
 
   // Insert entry into database
-  const postEntryFunc = async (message: string): Promise<boolean | "ratelimited"> => {
+  const postEntryFunc = async (
+    message: string,
+  ): Promise<boolean | "ratelimited"> => {
     setIsWorking(true);
     setIsError(false);
     setIsRatelimited(false);
@@ -26,11 +28,19 @@ export default ({ mode }: { mode: "text" | "emoji" }) => {
     <div>
       {mode === "emoji" ? (
         <>
-          <span className="font-semibold">Send an emote or sign in to send a message:</span>
+          <span className="font-semibold">
+            Send an emote or sign in to send a message:
+          </span>
 
           <div className="flex flex-wrap justify-center gap-1">
             {emojis.map(emote => (
-              <button key={emote} className="button-with-border h-10 w-10 !p-0 text-xl disabled:cursor-not-allowed disabled:bg-neutral-300 dark:disabled:bg-neutral-600" title={`Send ${emote} anonymously.`} disabled={isWorking} onClick={() => postEntryFunc(emote)}>
+              <button
+                key={emote}
+                className="button-with-border h-10 w-10 !p-0 text-xl disabled:cursor-not-allowed disabled:bg-neutral-300 dark:disabled:bg-neutral-600"
+                title={`Send ${emote} anonymously.`}
+                disabled={isWorking}
+                onClick={() => postEntryFunc(emote)}
+              >
                 {emote}
               </button>
             ))}
@@ -42,18 +52,36 @@ export default ({ mode }: { mode: "text" | "emoji" }) => {
           onSubmit={async event => {
             event.preventDefault();
             const form = event.currentTarget;
-            const message = (form.elements.namedItem("message") as HTMLInputElement).value;
+            const message = (
+              form.elements.namedItem("message") as HTMLInputElement
+            ).value;
             const postWasOk = await postEntryFunc(message);
             if (postWasOk === true) form.reset();
           }}
         >
-          <input className="text-input disabled:cursor-not-allowed disabled:bg-neutral-300 dark:disabled:bg-neutral-600" type="text" name="message" placeholder="Your message..." required disabled={isWorking} maxLength={100} />
-          <button className="button-with-border flex items-center disabled:cursor-not-allowed disabled:bg-neutral-300 dark:disabled:bg-neutral-600" type="submit" disabled={isWorking}>
+          <input
+            className="text-input disabled:cursor-not-allowed disabled:bg-neutral-300 dark:disabled:bg-neutral-600"
+            type="text"
+            name="message"
+            placeholder="Your message..."
+            required
+            disabled={isWorking}
+            maxLength={100}
+          />
+          <button
+            className="button-with-border flex items-center disabled:cursor-not-allowed disabled:bg-neutral-300 dark:disabled:bg-neutral-600"
+            type="submit"
+            disabled={isWorking}
+          >
             <Icons.paperPlane className="me-1" /> Send
           </button>
         </form>
       )}
-      {(isError || isRatelimited) && <span className="mt-1 text-red-500 dark:text-red-400">{isError ? "Failed to send message." : "You are sending too fast."}</span>}
+      {(isError || isRatelimited) && (
+        <span className="mt-1 text-red-500 dark:text-red-400">
+          {isError ? "Failed to send message." : "You are sending too fast."}
+        </span>
+      )}
     </div>
   );
 };

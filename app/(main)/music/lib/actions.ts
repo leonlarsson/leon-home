@@ -12,13 +12,13 @@ const getAccessToken = async () => {
     method: "POST",
     headers: {
       Authorization: `Basic ${basic}`,
-      "Content-Type": "application/x-www-form-urlencoded"
+      "Content-Type": "application/x-www-form-urlencoded",
     },
     body: querystring.stringify({
       grant_type: "refresh_token",
-      refresh_token
+      refresh_token,
     }),
-    cache: "no-cache"
+    cache: "no-cache",
   });
 
   return response.json();
@@ -35,12 +35,14 @@ export const getTopTracks = async (range: string) => {
 
   const res = await fetch(url, {
     headers: {
-      Authorization: `Bearer ${access_token}`
+      Authorization: `Bearer ${access_token}`,
     },
-    next: { revalidate: 86_400 }
+    next: { revalidate: 86_400 },
   });
 
-  return res.ok ? ((await res.json()) as SpotifyApi.UsersTopTracksResponse) : null;
+  return res.ok
+    ? ((await res.json()) as SpotifyApi.UsersTopTracksResponse)
+    : null;
 };
 
 export const getTopArtists = async (range: string) => {
@@ -54,26 +56,33 @@ export const getTopArtists = async (range: string) => {
 
   const res = await fetch(url, {
     headers: {
-      Authorization: `Bearer ${access_token}`
+      Authorization: `Bearer ${access_token}`,
     },
-    next: { revalidate: 86_400 }
+    next: { revalidate: 86_400 },
   });
 
-  return res.ok ? ((await res.json()) as SpotifyApi.UsersTopArtistsResponse) : null;
+  return res.ok
+    ? ((await res.json()) as SpotifyApi.UsersTopArtistsResponse)
+    : null;
 };
 
 export const getCurrentlyPlaying = async () => {
   const { access_token } = await getAccessToken();
 
-  const res = await fetch("https://api.spotify.com/v1/me/player/currently-playing", {
-    headers: {
-      Authorization: `Bearer ${access_token}`
+  const res = await fetch(
+    "https://api.spotify.com/v1/me/player/currently-playing",
+    {
+      headers: {
+        Authorization: `Bearer ${access_token}`,
+      },
+      cache: "no-cache",
     },
-    cache: "no-cache"
-  });
+  );
 
   // Handle no track playing
   if (res.status === 204) return null;
 
-  return res.ok ? ((await res.json()) as SpotifyApi.CurrentlyPlayingObject) : null;
+  return res.ok
+    ? ((await res.json()) as SpotifyApi.CurrentlyPlayingObject)
+    : null;
 };

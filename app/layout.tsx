@@ -11,7 +11,8 @@ import generateOGMetadata from "./utils/generateOGMetadata";
 import "./globals.css";
 
 const pageTitle = "Leon San José Larsson";
-const pageDescription = "Aspiring Full Stack Engineer working in video games marketing.";
+const pageDescription =
+  "Aspiring Full Stack Engineer working in video games marketing.";
 
 export const metadata: Metadata = {
   title: {
@@ -39,7 +40,10 @@ export const metadata: Metadata = {
 
 export default ({ children }: { children: React.ReactNode }) => {
   return (
-    <html className={`${inter.variable} ${GeistMono.variable} overflow-y-scroll`} lang="en">
+    <html
+      className={`${inter.variable} ${GeistMono.variable} overflow-y-scroll`}
+      lang="en"
+    >
       <body>
         <Analytics />
         <SpeedInsights />

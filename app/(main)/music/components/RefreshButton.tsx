@@ -9,8 +9,13 @@ export default () => {
   const [pending, startTransition] = useTransition();
 
   return (
-    <button title="Click to refresh." onClick={() => startTransition(() => router.refresh())}>
-      <Icons.arrowRotate className={`size-6 ${pending ? "animate-spin" : ""}`} />
+    <button
+      title="Click to refresh."
+      onClick={() => startTransition(() => router.refresh())}
+    >
+      <Icons.arrowRotate
+        className={`size-6 ${pending ? "animate-spin" : ""}`}
+      />
     </button>
   );
 };

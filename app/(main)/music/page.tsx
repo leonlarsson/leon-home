@@ -3,7 +3,9 @@ import { Metadata } from "next";
 import generateOGMetadata from "@/app/utils/generateOGMetadata";
 import RefreshButton from "./components/RefreshButton";
 import SpotifyRangeSelector from "./components/SpotifyRangeSelector";
-import SpotifyCurrentTrack, { CurrentTrackSkeleton } from "./components/SpotifyCurrentTrack";
+import SpotifyCurrentTrack, {
+  CurrentTrackSkeleton,
+} from "./components/SpotifyCurrentTrack";
 import SpotifyTopTracks from "./components/SpotifyTopTracks";
 import SpotifyTopArtists from "./components/SpotifyTopArtists";
 
@@ -37,7 +39,9 @@ export default ({ searchParams }: Props) => {
 
       <div className="flex flex-col gap-6">
         <div className="flex flex-col gap-2">
-          <span className="text-xl font-semibold">I am currently listening to:</span>
+          <span className="text-xl font-semibold">
+            I am currently listening to:
+          </span>
 
           <Suspense fallback={<CurrentTrackSkeleton />}>
             <SpotifyCurrentTrack alwaysRender reloadOnEnd />

@@ -12,7 +12,11 @@ export default ({ entry }: { entry: Entry }) => {
 
   return (
     <>
-      <EditMessageDialog entry={entry} editDialogRef={editDialogRef} inputRef={inputRef} />
+      <EditMessageDialog
+        entry={entry}
+        editDialogRef={editDialogRef}
+        inputRef={inputRef}
+      />
       <DeleteMessageDialog entry={entry} deleteDialogRef={deleteDialogRef} />
 
       <span className="me-2 inline-flex gap-1 text-base text-kinda-black dark:text-kinda-white">
@@ -26,7 +30,11 @@ export default ({ entry }: { entry: Entry }) => {
         >
           <Icons.pencil />
         </button>
-        <button className="hover:opacity-70" title={`Delete entry with ID ${entry.id}.`} onClick={() => deleteDialogRef.current?.showModal()}>
+        <button
+          className="hover:opacity-70"
+          title={`Delete entry with ID ${entry.id}.`}
+          onClick={() => deleteDialogRef.current?.showModal()}
+        >
           <Icons.trash />
         </button>
       </span>
@@ -40,7 +48,11 @@ type EditDialogProps = {
   inputRef: React.RefObject<HTMLInputElement>;
 };
 
-const EditMessageDialog = ({ entry, editDialogRef, inputRef }: EditDialogProps) => {
+const EditMessageDialog = ({
+  entry,
+  editDialogRef,
+  inputRef,
+}: EditDialogProps) => {
   const save = () => {
     const newMessage = inputRef.current?.value;
     if (!newMessage) return;
@@ -71,10 +83,21 @@ const EditMessageDialog = ({ entry, editDialogRef, inputRef }: EditDialogProps) 
           save();
         }}
       >
-        <input className="text-input w-full" type="text" maxLength={100} required placeholder="Your message..." defaultValue={entry.body} ref={inputRef} />
+        <input
+          className="text-input w-full"
+          type="text"
+          maxLength={100}
+          required
+          placeholder="Your message..."
+          defaultValue={entry.body}
+          ref={inputRef}
+        />
 
         <div className="mt-2 flex justify-end gap-2">
-          <button className="button-with-border" onClick={() => editDialogRef.current?.close()}>
+          <button
+            className="button-with-border"
+            onClick={() => editDialogRef.current?.close()}
+          >
             Cancel
           </button>
           <button className="button-with-border" type="submit">
@@ -110,7 +133,10 @@ const DeleteMessageDialog = ({ entry, deleteDialogRef }: DeleteDialogProps) => {
       </div>
 
       <div className="mt-2 flex justify-end gap-2">
-        <button className="button-with-border" onClick={() => deleteDialogRef.current?.close()}>
+        <button
+          className="button-with-border"
+          onClick={() => deleteDialogRef.current?.close()}
+        >
           Cancel
         </button>
         <button

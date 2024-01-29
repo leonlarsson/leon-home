@@ -15,7 +15,9 @@ type Props = {
 export const generateMetadata = ({ searchParams }: Props): Metadata => {
   const search = searchParams.search;
   const pageTitle = `Projects${search ? ` matching "${search}"` : ""}`;
-  const pageDescription = search ? `Leon's projects matching "${search}".` : "Browse all of Leon's projects.";
+  const pageDescription = search
+    ? `Leon's projects matching "${search}".`
+    : "Browse all of Leon's projects.";
 
   return {
     title: pageTitle,
@@ -36,7 +38,18 @@ export default ({ searchParams }: Props) => {
   // Most nauseating code I've ever written
   const projects = searchParam
     ? projectsData.filter(project =>
-        [project.slug, ...(project.slugAliases ?? []), project.name, ...(typeof project.description === "string" ? [project.description] : project.description), project.shortDescription, project.year, project.link?.replace("https://", ""), ...(project.tags ?? [])].some(
+        [
+          project.slug,
+          ...(project.slugAliases ?? []),
+          project.name,
+          ...(typeof project.description === "string"
+            ? [project.description]
+            : project.description),
+          project.shortDescription,
+          project.year,
+          project.link?.replace("https://", ""),
+          ...(project.tags ?? []),
+        ].some(
           item => item?.toLowerCase().includes(searchParam?.toLowerCase()),
         ),
       )
@@ -56,12 +69,20 @@ export default ({ searchParams }: Props) => {
         </div>
 
         {searchParam && (
-          <span className={!projects.length ? "text-red-500 dark:text-red-400" : ""}>
-            {projects.length || "No"} {projects.length === 1 ? "project" : "projects"} matching <span className="rounded bg-black p-1 font-semibold text-white dark:bg-kinda-white dark:text-kinda-black">{searchParam}</span>
+          <span
+            className={!projects.length ? "text-red-500 dark:text-red-400" : ""}
+          >
+            {projects.length || "No"}{" "}
+            {projects.length === 1 ? "project" : "projects"} matching{" "}
+            <span className="rounded bg-black p-1 font-semibold text-white dark:bg-kinda-white dark:text-kinda-black">
+              {searchParam}
+            </span>
           </span>
         )}
 
-        <ProjectsGrid projects={sortParam === "newest" ? [...projects].reverse() : projects} />
+        <ProjectsGrid
+          projects={sortParam === "newest" ? [...projects].reverse() : projects}
+        />
       </div>
     </div>
   );

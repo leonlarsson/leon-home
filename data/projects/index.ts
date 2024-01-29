@@ -48,7 +48,8 @@ export default [
       "The Battlefield Discord is a community Discord server for the Battlefield franchise. I have been helping build this community since 2016, and I am currently one of the owners.",
       "From 2018 to 2022, it was the official Discord server for the Battlefield franchise. I have seen it go from a couple thousand members to over 170,000 members. We've always worked closely with EA/DICE.",
     ],
-    shortDescription: "The biggest and most successful Battlefield Discord server.",
+    shortDescription:
+      "The biggest and most successful Battlefield Discord server.",
     year: "2016",
     tags: [tags.COMMUNITY, tags.MODERATION],
     images: [bfd1, bfd2],
@@ -61,8 +62,12 @@ export default [
     slug: "bfv-menu-playground",
     slugAliases: ["bfvmenu"],
     name: "Battlefield V Menu Playground",
-    description: ["One of my first web projects. It allows you to play around with a copy of the Battlefield V menu.", "I did a menu recreation in Photoshop and then exported it to HTML and CSS. I also added some JavaScript for interactivity."],
-    shortDescription: "A Battlefield V menu playground that lets you drag items and change images.",
+    description: [
+      "One of my first web projects. It allows you to play around with a copy of the Battlefield V menu.",
+      "I did a menu recreation in Photoshop and then exported it to HTML and CSS. I also added some JavaScript for interactivity.",
+    ],
+    shortDescription:
+      "A Battlefield V menu playground that lets you drag items and change images.",
     year: "2019",
     tags: [tags.HTML, tags.CSS, tags.JS],
     link: "https://bfvmenu.leonlarsson.com/",
@@ -79,7 +84,8 @@ export default [
     slug: "bf1-palette-recreation",
     slugAliases: ["bf1palette"],
     name: "Battlefield 1 Palette Recreation",
-    description: "This is another Battlefield-related project. It's an attempt at recreating an image using Flexbox.",
+    description:
+      "This is another Battlefield-related project. It's an attempt at recreating an image using Flexbox.",
     shortDescription: "A Flexbox recreation of an image.",
     year: "2019",
     tags: [tags.HTML, tags.CSS],
@@ -101,8 +107,12 @@ export default [
     slug: "logsorter",
     slugAliases: ["log-sorter"],
     name: "Log Sorter",
-    description: ["My first actual useful project. It aims to help (Discord) moderators sort through massive amounts of logs in order to combat bot accounts.", "It has proven to be very useful and has helped a lot of moderators since I launched it."],
-    shortDescription: "Also known as Mozzy's Log Sorter. A log-filtering website for moderators.",
+    description: [
+      "My first actual useful project. It aims to help (Discord) moderators sort through massive amounts of logs in order to combat bot accounts.",
+      "It has proven to be very useful and has helped a lot of moderators since I launched it.",
+    ],
+    shortDescription:
+      "Also known as Mozzy's Log Sorter. A log-filtering website for moderators.",
     year: "2021",
     tags: [tags.HTML, tags.CSS, tags.JS],
     link: "https://logsorter.com/",
@@ -113,8 +123,12 @@ export default [
     slug: "bf1-morse-solver",
     slugAliases: ["bf1morse"],
     name: "Battlefield 1 Morse Solver",
-    description: ["Another Battlefield-related project. This has helped hundreds if not thousands of people to solve the 'The Beginning' Battlefield 1 easter egg.", "This project is still being used daily by people to help solve this easter egg."],
-    shortDescription: "A tool that helps solve the 'The Beginning' Battlefield 1 easter egg.",
+    description: [
+      "Another Battlefield-related project. This has helped hundreds if not thousands of people to solve the 'The Beginning' Battlefield 1 easter egg.",
+      "This project is still being used daily by people to help solve this easter egg.",
+    ],
+    shortDescription:
+      "A tool that helps solve the 'The Beginning' Battlefield 1 easter egg.",
     year: "2021",
     tags: [tags.HTML, tags.CSS, tags.JS],
     link: "https://bf1morse.leonlarsson.com/",
@@ -136,10 +150,21 @@ export default [
   {
     slug: "battlebot",
     name: "Battlebot",
-    description: ["This is a bot we use on the Battlefield Discord. It provides moderation utilities for moderators as well as a few fun and helpful features for users.", "Command cooldowns are handled with Cloudflare Workers using KV."],
-    shortDescription: "A bot that provides utility and fun in the Battlefield Discord.",
+    description: [
+      "This is a bot we use on the Battlefield Discord. It provides moderation utilities for moderators as well as a few fun and helpful features for users.",
+      "Command cooldowns are handled with Cloudflare Workers using KV.",
+    ],
+    shortDescription:
+      "A bot that provides utility and fun in the Battlefield Discord.",
     year: "2021",
-    tags: [tags.NODE, tags.DISCORDJS, tags.JS, tags.TS, tags.API, tags.CLOUDFLARE_WORKERS],
+    tags: [
+      tags.NODE,
+      tags.DISCORDJS,
+      tags.JS,
+      tags.TS,
+      tags.API,
+      tags.CLOUDFLARE_WORKERS,
+    ],
     images: [battlebotImage1, battlebotImage2],
     extraLinks: [
       {
@@ -157,9 +182,21 @@ export default [
       "My largest and most successful project by far. Battlefield Stats is a Discord bot that provides on-demand Battlefield statistics in Discord. I have also built a website and an API for this project.",
       "Used by thousands of users in thousands of Discord servers, the bot is built with Node.js and the website with Next.js and shadcn/ui.",
     ],
-    shortDescription: "A bot that provides Battlefield stats right inside Discord.",
+    shortDescription:
+      "A bot that provides Battlefield stats right inside Discord.",
     year: "2021",
-    tags: [tags.NODE, tags.DISCORDJS, tags.CLOUDFLARE_WORKERS, tags.API, tags.REACT, tags.NEXT, tags.JS, tags.TS, tags.DATABASE, tags.SHADCNUI],
+    tags: [
+      tags.NODE,
+      tags.DISCORDJS,
+      tags.CLOUDFLARE_WORKERS,
+      tags.API,
+      tags.REACT,
+      tags.NEXT,
+      tags.JS,
+      tags.TS,
+      tags.DATABASE,
+      tags.SHADCNUI,
+    ],
     images: [battlefieldStatsImage1, battlefieldStatsImage2],
     link: "https://battlefieldstats.com/",
     githubLink: "https://github.com/leonlarsson/bfstats-web",
@@ -181,7 +218,8 @@ export default [
     slug: "raccoon-http-api",
     slugAliases: ["trashttpanda"],
     name: "Raccoon HTTP API",
-    description: "A raccoon-themed API that provides HTTP response images. Powered by Cloudflare Workers.",
+    description:
+      "A raccoon-themed API that provides HTTP response images. Powered by Cloudflare Workers.",
     shortDescription: "An API that provides HTTP images with trash pandas.",
     year: "2022",
     tags: [tags.CLOUDFLARE_WORKERS, tags.API, tags.TS],
@@ -194,8 +232,10 @@ export default [
     slug: "zeppelin-case-stats",
     slugAliases: ["zeppelin-stats", "zeppelinstats"],
     name: "Zeppelin Case Stats",
-    description: "A utility website that aims to help Discord moderators gather stats from the moderation bot Zeppelin.",
-    shortDescription: "A website used to gather stats from the moderation bot Zeppelin.",
+    description:
+      "A utility website that aims to help Discord moderators gather stats from the moderation bot Zeppelin.",
+    shortDescription:
+      "A website used to gather stats from the moderation bot Zeppelin.",
     year: "2022",
     tags: [tags.HTML, tags.CSS, tags.JS],
     link: "https://zeppelin-stats.leonlarsson.com/",
@@ -205,8 +245,10 @@ export default [
     slug: "timestamper-bot",
     slugAliases: ["timestamper"],
     name: "Timestamper Discord Bot",
-    description: "An experimental Discord bot that provides utility commands to build and play with Discord timestamps. Built fully with Cloudflare Workers.",
-    shortDescription: "An Discord bot that makes using Discord timestamps easier.",
+    description:
+      "An experimental Discord bot that provides utility commands to build and play with Discord timestamps. Built fully with Cloudflare Workers.",
+    shortDescription:
+      "An Discord bot that makes using Discord timestamps easier.",
     year: "2022",
     tags: [tags.CLOUDFLARE_WORKERS, tags.TS],
     images: [timestamperImage1, timestamperImage2],
@@ -217,7 +259,8 @@ export default [
     slug: "redirect-link-service",
     slugAliases: ["redirector"],
     name: "Redirect / Link Service",
-    description: "A small link-shortener and redirector project built on Cloudflare Workers.",
+    description:
+      "A small link-shortener and redirector project built on Cloudflare Workers.",
     shortDescription: "Link-shortener/redirector built on Cloudflare Workers.",
     year: "2022",
     tags: [tags.CLOUDFLARE_WORKERS, tags.TS],
@@ -227,10 +270,20 @@ export default [
   {
     slug: "bloodhunt-stats",
     name: "Bloodhunt Stats Discord Bot",
-    description: ["A Discord bot that provides on demand Bloodhunt statistics in Discord, built in Node.js. In addition, I built an API that reports some basic usage.", "Built on the same foundations I created for the Battlefield Stats Discord bot and built as part of my role at Sharkmob."],
-    shortDescription: "A bot that provides Bloodhunt stats right inside Discord.",
+    description: [
+      "A Discord bot that provides on demand Bloodhunt statistics in Discord, built in Node.js. In addition, I built an API that reports some basic usage.",
+      "Built on the same foundations I created for the Battlefield Stats Discord bot and built as part of my role at Sharkmob.",
+    ],
+    shortDescription:
+      "A bot that provides Bloodhunt stats right inside Discord.",
     year: "2022",
-    tags: [tags.NODE, tags.DISCORDJS, tags.CLOUDFLARE_WORKERS, tags.API, tags.JS],
+    tags: [
+      tags.NODE,
+      tags.DISCORDJS,
+      tags.CLOUDFLARE_WORKERS,
+      tags.API,
+      tags.JS,
+    ],
     images: [bloodhuntStatsImage1],
     link: "https://discord.com/api/oauth2/authorize?client_id=979116430802972732&permissions=0&scope=bot%20applications.commands",
     linkName: "Add to Discord",
@@ -251,8 +304,10 @@ export default [
   {
     slug: "embed-worker",
     name: "Embed Worker",
-    description: "A tiny test project that lets you create custom Open Graph embeds. Powered by Cloudflare Workers.",
-    shortDescription: "A tiny test project that lets you create custom Open Graph embeds.",
+    description:
+      "A tiny test project that lets you create custom Open Graph embeds. Powered by Cloudflare Workers.",
+    shortDescription:
+      "A tiny test project that lets you create custom Open Graph embeds.",
     year: "2022",
     tags: [tags.CLOUDFLARE_WORKERS, tags.TS],
     images: [embedWorkerImage1],
@@ -262,7 +317,8 @@ export default [
   {
     slug: "react-ant-design-ui",
     name: "React + Ant Design website",
-    description: "A dashboard website template built with Vite + React + Ant Design. This is something I originally built for work, but without the secret parts.",
+    description:
+      "A dashboard website template built with Vite + React + Ant Design. This is something I originally built for work, but without the secret parts.",
     shortDescription: "A UI/website/dashboard built with React and And Design.",
     year: "2023",
     tags: [tags.REACT, tags.VITE, tags.ANTD],
@@ -273,7 +329,8 @@ export default [
   {
     slug: "the-finals-leaderboard",
     name: "THE FINALS Leaderboard",
-    description: "A fun project that creates a better leaderboard for the game THE FINALS from Embark Studios. Built with React + Vite.",
+    description:
+      "A fun project that creates a better leaderboard for the game THE FINALS from Embark Studios. Built with React + Vite.",
     shortDescription: "An external leaderboard for the game THE FINALS.",
     year: "2023",
     tags: [tags.REACT, tags.VITE, tags.SHADCNUI],
@@ -290,9 +347,19 @@ export default [
       "Over 500 unique users from 50 different countries participated in the ARG. It was a massive success, garnering satisfaction and engagement from the community.",
       "I have also created an implemtation of the website in Next.js, which uses server actions.",
     ],
-    shortDescription: "The official website for the Bloodhunt ARG, 'The Omnis Challenge'.",
+    shortDescription:
+      "The official website for the Bloodhunt ARG, 'The Omnis Challenge'.",
     year: "2023",
-    tags: [tags.CLOUDFLARE_WORKERS, tags.HTML, tags.CSS, tags.TS, tags.API, tags.NEXT, tags.TAILWIND, tags.REACT],
+    tags: [
+      tags.CLOUDFLARE_WORKERS,
+      tags.HTML,
+      tags.CSS,
+      tags.TS,
+      tags.API,
+      tags.NEXT,
+      tags.TAILWIND,
+      tags.REACT,
+    ],
     link: "https://omnis.pages.dev/",
     githubLink: "https://github.com/leonlarsson/omnis-arg-public",
     extraLinks: [
@@ -313,7 +380,8 @@ export default [
     slug: "home",
     slugAliases: ["leon-home"],
     name: "This website",
-    description: "This is the website you're currently on. It is powered by Next.js 13 on Vercel and is styled with Tailwind.",
+    description:
+      "This is the website you're currently on. It is powered by Next.js 13 on Vercel and is styled with Tailwind.",
     shortDescription: "Leon's personal website. You are currently on it.",
     year: "2023",
     tags: [tags.REACT, tags.NEXT, tags.TAILWIND, tags.TS],
@@ -324,20 +392,41 @@ export default [
   {
     slug: "guestbook",
     name: "Guestbook",
-    description: "A guestbook for my personal website. It uses Next.js experimental Server Actions and PlanetScale. It uses authentication from NextAuth.js.",
-    shortDescription: "A guestbook powered by Next.js Server Actions and PlanetScale.",
+    description:
+      "A guestbook for my personal website. It uses Next.js experimental Server Actions and PlanetScale. It uses authentication from NextAuth.js.",
+    shortDescription:
+      "A guestbook powered by Next.js Server Actions and PlanetScale.",
     year: "2023",
-    tags: [tags.REACT, tags.NEXT, tags.TAILWIND, tags.TS, tags.API, tags.DATABASE],
+    tags: [
+      tags.REACT,
+      tags.NEXT,
+      tags.TAILWIND,
+      tags.TS,
+      tags.API,
+      tags.DATABASE,
+    ],
     link: "/guestbook",
-    githubLink: "https://github.com/leonlarsson/leon-home/tree/main/app/(main)/guestbook",
+    githubLink:
+      "https://github.com/leonlarsson/leon-home/tree/main/app/(main)/guestbook",
   },
   {
     slug: "phisherman",
     name: "Phisherman",
-    description: ["Phisherman is a centralised database of phishing and scam links. It is designed for use with Discord bots.", "I am contributing to the Phisherman API, docs, and bot as a maintainer."],
+    description: [
+      "Phisherman is a centralised database of phishing and scam links. It is designed for use with Discord bots.",
+      "I am contributing to the Phisherman API, docs, and bot as a maintainer.",
+    ],
     shortDescription: "A centralised database of phishing and scam links.",
     year: "2023",
-    tags: [tags.CLOUDFLARE_WORKERS, tags.TS, tags.JS, tags.API, tags.DATABASE, tags.NODE, tags.DISCORDJS],
+    tags: [
+      tags.CLOUDFLARE_WORKERS,
+      tags.TS,
+      tags.JS,
+      tags.API,
+      tags.DATABASE,
+      tags.NODE,
+      tags.DISCORDJS,
+    ],
     link: "https://phisherman.gg/",
     hidePreview: true,
     githubLink: "https://github.com/PhishermanGG",
@@ -346,19 +435,24 @@ export default [
     slug: "music-showcase",
     slugAliases: ["spotify-showcase", "music-page"],
     name: "Music Showcase",
-    description: "A music showcase that displays my current Spotify status and my top tracks and artists. It uses the Spotify API.",
-    shortDescription: "A music showcase that displays my Spotify status and favorites.",
+    description:
+      "A music showcase that displays my current Spotify status and my top tracks and artists. It uses the Spotify API.",
+    shortDescription:
+      "A music showcase that displays my Spotify status and favorites.",
     year: "2023",
     tags: [tags.REACT, tags.NEXT, tags.TAILWIND, tags.TS, tags.API],
     images: [musicShowcaseImage1, musicShowcaseImage2],
     link: "/music",
-    githubLink: "https://github.com/leonlarsson/leon-home/tree/main/app/(main)/music",
+    githubLink:
+      "https://github.com/leonlarsson/leon-home/tree/main/app/(main)/music",
   },
   {
     slug: "friendly-time",
     name: "Friendly Time",
-    description: "A UI that helps convert natural language to various time formats. It is built with Next.js (React) and styled with Tailwind.",
-    shortDescription: "A UI that converts natural language to various time formats.",
+    description:
+      "A UI that helps convert natural language to various time formats. It is built with Next.js (React) and styled with Tailwind.",
+    shortDescription:
+      "A UI that converts natural language to various time formats.",
     year: "2023",
     tags: [tags.REACT, tags.NEXT, tags.TAILWIND, tags.TS],
     images: [friendlyTime1, friendlyTime2],
@@ -377,8 +471,12 @@ export default [
     slug: "case-sim",
     slugAliases: ["cs-case-ui", "csgo-case-ui", "cs2-case-ui", "cs-case-sim"],
     name: "Counter-Strike Case Simulator",
-    description: ["This is my attempt at recreating the case opening UI from Counter-Strike 2. It is built with Next.js (React) and styled with Tailwind.", "I have also implemented the ability to open every case that exists in the game, along with real odds and a stats and history page."],
-    shortDescription: "The case opening UI from Counter-Strike 2 recreated in React.",
+    description: [
+      "This is my attempt at recreating the case opening UI from Counter-Strike 2. It is built with Next.js (React) and styled with Tailwind.",
+      "I have also implemented the ability to open every case that exists in the game, along with real odds and a stats and history page.",
+    ],
+    shortDescription:
+      "The case opening UI from Counter-Strike 2 recreated in React.",
     year: "2023",
     tags: [tags.REACT, tags.NEXT, tags.TAILWIND, tags.TS, tags.DATABASE],
     images: [csCaseUI1],
@@ -390,8 +488,12 @@ export default [
     slug: "timezone-racer",
     slugAliases: ["new-years-countdown"],
     name: "Timezone Racer",
-    description: ["This is my first experience with Vue. It is a website that shows the progress towards the new year in multiple timezones.", "It is built with Vue and styled with Tailwind."],
-    shortDescription: "A website that tracks multiple timezones' progress towards the new year.",
+    description: [
+      "This is my first experience with Vue. It is a website that shows the progress towards the new year in multiple timezones.",
+      "It is built with Vue and styled with Tailwind.",
+    ],
+    shortDescription:
+      "A website that tracks multiple timezones' progress towards the new year.",
     year: "2024",
     tags: [tags.VUE, tags.VITE, tags.TAILWIND, tags.TS],
     images: [timezoneracer1],

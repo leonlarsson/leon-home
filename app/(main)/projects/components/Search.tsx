@@ -7,7 +7,9 @@ import GradientBorder from "../../components/GradientBorder";
 export default () => {
   const router = useRouter();
   const searchParams = new URLSearchParams(useSearchParams().toString());
-  const [searchQuery, setSearchQuery] = useState(searchParams.get("search") ?? "");
+  const [searchQuery, setSearchQuery] = useState(
+    searchParams.get("search") ?? "",
+  );
 
   // On mount and searchParam change (when tags are clicked), set the state from searchParam
   useEffect(() => {
@@ -27,7 +29,9 @@ export default () => {
           const value = e.target.value;
           setSearchQuery(value);
           // If value is not empty, set searchParam. Otherwise, remove the searchParam. Then replace the URL params
-          value.trim().length ? searchParams.set("search", value.trim()) : searchParams.delete("search");
+          value.trim().length
+            ? searchParams.set("search", value.trim())
+            : searchParams.delete("search");
           router.replace("?" + searchParams.toString());
         }}
       />

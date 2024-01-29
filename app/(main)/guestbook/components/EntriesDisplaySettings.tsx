@@ -6,7 +6,9 @@ import { GuestbookContextType, GuestbookContext } from "./GuestbookContext";
 
 export default () => {
   const router = useRouter();
-  const { showTimestamps, setShowTimestamps } = useContext(GuestbookContext) as GuestbookContextType;
+  const { showTimestamps, setShowTimestamps } = useContext(
+    GuestbookContext,
+  ) as GuestbookContextType;
   const searchParams = new URLSearchParams(useSearchParams().toString());
 
   const onNamedEntriesChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -18,15 +20,33 @@ export default () => {
   return (
     <div className="flex flex-wrap">
       <div className="me-3 flex items-center gap-1">
-        <input className="peer h-4 w-4 cursor-pointer accent-black dark:accent-kinda-white" type="checkbox" id="named" defaultChecked={searchParams.get("named") === "true"} onChange={onNamedEntriesChange} />
-        <label className="select-none underline-offset-2 opacity-75 transition-opacity peer-checked:underline peer-checked:opacity-100 dark:opacity-50" htmlFor="named">
+        <input
+          className="peer h-4 w-4 cursor-pointer accent-black dark:accent-kinda-white"
+          type="checkbox"
+          id="named"
+          defaultChecked={searchParams.get("named") === "true"}
+          onChange={onNamedEntriesChange}
+        />
+        <label
+          className="select-none underline-offset-2 opacity-75 transition-opacity peer-checked:underline peer-checked:opacity-100 dark:opacity-50"
+          htmlFor="named"
+        >
           Show only named entries
         </label>
       </div>
 
       <div className="flex items-center gap-1">
-        <input className="peer h-4 w-4 cursor-pointer accent-black dark:accent-kinda-white" type="checkbox" id="timestamps" defaultChecked={showTimestamps} onChange={e => setShowTimestamps(e.target.checked)} />
-        <label className="select-none underline-offset-2 opacity-75 transition-opacity peer-checked:underline peer-checked:opacity-100 dark:opacity-50" htmlFor="timestamps">
+        <input
+          className="peer h-4 w-4 cursor-pointer accent-black dark:accent-kinda-white"
+          type="checkbox"
+          id="timestamps"
+          defaultChecked={showTimestamps}
+          onChange={e => setShowTimestamps(e.target.checked)}
+        />
+        <label
+          className="select-none underline-offset-2 opacity-75 transition-opacity peer-checked:underline peer-checked:opacity-100 dark:opacity-50"
+          htmlFor="timestamps"
+        >
           Show timestamps
         </label>
       </div>

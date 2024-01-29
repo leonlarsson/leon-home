@@ -92,13 +92,12 @@ export const postEntry = async (
     trimmedMessage = "👈🛑👮‍♂️";
 
   try {
-    await db
-      .insert(guestbookEntries)
-      .values({
-        body: trimmedMessage,
-        name: session?.user?.name?.slice(0, 50),
-        email: session?.user?.email,
-      });
+    await db.insert(guestbookEntries).values({
+      body: trimmedMessage,
+      name: session?.user?.name?.slice(0, 50),
+      email: session?.user?.email,
+    });
+
     revalidatePath("/guestbook");
     return true;
   } catch (error) {
@@ -128,14 +127,13 @@ export const editEntry = async (
         .update(guestbookEntries)
         .set({ body: trimmedMessage, edited_at: new Date() })
         .where(eq(guestbookEntries.id, idToEdit));
-      await tx
-        .insert(guestbookEdits)
-        .values({
-          entry_id: idToEdit,
-          old_message: oldMessage,
-          new_message: trimmedMessage,
-          edited_by: email,
-        });
+
+      await tx.insert(guestbookEdits).values({
+        entry_id: idToEdit,
+        old_message: oldMessage,
+        new_message: trimmedMessage,
+        edited_by: email,
+      });
     });
 
     revalidatePath("/guestbook");

@@ -1,8 +1,26 @@
-export default ({ rounded = "rounded", padding = "p-px", extraClasses = "", hoverable = false, from, via, to, hoverFrom, hoverVia, hoverTo, children }: Props) => {
+export default ({
+  rounded = "rounded",
+  padding = "p-px",
+  extraClasses = "",
+  hoverable = false,
+  from,
+  via,
+  to,
+  hoverFrom,
+  hoverVia,
+  hoverTo,
+  children,
+}: Props) => {
   return (
     <div
-      className={`select-none hover:drop-shadow-md ${rounded} bg-gradient-to-r ${from ?? "from-pink-500"} ${via ?? "via-red-500"} ${to ?? "to-yellow-500"} ${padding} ${
-        hoverable ? `${hoverFrom ?? "hover:from-yellow-500"} ${hoverVia ?? "hover:via-green-600"} ${hoverTo ?? "hover:to-blue-600"}` : ""
+      className={`select-none hover:drop-shadow-md ${rounded} bg-gradient-to-r ${
+        from ?? "from-pink-500"
+      } ${via ?? "via-red-500"} ${to ?? "to-yellow-500"} ${padding} ${
+        hoverable
+          ? `${hoverFrom ?? "hover:from-yellow-500"} ${
+              hoverVia ?? "hover:via-green-600"
+            } ${hoverTo ?? "hover:to-blue-600"}`
+          : ""
       } ${extraClasses}`}
     >
       {children}

@@ -26,11 +26,29 @@ export default ({ params: { locale } }: Props) => {
     <div className="flex flex-col">
       {/* Language selection */}
       <div className="flex gap-2">
-        <Link href={"/en/cv"} title={"Read the English version"} draggable={false}>
-          {<Icons.unitedKingdom className="inline size-9" data-selected={locale === "en"} />}
+        <Link
+          href={"/en/cv"}
+          title={"Read the English version"}
+          draggable={false}
+        >
+          {
+            <Icons.unitedKingdom
+              className="inline size-9"
+              data-selected={locale === "en"}
+            />
+          }
         </Link>
-        <Link href={"/sv/cv"} title={"Read the Swedish version"} draggable={false}>
-          {<Icons.sweden className="inline size-9" data-selected={locale === "sv"} />}
+        <Link
+          href={"/sv/cv"}
+          title={"Read the Swedish version"}
+          draggable={false}
+        >
+          {
+            <Icons.sweden
+              className="inline size-9"
+              data-selected={locale === "sv"}
+            />
+          }
         </Link>
       </div>
 

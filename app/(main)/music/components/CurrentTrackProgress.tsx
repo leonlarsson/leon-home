@@ -13,7 +13,13 @@ type Props = {
   reloadOnEnd?: boolean;
 };
 
-export default ({ type, isPlaying, initialProgress, duration, reloadOnEnd }: Props): JSX.Element => {
+export default ({
+  type,
+  isPlaying,
+  initialProgress,
+  duration,
+  reloadOnEnd,
+}: Props): JSX.Element => {
   const router = useRouter();
   const [progress, setProgress] = useState(initialProgress);
 
@@ -47,20 +53,34 @@ export default ({ type, isPlaying, initialProgress, duration, reloadOnEnd }: Pro
   if (type === "time")
     return (
       <span className="text-right text-sm text-neutral-700 max-[380px]:hidden dark:text-neutral-300">
-        {isPlaying ? formatDuration(progress) : <PauseIcon />} / {formatDuration(duration)}
+        {isPlaying ? formatDuration(progress) : <PauseIcon />} /{" "}
+        {formatDuration(duration)}
       </span>
     );
 
-  if (type === "bar") return <ProgressBar progress={progress} duration={duration} />;
+  if (type === "bar")
+    return <ProgressBar progress={progress} duration={duration} />;
 
   if (type === "combined")
     return (
       <div className="flex items-center gap-2">
-        <span className={`ms-1 ${isPlaying ? "min-w-[40px]" : ""} text-right text-sm text-neutral-700 dark:text-neutral-300`}>{isPlaying ? formatDuration(progress) : <PauseIcon />}</span>
+        <span
+          className={`ms-1 ${
+            isPlaying ? "min-w-[40px]" : ""
+          } text-right text-sm text-neutral-700 dark:text-neutral-300`}
+        >
+          {isPlaying ? formatDuration(progress) : <PauseIcon />}
+        </span>
 
-        <ProgressBar progress={progress} duration={duration} extraClasses="flex-1" />
+        <ProgressBar
+          progress={progress}
+          duration={duration}
+          extraClasses="flex-1"
+        />
 
-        <span className="me-1 min-w-[40px] text-left text-sm text-neutral-700 dark:text-neutral-300">{formatDuration(duration)}</span>
+        <span className="me-1 min-w-[40px] text-left text-sm text-neutral-700 dark:text-neutral-300">
+          {formatDuration(duration)}
+        </span>
       </div>
     );
 
@@ -68,8 +88,12 @@ export default ({ type, isPlaying, initialProgress, duration, reloadOnEnd }: Pro
     return (
       <div>
         <div className="mx-1 flex items-center justify-between">
-          <span className="text-sm text-neutral-700 dark:text-neutral-300">{isPlaying ? formatDuration(progress) : <PauseIcon />}</span>
-          <span className="text-sm text-neutral-700 dark:text-neutral-300">{formatDuration(duration)}</span>
+          <span className="text-sm text-neutral-700 dark:text-neutral-300">
+            {isPlaying ? formatDuration(progress) : <PauseIcon />}
+          </span>
+          <span className="text-sm text-neutral-700 dark:text-neutral-300">
+            {formatDuration(duration)}
+          </span>
         </div>
         <ProgressBar progress={progress} duration={duration} />
       </div>
@@ -80,8 +104,12 @@ export default ({ type, isPlaying, initialProgress, duration, reloadOnEnd }: Pro
       <div>
         <ProgressBar progress={progress} duration={duration} />
         <div className="mx-1 flex items-center justify-between">
-          <span className="text-sm text-neutral-700 dark:text-neutral-300">{isPlaying ? formatDuration(progress) : <PauseIcon />}</span>
-          <span className="text-sm text-neutral-700 dark:text-neutral-300">{formatDuration(duration)}</span>
+          <span className="text-sm text-neutral-700 dark:text-neutral-300">
+            {isPlaying ? formatDuration(progress) : <PauseIcon />}
+          </span>
+          <span className="text-sm text-neutral-700 dark:text-neutral-300">
+            {formatDuration(duration)}
+          </span>
         </div>
       </div>
     );
@@ -89,9 +117,20 @@ export default ({ type, isPlaying, initialProgress, duration, reloadOnEnd }: Pro
   return <ProgressBar progress={progress} duration={duration} />;
 };
 
-const ProgressBar = ({ progress, duration, extraClasses }: { extraClasses?: string; progress: number; duration: number }) => (
+const ProgressBar = ({
+  progress,
+  duration,
+  extraClasses,
+}: {
+  extraClasses?: string;
+  progress: number;
+  duration: number;
+}) => (
   <div className={`h-1 bg-neutral-400 dark:bg-[#4d4d4d] ${extraClasses}`}>
-    <div className="h-full bg-neutral-700 dark:bg-white" style={{ width: ((progress / duration) * 100).toFixed(2) + "%" }} />
+    <div
+      className="h-full bg-neutral-700 dark:bg-white"
+      style={{ width: ((progress / duration) * 100).toFixed(2) + "%" }}
+    />
   </div>
 );
 

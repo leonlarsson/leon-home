@@ -1,8 +1,22 @@
 import avatar from "./images/avatar.png";
 import Icons from "@/app/(main)/components/icons";
 import projects from "../projects";
-import { CVAboutSection, CVEducationSection, CVEmploymentSection, CVLocale, CVMetadata, CVProfileSection, CVProjectsSection } from "@/types";
-import { AboutSection, EducationSection, EmploymentSection, ProfileSection, ProjectsSection } from "@/app/(cv)/[locale]/components/sections";
+import {
+  CVAboutSection,
+  CVEducationSection,
+  CVEmploymentSection,
+  CVLocale,
+  CVMetadata,
+  CVProfileSection,
+  CVProjectsSection,
+} from "@/types";
+import {
+  AboutSection,
+  EducationSection,
+  EmploymentSection,
+  ProfileSection,
+  ProjectsSection,
+} from "@/app/(cv)/[locale]/components/sections";
 
 export const pageMetadata: CVMetadata = {
   title: {
@@ -38,17 +52,23 @@ export const profileSection: CVProfileSection = {
   },
   iconLinks: [
     {
-      icon: <Icons.envelopeThin className="size-4 text-neutral-600 transition-colors group-hover:text-black" />,
+      icon: (
+        <Icons.envelopeThin className="size-4 text-neutral-600 transition-colors group-hover:text-black" />
+      ),
       href: "mailto:leonlarsson8@gmail.com",
       text: "Email",
     },
     {
-      icon: <Icons.github className="size-4 text-neutral-600 transition-colors group-hover:text-black" />,
+      icon: (
+        <Icons.github className="size-4 text-neutral-600 transition-colors group-hover:text-black" />
+      ),
       href: "https://github.com/leonlarsson",
       text: "GitHub",
     },
     {
-      icon: <Icons.linkedin className="size-4 text-neutral-600 transition-colors group-hover:text-black" />,
+      icon: (
+        <Icons.linkedin className="size-4 text-neutral-600 transition-colors group-hover:text-black" />
+      ),
       href: "https://www.linkedin.com/in/leonlarsson/",
       text: "LinkedIn",
     },
@@ -63,8 +83,12 @@ export const aboutSection: CVAboutSection = {
     sv: "Om mig",
   },
   sectionDescription: {
-    en: ["I'm an aspiring Full Stack Engineer in self-training. My primary areas of interest are web development and Discord bots. I also extensively work on creating various APIs and services on platforms such as Cloudflare Workers. My old CV can be found [here](https://leonlarsson.com/cv-old)."],
-    sv: ["Jag är en aspirerande Full Stack-utvecklare. Mina primära intresseområden är webbutveckling och Discord-bottar. Jag arbetar också omfattande med att skapa olika API:er och tjänster på plattformar som Cloudflare Workers. Mitt gamla CV finns [här](https://leonlarsson.com/cv-old-swe)."],
+    en: [
+      "I'm an aspiring Full Stack Engineer in self-training. My primary areas of interest are web development and Discord bots. I also extensively work on creating various APIs and services on platforms such as Cloudflare Workers. My old CV can be found [here](https://leonlarsson.com/cv-old).",
+    ],
+    sv: [
+      "Jag är en aspirerande Full Stack-utvecklare. Mina primära intresseområden är webbutveckling och Discord-bottar. Jag arbetar också omfattande med att skapa olika API:er och tjänster på plattformar som Cloudflare Workers. Mitt gamla CV finns [här](https://leonlarsson.com/cv-old-swe).",
+    ],
   },
 } satisfies CVAboutSection;
 
@@ -96,7 +120,10 @@ export const employmentSection: CVEmploymentSection = {
       company: "Electronic Arts",
       companyUrl: "https://ea.com",
       description: {
-        en: ["Reviewed and ensured the quality of EA games, including marketing materials. Also managed candidate tests and contributed to crafting application test materials during peak seasons.", "Worked on 27 DLCs for The Sims 4, as well as FIFA 21, LOTR: Heroes of Middle-earth, and PvZ 3."],
+        en: [
+          "Reviewed and ensured the quality of EA games, including marketing materials. Also managed candidate tests and contributed to crafting application test materials during peak seasons.",
+          "Worked on 27 DLCs for The Sims 4, as well as FIFA 21, LOTR: Heroes of Middle-earth, and PvZ 3.",
+        ],
         sv: [
           "Granskade och säkerställde kvaliteten på EA-spel, inklusive marknadsföringsmaterial. Hanterade också kandidattester och bidrog till att utforma testmaterial för ansökningar under högsäsong.",
           "Arbetade med 27 DLC:er för The Sims 4, samt FIFA 21, LOTR: Heroes of Middle-earth och PvZ 3.",
@@ -119,8 +146,12 @@ export const educationSection: CVEducationSection = {
       school: "Sundsgymnasiet",
       schoolUrl: "https://vellinge.se/sundsgymnasiet/",
       description: {
-        en: ["Civics, media, communication, marketing, and digital content creation."],
-        sv: ["Samhällskunskap, media, kommunikation, marknadsföring och digitalt skapande."],
+        en: [
+          "Civics, media, communication, marketing, and digital content creation.",
+        ],
+        sv: [
+          "Samhällskunskap, media, kommunikation, marknadsföring och digitalt skapande.",
+        ],
       },
       start: "2015-08-17",
       end: "2018-06-07",

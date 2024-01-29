@@ -16,11 +16,16 @@ export default () => {
         onChange={e => {
           const checked = e.target.checked;
           // If checked, set searchParam. Otherwise, remove the searchParam. Then replace the URL params
-          checked ? searchParams.set("sort", "newest") : searchParams.delete("sort");
+          checked
+            ? searchParams.set("sort", "newest")
+            : searchParams.delete("sort");
           router.replace("?" + searchParams.toString());
         }}
       />
-      <label className="select-none underline-offset-2 opacity-75 transition-opacity peer-checked:underline peer-checked:opacity-100 dark:opacity-50" htmlFor="sort">
+      <label
+        className="select-none underline-offset-2 opacity-75 transition-opacity peer-checked:underline peer-checked:opacity-100 dark:opacity-50"
+        htmlFor="sort"
+      >
         Sort by newest
       </label>
     </div>

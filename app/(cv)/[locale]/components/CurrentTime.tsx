@@ -8,7 +8,9 @@ type Props = {
 };
 
 export default ({ locale, timeZone }: Props) => {
-  const [time, setTime] = useState(new Date().toLocaleTimeString(locale, { timeZone }));
+  const [time, setTime] = useState(
+    new Date().toLocaleTimeString(locale, { timeZone }),
+  );
 
   useEffect(() => {
     const intervalId = setInterval(() => {

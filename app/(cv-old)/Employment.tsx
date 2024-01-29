@@ -1,4 +1,16 @@
-export default ({ title, company, companyUrl, date, children }: { title: string; company: string; companyUrl: string; date: string; children: JSX.Element }) => {
+export default ({
+  title,
+  company,
+  companyUrl,
+  date,
+  children,
+}: {
+  title: string;
+  company: string;
+  companyUrl: string;
+  date: string;
+  children: JSX.Element;
+}) => {
   return (
     <div className="small-segment-holder">
       <span className="datum">{date}</span>
