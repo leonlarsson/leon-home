@@ -28,6 +28,7 @@ const tags = {
   NEXT: "Next.js",
   TAILWIND: "Tailwind",
   NODE: "Node.js",
+  BUN: "Bun",
   DISCORDJS: "discord.js",
   VITE: "Vite",
   ANTD: "Ant Design",
@@ -124,7 +125,7 @@ export default [
     slugAliases: ["bf1morse"],
     name: "Battlefield 1 Morse Solver",
     description: [
-      "Another Battlefield-related project. This has helped hundreds if not thousands of people to solve the 'The Beginning' Battlefield 1 easter egg.",
+      "Another Battlefield-related project. This has helped thousands of people to solve the 'The Beginning' Battlefield 1 easter egg.",
       "This project is still being used daily by people to help solve this easter egg.",
     ],
     shortDescription:
@@ -153,11 +154,13 @@ export default [
     description: [
       "This is a bot we use on the Battlefield Discord. It provides moderation utilities for moderators as well as a few fun and helpful features for users.",
       "Command cooldowns are handled with Cloudflare Workers using KV.",
+      "In February 2024, I rewrote the bot, going from JavaScript to TypeScript and from Node.js to Bun, as well as open-sourcing the bot.",
     ],
     shortDescription:
       "A bot that provides utility and fun in the Battlefield Discord.",
     year: "2021",
     tags: [
+      tags.BUN,
       tags.NODE,
       tags.DISCORDJS,
       tags.JS,
@@ -166,6 +169,7 @@ export default [
       tags.CLOUDFLARE_WORKERS,
     ],
     images: [battlebotImage1, battlebotImage2],
+    githubLink: "https://github.com/leonlarsson/Battlebot",
     extraLinks: [
       {
         name: "Cooldowns API",
