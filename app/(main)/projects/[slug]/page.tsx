@@ -109,7 +109,7 @@ export default ({ params }: { params: { slug: string } }) => {
             {typeof project.description === "string" ? (
               <p>{project.description}</p>
             ) : (
-              <div className="flex flex-col gap-5">
+              <div className="flex flex-col gap-3">
                 {project.description.map((text, i) => (
                   <p key={i}>{text}</p>
                 ))}
