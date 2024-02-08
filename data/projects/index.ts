@@ -184,12 +184,14 @@ export default [
     name: "Battlefield Stats Discord Bot",
     description: [
       "My largest and most successful project by far. Battlefield Stats is a Discord bot that provides on-demand Battlefield statistics in Discord. I have also built a website and an API for this project.",
-      "Used by thousands of users in thousands of Discord servers, the bot is built with Node.js and the website with Next.js and shadcn/ui.",
+      "Used by thousands of users in thousands of Discord servers, the bot is built with discord.js (on Bun) and the website with Next.js and shadcn/ui.",
+      "In February 2024, I rewrote the bot, going from JavaScript to TypeScript and from Node.js to Bun.",
     ],
     shortDescription:
       "A bot that provides Battlefield stats right inside Discord.",
     year: "2021",
     tags: [
+      tags.BUN,
       tags.NODE,
       tags.DISCORDJS,
       tags.CLOUDFLARE_WORKERS,
@@ -325,7 +327,7 @@ export default [
       "A dashboard website template built with Vite + React + Ant Design. This is something I originally built for work, but without the secret parts.",
     shortDescription: "A UI/website/dashboard built with React and And Design.",
     year: "2023",
-    tags: [tags.REACT, tags.VITE, tags.ANTD],
+    tags: [tags.REACT, tags.VITE, tags.ANTD, tags.JS],
     link: "https://react-ant-design-ui.pages.dev/",
     githubLink: "https://github.com/leonlarsson/react-ant-design-ui",
     displayInCv: true,
@@ -337,7 +339,7 @@ export default [
       "A fun project that creates a better leaderboard for the game THE FINALS from Embark Studios. Built with React + Vite.",
     shortDescription: "An external leaderboard for the game THE FINALS.",
     year: "2023",
-    tags: [tags.REACT, tags.VITE, tags.SHADCNUI],
+    tags: [tags.REACT, tags.VITE, tags.SHADCNUI, tags.TS],
     link: "https://the-finals-leaderboard.com/",
     githubLink: "https://github.com/leonlarsson/the-finals-leaderboard",
     displayInCv: true,
