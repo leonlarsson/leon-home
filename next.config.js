@@ -1,5 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  // Needs to be set to standalone when used with Docker
+  // output: "standalone",
   redirects: async () => [
     {
       source: "/resume",
