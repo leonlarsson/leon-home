@@ -28,7 +28,7 @@ export default () => {
           onChange={onNamedEntriesChange}
         />
         <label
-          className="select-none underline-offset-2 opacity-75 transition-opacity peer-checked:underline peer-checked:opacity-100 dark:opacity-50"
+          className="select-none underline-offset-2 opacity-80 transition-opacity peer-checked:underline peer-checked:opacity-100"
           htmlFor="named"
         >
           Show only named entries
@@ -44,7 +44,7 @@ export default () => {
           onChange={e => setShowTimestamps(e.target.checked)}
         />
         <label
-          className="select-none underline-offset-2 opacity-75 transition-opacity peer-checked:underline peer-checked:opacity-100 dark:opacity-50"
+          className="select-none underline-offset-2 opacity-80 transition-opacity peer-checked:underline peer-checked:opacity-100"
           htmlFor="timestamps"
         >
           Show timestamps

@@ -28,7 +28,7 @@ export const Project = ({
 }) => {
   return (
     <GradientBorder rounded="rounded-[6px]" padding="p-[2px]" hoverable>
-      <div className="flex h-full rounded bg-slate-100 text-start transition-colors dark:bg-kinda-black">
+      <div className="flex h-full rounded bg-white text-start transition-colors dark:bg-kinda-black">
         <Link
           href={`/projects/${project.slug}`}
           className="group flex flex-1 flex-col p-3"
@@ -64,7 +64,9 @@ export const Project = ({
           </div>
 
           {/* Description */}
-          <span>{project.shortDescription}</span>
+          <span className="opacity-80 transition-opacity group-hover:opacity-100">
+            {project.shortDescription}
+          </span>
 
           {/* Tags */}
           {displayTags && project.tags && (
@@ -101,7 +103,7 @@ export const Project = ({
 
 export const ProjectSkeleton = () => (
   <GradientBorder rounded="rounded-[6px]" padding="p-[2px]" hoverable>
-    <div className="flex h-full rounded bg-slate-100 text-start transition-colors dark:bg-kinda-black">
+    <div className="flex h-full rounded bg-white text-start transition-colors dark:bg-kinda-black">
       <div className="group flex flex-1 flex-col p-3" draggable={false}>
         <span className="text-lg font-bold">
           <Icons.arrowRight className="mb-1 me-2 inline h-5 transition-transform group-hover:translate-x-1" />

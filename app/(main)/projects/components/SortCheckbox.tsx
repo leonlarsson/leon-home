@@ -23,7 +23,7 @@ export default () => {
         }}
       />
       <label
-        className="select-none underline-offset-2 opacity-75 transition-opacity peer-checked:underline peer-checked:opacity-100 dark:opacity-50"
+        className="select-none underline-offset-2 opacity-80 transition-opacity peer-checked:underline peer-checked:opacity-100"
         htmlFor="sort"
       >
         Sort by newest

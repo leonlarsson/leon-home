@@ -9,7 +9,7 @@ export default () => {
       <header className="relative z-50 mb-6 hidden px-6 min-[510px]:block">
         {/* <GradientBorder rounded="rounded-[13px]" extraClasses="max-w-5xl mx-auto">
           <div className="flex h-16 items-center justify-between rounded-xl bg-white/80 dark:bg-[#1e1e1e]/70"> */}
-        <div className="mx-auto flex h-16 w-full max-w-5xl justify-between rounded-xl border-[1px] border-black/20 bg-white/50 px-2 dark:border-kinda-white/10 dark:bg-[#1e1e1e]/50">
+        <div className="mx-auto flex h-16 w-full max-w-5xl justify-between rounded-xl border-[1px] border-black/20 bg-white/80 px-2 dark:border-kinda-white/10 dark:bg-[#1e1e1e]/30">
           <div className="flex items-center *:px-2">
             <HeaderLink
               content={
@@ -73,7 +73,7 @@ export default () => {
 
       {/* BOTTOM OVERLAY HEADER */}
       <header className="fixed inset-x-0 bottom-0 z-50 block px-6 pb-6 min-[510px]:hidden">
-        <div className="flex h-16 rounded-xl border-[1px] border-black/40 bg-white/50 text-xl backdrop-blur-md dark:border-kinda-white/10 dark:bg-[#1e1e1e]/50">
+        <div className="flex h-16 rounded-xl border-[1px] border-black/40 bg-white/80 text-xl backdrop-blur-md dark:border-kinda-white/10 dark:bg-[#1e1e1e]/50">
           <div className="flex w-full justify-evenly text-2xl *:px-0 min-[275px]:*:px-2">
             <HeaderLink
               content={<Icons.house className="w-8" />}

@@ -9,12 +9,12 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: "var(--font-inter)",
+        sans: "var(--font-geist-sans)",
         "geist-mono": "var(--font-geist-mono)",
       },
       colors: {
-        "kinda-black": "#0e1011",
-        "kinda-white": "#f2f0ed",
+        "kinda-black": "#070808",
+        "kinda-white": "#f9f9f7",
       },
     },
   },

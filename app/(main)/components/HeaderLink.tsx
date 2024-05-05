@@ -21,7 +21,7 @@ export default ({
 
   return (
     <Link
-      className={`flex h-full items-center text-neutral-600 transition-all hover:text-black dark:text-neutral-400 dark:hover:text-kinda-white ${
+      className={`flex h-full items-center text-neutral-700 transition-all hover:text-black dark:text-neutral-400 dark:hover:text-kinda-white ${
         inProject ? "font-bold !text-black dark:!text-kinda-white" : ""
       }`}
       href={url}

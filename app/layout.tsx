@@ -3,9 +3,8 @@
 import type { Metadata } from "next";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
-import { Inter } from "next/font/google";
-const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 import { GeistMono } from "geist/font/mono";
+import { GeistSans } from "geist/font/sans";
 import generateOGMetadata from "./utils/generateOGMetadata";
 
 import "./globals.css";
@@ -41,7 +40,7 @@ export const metadata: Metadata = {
 export default ({ children }: { children: React.ReactNode }) => {
   return (
     <html
-      className={`${inter.variable} ${GeistMono.variable} overflow-y-scroll`}
+      className={`${GeistMono.variable} ${GeistSans.variable} overflow-y-scroll`}
       lang="en"
     >
       <body>

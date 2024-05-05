@@ -4,7 +4,7 @@ import projects from "@/data/projects";
 import TypeAnimation from "./components/TypeAnimation";
 import GradientBorder from "./components/GradientBorder";
 import smLogo from "/public/assets/images/smlogo_notext.png";
-import { Project } from "./projects/components/ProjectsGrid";
+import { Project, ProjectSkeleton } from "./projects/components/ProjectsGrid";
 import Icons from "./components/icons";
 
 export default () => {
@@ -15,7 +15,7 @@ export default () => {
         <Image
           className="h-full select-none rounded-[100px] shadow transition-all hover:rounded-l-[10px] hover:shadow-lg active:translate-x-1 max-md:w-[50px]"
           src="/assets/images/avatar.png"
-          alt="Leon image"
+          alt="Leon"
           width={130}
           height={130}
           priority
@@ -23,7 +23,7 @@ export default () => {
         />
 
         <div className="flex flex-col gap-1 max-md:gap-0">
-          <span className="text-4xl font-extrabold leading-none transition-all max-md:text-xl">
+          <span className="text-3xl font-extrabold leading-none transition-all max-md:text-xl">
             Leon San José Larsson
           </span>
           <span className="text-xl transition-all max-md:text-sm">
@@ -176,7 +176,7 @@ export default () => {
                 <Link
                   href={url}
                   target="_blank"
-                  className="flex items-center justify-between rounded bg-slate-100 p-2 dark:bg-kinda-black"
+                  className="flex items-center justify-between rounded bg-kinda-white p-2 dark:bg-kinda-black"
                 >
                   <div className="flex items-center">
                     {icon}
@@ -208,7 +208,7 @@ export default () => {
                 <Link
                   href={url}
                   target="_blank"
-                  className="flex items-center justify-between rounded bg-slate-100 p-2 dark:bg-kinda-black"
+                  className="flex items-center justify-between rounded bg-kinda-white p-2 dark:bg-kinda-black"
                 >
                   <div className="flex items-center">
                     <Icons.file className="me-2 inline size-5" />
