@@ -105,12 +105,12 @@ export const employmentSection: CVEmploymentSection = {
       companyUrl: "https://sharkmob.com",
       description: {
         en: [
-          "Managing player support and content on the [Bloodhunt website](https://bloodhunt.com), which involves close collaboration with marketing, player relations, and developers.",
-          "Additionally, community management, Discord, and Twitch Drops. For our newly announced game [Exoborne](https://exoborne.com), contributing to website development and providing technical specifications for the [RE_HACK ARG website](https://exoborne.com/rehack).",
+          "Managing player support for both [Bloodhunt](https://bloodhunt.com) and [Exoborne](https://exoborne.com) in close collaboration with Tencent, Level Infinite, and developers. Also managing all content on the Bloodhunt website, doing community management, Discord, and Twitch Drops.",
+          "Additionally, contributing to website development and providing technical specifications for the [RE_HACK ARG website](https://exoborne.com/rehack).",
         ],
         sv: [
-          "Hanterar spelarsupport och innehåll på [Bloodhunt-hemsidan](https://bloodhunt.com), vilket innebär nära samarbete med marketing, player relations och utvecklare.",
-          "Utför även hantering av community, Discord och Twitch Drops med mera. För vårt nyligen uppvisade spel [Exoborne](https://exoborne.com) bidrar jag även till webbutveckling och hjälper med tekniska specifikationer för [RE_HACK ARG-hemsidan](https://exoborne.com/rehack).",
+          "Hanterar spelarsupport på både [Bloodhunt](https://bloodhunt.com) och [Exoborne](https://exoborne.com) i nära samarbete med Tencent, Level Infinite och utvecklare. Hanterar även allt innehåll på Bloodhunts webbplats, gör community management, Discord och Twitch Drops.",
+          "Bidrar även till webbutveckling och ger tekniska specifikationer för [RE_HACK ARG-webbplatsen](https://exoborne.com/rehack).",
         ],
       },
       start: "2022-08-10",
