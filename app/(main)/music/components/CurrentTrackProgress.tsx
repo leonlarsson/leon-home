@@ -75,7 +75,7 @@ export default ({
         <ProgressBar
           progress={progress}
           duration={duration}
-          extraClasses="flex-1"
+          style={{ flex: "1 1 0%" }}
         />
 
         <span className="me-1 min-w-[40px] text-left text-sm text-neutral-700 dark:text-neutral-300">
@@ -120,13 +120,13 @@ export default ({
 const ProgressBar = ({
   progress,
   duration,
-  extraClasses,
+  style,
 }: {
-  extraClasses?: string;
+  style?: React.CSSProperties;
   progress: number;
   duration: number;
 }) => (
-  <div className={`h-1 bg-neutral-400 dark:bg-[#4d4d4d] ${extraClasses}`}>
+  <div className={`h-1 bg-neutral-400 dark:bg-[#4d4d4d]`} style={style}>
     <div
       className="h-full bg-neutral-700 dark:bg-white"
       style={{ width: ((progress / duration) * 100).toFixed(2) + "%" }}
