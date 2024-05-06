@@ -17,3 +17,36 @@
 .text-input-base {
   @apply rounded bg-white p-2 shadow outline-none dark:bg-kinda-black;
 }
+
+.gradient-border {
+  background-image: linear-gradient(
+    var(--gradient-degree),
+    var(--gradient-from),
+    var(--gradient-via),
+    var(--gradient-to)
+  );
+  background-size: 400% 400%;
+  animation: gradient var(--gradient-anim-duration) ease infinite;
+}
+
+.gradient-border:hover {
+  background-image: linear-gradient(
+    var(--gradient-degree),
+    var(--gradient-hover-from),
+    var(--gradient-hover-via),
+    var(--gradient-hover-to)
+  );
+  animation-duration: var(--gradient-hover-anim-duration);
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}

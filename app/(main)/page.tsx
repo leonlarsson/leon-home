@@ -11,7 +11,6 @@ export default () => {
   return (
     <div className="mx-auto max-w-3xl pb-10 text-start">
       <div className="mb-6 flex items-center gap-4">
-        {/* <GradientBorder rounded="rounded-full" padding="p-1">IMAGE</GradientBorder> */}
         <Image
           className="h-full select-none rounded-[100px] shadow transition-all hover:rounded-l-[10px] hover:shadow-lg active:translate-x-1 max-md:w-[50px]"
           src="/assets/images/avatar.png"
@@ -167,12 +166,7 @@ export default () => {
                 icon: <Icons.artstation className="me-2 inline size-5" />,
               },
             ].map(({ title, url, icon }) => (
-              <GradientBorder
-                key={title}
-                rounded="rounded-[6px]"
-                padding="p-[2px]"
-                hoverable
-              >
+              <GradientBorder key={title} rounded="6px" padding="2px" hoverable>
                 <Link
                   href={url}
                   target="_blank"
@@ -199,12 +193,7 @@ export default () => {
               { title: "Open English CV", url: "/en/cv" },
               { title: "Öppna svenskt CV", url: "/sv/cv" },
             ].map(({ title, url }) => (
-              <GradientBorder
-                key={title}
-                rounded="rounded-[6px]"
-                padding="p-[2px]"
-                hoverable
-              >
+              <GradientBorder key={title} rounded="6px" padding="2px" hoverable>
                 <Link
                   href={url}
                   target="_blank"

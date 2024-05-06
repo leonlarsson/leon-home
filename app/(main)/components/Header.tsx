@@ -7,8 +7,6 @@ export default () => {
     <div className="select-none min-[510px]:pt-8">
       {/* TOP HEADER */}
       <header className="relative z-50 mb-6 hidden px-6 min-[510px]:block">
-        {/* <GradientBorder rounded="rounded-[13px]" extraClasses="max-w-5xl mx-auto">
-          <div className="flex h-16 items-center justify-between rounded-xl bg-white/80 dark:bg-[#1e1e1e]/70"> */}
         <div className="mx-auto flex h-16 w-full max-w-5xl justify-between rounded-xl border-[1px] border-black/20 bg-white/80 px-2 dark:border-kinda-white/10 dark:bg-[#1e1e1e]/30">
           <div className="flex items-center *:px-2">
             <HeaderLink
@@ -67,8 +65,6 @@ export default () => {
             />
           </div>
         </div>
-        {/* </div>
-        </GradientBorder> */}
       </header>
 
       {/* BOTTOM OVERLAY HEADER */}

@@ -18,7 +18,7 @@ export default () => {
   }, [searchParams.get("search")]);
 
   return (
-    <GradientBorder rounded="rounded-[5px]" padding="p-px">
+    <GradientBorder rounded="5px" padding="1px">
       <input
         type="search"
         maxLength={20}

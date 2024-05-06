@@ -87,7 +87,7 @@ const MainSection = async ({ searchParams }: Props) => {
         )}
       </div>
 
-      <GradientBorder extraClasses="my-2">
+      <GradientBorder styles={{ marginTop: 8, marginBottom: 8 }}>
         <div className="p-px" />
       </GradientBorder>
 

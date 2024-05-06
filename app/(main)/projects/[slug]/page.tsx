@@ -183,7 +183,7 @@ export default ({ params }: { params: { slug: string } }) => {
           {/* Preview */}
           {/* Only render preview if project.link exists */}
           {!project.hidePreview && project.link && (
-            <GradientBorder extraClasses="mt-5" hoverable>
+            <GradientBorder styles={{ marginTop: 20 }}>
               <details className="rounded">
                 <summary className="cursor-pointer p-2 text-center text-lg font-semibold text-white">
                   Preview {project.slug === "leon-home" && "(Inception style)"}
@@ -200,11 +200,12 @@ export default ({ params }: { params: { slug: string } }) => {
           {/* Only render images if they exist (duh) */}
           {project.images && (
             <GradientBorder
-              extraClasses="mt-5"
-              from="from-pink-400"
-              via="via-orange-700"
-              to="to-yellow-600"
-              hoverable
+              styles={{
+                marginTop: 20,
+              }}
+              from="#f472b6"
+              via="#c2410c"
+              to="#ca8a04"
             >
               <details className="rounded">
                 <summary className="cursor-pointer p-2 text-center text-lg font-semibold text-white">

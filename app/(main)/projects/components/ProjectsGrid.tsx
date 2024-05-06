@@ -27,7 +27,7 @@ export const Project = ({
   displayTags?: boolean;
 }) => {
   return (
-    <GradientBorder rounded="rounded-[6px]" padding="p-[2px]" hoverable>
+    <GradientBorder rounded="6px" padding="2px" hoverable>
       <div className="flex h-full rounded bg-white text-start transition-colors dark:bg-kinda-black">
         <Link
           href={`/projects/${project.slug}`}
