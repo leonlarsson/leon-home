@@ -15,6 +15,8 @@ import { GuestbookProvider } from "./components/GuestbookContext";
 const pageTitle = "Guestbook";
 const pageDescription = "A guestbook where you can send public messages to me.";
 
+const requireAuth = process.env.REQUIRE_AUTH === "true";
+
 export const metadata: Metadata = {
   title: pageTitle,
   description: pageDescription,
@@ -37,7 +39,9 @@ export default ({ searchParams }: Props) => {
     <div className="mx-auto max-w-3xl">
       <div className="text-3xl font-extrabold">Guestbook</div>
       <div className="mb-3">
-        A guestbook where you can send an emoji or sign in to send a message.
+        {requireAuth
+          ? "A guestbook where you can send an emoji or sign in to send a message."
+          : "A guestbook where you can send a message."}
       </div>
 
       <Suspense fallback="Loading...">
@@ -50,7 +54,6 @@ export default ({ searchParams }: Props) => {
 const MainSection = async ({ searchParams }: Props) => {
   const namedEntriesOnly = searchParams.named === "true";
   let session;
-  const requireAuth = process.env.REQUIRE_AUTH === "true";
   if (requireAuth) session = await auth();
 
   return (
