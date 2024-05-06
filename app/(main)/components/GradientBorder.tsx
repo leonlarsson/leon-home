@@ -1,7 +1,7 @@
 export default ({
   rounded = "4px",
   padding = "1px",
-  styles = {},
+  style = {},
   hoverable = false,
   from = "#ec4899",
   via = "#ef4444",
@@ -35,7 +35,7 @@ export default ({
 
           borderRadius: rounded,
           padding: padding,
-          ...styles,
+          ...style,
         } as React.CSSProperties
       }
       className={`gradient-border select-none hover:drop-shadow-md`}
@@ -54,7 +54,7 @@ type Props = {
   /** Defaults to "1px". */
   padding?: string;
   /** Extra styles to add to the div. */
-  styles?: React.CSSProperties;
+  style?: React.CSSProperties;
   /** Whether the div should have a hover effect. Defaults to false. */
   hoverable?: boolean;
   /** Override the gradient "from" color. */
