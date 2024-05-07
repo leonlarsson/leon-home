@@ -44,8 +44,8 @@ export default ({ children }: { children: React.ReactNode }) => {
       lang="en"
     >
       <body>
-        <Analytics />
-        <SpeedInsights />
+        <Analytics scriptSrc="/assets/va/script.js" />
+        <SpeedInsights scriptSrc="/assets/si/script.js" />
         {children}
       </body>
     </html>
