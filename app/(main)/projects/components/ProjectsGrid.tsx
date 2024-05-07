@@ -37,7 +37,7 @@ export const Project = ({
         >
           <div className="flex items-center justify-between">
             <span className="text-lg font-bold">
-              <Icons.arrowRight className="mb-1 me-2 inline h-5 transition-transform group-hover:translate-x-1" />
+              <Icons.circleArrowRight className="mb-1 me-2 inline h-5 transition-transform group-hover:-rotate-45" />
               {/* Name / Year */}
               <span className="underline-offset-2 group-hover:underline">
                 {project.name}
