@@ -27,7 +27,10 @@ export default async () => {
 
   return new ImageResponse(
     (
-      <div tw="h-full w-full flex flex-col justify-center items-center text-center bg-kinda-white font-normal">
+      <div
+        tw="h-full w-full flex flex-col justify-center items-center text-center font-normal"
+        style={{ backgroundColor: "#f9f9f7" }}
+      >
         <img
           tw="rounded-full shadow-xl"
           // @ts-ignore src is confused
