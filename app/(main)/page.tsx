@@ -113,7 +113,7 @@ export default () => {
 
         {/* GUESTBOOK */}
         <div>
-          <Icons.pencil className="mr-2 inline size-5" />
+          <Icons.book className="mr-2 inline size-5" />
           Feel free to{" "}
           <Link href="/guestbook" className="link">
             sign my guestbook!
@@ -155,16 +155,16 @@ export default () => {
               //   url: "https://www.threads.net/@leonsjlarsson",
               //   icon: <Icons.threads className="me-2 inline size-5" />,
               // },
-              {
-                title: "Instagram",
-                url: "https://www.instagram.com/leonsjlarsson/",
-                icon: <Icons.instagram className="me-2 inline size-5" />,
-              },
-              {
-                title: "ArtStation",
-                url: "https://www.artstation.com/leonlarsson",
-                icon: <Icons.artstation className="me-2 inline size-5" />,
-              },
+              // {
+              //   title: "Instagram",
+              //   url: "https://www.instagram.com/leonsjlarsson/",
+              //   icon: <Icons.instagram className="me-2 inline size-5" />,
+              // },
+              // {
+              //   title: "ArtStation",
+              //   url: "https://www.artstation.com/leonlarsson",
+              //   icon: <Icons.artstation className="me-2 inline size-5" />,
+              // },
             ].map(({ title, url, icon }) => (
               <GradientBorder key={title} rounded="6px" padding="2px" hoverable>
                 <Link

@@ -52,15 +52,15 @@ export default () => {
               newTab
             />
             <HeaderLink
-              content={<Icons.twitterX className="w-8" />}
-              url="https://x.com/MozzyFX"
-              title="X / Twitter"
-              newTab
-            />
-            <HeaderLink
               content={<Icons.github className="w-8" />}
               url="https://github.com/leonlarsson"
               title="GitHub"
+              newTab
+            />
+            <HeaderLink
+              content={<Icons.twitterX className="w-8" />}
+              url="https://x.com/MozzyFX"
+              title="X / Twitter"
               newTab
             />
           </div>
@@ -77,12 +77,12 @@ export default () => {
               title="Home"
             />
             <HeaderLink
-              content={<Icons.tools className="w-8" />}
+              content={<Icons.list className="w-8" />}
               url="/projects"
               title="Projects"
             />
             <HeaderLink
-              content={<Icons.pencil className="w-8" />}
+              content={<Icons.book className="w-8" />}
               url="/guestbook"
               title="Guestbook"
             />
