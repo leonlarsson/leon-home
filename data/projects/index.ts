@@ -184,7 +184,7 @@ export default [
     name: "Battlefield Stats Discord Bot",
     description: [
       "My largest and most successful project by far. Battlefield Stats is a Discord bot that provides on-demand Battlefield statistics in Discord. I have also built a website and an API for this project.",
-      "Used by thousands of users in thousands of Discord servers, the bot is built with discord.js (on Bun) and the website with Next.js and shadcn/ui.",
+      "Used by thousands of users in over 4,000 Discord servers, the bot is built with discord.js (on Bun) and the website with Next.js and shadcn/ui.",
       "In February 2024, I rewrote the bot, going from JavaScript to TypeScript and from Node.js to Bun.",
     ],
     shortDescription:
@@ -336,8 +336,8 @@ export default [
     slug: "the-finals-leaderboard",
     name: "THE FINALS Leaderboard",
     description:
-      "A fun project that creates a better leaderboard for the game THE FINALS from Embark Studios. Built with React + Vite.",
-    shortDescription: "An external leaderboard for the game THE FINALS.",
+      "An enhanced leaderboard for the game THE FINALS from Embark Studios, complete with additional features, stats, and all historical leaderboards. Built with React + Vite.",
+    shortDescription: "An enhanced leaderboard for the game THE FINALS.",
     year: "2023",
     tags: [tags.REACT, tags.VITE, tags.SHADCNUI, tags.TS],
     link: "https://the-finals-leaderboard.com/",
@@ -387,7 +387,7 @@ export default [
     slugAliases: ["leon-home"],
     name: "This website",
     description:
-      "This is the website you're currently on. It is powered by Next.js 13 on Vercel and is styled with Tailwind.",
+      "This is the website you're currently on. It is powered by Next.js and is styled with Tailwind.",
     shortDescription: "Leon's personal website. You are currently on it.",
     year: "2023",
     tags: [tags.REACT, tags.NEXT, tags.TAILWIND, tags.TS],
@@ -399,7 +399,7 @@ export default [
     slug: "guestbook",
     name: "Guestbook",
     description:
-      "A guestbook for my personal website. It uses Next.js experimental Server Actions and PlanetScale. It uses authentication from NextAuth.js.",
+      "A guestbook for my personal website. It uses Next.js experimental Server Actions and PlanetScale. It uses authentication from Auth.js.",
     shortDescription:
       "A guestbook powered by Next.js Server Actions and PlanetScale.",
     year: "2023",
