@@ -8,8 +8,10 @@ export default ({ projects }: { projects: ProjectType[] }) => {
   return (
     // Use grid with 2 cols until medium, then use 1 col. Additionally, use 1 col if there is a single project
     <div
-      className={`grid gap-3 ${
-        projects.length === 1 ? "self-center" : "grid-cols-1 md:grid-cols-2"
+      className={`grid gap-5 ${
+        projects.length === 1
+          ? "self-center"
+          : "grid-cols-1 md:grid-cols-2 xl:grid-cols-3"
       }`}
     >
       {projects.map(project => (
@@ -27,77 +29,83 @@ export const Project = ({
   displayTags?: boolean;
 }) => {
   return (
-    <GradientBorder rounded="6px" padding="2px" hoverable>
-      <div className="flex h-full rounded bg-white text-start transition-colors dark:bg-kinda-black">
-        <Link
-          href={`/projects/${project.slug}`}
-          className="group flex flex-1 flex-col p-3"
-          draggable={false}
-          title={`See more info on project ${project.name}.`}
-        >
-          <div className="flex items-center justify-between">
-            <span className="text-lg font-bold">
-              <Icons.circleArrowRight className="mb-1 me-2 inline h-5 transition-transform group-hover:-rotate-45" />
-              {/* Name / Year */}
-              <span className="underline-offset-2 group-hover:underline">
-                {project.name}
-              </span>{" "}
-              {project.year && (
-                <span
-                  className="font-mono text-sm text-neutral-700 transition-colors dark:text-neutral-400"
-                  title={`First released ${project.year}.`}
-                >
-                  ({project.year}
-                  {project.endYear && `-${project.endYear}`})
-                </span>
-              )}
-            </span>
-            {/* Image icon */}
-            {project.images && (
-              <Icons.image
-                className="h-4 w-4 shrink-0"
-                title={`This project has ${
-                  project.images.length === 1 ? "an image" : "images"
-                }.`}
-              />
-            )}
-          </div>
+    <div className="group/main relative flex flex-col gap-2 rounded-lg border border-neutral-300 bg-white p-3 text-start shadow-sm transition-colors hover:border-neutral-500 dark:border-neutral-800 dark:bg-neutral-900/40 dark:hover:border-neutral-300">
+      {/* ICON / NAME / URL */}
+      <div className="flex items-center gap-1">
+        <Icons.circleArrowRight className="mb-1 me-2 inline size-7 flex-shrink-0 transition-transform group-hover/main:-rotate-45" />
 
-          {/* Description */}
-          <span className="opacity-80 transition-opacity group-hover:opacity-100">
-            {project.shortDescription}
+        <div className="flex flex-col">
+          <span className="font-semibold">
+            {/* Name / Year */}
+            <Link
+              href={`/projects/${project.slug}`}
+              draggable={false}
+              className="relative z-20 underline-offset-2 hover:underline"
+            >
+              {project.name}
+            </Link>{" "}
+            {project.year && (
+              <span
+                className="font-mono text-sm text-neutral-700 transition-colors dark:text-neutral-400"
+                title={`First released ${project.year}.`}
+              >
+                ({project.year}
+                {project.endYear && `-${project.endYear}`})
+              </span>
+            )}
           </span>
 
-          {/* Tags */}
-          {displayTags && project.tags && (
-            <div className="mt-1 flex flex-wrap gap-1">
-              {project.tags
-                .sort((a, b) => a.localeCompare(b))
-                .map(tag => (
-                  <Tag key={tag} tag={tag} clickable />
-                ))}
-            </div>
-          )}
-        </Link>
-
-        {/* Link */}
-        {project.link && (
-          <>
-            <div className="my-3 w-px bg-gray-300" />
-
+          {/* URL */}
+          {(project.link || project.githubLink) && (
             <Link
-              className="group flex items-center px-3"
-              href={project.link}
-              target={!project.link.startsWith("http") ? "_self" : "_blank"}
+              href={project.link ?? project.githubLink!}
+              target="_blank"
               draggable={false}
-              title={`Go to project ${project.name}.`}
+              className="group/url z-20 w-fit break-all text-sm underline-offset-2 opacity-80 hover:underline dark:opacity-60"
             >
-              <Icons.externallink className="mx-1 h-5 transition-transform group-hover:scale-[1.18]" />
+              {!project.link && project.githubLink && (
+                <Icons.github className="mr-1 inline size-3" />
+              )}
+
+              {(project.link ?? project.githubLink!)
+                .replace("https://github.com/", "")
+                .replace("https://", "")
+                .replace(/\/$/, "")}
+              <Icons.externallink className="ml-1 inline size-3 opacity-0 group-hover/url:opacity-50" />
             </Link>
-          </>
+          )}
+        </div>
+      </div>
+
+      {/* Description and tags */}
+      <div>
+        {/* Description */}
+        <span className="opacity-80 transition-opacity group-hover:opacity-100">
+          {project.shortDescription}
+        </span>
+
+        {/* Tags */}
+        {displayTags && project.tags && (
+          <div className="relative z-20 mt-1 flex flex-wrap gap-1">
+            {project.tags
+              .sort((a, b) => a.localeCompare(b))
+              .map(tag => (
+                <Tag key={tag} tag={tag} clickable />
+              ))}
+          </div>
         )}
       </div>
-    </GradientBorder>
+
+      {/* Link to /project */}
+      <Link
+        href={`/projects/${project.slug}`}
+        draggable={false}
+        className="none absolute inset-0 z-10 block"
+        style={{
+          textDecoration: "none",
+        }}
+      />
+    </div>
   );
 };
 

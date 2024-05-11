@@ -258,8 +258,7 @@ export default [
     year: "2022",
     tags: [tags.CLOUDFLARE_WORKERS, tags.TS],
     images: [timestamperImage1, timestamperImage2],
-    link: "https://github.com/leonlarsson/timestamper-bot",
-    hidePreview: true,
+    githubLink: "https://github.com/leonlarsson/timestamper-bot",
   },
   {
     slug: "redirect-link-service",
@@ -270,8 +269,7 @@ export default [
     shortDescription: "Link-shortener/redirector built on Cloudflare Workers.",
     year: "2022",
     tags: [tags.CLOUDFLARE_WORKERS, tags.TS],
-    link: "https://github.com/leonlarsson/link-redirector-worker",
-    hidePreview: true,
+    githubLink: "https://github.com/leonlarsson/link-redirector-worker",
   },
   {
     slug: "bloodhunt-stats",
@@ -291,10 +289,12 @@ export default [
       tags.JS,
     ],
     images: [bloodhuntStatsImage1],
-    link: "https://discord.com/api/oauth2/authorize?client_id=979116430802972732&permissions=0&scope=bot%20applications.commands",
-    linkName: "Add to Discord",
-    hidePreview: true,
     extraLinks: [
+      {
+        name: "Add Bot",
+        link: "https://discord.com/api/oauth2/authorize?client_id=979116430802972732&permissions=0&scope=bot%20applications.commands",
+        type: "link",
+      },
       {
         name: "API",
         link: "https://bhstats-api.leonlarsson.com/",
@@ -391,7 +391,7 @@ export default [
     shortDescription: "Leon's personal website. You are currently on it.",
     year: "2023",
     tags: [tags.REACT, tags.NEXT, tags.TAILWIND, tags.TS],
-    link: "/",
+    link: "https://leonlarsson.com",
     githubLink: "https://github.com/leonlarsson/leon-home",
     displayInCv: true,
   },
@@ -411,7 +411,7 @@ export default [
       tags.API,
       tags.DATABASE,
     ],
-    link: "/guestbook",
+    link: "https://leonlarsson.com/guestbook",
     githubLink:
       "https://github.com/leonlarsson/leon-home/tree/main/app/(main)/guestbook",
   },
@@ -448,7 +448,7 @@ export default [
     year: "2023",
     tags: [tags.REACT, tags.NEXT, tags.TAILWIND, tags.TS, tags.API],
     images: [musicShowcaseImage1, musicShowcaseImage2],
-    link: "/music",
+    link: "https://leonlarsson.com/music",
     githubLink:
       "https://github.com/leonlarsson/leon-home/tree/main/app/(main)/music",
   },
