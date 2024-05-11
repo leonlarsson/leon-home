@@ -269,7 +269,7 @@ export default [
     shortDescription: "Link-shortener/redirector built on Cloudflare Workers.",
     year: "2022",
     tags: [tags.CLOUDFLARE_WORKERS, tags.TS],
-    githubLink: "https://github.com/leonlarsson/link-redirector-worker",
+    githubLink: "https://github.com/leonlarsson/link-redirector",
   },
   {
     slug: "bloodhunt-stats",
