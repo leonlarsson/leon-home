@@ -86,7 +86,7 @@ export const Project = ({
 
         {/* Tags */}
         {displayTags && project.tags && (
-          <div className="relative z-20 mt-1 flex flex-wrap gap-1">
+          <div className="relative z-20 mt-1 flex w-fit flex-wrap gap-1">
             {project.tags
               .sort((a, b) => a.localeCompare(b))
               .map(tag => (
