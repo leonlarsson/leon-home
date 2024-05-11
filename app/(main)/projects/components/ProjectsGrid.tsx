@@ -64,7 +64,7 @@ export const Project = ({
               className="group/url z-20 w-fit break-all text-sm underline-offset-2 opacity-80 hover:underline dark:opacity-60"
             >
               {!project.link && project.githubLink && (
-                <Icons.github className="mr-1 inline size-3" />
+                <Icons.github className="mr-1 inline size-4" />
               )}
 
               {(project.link ?? project.githubLink!)
