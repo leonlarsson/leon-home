@@ -10,4 +10,12 @@
     text-decoration: underline;
     text-underline-offset: 2px;
   }
+
+  .card {
+    @apply dark:bg-foreground-dark bg-foreground-light rounded-lg border border-neutral-300 p-3 text-start shadow-sm transition-colors hover:border-neutral-500 dark:border-neutral-800 dark:hover:border-neutral-300;
+  }
+
+  .card-alt {
+    @apply dark:bg-foreground-dark bg-foreground-light rounded-lg border border-neutral-300 p-3 text-start shadow-sm transition-colors hover:bg-neutral-100 dark:border-neutral-800 dark:hover:bg-neutral-900;
+  }
 }

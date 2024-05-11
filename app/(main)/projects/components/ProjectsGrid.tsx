@@ -29,7 +29,7 @@ export const Project = ({
   displayTags?: boolean;
 }) => {
   return (
-    <div className="group/main relative flex flex-col gap-2 rounded-lg border border-neutral-300 bg-white p-3 text-start shadow-sm transition-colors hover:border-neutral-500 dark:border-neutral-800 dark:bg-neutral-900/40 dark:hover:border-neutral-300">
+    <div className="card group/main relative flex flex-col gap-2 p-3">
       {/* ICON / NAME / URL */}
       <div className="flex items-center gap-1">
         <Icons.circleArrowRight className="mb-1 me-2 inline size-7 flex-shrink-0 transition-transform group-hover/main:-rotate-45" />

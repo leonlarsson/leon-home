@@ -15,6 +15,8 @@ export default {
       colors: {
         "kinda-black": "#070808",
         "kinda-white": "#f9f9f7",
+        "foreground-dark": "#0d0e0e",
+        "foreground-light": "white",
       },
     },
   },

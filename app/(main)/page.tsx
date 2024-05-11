@@ -166,19 +166,17 @@ export default () => {
               //   icon: <Icons.artstation className="me-2 inline size-5" />,
               // },
             ].map(({ title, url, icon }) => (
-              <GradientBorder key={title} rounded="6px" padding="2px" hoverable>
-                <Link
-                  href={url}
-                  target="_blank"
-                  className="flex items-center justify-between rounded bg-kinda-white p-2 dark:bg-kinda-black"
-                >
-                  <div className="flex items-center">
-                    {icon}
-                    <span>{title}</span>
-                  </div>
-                  <Icons.externallink />
-                </Link>
-              </GradientBorder>
+              <Link
+                href={url}
+                target="_blank"
+                className="card flex items-center justify-between p-2"
+              >
+                <div className="flex items-center">
+                  {icon}
+                  <span>{title}</span>
+                </div>
+                <Icons.externallink />
+              </Link>
             ))}
           </div>
         </div>
@@ -193,19 +191,17 @@ export default () => {
               { title: "Open English CV", url: "/en/cv" },
               { title: "Öppna svenskt CV", url: "/sv/cv" },
             ].map(({ title, url }) => (
-              <GradientBorder key={title} rounded="6px" padding="2px" hoverable>
-                <Link
-                  href={url}
-                  target="_blank"
-                  className="flex items-center justify-between rounded bg-kinda-white p-2 dark:bg-kinda-black"
-                >
-                  <div className="flex items-center">
-                    <Icons.file className="me-2 inline size-5" />
-                    <span>{title}</span>
-                  </div>
-                  <Icons.externallink />
-                </Link>
-              </GradientBorder>
+              <Link
+                href={url}
+                target="_blank"
+                className="card flex items-center justify-between p-2"
+              >
+                <div className="flex items-center">
+                  <Icons.file className="me-2 inline size-5" />
+                  <span>{title}</span>
+                </div>
+                <Icons.externallink />
+              </Link>
             ))}
           </div>
         </div>
