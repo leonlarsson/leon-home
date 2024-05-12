@@ -166,6 +166,7 @@ export default () => {
               // },
             ].map(({ title, url, icon }) => (
               <Link
+                key={title}
                 href={url}
                 target="_blank"
                 className="card flex items-center justify-between p-2"
@@ -191,6 +192,7 @@ export default () => {
               { title: "Öppna svenskt CV", url: "/sv/cv" },
             ].map(({ title, url }) => (
               <Link
+                key={title}
                 href={url}
                 target="_blank"
                 className="card flex items-center justify-between p-2"
