@@ -12,7 +12,7 @@ export default ({
   displayTags?: boolean;
 }) => {
   return (
-    <div className="card group/main relative flex flex-col gap-2 p-3">
+    <div className="card group/main relative flex flex-col gap-2 p-3 text-start">
       {/* ICON / NAME / URL */}
       <div className="flex items-center gap-1">
         <Icons.circleArrowRight className="mb-1 me-2 inline size-7 flex-shrink-0 transition-transform group-hover/main:-rotate-45" />
@@ -93,7 +93,7 @@ export default ({
 };
 
 export const ProjectCardSkeleton = () => (
-  <div className="card group/main relative flex flex-col gap-2 p-3">
+  <div className="card group/main relative flex flex-col gap-2 p-3 text-start">
     {/* ICON / NAME / URL */}
     <div className="flex items-center gap-1">
       <Icons.circleArrowRight className="mb-1 me-2 inline size-7 flex-shrink-0 transition-transform group-hover/main:-rotate-45" />
