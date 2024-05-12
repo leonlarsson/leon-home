@@ -1,10 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
 import projects from "@/data/projects";
-import TypeAnimation from "./components/TypeAnimation";
-import GradientBorder from "./components/GradientBorder";
 import smLogo from "/public/assets/images/smlogo_notext.png";
-import { Project, ProjectSkeleton } from "./projects/components/ProjectsGrid";
+import TypeAnimation from "./components/TypeAnimation";
+import Project from "./projects/components/Project";
 import Icons from "./components/icons";
 
 export default () => {

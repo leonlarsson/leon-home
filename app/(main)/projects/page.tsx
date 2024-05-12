@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import generateOGMetadata from "@/app/utils/generateOGMetadata";
 import Search from "./components/Search";
 import SortCheckbox from "./components/SortCheckbox";
-import ProjectsGrid from "./components/ProjectsGrid";
+import Project from "./components/Project";
 import projectsData from "@/data/projects";
 
 type Props = {
@@ -62,12 +62,10 @@ export default ({ searchParams }: Props) => {
           <div className="text-3xl font-extrabold">Projects</div>
           <div className="mb-3">A directory of all my projects.</div>
         </div>
-
         <div className="mx-auto w-full space-y-1 transition-all md:w-80">
           <Search />
           <SortCheckbox />
         </div>
-
         {searchParam && (
           <span
             className={!projects.length ? "text-red-500 dark:text-red-400" : ""}
@@ -80,9 +78,20 @@ export default ({ searchParams }: Props) => {
           </span>
         )}
 
-        <ProjectsGrid
-          projects={sortParam === "newest" ? [...projects].reverse() : projects}
-        />
+        {/* // Use grid with 2 cols until medium, then use 1 col. Additionally, use 1 col if there is a single project */}
+        <div
+          className={`grid gap-5 ${
+            projects.length === 1
+              ? "self-center"
+              : "grid-cols-1 md:grid-cols-2 xl:grid-cols-3"
+          }`}
+        >
+          {(sortParam === "newest" ? [...projects].reverse() : projects).map(
+            project => (
+              <Project key={project.slug} project={project} />
+            ),
+          )}
+        </div>
       </div>
     </div>
   );

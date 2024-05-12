@@ -4,24 +4,7 @@ import GradientBorder from "../../components/GradientBorder";
 import type { Project as ProjectType } from "@/types";
 import Icons from "../../components/icons";
 
-export default ({ projects }: { projects: ProjectType[] }) => {
-  return (
-    // Use grid with 2 cols until medium, then use 1 col. Additionally, use 1 col if there is a single project
-    <div
-      className={`grid gap-5 ${
-        projects.length === 1
-          ? "self-center"
-          : "grid-cols-1 md:grid-cols-2 xl:grid-cols-3"
-      }`}
-    >
-      {projects.map(project => (
-        <Project key={project.slug} project={project} />
-      ))}
-    </div>
-  );
-};
-
-export const Project = ({
+export default ({
   project,
   displayTags = true,
 }: {

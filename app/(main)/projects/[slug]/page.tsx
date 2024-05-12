@@ -5,7 +5,7 @@ import { redirect } from "next/navigation";
 import type { Metadata } from "next";
 import generateOGMetadata from "@/app/utils/generateOGMetadata";
 import projects from "@/data/projects";
-import ProjectsGrid from "../components/ProjectsGrid";
+import ProjectsGrid from "../components/Project";
 import Tag from "../components/Tag";
 import GradientBorder from "../../components/GradientBorder";
 import Icons from "../../components/icons";
