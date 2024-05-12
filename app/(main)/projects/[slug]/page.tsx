@@ -9,6 +9,7 @@ import ProjectsGrid from "../components/ProjectCard";
 import Tag from "../components/Tag";
 import GradientBorder from "../../components/GradientBorder";
 import Icons from "../../components/icons";
+import ProjectCard from "../components/ProjectCard";
 
 const getProject = (slug: string) =>
   projects.find(
@@ -55,13 +56,21 @@ export default ({ params }: { params: { slug: string } }) => {
   if (project?.slugAliases?.includes(params.slug))
     redirect(`/projects/${project.slug}`);
 
+  // Projects that match the slug or one of the slug aliases
+  // This is used to suggest projects if the slug is not found
+  const matchingProjects = projects.filter(
+    project =>
+      project.slug.includes(params.slug) ||
+      project.slugAliases?.some(slug => slug.includes(params.slug)),
+  );
+
   return (
     <div className="pb-10 text-start">
       <div className="mx-auto mb-2 flex max-w-3xl select-none justify-between font-light text-neutral-800 max-[400px]:text-sm dark:text-neutral-300">
         <div className="w-full text-start">
           {previousProject && (
             <Link
-              className="flex items-center underline-offset-2 transition-all hover:font-normal hover:text-black hover:underline dark:hover:text-kinda-white"
+              className="flex w-fit items-center underline-offset-2 transition-all hover:font-normal hover:text-black hover:underline dark:hover:text-kinda-white"
               href={`/projects/${previousProject.slug}`}
               title={`Previous project, ${previousProject.name}.`}
               draggable={false}
@@ -74,7 +83,7 @@ export default ({ params }: { params: { slug: string } }) => {
 
         <div className="w-full text-center">
           <Link
-            className="underline-offset-2 transition-all hover:font-normal hover:text-black hover:underline dark:hover:text-kinda-white"
+            className="w-fit underline-offset-2 transition-all hover:font-normal hover:text-black hover:underline dark:hover:text-kinda-white"
             href="/projects"
             title={"Go back to all projects."}
             draggable={false}
@@ -86,7 +95,7 @@ export default ({ params }: { params: { slug: string } }) => {
         <div className="flex w-full justify-end text-end">
           {nextProject && (
             <Link
-              className="flex items-center underline-offset-2 transition-all hover:font-normal hover:text-black hover:underline dark:hover:text-kinda-white"
+              className="flex w-fit items-center underline-offset-2 transition-all hover:font-normal hover:text-black hover:underline dark:hover:text-kinda-white"
               href={`/projects/${nextProject.slug}`}
               title={`Next project, ${nextProject.name}.`}
               draggable={false}
@@ -250,34 +259,25 @@ export default ({ params }: { params: { slug: string } }) => {
           </div>
 
           {/* List projects where the slug or one of the slug aliases match the param */}
-          {projects.filter(
-            project =>
-              project.slug.includes(params.slug) ||
-              project.slugAliases?.some(slug => slug.includes(params.slug)),
-          ).length > 0 && (
+          {matchingProjects.length > 0 && (
             <div
               className={`mx-auto self-center ${
-                projects.filter(
-                  project =>
-                    project.slug.includes(params.slug) ||
-                    project.slugAliases?.some(slug =>
-                      slug.includes(params.slug),
-                    ),
-                ).length === 1
-                  ? "max-w-3xl"
-                  : ""
+                matchingProjects.length === 1 ? "max-w-3xl" : ""
               }`}
             >
               <div className="text-center">Maybe you were looking for:</div>
-              <ProjectsGrid
-                projects={projects.filter(
-                  project =>
-                    project.slug.includes(params.slug) ||
-                    project.slugAliases?.some(slug =>
-                      slug.includes(params.slug),
-                    ),
-                )}
-              />
+
+              <div
+                className={`grid gap-5 ${
+                  matchingProjects.length === 1
+                    ? "self-center"
+                    : "grid-cols-1 md:grid-cols-2 xl:grid-cols-3"
+                }`}
+              >
+                {matchingProjects.map(project => (
+                  <ProjectCard key={project.slug} project={project} />
+                ))}
+              </div>
             </div>
           )}
         </div>
