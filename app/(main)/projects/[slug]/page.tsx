@@ -149,11 +149,11 @@ export default ({ params }: { params: { slug: string } }) => {
                       target={
                         !project.link.startsWith("http") ? "_self" : "_blank"
                       }
-                      className="card flex items-center gap-1 rounded-md p-2"
+                      className="card flex items-center gap-2 rounded-md p-2"
                       draggable={false}
                     >
-                      {project.linkName ?? "Go to project"}{" "}
-                      <Icons.link className="inline" />
+                      <Icons.link className="h-5" />
+                      {project.linkName ?? "Go to project"}
                     </Link>
                   )}
 
@@ -161,10 +161,11 @@ export default ({ params }: { params: { slug: string } }) => {
                     <a
                       href={project.githubLink}
                       target="_blank"
-                      className="card flex items-center gap-1 rounded-md p-2"
+                      className="card flex items-center gap-2 rounded-md p-2"
                       draggable={false}
                     >
-                      Go to GitHub <Icons.github />
+                      <Icons.github className="h-5" />
+                      Go to GitHub
                     </a>
                   )}
 
@@ -173,15 +174,15 @@ export default ({ params }: { params: { slug: string } }) => {
                       key={extraLink.link}
                       href={extraLink.link}
                       target="_blank"
-                      className="card flex items-center gap-1 rounded-md p-2"
+                      className="card flex items-center gap-2 rounded-md p-2"
                       draggable={false}
                     >
-                      {extraLink.name}{" "}
                       {extraLink.type === "link" ? (
-                        <Icons.link />
+                        <Icons.link className="h-5" />
                       ) : (
-                        <Icons.github />
+                        <Icons.github className="h-5" />
                       )}
+                      {extraLink.name}
                     </a>
                   ))}
                 </div>
