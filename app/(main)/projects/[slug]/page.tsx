@@ -149,7 +149,7 @@ export default ({ params }: { params: { slug: string } }) => {
                       target={
                         !project.link.startsWith("http") ? "_self" : "_blank"
                       }
-                      className="button-with-border flex items-center gap-1"
+                      className="card flex items-center gap-1 rounded-md p-2"
                       draggable={false}
                     >
                       {project.linkName ?? "Go to project"}{" "}
@@ -161,7 +161,7 @@ export default ({ params }: { params: { slug: string } }) => {
                     <a
                       href={project.githubLink}
                       target="_blank"
-                      className="button-with-border flex items-center gap-1"
+                      className="card flex items-center gap-1 rounded-md p-2"
                       draggable={false}
                     >
                       Go to GitHub <Icons.github />
@@ -173,7 +173,7 @@ export default ({ params }: { params: { slug: string } }) => {
                       key={extraLink.link}
                       href={extraLink.link}
                       target="_blank"
-                      className="button-with-border flex items-center gap-1"
+                      className="card flex items-center gap-1 rounded-md p-2"
                       draggable={false}
                     >
                       {extraLink.name}{" "}
