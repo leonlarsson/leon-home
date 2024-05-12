@@ -36,7 +36,7 @@ export default ({ mode }: { mode: "text" | "emoji" }) => {
             {emojis.map(emote => (
               <button
                 key={emote}
-                className="button-with-border h-10 w-10 !p-0 text-xl disabled:cursor-not-allowed disabled:bg-neutral-300 dark:disabled:bg-neutral-600"
+                className="card h-10 w-10 !p-0 text-xl disabled:cursor-not-allowed disabled:bg-neutral-300 dark:disabled:bg-neutral-600"
                 title={`Send ${emote} anonymously.`}
                 disabled={isWorking}
                 onClick={() => postEntryFunc(emote)}
@@ -60,7 +60,7 @@ export default ({ mode }: { mode: "text" | "emoji" }) => {
           }}
         >
           <input
-            className="text-input disabled:cursor-not-allowed disabled:bg-neutral-300 dark:disabled:bg-neutral-600"
+            className="card rounded-md p-2 outline-none disabled:cursor-not-allowed disabled:bg-neutral-300 dark:disabled:bg-neutral-600"
             type="text"
             name="message"
             placeholder="Your message..."
@@ -68,12 +68,13 @@ export default ({ mode }: { mode: "text" | "emoji" }) => {
             disabled={isWorking}
             maxLength={100}
           />
+
           <button
-            className="button-with-border flex items-center disabled:cursor-not-allowed disabled:bg-neutral-300 dark:disabled:bg-neutral-600"
+            className="card flex items-center gap-2 rounded-md p-2 disabled:cursor-not-allowed disabled:bg-neutral-300 dark:disabled:bg-neutral-600"
             type="submit"
             disabled={isWorking}
           >
-            <Icons.paperPlane className="me-1" /> Send
+            <Icons.paperPlane /> Send
           </button>
         </form>
       )}

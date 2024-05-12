@@ -18,11 +18,11 @@ export const SignOut = () => {
 export const SignInGitHub = () => {
   return (
     <button
-      className="button-with-border flex items-center"
+      className="card flex items-center gap-1 p-2"
       title="Sign in with GitHub."
       onClick={() => signIn("github")}
     >
-      <Icons.github className="me-1 h-6" /> Sign in
+      <Icons.github className="h-5" /> Sign in
     </button>
   );
 };
@@ -30,11 +30,11 @@ export const SignInGitHub = () => {
 export const SignInDiscord = () => {
   return (
     <button
-      className="button-with-border flex justify-center"
+      className="card flex items-center gap-1 p-2"
       title="Sign in with Discord."
       onClick={() => signIn("discord")}
     >
-      <Icons.discord className="me-1 h-6" /> Sign in
+      <Icons.discord className="h-5" /> Sign in
     </button>
   );
 };
