@@ -26,8 +26,9 @@ export default () => {
           <Icons.arrowRotate className="inline size-4 animate-spin" />
         )}
       </label>
+
       <select
-        className="mt-1 block w-full rounded border border-black/50 p-2 hover:border-black disabled:cursor-not-allowed dark:border-white/50 dark:bg-kinda-black dark:hover:border-white"
+        className="card mt-1 w-full outline-none disabled:cursor-not-allowed"
         id="select"
         defaultValue={range ?? "medium_term"}
         disabled={pending}
