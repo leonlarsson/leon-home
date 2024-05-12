@@ -92,7 +92,7 @@ export default ({
   );
 };
 
-export const ProjectSkeleton = () => (
+export const ProjectCardSkeleton = () => (
   <div className="card group/main relative flex flex-col gap-2 p-3">
     {/* ICON / NAME / URL */}
     <div className="flex items-center gap-1">

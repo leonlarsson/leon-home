@@ -3,7 +3,7 @@ import Link from "next/link";
 import projects from "@/data/projects";
 import smLogo from "/public/assets/images/smlogo_notext.png";
 import TypeAnimation from "./components/TypeAnimation";
-import Project from "./projects/components/Project";
+import ProjectCard from "./projects/components/ProjectCard";
 import Icons from "./components/icons";
 
 export default () => {
@@ -216,9 +216,9 @@ export default () => {
             </Link>
           </span>
           <div className="flex flex-col gap-2">
-            <Project project={projects[17]} displayTags={false} />
-            <Project project={projects[7]} displayTags={false} />
-            <Project project={projects[15]} displayTags={false} />
+            <ProjectCard project={projects[17]} displayTags={false} />
+            <ProjectCard project={projects[7]} displayTags={false} />
+            <ProjectCard project={projects[15]} displayTags={false} />
           </div>
         </div>
       </div>

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import generateOGMetadata from "@/app/utils/generateOGMetadata";
 import Search from "./components/Search";
 import SortCheckbox from "./components/SortCheckbox";
-import Project from "./components/Project";
+import ProjectCard from "./components/ProjectCard";
 import projectsData from "@/data/projects";
 
 type Props = {
@@ -88,7 +88,7 @@ export default ({ searchParams }: Props) => {
         >
           {(sortParam === "newest" ? [...projects].reverse() : projects).map(
             project => (
-              <Project key={project.slug} project={project} />
+              <ProjectCard key={project.slug} project={project} />
             ),
           )}
         </div>
