@@ -93,31 +93,42 @@ export default ({
 };
 
 export const ProjectSkeleton = () => (
-  <GradientBorder rounded="rounded-[6px]" padding="p-[2px]" hoverable>
-    <div className="flex h-full rounded bg-white text-start transition-colors dark:bg-kinda-black">
-      <div className="group flex flex-1 flex-col p-3" draggable={false}>
-        <span className="text-lg font-bold">
-          <Icons.arrowRight className="mb-1 me-2 inline h-5 transition-transform group-hover:translate-x-1" />
-          <span className="underline-offset-2 group-hover:underline">
-            Lorem ipsum
+  <div className="card group/main relative flex flex-col gap-2 p-3">
+    {/* ICON / NAME / URL */}
+    <div className="flex items-center gap-1">
+      <Icons.circleArrowRight className="mb-1 me-2 inline size-7 flex-shrink-0 transition-transform group-hover/main:-rotate-45" />
+
+      <div className="flex flex-col">
+        <span className="font-semibold">
+          {/* Name / Year */}
+          <span className="relative z-20 underline-offset-2 hover:underline">
+            Lorem Ipsum
           </span>{" "}
+          <span className="font-mono text-sm text-neutral-700 transition-colors dark:text-neutral-400">
+            (2024)
+          </span>
         </span>
 
-        <span>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</span>
-
-        <div className="mt-1 flex flex-wrap gap-1">
-          <Tag tag={"Loading"} />
-          <Tag tag={"Tags"} />
-        </div>
+        {/* URL */}
+        <span className="group/url z-20 w-fit break-all text-sm underline-offset-2 opacity-80 hover:underline dark:opacity-60">
+          example.com
+          <Icons.externallink className="ml-1 inline size-3 opacity-0 group-hover/url:opacity-50" />
+        </span>
       </div>
-
-      <>
-        <div className="my-3 w-px bg-gray-300" />
-
-        <div className="group flex items-center px-3">
-          <Icons.externallink className="mx-1 h-5 transition-transform group-hover:scale-[1.18]" />
-        </div>
-      </>
     </div>
-  </GradientBorder>
+
+    {/* Description and tags */}
+    <div>
+      {/* Description */}
+      <span className="opacity-80 transition-opacity group-hover:opacity-100">
+        Lorem ipsum dolor sit amet consectetur adipisicing.
+      </span>
+
+      {/* Tags */}
+      <div className="relative z-20 mt-1 flex w-fit flex-wrap gap-1">
+        <Tag tag={"Lorem"} />
+        <Tag tag={"Ipsum"} />
+      </div>
+    </div>
+  </div>
 );
