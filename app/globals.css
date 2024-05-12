@@ -12,10 +12,10 @@
   }
 
   .card {
-    @apply rounded-lg border border-neutral-300 bg-foreground-light p-3 text-start shadow-sm transition-colors hover:border-neutral-500 dark:border-neutral-800 dark:bg-foreground-dark dark:hover:border-neutral-500;
+    @apply rounded-lg border border-neutral-300 bg-foreground-light p-3 text-start shadow-sm transition-colors hover:border-neutral-500 dark:border-neutral-800 dark:bg-foreground-dark dark:hover:border-neutral-800 dark:hover:bg-neutral-900;
   }
 
   .card-alt {
-    @apply rounded-lg border border-neutral-300 bg-foreground-light p-3 text-start shadow-sm transition-colors hover:bg-neutral-100 dark:border-neutral-800 dark:bg-foreground-dark dark:hover:bg-neutral-900;
+    @apply rounded-lg border border-neutral-300 bg-foreground-light p-3 text-start shadow-sm transition-colors hover:border-neutral-500 dark:border-neutral-800 dark:bg-foreground-dark dark:hover:border-neutral-500;
   }
 }
