@@ -34,10 +34,10 @@ export const profileSection: CVProfileSection = {
   name: "Leon San José Larsson",
   avatar: avatar,
   tagline: {
-    en: "Aspiring Full Stack Engineer working in video games marketing.",
-    sv: "Aspirerande Full Stack-utvecklare som arbetar med marknadsföring.",
+    en: "Software Developer with a background in video games marketing.",
+    sv: "Mjukvaruutvecklare med bakgrund inom marknadsföring av datorspel.",
   },
-  title: "Community & Support Specialist",
+  title: "Software Developer",
   url: {
     href: "https://leonlarsson.com",
     text: "leonlarsson.com",
@@ -84,10 +84,10 @@ export const aboutSection: CVAboutSection = {
   },
   sectionDescription: {
     en: [
-      "I'm an aspiring Full Stack Engineer in self-training. My primary areas of interest are web development and Discord bots. I also extensively work on creating various APIs and services on platforms such as Cloudflare Workers. My old CV can be found [here](https://leonlarsson.com/cv-old).",
+      "I'm a Software Developer. My primary areas of interest are web development and Discord bots. I also work on creating various APIs and services on platforms such as Cloudflare Workers.",
     ],
     sv: [
-      "Jag är en aspirerande Full Stack-utvecklare. Mina primära intresseområden är webbutveckling och Discord-bottar. Jag arbetar också omfattande med att skapa olika API:er och tjänster på plattformar som Cloudflare Workers. Mitt gamla CV finns [här](https://leonlarsson.com/cv-old-swe).",
+      "Jag är en mjukvaruutvecklare. Mina primära intresseområden är webbutveckling och Discord-bottar. Jag arbetar också omfattande med att skapa olika API:er och tjänster på plattformar som Cloudflare Workers.",
     ],
   },
 } satisfies CVAboutSection;
@@ -100,20 +100,31 @@ export const employmentSection: CVEmploymentSection = {
   },
   history: [
     {
+      title: "Software Developer",
+      company: "Oksidia",
+      companyUrl: "https://oksidia.fi/",
+      description: {
+        en: ["Check back later..."],
+        sv: ["Kom tillbaka senare.."],
+      },
+      start: "2024-05-27",
+    },
+    {
       title: "Community & Support Specialist",
       company: "Sharkmob",
       companyUrl: "https://sharkmob.com",
       description: {
         en: [
-          "Managing player support for both [Bloodhunt](https://bloodhunt.com) and [Exoborne](https://exoborne.com) in close collaboration with Tencent, Level Infinite, and developers. Also managing all content on the Bloodhunt website, doing community management, Discord, and Twitch Drops.",
-          "Additionally, contributing to website development and providing technical specifications for the [RE_HACK ARG website](https://exoborne.com/rehack).",
+          "Managed player support for both [Bloodhunt](https://bloodhunt.com) and [Exoborne](https://exoborne.com) in close collaboration with Tencent, Level Infinite, and developers. Also managed all content on the Bloodhunt website, did community management, Discord, and Twitch Drops.",
+          "Additionally, I contributed to website development and provided technical specifications for the [RE_HACK ARG website](https://exoborne.com/rehack).",
         ],
         sv: [
-          "Hanterar spelarsupport på både [Bloodhunt](https://bloodhunt.com) och [Exoborne](https://exoborne.com) i nära samarbete med Tencent, Level Infinite och utvecklare. Hanterar även allt innehåll på Bloodhunts webbplats, gör community management, Discord och Twitch Drops.",
-          "Bidrar även till webbutveckling och ger tekniska specifikationer för [RE_HACK ARG-webbplatsen](https://exoborne.com/rehack).",
+          "Hanterade spelarsupport för både [Bloodhunt](https://bloodhunt.com) och [Exoborne](https://exoborne.com) i nära samarbete med Tencent, Level Infinite och utvecklare. Hanterade även allt innehåll på Bloodhunts webbplats, gjorde community management, Discord och Twitch Drops.",
+          "Bidrog även till webbutveckling och gav tekniska specifikationer för [RE_HACK ARG-webbplatsen](https://exoborne.com/rehack).",
         ],
       },
       start: "2022-08-10",
+      end: "2024-05-26",
     },
     {
       title: "Localization/QA Tester - Swedish",
