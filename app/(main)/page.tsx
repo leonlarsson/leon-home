@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import projects from "@/data/projects";
-import smLogo from "/public/assets/images/smlogo_notext.png";
+import oksidiaLogo from "/public/assets/images/oksidialogo_notext.png";
 import TypeAnimation from "./components/TypeAnimation";
 import ProjectCard from "./projects/components/ProjectCard";
 import Icons from "./components/icons";
@@ -25,14 +25,14 @@ export default () => {
             Leon San José Larsson
           </span>
           <span className="text-xl transition-all max-md:text-sm">
-            Community & Support Specialist @{" "}
+            Software Developer @{" "}
             <a
-              href="https://sharkmob.com"
+              href="https://oksidia.fi"
               target="_blank"
               className="link font-normal"
               draggable={false}
             >
-              Sharkmob
+              Oksidia
             </a>
           </span>
         </div>
@@ -54,32 +54,31 @@ export default () => {
 
         {/* WORK */}
         <div>
-          I currently work as the Community & Support Specialist at{" "}
+          I work as a Software Developer at{" "}
           <Link
-            href="https://sharkmob.com"
+            href="https://oksidia.fi"
             target="_blank"
             className="link inline-flex items-baseline"
             draggable={false}
           >
             <Image
-              src={smLogo}
-              alt="Sharkmob logo"
+              src={oksidiaLogo}
+              alt="Oksidia logo"
               width={16}
               height={16}
               className="mx-1 self-center"
             />
-            <span>Sharkmob</span>
+            <span>Oksidia</span>
           </Link>
-          , where I manage player support, Bloodhunt's website, and assist the
-          player relations and marketing teams.
+          . Past experiences include companies like Sharkmob and Electronic
+          Arts.
         </div>
 
         {/* DEV */}
         <div>
-          I'm an aspiring Full Stack Engineer in self-training. My primary areas
-          of interest are web development and Discord bots. I also extensively
-          work on creating various APIs and services on platforms such as
-          Cloudflare Workers. Feel free to{" "}
+          I'm a Software Developer, and my primary areas of interest are web
+          development and Discord bots. I also work on creating various APIs and
+          services on platforms such as Cloudflare Workers. Feel free to{" "}
           <Link href="/projects" className="link">
             browse all my projects!
           </Link>
