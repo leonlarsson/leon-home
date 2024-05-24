@@ -27,6 +27,9 @@ export type Entry = typeof guestbookEntries.$inferSelect;
 
 // CV
 
+type DateString =
+  `${number}${number}${number}${number}-${number}${number}-${number}${number}`;
+
 export type CVMetadata = {
   title: {
     en: string;
@@ -104,8 +107,8 @@ export type CVEmploymentSection = {
       en: string[];
       sv: string[];
     };
-    start: string;
-    end?: string;
+    start: DateString;
+    end?: DateString;
   }[];
 };
 
@@ -127,8 +130,8 @@ export type CVEducationSection = {
       en: string[];
       sv: string[];
     };
-    start: string;
-    end?: string;
+    start: DateString;
+    end?: DateString;
   }[];
 };
 
