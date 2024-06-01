@@ -49,8 +49,8 @@ export default ({ searchParams }: Props) => {
           project.year,
           project.link?.replace("https://", ""),
           ...(project.tags ?? []),
-        ].some(
-          item => item?.toLowerCase().includes(searchParam?.toLowerCase()),
+        ].some(item =>
+          item?.toLowerCase().includes(searchParam?.toLowerCase()),
         ),
       )
     : projectsData;
