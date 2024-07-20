@@ -84,10 +84,10 @@ export const aboutSection: CVAboutSection = {
   },
   sectionDescription: {
     en: [
-      "I'm a Software Developer. My primary areas of interest are web development and Discord bots. I also work on creating various APIs and services on platforms such as Cloudflare Workers.",
+      "I'm a Software Developer. My primary areas of interest are web development and Discord bots. I also enjoy creating APIs and services on platforms such as Cloudflare Workers.",
     ],
     sv: [
-      "Jag är en mjukvaruutvecklare. Mina primära intresseområden är webbutveckling och Discord-bottar. Jag arbetar också omfattande med att skapa olika API:er och tjänster på plattformar som Cloudflare Workers.",
+      "Jag är en mjukvaruutvecklare. Mina primära intresseområden är webbutveckling och Discord-bottar. Jag tycker också om att skapa API:er och tjänster på plattformar som Cloudflare Workers.",
     ],
   },
 } satisfies CVAboutSection;
@@ -104,8 +104,12 @@ export const employmentSection: CVEmploymentSection = {
       company: "Oksidia",
       companyUrl: "https://oksidia.fi/",
       description: {
-        en: ["Check back later..."],
-        sv: ["Kom tillbaka senare.."],
+        en: [
+          "I work as a Software Developer at Oksidia, where I develop and maintain [Eepos](https://www.eepos.fi/en/), a school management platform. The languages and technologies I use include JavaScript, TypeScript, PHP, Angular, Laravel, and SQL.",
+        ],
+        sv: [
+          "Jag arbetar som mjukvaruutvecklare på Oksidia, där jag utvecklar och underhåller [Eepos](https://www.eepos.fi/en/), en plattform för skolor. De språk och tekniker jag använder inkluderar JavaScript, TypeScript, PHP, Angular, Laravel och SQL.",
+        ],
       },
       start: "2024-05-27",
     },

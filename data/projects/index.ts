@@ -1,5 +1,5 @@
-import bfd1 from "./images/bfd1.png";
-import bfd2 from "./images/bfd2.png";
+import bfdImage1 from "./images/bfd1.png";
+import bfdImage2 from "./images/bfd2.png";
 import battlebotImage1 from "./images/battlebot1.png";
 import battlebotImage2 from "./images/battlebot2.png";
 import battlefieldStatsImage1 from "./images/battlefieldstats1.png";
@@ -12,10 +12,10 @@ import bloodhuntStatsImage1 from "./images/bloodhuntstats1.png";
 import embedWorkerImage1 from "./images/embedworker1.png";
 import musicShowcaseImage1 from "./images/music1.png";
 import musicShowcaseImage2 from "./images/music2.png";
-import friendlyTime1 from "./images/friendlytime1.png";
-import friendlyTime2 from "./images/friendlytime2.png";
-import csCaseUI1 from "./images/cscaseui1.png";
-import timezoneracer1 from "./images/timezoneracer1.png";
+import friendlyTimeImage1 from "./images/friendlytime1.png";
+import friendlyTimeImage2 from "./images/friendlytime2.png";
+import caseSimImage1 from "./images/cscaseui1.png";
+import timezoneRacerImage1 from "./images/timezoneracer1.png";
 import { Project } from "@/types";
 
 const tags = {
@@ -53,7 +53,7 @@ export default [
       "The biggest and most successful Battlefield Discord server.",
     year: "2016",
     tags: [tags.COMMUNITY, tags.MODERATION],
-    images: [bfd1, bfd2],
+    images: [bfdImage1, bfdImage2],
     link: "https://discord.gg/battlefield",
     linkName: "Go to Discord",
     hidePreview: true,
@@ -416,28 +416,6 @@ export default [
       "https://github.com/leonlarsson/leon-home/tree/main/app/(main)/guestbook",
   },
   {
-    slug: "phisherman",
-    name: "Phisherman",
-    description: [
-      "Phisherman is a centralised database of phishing and scam links. It is designed for use with Discord bots.",
-      "I am contributing to the Phisherman API, docs, and bot as a maintainer.",
-    ],
-    shortDescription: "A centralised database of phishing and scam links.",
-    year: "2023",
-    tags: [
-      tags.CLOUDFLARE_WORKERS,
-      tags.TS,
-      tags.JS,
-      tags.API,
-      tags.DATABASE,
-      tags.NODE,
-      tags.DISCORDJS,
-    ],
-    link: "https://phisherman.gg/",
-    hidePreview: true,
-    githubLink: "https://github.com/PhishermanGG",
-  },
-  {
     slug: "music-showcase",
     slugAliases: ["spotify-showcase", "music-page"],
     name: "Music Showcase",
@@ -461,7 +439,7 @@ export default [
       "A UI that converts natural language to various time formats.",
     year: "2023",
     tags: [tags.REACT, tags.NEXT, tags.TAILWIND, tags.TS],
-    images: [friendlyTime1, friendlyTime2],
+    images: [friendlyTimeImage1, friendlyTimeImage2],
     link: "https://friendly-time.com",
     githubLink: "https://github.com/leonlarsson/friendly-time",
     extraLinks: [
@@ -480,12 +458,13 @@ export default [
     description: [
       "This is my attempt at recreating the case opening UI from Counter-Strike 2. It is built with Next.js (React) and styled with Tailwind.",
       "I have also implemented the ability to open every case that exists in the game, along with real odds and a stats and history page.",
+      "To date, over 16 million cases have been opened on the website.",
     ],
     shortDescription:
       "The case opening UI from Counter-Strike 2 recreated in React.",
     year: "2023",
     tags: [tags.REACT, tags.NEXT, tags.TAILWIND, tags.TS, tags.DATABASE],
-    images: [csCaseUI1],
+    images: [caseSimImage1],
     link: "https://case-sim.com",
     githubLink: "https://github.com/leonlarsson/cs-case-sim",
     displayInCv: true,
@@ -502,7 +481,7 @@ export default [
       "A website that tracks multiple timezones' progress towards the new year.",
     year: "2024",
     tags: [tags.VUE, tags.VITE, tags.TAILWIND, tags.TS],
-    images: [timezoneracer1],
+    images: [timezoneRacerImage1],
     link: "https://timezone-racer.pages.dev/",
     githubLink: "https://github.com/leonlarsson/timezone-racer",
   },

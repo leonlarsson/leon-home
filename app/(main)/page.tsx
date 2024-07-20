@@ -70,15 +70,16 @@ export default () => {
             />
             <span>Oksidia</span>
           </Link>
-          . Past experiences include companies like Sharkmob and Electronic
-          Arts.
+          , where I work with JavaScript/TypeScript/PHP with Angular, React, and
+          Laravel. Past experiences include companies like Sharkmob and
+          Electronic Arts.
         </div>
 
         {/* DEV */}
         <div>
-          I'm a Software Developer, and my primary areas of interest are web
-          development and Discord bots. I also work on creating various APIs and
-          services on platforms such as Cloudflare Workers. Feel free to{" "}
+          As a Software Developer, my primary areas of interest are web
+          development and Discord bots. I also enjoy creating APIs and services
+          on platforms such as Cloudflare Workers. Feel free to{" "}
           <Link href="/projects" className="link">
             browse all my projects!
           </Link>
