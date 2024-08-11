@@ -13,7 +13,8 @@ export default ({
   const router = useRouter();
   const searchParams = new URLSearchParams(useSearchParams().toString());
   const searchMatchesTag =
-    searchParams.get("search")?.toLowerCase() === tag.name.toLowerCase();
+    searchParams.get("search")?.replace("tag:", "")?.toLowerCase() ===
+    tag.name.toLowerCase();
 
   // Weird in order to please the Tailwind extension
   // If clickable and not already searching for this tag, make it hoverable
@@ -36,7 +37,11 @@ export default ({
       onClick={e => {
         // We do this to prevent the click event from bubbling up to the parent element (Copilot wrote this, but it sounds smart)
         e.preventDefault();
-        searchParams.set("search", tag.name);
+
+        // If the tag is a year, do a regular search, otherwise search for the tag
+        /\d{4}/.test(tag.name)
+          ? searchParams.set("search", tag.name)
+          : searchParams.set("search", `tag:${tag.name}`);
         router.push(`/projects?${searchParams.toString()}`);
       }}
     >

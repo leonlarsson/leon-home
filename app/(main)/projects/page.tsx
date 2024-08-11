@@ -34,26 +34,34 @@ export const generateMetadata = ({ searchParams }: Props): Metadata => {
 export default ({ searchParams }: Props) => {
   const searchParam = searchParams.search;
   const sortParam = searchParams.sort;
+  const exactTagSearch = searchParam?.startsWith("tag:");
 
-  // Most nauseating code I've ever written
-  const projects = searchParam
+  const projects = exactTagSearch
     ? projectsData.filter(project =>
-        [
-          project.slug,
-          ...(project.slugAliases ?? []),
-          project.name,
-          ...(typeof project.description === "string"
-            ? [project.description]
-            : project.description),
-          project.shortDescription,
-          project.year,
-          project.link?.replace("https://", ""),
-          ...(project.tags?.map(x => x.name) ?? []),
-        ].some(item =>
-          item?.toLowerCase().includes(searchParam?.toLowerCase()),
+        project.tags?.some(
+          tag =>
+            tag.name.toLowerCase() ===
+            searchParam?.replace("tag:", "").toLowerCase(),
         ),
       )
-    : projectsData;
+    : searchParam
+      ? projectsData.filter(project =>
+          [
+            project.slug,
+            ...(project.slugAliases ?? []),
+            project.name,
+            ...(typeof project.description === "string"
+              ? [project.description]
+              : project.description),
+            project.shortDescription,
+            project.year,
+            project.link?.replace("https://", ""),
+            ...(project.tags?.map(x => x.name) ?? []),
+          ].some(item =>
+            item?.toLowerCase().includes(searchParam?.toLowerCase()),
+          ),
+        )
+      : projectsData;
 
   return (
     <div className="mx-auto">
