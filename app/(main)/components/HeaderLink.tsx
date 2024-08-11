@@ -15,9 +15,10 @@ export default ({
   title?: string;
   newTab?: boolean;
 }) => {
+  const pathname = usePathname();
   const inProject =
-    usePathname() === url ||
-    (usePathname().startsWith("/projects") && url.startsWith("/projects"));
+    pathname === url ||
+    (pathname.startsWith("/projects") && url.startsWith("/projects"));
 
   return (
     <Link
@@ -29,7 +30,7 @@ export default ({
       title={title}
       draggable={false}
     >
-      {inProject && usePathname().split("/")[2] && (
+      {inProject && pathname.split("/")[2] && (
         <Icons.arrowLeft className="me-1" />
       )}
       {content}
