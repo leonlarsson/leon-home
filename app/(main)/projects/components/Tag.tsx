@@ -53,7 +53,16 @@ export default ({
 
 type TagColorBadgeProps = {
   color: string;
+  size?: number;
+  showBorder?: boolean;
 };
-const TagColorBadge = ({ color }: TagColorBadgeProps) => (
-  <div className="size-2 rounded-full" style={{ backgroundColor: color }} />
+export const TagColorBadge = ({
+  color,
+  size,
+  showBorder,
+}: TagColorBadgeProps) => (
+  <div
+    className={`size-2 rounded-full ${showBorder ? "border border-black" : ""}`}
+    style={{ backgroundColor: color, width: size ?? 8, height: size ?? 8 }}
+  />
 );

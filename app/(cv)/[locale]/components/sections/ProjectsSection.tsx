@@ -3,6 +3,8 @@ import Icons from "@/app/(main)/components/icons";
 import SectionTitle from "../SectionTitle";
 import SectionDescription from "../SectionDescription";
 import { CVLocale, CVProjectsSection } from "@/types";
+import tagSorterFunction from "@/app/utils/tagSorterFunction";
+import { TagColorBadge } from "@/app/(main)/projects/components/Tag";
 
 export const ProjectsSection = ({
   data,
@@ -44,15 +46,18 @@ export const ProjectsSection = ({
             </p>
 
             <div className="flex flex-wrap gap-1">
-              {tags?.map(tag => (
+              {tags?.sort(tagSorterFunction).map(tag => (
                 <Link
-                  key={tag}
-                  href={`/projects?search=${tag}`}
+                  key={tag.name}
+                  href={`/projects?search=${tag.name}`}
                   target="_blank"
-                  title={`See other projects tagged with ${tag}.`}
-                  className="rounded bg-neutral-200 p-1 font-geist-mono text-xs text-neutral-800 outline-1 hover:outline"
+                  title={`See other projects tagged with ${tag.name}.`}
+                  className="flex items-center gap-1 rounded bg-neutral-200 p-1 font-geist-mono text-xs text-neutral-800 outline-1 hover:outline"
                 >
-                  {tag}
+                  {tag.color && (
+                    <TagColorBadge color={tag.color} size={10} showBorder />
+                  )}
+                  {tag.name}
                 </Link>
               ))}
             </div>
