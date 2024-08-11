@@ -1,3 +1,4 @@
+import { Project, ProjectTag } from "@/types";
 import bfdImage1 from "./images/bfd1.png";
 import bfdImage2 from "./images/bfd2.png";
 import battlebotImage1 from "./images/battlebot1.png";
@@ -16,30 +17,30 @@ import friendlyTimeImage1 from "./images/friendlytime1.png";
 import friendlyTimeImage2 from "./images/friendlytime2.png";
 import caseSimImage1 from "./images/cscaseui1.png";
 import timezoneRacerImage1 from "./images/timezoneracer1.png";
-import { Project } from "@/types";
 
 const tags = {
-  HTML: "HTML",
-  CSS: "CSS",
-  GO: "Go",
-  JS: "JavaScript",
-  TS: "TypeScript",
-  REACT: "React",
-  VUE: "Vue",
-  NEXT: "Next.js",
-  TAILWIND: "Tailwind",
-  NODE: "Node.js",
-  BUN: "Bun",
-  DISCORDJS: "discord.js",
-  VITE: "Vite",
-  ANTD: "Ant Design",
-  SHADCNUI: "shadcn/ui",
-  API: "API",
-  DATABASE: "Database",
-  CLOUDFLARE_WORKERS: "Cloudflare Workers",
-  COMMUNITY: "Community",
-  MODERATION: "Moderation",
-};
+  GO: { name: "Go", color: "#00add8" },
+  JS: { name: "JavaScript", color: "#f1e05a" },
+  TS: { name: "TypeScript", color: "#3178c6" },
+  HTML: { name: "HTML", color: "#e34c26" },
+  CSS: { name: "CSS", color: "#563d7c" },
+  REACT: { name: "React" },
+  VUE: { name: "Vue" },
+  NEXT: { name: "Next.js" },
+  TAILWIND: { name: "Tailwind" },
+  NODE: { name: "Node.js" },
+  BUN: { name: "Bun" },
+  DISCORDJS: { name: "discord.js" },
+  DISCORDGO: { name: "discordgo" },
+  VITE: { name: "Vite" },
+  ANTD: { name: "Ant Design" },
+  SHADCNUI: { name: "shadcn/ui" },
+  API: { name: "API" },
+  DATABASE: { name: "Database" },
+  CLOUDFLARE_WORKERS: { name: "Cloudflare Workers" },
+  COMMUNITY: { name: "Community" },
+  MODERATION: { name: "Moderation" },
+} satisfies Record<string, ProjectTag>;
 
 export default [
   {
@@ -490,12 +491,14 @@ export default [
     slug: "battlefield-stats-go",
     slugAliases: ["bfstats-go"],
     name: "Battlefield Stats Go",
-    description:
-      ["A Go implementation of the Battlefield Stats Discord bot. It is built with the Discordgo library.",
-        "This is my first ever project with Go. This is mostly for learning Go."
-      ],
-    shortDescription: "A Go implementation of the Battlefield Stats Discord bot.",
-    tags: [tags.GO, tags.API],
-    githubLink: "https://github.com/leonlarsson/bfstats-bot-go"
+    description: [
+      "A Go implementation of the Battlefield Stats Discord bot. It is built with the Discordgo library.",
+      "This is my first ever project with Go. This is mostly for learning Go.",
+    ],
+    shortDescription:
+      "A Go implementation of the Battlefield Stats Discord bot.",
+    year: "2024",
+    tags: [tags.GO, tags.API, tags.DISCORDGO],
+    githubLink: "https://github.com/leonlarsson/bfstats-bot-go",
   },
 ] satisfies Project[] as Project[];

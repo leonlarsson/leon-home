@@ -1,8 +1,8 @@
 import Link from "next/link";
 import Tag from "./Tag";
-import GradientBorder from "../../components/GradientBorder";
-import type { Project as ProjectType } from "@/types";
+import type { ProjectTag, Project as ProjectType } from "@/types";
 import Icons from "../../components/icons";
+import tagSorterFunction from "@/app/utils/tagSorterFunction";
 
 export default ({
   project,
@@ -30,7 +30,7 @@ export default ({
             {project.year && (
               <span
                 className="font-mono text-sm text-neutral-700 transition-colors dark:text-neutral-400"
-                title={`First released ${project.year}.`}
+                title={`First worked on ${project.year}.`}
               >
                 ({project.year}
                 {project.endYear && `-${project.endYear}`})
@@ -70,11 +70,9 @@ export default ({
         {/* Tags */}
         {displayTags && project.tags && (
           <div className="relative z-20 mt-1 flex w-fit flex-wrap gap-1">
-            {project.tags
-              .sort((a, b) => a.localeCompare(b))
-              .map(tag => (
-                <Tag key={tag} tag={tag} clickable />
-              ))}
+            {project.tags.sort(tagSorterFunction).map(tag => (
+              <Tag key={tag.name} tag={tag} clickable />
+            ))}
           </div>
         )}
       </div>
@@ -126,8 +124,8 @@ export const ProjectCardSkeleton = () => (
 
       {/* Tags */}
       <div className="relative z-20 mt-1 flex w-fit flex-wrap gap-1">
-        <Tag tag={"Lorem"} />
-        <Tag tag={"Ipsum"} />
+        <Tag tag={{ name: "Lorem" }} />
+        <Tag tag={{ name: "Ipsum" }} />
       </div>
     </div>
   </div>

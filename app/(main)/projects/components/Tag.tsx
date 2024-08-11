@@ -1,18 +1,25 @@
 "use client";
 
+import { ProjectTag } from "@/types";
 import { useRouter, useSearchParams } from "next/navigation";
 
-export default ({ tag, clickable }: { tag: string; clickable?: boolean }) => {
+export default ({
+  tag,
+  clickable,
+}: {
+  tag: ProjectTag;
+  clickable?: boolean;
+}) => {
   const router = useRouter();
   const searchParams = new URLSearchParams(useSearchParams().toString());
   const searchMatchesTag =
-    searchParams.get("search")?.toLowerCase() === tag.toLowerCase();
+    searchParams.get("search")?.toLowerCase() === tag.name.toLowerCase();
 
   // Weird in order to please the Tailwind extension
   // If clickable and not already searching for this tag, make it hoverable
   // If already searching for this tag, make it a dotted border
   const className = {
-    className: `select-none border-2 border-transparent rounded bg-blue-200 px-2 py-1 text-xs font-bold text-blue-700 transition-colors dark:bg-[#212528] dark:text-[#4b98f2] ${
+    className: `select-none border-2 flex items-center gap-1 border-transparent rounded bg-blue-200 px-2 py-1 text-xs font-bold text-blue-700 transition-colors dark:bg-[#212528] dark:text-[#4b98f2] ${
       clickable && !searchMatchesTag ? "hover:border-blue-700" : ""
     } ${
       searchMatchesTag
@@ -29,13 +36,24 @@ export default ({ tag, clickable }: { tag: string; clickable?: boolean }) => {
       onClick={e => {
         // We do this to prevent the click event from bubbling up to the parent element (Copilot wrote this, but it sounds smart)
         e.preventDefault();
-        searchParams.set("search", tag);
+        searchParams.set("search", tag.name);
         router.push(`/projects?${searchParams.toString()}`);
       }}
     >
-      {tag}
+      {tag.color && <TagColorBadge color={tag.color} />}
+      {tag.name}
     </button>
   ) : (
-    <div {...className}>{tag}</div>
+    <div {...className}>
+      {tag.color && <TagColorBadge color={tag.color} />}
+      {tag.name}
+    </div>
   );
 };
+
+type TagColorBadgeProps = {
+  color: string;
+};
+const TagColorBadge = ({ color }: TagColorBadgeProps) => (
+  <div className="size-2 rounded-full" style={{ backgroundColor: color }} />
+);

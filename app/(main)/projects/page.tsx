@@ -48,7 +48,7 @@ export default ({ searchParams }: Props) => {
           project.shortDescription,
           project.year,
           project.link?.replace("https://", ""),
-          ...(project.tags ?? []),
+          ...(project.tags?.map(x => x.name) ?? []),
         ].some(item =>
           item?.toLowerCase().includes(searchParam?.toLowerCase()),
         ),

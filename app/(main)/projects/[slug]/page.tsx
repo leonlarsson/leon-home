@@ -5,11 +5,11 @@ import { redirect } from "next/navigation";
 import type { Metadata } from "next";
 import generateOGMetadata from "@/app/utils/generateOGMetadata";
 import projects from "@/data/projects";
-import ProjectsGrid from "../components/ProjectCard";
 import Tag from "../components/Tag";
 import GradientBorder from "../../components/GradientBorder";
 import Icons from "../../components/icons";
 import ProjectCard from "../components/ProjectCard";
+import tagSorterFunction from "@/app/utils/tagSorterFunction";
 
 const getProject = (slug: string) =>
   projects.find(
@@ -128,12 +128,12 @@ export default ({ params }: { params: { slug: string } }) => {
             {project.tags && (
               <div className="mb-3 mt-2 flex flex-wrap gap-1">
                 <Suspense>
-                  {project.year && <Tag tag={project.year} clickable />}
-                  {project.tags
-                    .sort((a, b) => a.localeCompare(b))
-                    .map(tag => (
-                      <Tag key={tag} tag={tag} clickable />
-                    ))}
+                  {project.year && (
+                    <Tag tag={{ name: project.year }} clickable />
+                  )}
+                  {project.tags.sort(tagSorterFunction).map(tag => (
+                    <Tag key={tag.name} tag={tag} clickable />
+                  ))}
                 </Suspense>
               </div>
             )}

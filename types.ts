@@ -1,13 +1,18 @@
 import { StaticImageData } from "next/image";
 import { guestbookEntries } from "./lib/db/schema";
 
+export type ProjectTag = {
+  name: string;
+  color?: string;
+};
+
 export type Project = {
   slug: string;
   slugAliases?: string[];
   name: string;
   description: string | string[];
   shortDescription: string;
-  tags?: string[];
+  tags?: ProjectTag[];
   year?: string;
   endYear?: string;
   images?: StaticImageData[];
