@@ -21,6 +21,7 @@ import { Project } from "@/types";
 const tags = {
   HTML: "HTML",
   CSS: "CSS",
+  GO: "Go",
   JS: "JavaScript",
   TS: "TypeScript",
   REACT: "React",
@@ -484,5 +485,17 @@ export default [
     images: [timezoneRacerImage1],
     link: "https://timezone-racer.pages.dev/",
     githubLink: "https://github.com/leonlarsson/timezone-racer",
+  },
+  {
+    slug: "battlefield-stats-go",
+    slugAliases: ["bfstats-go"],
+    name: "Battlefield Stats Go",
+    description:
+      ["A Go implementation of the Battlefield Stats Discord bot. It is built with the Discordgo library.",
+        "This is my first ever project with Go. This is mostly for learning Go."
+      ],
+    shortDescription: "A Go implementation of the Battlefield Stats Discord bot.",
+    tags: [tags.GO, tags.API],
+    githubLink: "https://github.com/leonlarsson/bfstats-bot-go"
   },
 ] satisfies Project[] as Project[];
