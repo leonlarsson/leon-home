@@ -45,7 +45,7 @@ const tags = {
 export default [
   {
     slug: "battlefield-discord",
-    slugAliases: ["bfd", "bf-discord"],
+    slugAliases: ["bfd", "bf-discord", "bfdiscord"],
     name: "The Battlefield Discord",
     description: [
       "The Battlefield Discord is a community Discord server for the Battlefield franchise. I have been helping build this community since 2016, and I am currently one of the owners.",
@@ -223,8 +223,8 @@ export default [
     displayInCv: true,
   },
   {
-    slug: "raccoon-http-api",
-    slugAliases: ["trashttpanda"],
+    slug: "httpraccoons",
+    slugAliases: ["trashttpanda", "raccoon-http-api"],
     name: "Raccoon HTTP API",
     description:
       "A raccoon-themed API that provides HTTP response images. Powered by Cloudflare Workers.",
@@ -332,7 +332,6 @@ export default [
     tags: [tags.REACT, tags.VITE, tags.ANTD, tags.JS],
     link: "https://react-ant-design-ui.pages.dev/",
     githubLink: "https://github.com/leonlarsson/react-ant-design-ui",
-    displayInCv: true,
   },
   {
     slug: "the-finals-leaderboard",
@@ -460,7 +459,7 @@ export default [
     description: [
       "This is my attempt at recreating the case opening UI from Counter-Strike 2. It is built with Next.js (React) and styled with Tailwind.",
       "I have also implemented the ability to open every case that exists in the game, along with real odds and a stats and history page.",
-      "To date, over 16 million cases have been opened on the website.",
+      "To date, over 20 million cases have been opened on the website.",
     ],
     shortDescription:
       "The case opening UI from Counter-Strike 2 recreated in React.",
@@ -500,5 +499,6 @@ export default [
     year: "2024",
     tags: [tags.GO, tags.API, tags.DISCORDGO],
     githubLink: "https://github.com/leonlarsson/bfstats-bot-go",
+    displayInCv: true,
   },
 ] satisfies Project[] as Project[];
