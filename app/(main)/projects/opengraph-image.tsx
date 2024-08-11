@@ -1,5 +1,6 @@
 import { ImageResponse } from "next/og";
 import projects from "@/data/projects";
+import tagSorterFunction from "@/app/utils/tagSorterFunction";
 
 export const runtime = "edge";
 
@@ -15,15 +16,14 @@ export default async () => {
     avatar,
   ]);
 
-  const allTags = Array.from(
-    new Set(
+  const allTags = [
+    ...new Set(
       projects
-        .filter(x => Array.isArray(x.tags))
-        .map(x => x.tags)
-        .flat()
-        .sort((a, b) => (a ?? "").localeCompare(b ?? "")),
+        .flatMap(x => x.tags ?? [])
+        .sort(tagSorterFunction)
+        .map(x => x.name),
     ),
-  ) as string[];
+  ];
 
   return new ImageResponse(
     (

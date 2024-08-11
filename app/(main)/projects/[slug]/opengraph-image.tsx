@@ -1,5 +1,6 @@
 import { ImageResponse } from "next/og";
 import projects from "@/data/projects";
+import tagSorterFunction from "@/app/utils/tagSorterFunction";
 
 export const runtime = "edge";
 
@@ -36,16 +37,14 @@ export default async ({ params }: { params: { slug: string } }) => {
           {project?.shortDescription ?? "You found Project #404."}
         </div>
         <div tw="flex flex-wrap justify-center px-7 mt-1">
-          {project?.tags
-            ?.sort((a, b) => a.localeCompare(b))
-            .map(tag => (
-              <div
-                key={tag}
-                tw="rounded bg-blue-200 px-2 py-1 m-1 text-sm font-bold text-blue-700"
-              >
-                {tag}
-              </div>
-            ))}
+          {project?.tags?.sort(tagSorterFunction).map(tag => (
+            <div
+              key={tag.name}
+              tw="rounded bg-blue-200 px-2 py-1 m-1 text-sm font-bold text-blue-700"
+            >
+              {tag.name}
+            </div>
+          ))}
         </div>
         <div tw="flex absolute top-[565px] left-[15px] text-lg">
           leonlarsson.com/projects/{params.slug.slice(0, 30)}
