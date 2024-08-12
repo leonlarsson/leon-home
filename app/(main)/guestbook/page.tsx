@@ -83,7 +83,7 @@ const MainSection = async ({ searchParams }: Props) => {
           )
         ) : (
           // If !requireAuth, show the message area in mode text
-          <SendMessageSection mode="text" />
+          <SendMessageSection mode="text" showNameInput />
         )}
       </div>
 

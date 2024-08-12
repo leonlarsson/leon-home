@@ -5,7 +5,11 @@ import { postEntry } from "../lib/actions";
 import emojis from "../lib/emojis";
 import Icons from "../../components/icons";
 
-export default ({ mode }: { mode: "text" | "emoji" }) => {
+type Props = {
+  mode: "text" | "emoji";
+  showNameInput?: boolean;
+};
+export default ({ mode, showNameInput }: Props) => {
   const [isWorking, setIsWorking] = useState(false);
   const [isError, setIsError] = useState(false);
   const [isRatelimited, setIsRatelimited] = useState(false);
@@ -13,11 +17,12 @@ export default ({ mode }: { mode: "text" | "emoji" }) => {
   // Insert entry into database
   const postEntryFunc = async (
     message: string,
+    name?: string,
   ): Promise<boolean | "ratelimited"> => {
     setIsWorking(true);
     setIsError(false);
     setIsRatelimited(false);
-    const entryWasInserted = await postEntry(message);
+    const entryWasInserted = await postEntry(message, name);
     setIsWorking(false);
     setIsError(entryWasInserted === false);
     setIsRatelimited(entryWasInserted === "ratelimited");
@@ -48,29 +53,44 @@ export default ({ mode }: { mode: "text" | "emoji" }) => {
         </>
       ) : (
         <form
-          className="flex justify-center gap-2 max-[370px]:flex-col"
+          className="flex justify-center gap-2 max-[600px]:flex-col"
           onSubmit={async event => {
             event.preventDefault();
             const form = event.currentTarget;
             const message = (
               form.elements.namedItem("message") as HTMLInputElement
             ).value;
-            const postWasOk = await postEntryFunc(message);
+            const name = (
+              form.elements.namedItem("name") as HTMLInputElement | null
+            )?.value;
+            const postWasOk = await postEntryFunc(message, name);
             if (postWasOk === true) form.reset();
           }}
         >
+          {showNameInput && (
+            <input
+              className="card rounded-md p-2 outline-none disabled:cursor-not-allowed disabled:bg-neutral-300 dark:disabled:bg-neutral-600"
+              type="text"
+              name="name"
+              placeholder="Your name"
+              required
+              disabled={isWorking}
+              maxLength={50}
+            />
+          )}
+
           <input
             className="card rounded-md p-2 outline-none disabled:cursor-not-allowed disabled:bg-neutral-300 dark:disabled:bg-neutral-600"
             type="text"
             name="message"
-            placeholder="Your message..."
+            placeholder="Your message"
             required
             disabled={isWorking}
             maxLength={100}
           />
 
           <button
-            className="card flex items-center gap-2 rounded-md p-2 disabled:cursor-not-allowed disabled:bg-neutral-300 dark:disabled:bg-neutral-600"
+            className="card flex items-center justify-center gap-2 rounded-md p-2 disabled:cursor-not-allowed disabled:bg-neutral-300 dark:disabled:bg-neutral-600"
             type="submit"
             disabled={isWorking}
           >

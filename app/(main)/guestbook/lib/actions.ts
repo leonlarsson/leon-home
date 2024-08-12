@@ -13,7 +13,7 @@ import { Entry } from "@/types";
 
 const ratelimit = new Ratelimit({
   redis: kv,
-  // rate limit to 5 requests per 1 minute
+  // rate limit to 2 requests per 1 minute
   limiter: Ratelimit.slidingWindow(2, "1m"),
   prefix: "guestbook",
 });
@@ -66,7 +66,10 @@ export const getEntries = async (
 
 export const postEntry = async (
   message: string,
+  name?: string,
 ): Promise<boolean | "ratelimited"> => {
+  if (!message.trim()) return false;
+
   // Cloudflare header because we're behind Cloudflare
   const ip = headers().get("cf-connecting-ip") ?? "127.0.0.1";
 
@@ -74,8 +77,11 @@ export const postEntry = async (
   if (!success) return "ratelimited";
 
   // Validate message
-  let { passed, trimmedMessage } = validateMessageContent(message);
-  if (!passed) return false;
+  let { passed: messagePassed, trimmedString: trimmedMessage } = validateString(
+    message,
+    100,
+  );
+  if (!messagePassed) return false;
 
   let session;
   const requireAuth = process.env.REQUIRE_AUTH === "true";
@@ -87,6 +93,13 @@ export const postEntry = async (
   if (requireAuth && session && !session.user?.name && !session.user?.email)
     return false;
 
+  // Validate name
+  let { passed: namePassed, trimmedString: trimmedName } = validateString(
+    name ?? session?.user?.name ?? "",
+    50,
+  );
+  if (!namePassed) return false;
+
   // Handle cases where auth is enabled, the user is not signed in, and the message is not an emoji (it should be, because not being signed in means emojis only)
   if (requireAuth && !session && !emojis.includes(trimmedMessage))
     trimmedMessage = "👈🛑👮‍♂️";
@@ -94,7 +107,7 @@ export const postEntry = async (
   try {
     await db.insert(guestbookEntries).values({
       body: trimmedMessage,
-      name: session?.user?.name?.slice(0, 50),
+      name: trimmedName ?? session?.user?.name?.slice(0, 50),
       email: session?.user?.email,
     });
 
@@ -112,7 +125,7 @@ export const editEntry = async (
   newMessage: string,
 ): Promise<boolean> => {
   // Validate message
-  let { passed, trimmedMessage } = validateMessageContent(newMessage);
+  let { passed, trimmedString } = validateString(newMessage, 100);
   if (!passed) return false;
 
   try {
@@ -125,13 +138,13 @@ export const editEntry = async (
     await db.transaction(async tx => {
       await tx
         .update(guestbookEntries)
-        .set({ body: trimmedMessage, edited_at: new Date() })
+        .set({ body: trimmedString, edited_at: new Date() })
         .where(eq(guestbookEntries.id, idToEdit));
 
       await tx.insert(guestbookEdits).values({
         entry_id: idToEdit,
         old_message: oldMessage,
-        new_message: trimmedMessage,
+        new_message: trimmedString,
         edited_by: email,
       });
     });
@@ -194,21 +207,24 @@ const userCanModifyEntry = async (
   return { canModify: true, email: session.user.email };
 };
 
-const validateMessageContent = (
-  message: string,
-): { passed: boolean; trimmedMessage: string } => {
+const validateString = (
+  string: string,
+  maxLength: number,
+): { passed: boolean; trimmedString: string } => {
   // Trim
-  const trimmedMessage = message?.trim();
+  const trimmedString = string?.trim();
 
   // Validate existance and length
-  if (!trimmedMessage || trimmedMessage.length > 100)
-    return { passed: false, trimmedMessage };
+  if (!trimmedString || trimmedString.length > maxLength)
+    return { passed: false, trimmedString };
 
   // Validate content
   if (
-    ["﷽", "𒐫", "𒈙", "⸻", "꧅", "ဪ", "௵", "௸", "​", "‮"].includes(trimmedMessage)
+    ["﷽", "𒐫", "𒈙", "⸻", "꧅", "ဪ", "௵", "௸", "​", "‮"].some(x =>
+      trimmedString.includes(x),
+    )
   )
-    return { passed: false, trimmedMessage };
+    return { passed: false, trimmedString };
 
-  return { passed: true, trimmedMessage };
+  return { passed: true, trimmedString };
 };
