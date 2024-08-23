@@ -221,6 +221,11 @@ export default () => {
             <ProjectCard project={projects[15]} displayTags={false} />
           </div>
         </div>
+
+        {/* Coolify link */}
+        <a href="https://coolify.leonlarsson.com" className="card w-fit p-2">
+          <Icons.code className="size-5" />
+        </a>
       </div>
     </div>
   );
