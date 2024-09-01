@@ -224,6 +224,7 @@ export default ({ params }: { params: { slug: string } }) => {
                           <ProjectCard
                             key={connectedProject.slug}
                             project={connectedProject}
+                            displayTags={false}
                           />
                         ) : null,
                       )}
