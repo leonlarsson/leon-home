@@ -343,6 +343,13 @@ export default [
     tags: [tags.REACT, tags.VITE, tags.SHADCNUI, tags.TS],
     link: "https://the-finals-leaderboard.com/",
     githubLink: "https://github.com/leonlarsson/the-finals-leaderboard",
+    extraLinks: [
+      {
+        name: "API",
+        link: "/projects/the-finals-api",
+        type: "link",
+      },
+    ],
     displayInCv: true,
   },
   {
@@ -485,6 +492,25 @@ export default [
     images: [timezoneRacerImage1],
     link: "https://timezone-racer.pages.dev/",
     githubLink: "https://github.com/leonlarsson/timezone-racer",
+  },
+  {
+    slug: "the-finals-api",
+    name: "THE FINALS API",
+    description: [
+      "The API that powers my THE FINALS leaderboard and several other community projects.",
+      "It is built on Cloudflare Workers with Hono and Zod.",
+    ],
+    shortDescription: "The API that powers my THE FINALS leaderboard.",
+    year: "2024",
+    tags: [tags.CLOUDFLARE_WORKERS, tags.API, tags.TS],
+    githubLink: "https://github.com/leonlarsson/the-finals-api",
+    extraLinks: [
+      {
+        name: "Leaderboard",
+        link: "/projects/the-finals-leaderboard",
+        type: "link",
+      },
+    ],
   },
   {
     slug: "battlefield-stats-go",

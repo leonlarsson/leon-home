@@ -170,10 +170,12 @@ export default ({ params }: { params: { slug: string } }) => {
                   )}
 
                   {project.extraLinks?.map(extraLink => (
-                    <a
+                    <Link
                       key={extraLink.link}
                       href={extraLink.link}
-                      target="_blank"
+                      target={
+                        !extraLink.link.startsWith("http") ? "_self" : "_blank"
+                      }
                       className="card flex items-center gap-2 rounded-md p-2"
                       draggable={false}
                     >
@@ -183,7 +185,7 @@ export default ({ params }: { params: { slug: string } }) => {
                         <Icons.github className="h-5" />
                       )}
                       {extraLink.name}
-                    </a>
+                    </Link>
                   ))}
                 </div>
               </>
