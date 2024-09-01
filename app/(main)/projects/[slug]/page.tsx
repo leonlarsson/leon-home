@@ -138,58 +138,100 @@ export default ({ params }: { params: { slug: string } }) => {
               </div>
             )}
 
-            {/* Conditionally render project links */}
-            {(project.link || project.githubLink || project.extraLinks) && (
-              <>
-                <span className="text-lg font-bold">Links:</span>
-                <div className="flex flex-wrap gap-2">
-                  {project.link && (
-                    <Link
-                      href={project.link}
-                      target={
-                        !project.link.startsWith("http") ? "_self" : "_blank"
-                      }
-                      className="card flex items-center gap-2 rounded-md p-2"
-                      draggable={false}
-                    >
-                      <Icons.link className="h-5" />
-                      {project.linkName ?? "Go to project"}
-                    </Link>
-                  )}
-
-                  {project.githubLink && (
-                    <a
-                      href={project.githubLink}
-                      target="_blank"
-                      className="card flex items-center gap-2 rounded-md p-2"
-                      draggable={false}
-                    >
-                      <Icons.github className="h-5" />
-                      Go to GitHub
-                    </a>
-                  )}
-
-                  {project.extraLinks?.map(extraLink => (
-                    <Link
-                      key={extraLink.link}
-                      href={extraLink.link}
-                      target={
-                        !extraLink.link.startsWith("http") ? "_self" : "_blank"
-                      }
-                      className="card flex items-center gap-2 rounded-md p-2"
-                      draggable={false}
-                    >
-                      {extraLink.type === "link" ? (
+            {/* Links and connected projects */}
+            <div className="space-y-3">
+              {/* Conditionally render project links */}
+              {(project.link || project.githubLink || project.extraLinks) && (
+                <div>
+                  <span className="text-lg font-bold">Links:</span>
+                  <div className="flex flex-wrap gap-2">
+                    {project.link && (
+                      <Link
+                        href={project.link}
+                        target={
+                          !project.link.startsWith("http") ? "_self" : "_blank"
+                        }
+                        className="card flex items-center gap-2 rounded-md p-2"
+                        draggable={false}
+                      >
                         <Icons.link className="h-5" />
-                      ) : (
+                        {project.linkName ?? "Go to project"}
+                      </Link>
+                    )}
+
+                    {project.githubLink && (
+                      <a
+                        href={project.githubLink}
+                        target="_blank"
+                        className="card flex items-center gap-2 rounded-md p-2"
+                        draggable={false}
+                      >
                         <Icons.github className="h-5" />
-                      )}
-                      {extraLink.name}
-                    </Link>
-                  ))}
+                        Go to GitHub
+                      </a>
+                    )}
+
+                    {project.extraLinks?.map(extraLink => (
+                      <Link
+                        key={extraLink.link}
+                        href={extraLink.link}
+                        target={
+                          !extraLink.link.startsWith("http")
+                            ? "_self"
+                            : "_blank"
+                        }
+                        className="card flex items-center gap-2 rounded-md p-2"
+                        draggable={false}
+                      >
+                        {extraLink.type === "link" ? (
+                          <Icons.link className="h-5" />
+                        ) : (
+                          <Icons.github className="h-5" />
+                        )}
+                        {extraLink.name}
+                      </Link>
+                    ))}
+                  </div>
                 </div>
-              </>
-            )}
+              )}
+
+              {/* Connected projects */}
+              {(() => {
+                // Get connected projects by slug or slug alias
+                const connectedProjects = project.connectedProjectSlugs
+                  ?.map(slug =>
+                    projects.find(
+                      project =>
+                        project.slug === slug ||
+                        project.slugAliases?.includes(slug),
+                    ),
+                  )
+                  .filter(p => p !== undefined);
+
+                if (!connectedProjects?.length) return null;
+
+                return (
+                  <div>
+                    <span className="text-lg font-bold">
+                      Connected projects:
+                    </span>
+
+                    <div
+                      className={`grid gap-3 ${connectedProjects.length > 1 ? "grid-cols-1 md:grid-cols-2" : ""}`}
+                    >
+                      {connectedProjects.map(connectedProject =>
+                        connectedProject ? (
+                          <ProjectCard
+                            key={connectedProject.slug}
+                            project={connectedProject}
+                          />
+                        ) : null,
+                      )}
+                    </div>
+                  </div>
+                );
+              })()}
+            </div>
           </div>
 
           {/* Preview */}

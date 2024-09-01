@@ -60,6 +60,7 @@ export default [
     linkName: "Go to Discord",
     hidePreview: true,
     displayInCv: true,
+    connectedProjectSlugs: ["battlebot"],
   },
   {
     slug: "bfv-menu-playground",
@@ -179,6 +180,7 @@ export default [
         type: "github",
       },
     ],
+    connectedProjectSlugs: ["battlefield-discord"],
   },
   {
     slug: "battlefield-stats",
@@ -343,14 +345,8 @@ export default [
     tags: [tags.REACT, tags.VITE, tags.SHADCNUI, tags.TS],
     link: "https://the-finals-leaderboard.com/",
     githubLink: "https://github.com/leonlarsson/the-finals-leaderboard",
-    extraLinks: [
-      {
-        name: "API",
-        link: "/projects/the-finals-api",
-        type: "link",
-      },
-    ],
     displayInCv: true,
+    connectedProjectSlugs: ["the-finals-api"],
   },
   {
     slug: "bloodhunt-arg",
@@ -402,6 +398,7 @@ export default [
     link: "https://leonlarsson.com",
     githubLink: "https://github.com/leonlarsson/leon-home",
     displayInCv: true,
+    connectedProjectSlugs: ["guestbook", "music-showcase"],
   },
   {
     slug: "guestbook",
@@ -422,6 +419,7 @@ export default [
     link: "https://leonlarsson.com/guestbook",
     githubLink:
       "https://github.com/leonlarsson/leon-home/tree/main/app/(main)/guestbook",
+    connectedProjectSlugs: ["home"],
   },
   {
     slug: "music-showcase",
@@ -437,6 +435,7 @@ export default [
     link: "https://leonlarsson.com/music",
     githubLink:
       "https://github.com/leonlarsson/leon-home/tree/main/app/(main)/music",
+    connectedProjectSlugs: ["home"],
   },
   {
     slug: "friendly-time",
@@ -497,20 +496,13 @@ export default [
     slug: "the-finals-api",
     name: "THE FINALS API",
     description: [
-      "The API that powers my THE FINALS leaderboard and several other community projects.",
-      "It is built on Cloudflare Workers with Hono and Zod.",
+      "The API that powers my THE FINALS leaderboard and several other community projects. It is built on Cloudflare Workers with Hono and Zod.",
     ],
     shortDescription: "The API that powers my THE FINALS leaderboard.",
     year: "2024",
     tags: [tags.CLOUDFLARE_WORKERS, tags.API, tags.TS],
     githubLink: "https://github.com/leonlarsson/the-finals-api",
-    extraLinks: [
-      {
-        name: "Leaderboard",
-        link: "/projects/the-finals-leaderboard",
-        type: "link",
-      },
-    ],
+    connectedProjectSlugs: ["the-finals-leaderboard"],
   },
   {
     slug: "battlefield-stats-go",

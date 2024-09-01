@@ -26,6 +26,7 @@ export type Project = {
     type: "link" | "github";
   }[];
   displayInCv?: boolean;
+  connectedProjectSlugs?: string[];
 };
 
 export type Entry = typeof guestbookEntries.$inferSelect;
