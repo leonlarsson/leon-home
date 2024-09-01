@@ -188,8 +188,8 @@ export default [
     name: "Battlefield Stats Discord Bot",
     description: [
       "My largest and most successful project by far. Battlefield Stats is a Discord bot that provides on-demand Battlefield statistics in Discord. I have also built a website and an API for this project.",
-      "Used by thousands of users in over 4,000 Discord servers, the bot is built with discord.js (on Bun) and the website with Next.js and shadcn/ui.",
-      "In February 2024, I rewrote the bot, going from JavaScript to TypeScript and from Node.js to Bun.",
+      "Used by thousands of users in over 4,000 Discord servers, the bot is built with discord.js and the website with Next.js and shadcn/ui.",
+      "In February 2024, I rewrote the bot, going from JavaScript to TypeScript and from Node.js to Bun (and later back again).",
     ],
     shortDescription:
       "A bot that provides Battlefield stats right inside Discord.",
@@ -516,7 +516,7 @@ export default [
       "A Go implementation of the Battlefield Stats Discord bot.",
     year: "2024",
     tags: [tags.GO, tags.API, tags.DISCORDGO],
-    githubLink: "https://github.com/leonlarsson/bfstats-bot-go",
+    githubLink: "https://github.com/leonlarsson/bfstats-go",
     displayInCv: true,
   },
 ] satisfies Project[] as Project[];
