@@ -87,16 +87,14 @@ export default () => {
 
         {/* COMMUNITY */}
         <div>
-          Some of my other interests include community building and community
-          management. I've been building communities on Discord since 2016,
-          including moderating and eventually co-owning the biggest{" "}
+          I also ran the biggest{" "}
           <Link
             href="/projects/battlefield-discord"
             className="link whitespace-nowrap"
           >
             Battlefield Discord
-          </Link>
-          .
+          </Link>{" "}
+          server for 8 years, until September 2024.
         </div>
 
         {/* MUSIC - DISABLED */}
