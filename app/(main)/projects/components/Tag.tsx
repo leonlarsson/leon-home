@@ -33,7 +33,7 @@ export default ({
   return clickable && !searchMatchesTag ? (
     <button
       {...className}
-      title={`See other projects including "${tag}".`}
+      title={`See other projects including "${tag.name}".`}
       onClick={e => {
         // We do this to prevent the click event from bubbling up to the parent element (Copilot wrote this, but it sounds smart)
         e.preventDefault();
