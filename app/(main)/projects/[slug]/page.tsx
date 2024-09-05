@@ -111,9 +111,19 @@ export default ({ params }: { params: { slug: string } }) => {
         <div>
           {/* Main content (title, description, tags, links) */}
           <div className="mx-auto max-w-3xl">
-            <span className="text-3xl font-extrabold transition-all max-sm:text-xl">
+            {project.year && (
+              <span
+                className="font-mono text-sm text-neutral-700 transition-colors dark:text-neutral-400"
+                title={`First worked on ${project.year}.`}
+              >
+                {project.year}
+                {project.endYear && `-${project.endYear}`}
+              </span>
+            )}
+
+            <div className="mb-3 text-3xl font-extrabold transition-all max-sm:text-xl">
               {project.name}
-            </span>
+            </div>
 
             {typeof project.description === "string" ? (
               <p>{project.description}</p>
