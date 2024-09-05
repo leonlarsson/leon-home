@@ -48,12 +48,14 @@ export default [
     slugAliases: ["bfd", "bf-discord", "bfdiscord"],
     name: "The Battlefield Discord",
     description: [
-      "The Battlefield Discord is a community Discord server for the Battlefield franchise. I have been helping build this community since 2016, and I am currently one of the owners.",
+      "The Battlefield Discord is a community Discord server for the Battlefield franchise. I have been helping build this community since 2016, and I was one of the owners.",
       "From 2018 to 2022, it was the official Discord server for the Battlefield franchise. I have seen it go from a couple thousand members to over 170,000 members. We've always worked closely with EA/DICE.",
+      "In September 2024, after discussions with EA, we decided to hand over responsibilities to EA's Battlefield Community Team, and the server is now run by them. I spent 8 years building this community, and I will always be thankful for the experiences, opportunities, and friends I've made through it. o7",
     ],
     shortDescription:
       "The biggest and most successful Battlefield Discord server.",
     year: "2016",
+    endYear: "2024",
     tags: [tags.COMMUNITY, tags.MODERATION],
     images: [bfdImage1, bfdImage2],
     link: "https://discord.gg/battlefield",
@@ -157,11 +159,13 @@ export default [
     description: [
       "This is a bot we use on the Battlefield Discord. It provides moderation utilities for moderators as well as a few fun and helpful features for users.",
       "Command cooldowns are handled with Cloudflare Workers using KV.",
-      "In February 2024, I rewrote the bot, going from JavaScript to TypeScript and from Node.js to Bun, as well as open-sourcing the bot.",
+      "In February 2024, I rewrote the bot, going from JavaScript to TypeScript and from Node.js to Bun (later back to Node), as well as open-sourcing the bot.",
+      "In September 2024, the bot was shut down after the responsibilities of the Battlefield Discord were handed over to EA.",
     ],
     shortDescription:
-      "A bot that provides utility and fun in the Battlefield Discord.",
+      "A bot that provided utility and fun in the Battlefield Discord.",
     year: "2021",
+    endYear: "2024",
     tags: [
       tags.BUN,
       tags.NODE,
