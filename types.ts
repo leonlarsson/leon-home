@@ -1,5 +1,5 @@
 import { StaticImageData } from "next/image";
-import { guestbookEntries } from "./lib/db/schema";
+import { entries } from "./db/schema";
 
 export type ProjectTag = {
   name: string;
@@ -29,7 +29,7 @@ export type Project = {
   connectedProjectSlugs?: string[];
 };
 
-export type Entry = typeof guestbookEntries.$inferSelect;
+export type Entry = typeof entries.$inferSelect;
 
 // CV
 
