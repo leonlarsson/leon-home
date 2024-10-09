@@ -31,12 +31,13 @@ const tags = {
   NODE: { name: "Node.js" },
   BUN: { name: "Bun" },
   DISCORDJS: { name: "discord.js" },
-  DISCORDGO: { name: "discordgo" },
+  DISGO: { name: "DisGo" },
   VITE: { name: "Vite" },
   ANTD: { name: "Ant Design" },
   SHADCNUI: { name: "shadcn/ui" },
   API: { name: "API" },
-  DATABASE: { name: "Database" },
+  POSTGRESQL: { name: "PostgreSQL" },
+  SQLITE: { name: "SQLite" },
   CLOUDFLARE_WORKERS: { name: "Cloudflare Workers" },
   COMMUNITY: { name: "Community" },
   MODERATION: { name: "Moderation" },
@@ -191,8 +192,8 @@ export default [
     slugAliases: ["bfstats"],
     name: "Battlefield Stats Discord Bot",
     description: [
-      "My largest and most successful project by far. Battlefield Stats is a Discord bot that provides on-demand Battlefield statistics in Discord. I have also built a website and an API for this project.",
-      "Used by thousands of users in over 4,000 Discord servers, the bot is built with discord.js and the website with Next.js and shadcn/ui.",
+      "My largest and most successful project by far. Battlefield Stats is a Discord bot that provides on-demand Battlefield statistics in Discord. I have also built a website and an API for this project, which uses Cloudflare D1 (SQLite) as the database.",
+      "Used by thousands of users in over 4,300 Discord servers and installed on over 1,300 accounts, the bot is built with discord.js and the website with Next.js and shadcn/ui.",
       "In February 2024, I rewrote the bot, going from JavaScript to TypeScript and from Node.js to Bun (and later back again).",
     ],
     shortDescription:
@@ -208,7 +209,7 @@ export default [
       tags.NEXT,
       tags.JS,
       tags.TS,
-      tags.DATABASE,
+      tags.SQLITE,
       tags.SHADCNUI,
     ],
     images: [battlefieldStatsImage1, battlefieldStatsImage2],
@@ -408,9 +409,9 @@ export default [
     slug: "guestbook",
     name: "Guestbook",
     description:
-      "A guestbook for my personal website. It uses Next.js experimental Server Actions and PlanetScale. It uses authentication from Auth.js.",
+      "A guestbook for my personal website. It uses Next.js Server Actions and SQLite on Turso as the database.",
     shortDescription:
-      "A guestbook powered by Next.js Server Actions and PlanetScale.",
+      "A guestbook powered by Next.js Server Actions and SQLite.",
     year: "2023",
     tags: [
       tags.REACT,
@@ -418,7 +419,7 @@ export default [
       tags.TAILWIND,
       tags.TS,
       tags.API,
-      tags.DATABASE,
+      tags.SQLITE,
     ],
     link: "https://leonlarsson.com/guestbook",
     githubLink:
@@ -467,14 +468,14 @@ export default [
     slugAliases: ["cs-case-ui", "csgo-case-ui", "cs2-case-ui", "cs-case-sim"],
     name: "Counter-Strike Case Simulator",
     description: [
-      "This is my attempt at recreating the case opening UI from Counter-Strike 2. It is built with Next.js (React) and styled with Tailwind.",
-      "I have also implemented the ability to open every case that exists in the game, along with real odds and a stats and history page.",
-      "To date, over 20 million cases have been opened on the website.",
+      "This is my attempt at recreating the case opening UI from Counter-Strike. It is built with Next.js (React) and styled with Tailwind.",
+      "Every case from the game is able to be opened, with real odds. I have also built a Global Unbox History page, that shows some stats and recently opened cases, powered by a self-hosted PostgreSQL database.",
+      "To date, 30 million cases have been opened on the website.",
     ],
     shortDescription:
-      "The case opening UI from Counter-Strike 2 recreated in React.",
+      "The case opening UI from Counter-Strike recreated in React, powered by PostgreSQL.",
     year: "2023",
-    tags: [tags.REACT, tags.NEXT, tags.TAILWIND, tags.TS, tags.DATABASE],
+    tags: [tags.REACT, tags.NEXT, tags.TAILWIND, tags.TS, tags.POSTGRESQL],
     images: [caseSimImage1],
     link: "https://case-sim.com",
     githubLink: "https://github.com/leonlarsson/cs-case-sim",
@@ -513,14 +514,14 @@ export default [
     slugAliases: ["bfstats-go"],
     name: "Battlefield Stats Go",
     description: [
-      "A Go implementation of the Battlefield Stats Discord bot. It is built with the Discordgo library.",
+      "A Go implementation of the Battlefield Stats Discord bot. It is built with the DisGo library.",
       "This is my first ever project with Go. This is mostly for learning Go.",
     ],
     shortDescription:
       "A Go implementation of the Battlefield Stats Discord bot.",
     year: "2024",
-    tags: [tags.GO, tags.API, tags.DISCORDGO],
+    tags: [tags.GO, tags.API, tags.DISGO],
     githubLink: "https://github.com/leonlarsson/bfstats-go",
     displayInCv: true,
   },
-] satisfies Project[] as Project[];
+] satisfies Project[];
