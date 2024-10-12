@@ -4,7 +4,7 @@ import { revalidatePath } from "next/cache";
 import { desc, isNotNull } from "drizzle-orm";
 import { db } from "@/db";
 import { entries } from "@/db/schema";
-import { Entry } from "@/types";
+import { GuestbookEntry } from "@/types";
 
 export const getEntriesCount = async (
   namedEntriesOnly: boolean,
@@ -24,7 +24,7 @@ export const getEntriesCount = async (
 
 export const getEntries = async (
   namedEntriesOnly: boolean,
-): Promise<Entry[] | null> => {
+): Promise<GuestbookEntry[] | null> => {
   try {
     // Get all entries that are not deleted, sorted by date, limited to 100
     const result = await db

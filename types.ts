@@ -29,7 +29,7 @@ export type Project = {
   connectedProjectSlugs?: string[];
 };
 
-export type Entry = typeof entries.$inferSelect;
+export type GuestbookEntry = typeof entries.$inferSelect;
 
 // CV
 
