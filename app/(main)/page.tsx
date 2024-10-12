@@ -217,18 +217,18 @@ export default () => {
             </Link>
           </span>
           <div className="flex flex-col gap-2">
-            <ProjectCard
-              project={projects.find(x => x.slug === "case-sim")!}
-              displayTags={false}
-            />
-            <ProjectCard
-              project={projects.find(x => x.slug === "battlefield-stats")!}
-              displayTags={false}
-            />
-            <ProjectCard
-              project={projects.find(x => x.slug === "the-finals-leaderboard")!}
-              displayTags={false}
-            />
+            {projects
+              .filter(x => x.featureInHome)
+              .toSorted(
+                (a, b) => Number.parseInt(b.year) - Number.parseInt(a.year),
+              )
+              .map(project => (
+                <ProjectCard
+                  key={project.slug}
+                  project={project}
+                  displayTags={false}
+                />
+              ))}
           </div>
         </div>
 

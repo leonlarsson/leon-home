@@ -25,6 +25,7 @@ export type Project = {
     link: string;
     type: "link" | "github";
   }[];
+  featureInHome?: boolean;
   displayInCv?: boolean;
   connectedProjectSlugs?: string[];
 };

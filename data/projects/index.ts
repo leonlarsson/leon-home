@@ -227,6 +227,7 @@ export default [
         type: "github",
       },
     ],
+    featureInHome: true,
     displayInCv: true,
   },
   {
@@ -350,6 +351,7 @@ export default [
     tags: [tags.REACT, tags.VITE, tags.SHADCNUI, tags.TS],
     link: "https://the-finals-leaderboard.com/",
     githubLink: "https://github.com/leonlarsson/the-finals-leaderboard",
+    featureInHome: true,
     displayInCv: true,
     connectedProjectSlugs: ["the-finals-api"],
   },
@@ -479,6 +481,7 @@ export default [
     images: [caseSimImage1],
     link: "https://case-sim.com",
     githubLink: "https://github.com/leonlarsson/cs-case-sim",
+    featureInHome: true,
     displayInCv: true,
   },
   {
