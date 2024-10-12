@@ -11,7 +11,7 @@ export default () => {
     <div className="mx-auto max-w-3xl pb-10 text-start">
       <div className="mb-6 flex items-center gap-4">
         <Image
-          className="h-full select-none rounded-[100px] shadow transition-all hover:rounded-l-[10px] hover:shadow-lg active:translate-x-1 max-md:w-[50px]"
+          className="h-full select-none rounded-[100px] shadow transition-all hover:rounded-[30px] hover:shadow-lg"
           src="/assets/images/avatar.png"
           alt="Leon"
           width={130}
@@ -71,8 +71,11 @@ export default () => {
             <span>Oksidia</span>
           </Link>
           , where I work with JavaScript/TypeScript/PHP with Angular, React, and
-          Laravel. Past experiences include companies like Sharkmob and
-          Electronic Arts.
+          Laravel.{" "}
+          <Link href={"/cv"} target="_blank" className="link whitespace-nowrap">
+            Past experiences
+          </Link>{" "}
+          include companies like Sharkmob and Electronic Arts.
         </div>
 
         {/* DEV */}
@@ -214,9 +217,18 @@ export default () => {
             </Link>
           </span>
           <div className="flex flex-col gap-2">
-            <ProjectCard project={projects[17]} displayTags={false} />
-            <ProjectCard project={projects[7]} displayTags={false} />
-            <ProjectCard project={projects[15]} displayTags={false} />
+            <ProjectCard
+              project={projects.find(x => x.slug === "case-sim")!}
+              displayTags={false}
+            />
+            <ProjectCard
+              project={projects.find(x => x.slug === "battlefield-stats")!}
+              displayTags={false}
+            />
+            <ProjectCard
+              project={projects.find(x => x.slug === "the-finals-leaderboard")!}
+              displayTags={false}
+            />
           </div>
         </div>
 
