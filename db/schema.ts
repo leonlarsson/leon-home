@@ -8,4 +8,5 @@ export const entries = sqliteTable("entries", {
     .notNull(),
   body: text({ length: 100 }).notNull(),
   name: text({ length: 50 }),
+  ip: text({ length: 50 }),
 });

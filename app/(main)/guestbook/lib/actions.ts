@@ -1,6 +1,7 @@
 "use server";
 
 import { revalidatePath } from "next/cache";
+import { headers } from "next/headers";
 import { desc, isNotNull } from "drizzle-orm";
 import { db } from "@/db";
 import { entries } from "@/db/schema";
@@ -61,10 +62,14 @@ export const postEntry = async (
   );
   if (!namePassed) return false;
 
+  // Cloudflare header because we're behind Cloudflare
+  const ip = headers().get("cf-connecting-ip") ?? "127.0.0.1";
+
   try {
     await db.insert(entries).values({
       body: trimmedMessage,
       name: trimmedName,
+      ip,
     });
 
     revalidatePath("/guestbook");
