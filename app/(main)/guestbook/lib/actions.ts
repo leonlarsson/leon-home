@@ -2,7 +2,7 @@
 
 import { revalidatePath } from "next/cache";
 import { headers } from "next/headers";
-import { desc, isNotNull } from "drizzle-orm";
+import { desc, eq, isNotNull } from "drizzle-orm";
 import { db } from "@/db";
 import { entries } from "@/db/schema";
 import { GuestbookEntry } from "@/types";
@@ -64,6 +64,22 @@ export const postEntry = async (
 
   // Cloudflare header because we're behind Cloudflare
   const ip = headers().get("cf-connecting-ip") ?? "127.0.0.1";
+  const lastEntryByIp = await db.query.entries.findFirst({
+    orderBy: desc(entries.date),
+    where: eq(entries.ip, ip),
+  });
+
+  const isSameBody = lastEntryByIp?.body === trimmedMessage;
+  const isWithinHour =
+    lastEntryByIp &&
+    lastEntryByIp?.date.getTime() > Date.now() - 1000 * 60 * 30;
+
+  // Reject if the last entry by this IP...
+  // a) is the same as the current message
+  // b) was made less than 30 minutes ago
+  if (isSameBody || isWithinHour) {
+    return "ratelimited";
+  }
 
   try {
     await db.insert(entries).values({
