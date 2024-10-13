@@ -264,7 +264,7 @@ export default [
     description:
       "An experimental Discord bot that provides utility commands to build and play with Discord timestamps. Built fully with Cloudflare Workers.",
     shortDescription:
-      "An Discord bot that makes using Discord timestamps easier.",
+      "A Discord bot that makes using Discord timestamps easier.",
     year: "2022",
     tags: [tags.CLOUDFLARE_WORKERS, tags.TS],
     images: [timestamperImage1, timestamperImage2],
@@ -335,7 +335,7 @@ export default [
     name: "React + Ant Design website",
     description:
       "A dashboard website template built with Vite + React + Ant Design. This is something I originally built for work, but without the secret parts.",
-    shortDescription: "A UI/website/dashboard built with React and And Design.",
+    shortDescription: "A UI/website/dashboard built with React and Ant Design.",
     year: "2023",
     tags: [tags.REACT, tags.VITE, tags.ANTD, tags.JS],
     link: "https://react-ant-design-ui.pages.dev/",
@@ -362,7 +362,7 @@ export default [
     description: [
       "A project I built for my role at Sharkmob. It was an ARG that we created for the game Bloodhunt.",
       "Over 500 unique users from 50 different countries participated in the ARG. It was a massive success, garnering satisfaction and engagement from the community.",
-      "I have also created an implemtation of the website in Next.js, which uses server actions.",
+      "I have also created an implementation of the website in Next.js, which uses server actions.",
     ],
     shortDescription:
       "The official website for the Bloodhunt ARG, 'The Omnis Challenge'.",
@@ -382,11 +382,6 @@ export default [
     extraLinks: [
       {
         name: "Next.js Implementation",
-        link: "https://omnis-arg-next.vercel.app/",
-        type: "link",
-      },
-      {
-        name: "Next.js Source",
         link: "https://github.com/leonlarsson/omnis-arg-next",
         type: "github",
       },
