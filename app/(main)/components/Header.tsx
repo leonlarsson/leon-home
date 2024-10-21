@@ -60,7 +60,7 @@ export default () => {
             <HeaderLink
               content={<Icons.twitterX className="w-8" />}
               url="https://x.com/MozzyFX"
-              title="X / Twitter"
+              title="Twitter"
               newTab
             />
           </div>

@@ -30,12 +30,11 @@ export const pageMetadata: CVMetadata = {
 } satisfies CVMetadata;
 
 export const profileSection: CVProfileSection = {
-  sectionId: "profile",
   name: "Leon San José Larsson",
   avatar: avatar,
   tagline: {
-    en: "Software Developer with a background in video games marketing.",
-    sv: "Mjukvaruutvecklare med bakgrund inom marknadsföring av datorspel.",
+    en: "Passionate Software Developer with a background in video games.",
+    sv: "Passionerad mjukvaruutvecklare med bakgrund inom datorspel.",
   },
   title: "Software Developer",
   url: {
@@ -77,7 +76,6 @@ export const profileSection: CVProfileSection = {
 } satisfies CVProfileSection;
 
 export const aboutSection: CVAboutSection = {
-  sectionId: "about",
   sectionTitle: {
     en: "About me",
     sv: "Om mig",
@@ -93,7 +91,6 @@ export const aboutSection: CVAboutSection = {
 } satisfies CVAboutSection;
 
 export const employmentSection: CVEmploymentSection = {
-  sectionId: "employment",
   sectionTitle: {
     en: "Work Experience",
     sv: "Arbetslivserfarenhet",
@@ -151,7 +148,6 @@ export const employmentSection: CVEmploymentSection = {
 } satisfies CVEmploymentSection;
 
 export const educationSection: CVEducationSection = {
-  sectionId: "education",
   sectionTitle: {
     en: "Education",
     sv: "Utbildning",
@@ -175,7 +171,6 @@ export const educationSection: CVEducationSection = {
 } satisfies CVEducationSection;
 
 export const projectsSection: CVProjectsSection = {
-  sectionId: "projects",
   sectionTitle: {
     en: "Projects",
     sv: "Projekt",

@@ -51,7 +51,6 @@ export type CVMetadata = {
 export type CVLocale = "en" | "sv";
 
 export type CVProfileSection = {
-  sectionId: "profile";
   name: string;
   avatar?: StaticImageData;
   tagline: {
@@ -83,7 +82,6 @@ export type CVProfileSection = {
 export type CVIcon = "envelope" | "github" | "linkedin";
 
 export type CVAboutSection = {
-  sectionId: "about";
   sectionTitle: {
     en: string;
     sv: string;
@@ -96,7 +94,6 @@ export type CVAboutSection = {
 };
 
 export type CVEmploymentSection = {
-  sectionId: "employment";
   sectionTitle: {
     en: string;
     sv: string;
@@ -120,7 +117,6 @@ export type CVEmploymentSection = {
 };
 
 export type CVEducationSection = {
-  sectionId: "education";
   sectionTitle: {
     en: string;
     sv: string;
@@ -143,7 +139,6 @@ export type CVEducationSection = {
 };
 
 export type CVProjectsSection = {
-  sectionId: "projects";
   sectionTitle: {
     en: string;
     sv: string;

@@ -292,7 +292,7 @@ export default ({ params }: { params: { slug: string } }) => {
                         quality={100}
                         alt={`Project image for ${project.name}.`}
                         className={`mx-auto select-none ${
-                          project.images!.length > 1 ? "lg:w-full" : ""
+                          project.images.length > 1 ? "lg:w-full" : ""
                         } rounded`}
                         priority
                         placeholder="blur"

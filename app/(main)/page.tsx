@@ -141,15 +141,15 @@ export default () => {
                 icon: <Icons.github className="me-2 inline size-5" />,
               },
               {
-                title: "X / Twitter",
+                title: "Twitter",
                 url: "https://x.com/MozzyFX",
                 icon: <Icons.twitterX className="me-2 inline size-5" />,
               },
-              // {
-              //   title: "Twitter 2",
-              //   url: "https://bsky.app/profile/leon.ms",
-              //   icon: <Icons.bluesky className="me-2 inline size-5" />,
-              // },
+              {
+                title: "Bluesky",
+                url: "https://bsky.app/profile/leon.ms",
+                icon: <Icons.bluesky className="me-2 inline size-5" />,
+              },
               // {
               //   title: "Twitter 3",
               //   url: "https://www.threads.net/@leonsjlarsson",
