@@ -21,26 +21,31 @@ export const metadata: Metadata = {
 };
 
 type Props = {
-  searchParams: {
+  searchParams: Promise<{
     named?: string;
-  };
+  }>;
 };
 
-export default ({ searchParams }: Props) => {
+export default async (props: Props) => {
+  const searchParams = await props.searchParams;
   return (
     <div className="mx-auto max-w-3xl">
       <div className="text-3xl font-extrabold">Guestbook</div>
       <div className="mb-3">A guestbook where you can send a message.</div>
 
       <Suspense fallback="Loading...">
-        <MainSection searchParams={searchParams} />
+        <MainSection named={searchParams.named} />
       </Suspense>
     </div>
   );
 };
 
-const MainSection = async ({ searchParams }: Props) => {
-  const namedEntriesOnly = searchParams.named === "true";
+type MainSectionProps = {
+  named?: string;
+};
+
+const MainSection = async (props: MainSectionProps) => {
+  const namedEntriesOnly = props.named === "true";
 
   return (
     <>

@@ -6,13 +6,14 @@ import ProjectCard from "./components/ProjectCard";
 import projectsData from "@/data/projects";
 
 type Props = {
-  searchParams: {
+  searchParams: Promise<{
     search?: string;
     sort?: string;
-  };
+  }>;
 };
 
-export const generateMetadata = ({ searchParams }: Props): Metadata => {
+export const generateMetadata = async (props: Props): Promise<Metadata> => {
+  const searchParams = await props.searchParams;
   const search = searchParams.search;
   const pageTitle = `Projects${search ? ` matching "${search}"` : ""}`;
   const pageDescription = search
@@ -31,7 +32,8 @@ export const generateMetadata = ({ searchParams }: Props): Metadata => {
   };
 };
 
-export default ({ searchParams }: Props) => {
+export default async (props: Props) => {
+  const searchParams = await props.searchParams;
   const searchParam = searchParams.search;
   const sortParam = searchParams.sort;
   const exactTagSearch = searchParam?.startsWith("tag:");

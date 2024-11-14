@@ -1,3 +1,6 @@
+"use server";
+
+import { unstable_cache } from "next/cache";
 import querystring from "querystring";
 
 const client_id = process.env.SPOTIFY_ID;
@@ -18,53 +21,58 @@ const getAccessToken = async () => {
       grant_type: "refresh_token",
       refresh_token,
     }),
-    cache: "no-cache",
   });
 
   return response.json();
 };
 
-export const getTopTracks = async (range: string) => {
-  const { access_token } = await getAccessToken();
+export const getTopTracks = unstable_cache(
+  async (range: string) => {
+    const { access_token } = await getAccessToken();
 
-  const url = new URL("https://api.spotify.com/v1/me/top/tracks");
+    const url = new URL("https://api.spotify.com/v1/me/top/tracks");
 
-  // Excluding medium_term as it's the default
-  const validRange = ["short_term", "long_term"].includes(range);
-  if (validRange) url.searchParams.append("time_range", range);
+    // Excluding medium_term as it's the default
+    const validRange = ["short_term", "long_term"].includes(range);
+    if (validRange) url.searchParams.append("time_range", range);
 
-  const res = await fetch(url, {
-    headers: {
-      Authorization: `Bearer ${access_token}`,
-    },
-    next: { revalidate: 86_400 },
-  });
+    const res = await fetch(url, {
+      headers: {
+        Authorization: `Bearer ${access_token}`,
+      },
+    });
 
-  return res.ok
-    ? ((await res.json()) as SpotifyApi.UsersTopTracksResponse)
-    : null;
-};
+    return res.ok
+      ? ((await res.json()) as SpotifyApi.UsersTopTracksResponse)
+      : null;
+  },
+  [],
+  { revalidate: 86_400 },
+);
 
-export const getTopArtists = async (range: string) => {
-  const { access_token } = await getAccessToken();
+export const getTopArtists = unstable_cache(
+  async (range: string) => {
+    const { access_token } = await getAccessToken();
 
-  const url = new URL("https://api.spotify.com/v1/me/top/artists?limit=30");
+    const url = new URL("https://api.spotify.com/v1/me/top/artists?limit=30");
 
-  // Excluding medium_term as it's the default
-  const validRange = ["short_term", "long_term"].includes(range);
-  if (validRange) url.searchParams.append("time_range", range);
+    // Excluding medium_term as it's the default
+    const validRange = ["short_term", "long_term"].includes(range);
+    if (validRange) url.searchParams.append("time_range", range);
 
-  const res = await fetch(url, {
-    headers: {
-      Authorization: `Bearer ${access_token}`,
-    },
-    next: { revalidate: 86_400 },
-  });
+    const res = await fetch(url, {
+      headers: {
+        Authorization: `Bearer ${access_token}`,
+      },
+    });
 
-  return res.ok
-    ? ((await res.json()) as SpotifyApi.UsersTopArtistsResponse)
-    : null;
-};
+    return res.ok
+      ? ((await res.json()) as SpotifyApi.UsersTopArtistsResponse)
+      : null;
+  },
+  [],
+  { revalidate: 86_400 },
+);
 
 export const getCurrentlyPlaying = async () => {
   const { access_token } = await getAccessToken();
@@ -75,7 +83,6 @@ export const getCurrentlyPlaying = async () => {
       headers: {
         Authorization: `Bearer ${access_token}`,
       },
-      cache: "no-cache",
     },
   );
 

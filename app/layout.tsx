@@ -1,8 +1,6 @@
 // ROOT LAYOUT - SETS UP METADATA AND FONTS
 
 import type { Metadata } from "next";
-import { Analytics } from "@vercel/analytics/react";
-import { SpeedInsights } from "@vercel/speed-insights/next";
 import { GeistMono } from "geist/font/mono";
 import { GeistSans } from "geist/font/sans";
 import generateOGMetadata from "./utils/generateOGMetadata";
@@ -43,11 +41,7 @@ export default ({ children }: { children: React.ReactNode }) => {
       className={`${GeistMono.variable} ${GeistSans.variable} overflow-y-scroll`}
       lang="en"
     >
-      <body>
-        <Analytics scriptSrc="/assets/va/script.js" />
-        <SpeedInsights scriptSrc="/assets/si/script.js" />
-        {children}
-      </body>
+      <body>{children}</body>
     </html>
   );
 };

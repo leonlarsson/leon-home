@@ -1,5 +1,6 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
+import { NextConfig } from "next";
+
+export default {
   // Needs to be set to standalone when used with Docker
   // output: "standalone",
   redirects: async () => [
@@ -36,6 +37,4 @@ const nextConfig = {
       fullUrl: true,
     },
   },
-};
-
-module.exports = nextConfig;
+} satisfies NextConfig;

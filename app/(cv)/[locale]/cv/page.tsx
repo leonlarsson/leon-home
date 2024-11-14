@@ -5,22 +5,29 @@ import Icons from "@/app/(main)/components/icons";
 import { pageMetadata, sections } from "@/data/cv";
 
 type Props = {
-  params: {
+  params: Promise<{
     locale: string;
-  };
+  }>;
 };
 
-export const generateMetadata = ({ params: { locale } }: Props) => {
-  if (locale !== "en" && locale !== "sv") return;
+export const generateMetadata = async (props: Props) => {
+  const params = await props.params;
+  if (params.locale !== "en" && params.locale !== "sv") {
+    return;
+  }
 
   return {
-    title: pageMetadata.title[locale],
-    description: pageMetadata.description[locale],
+    title: pageMetadata.title[params.locale],
+    description: pageMetadata.description[params.locale],
   };
 };
 
-export default ({ params: { locale } }: Props) => {
-  if (locale !== "en" && locale !== "sv") return redirect("/en/cv");
+export default async (props: Props) => {
+  const params = await props.params;
+
+  if (params.locale !== "en" && params.locale !== "sv") {
+    return redirect("/en/cv");
+  }
 
   return (
     <div className="flex flex-col">
@@ -34,7 +41,7 @@ export default ({ params: { locale } }: Props) => {
           {
             <Icons.unitedKingdom
               className="inline size-9"
-              data-selected={locale === "en"}
+              data-selected={params.locale === "en"}
             />
           }
         </Link>
@@ -46,7 +53,7 @@ export default ({ params: { locale } }: Props) => {
           {
             <Icons.sweden
               className="inline size-9"
-              data-selected={locale === "sv"}
+              data-selected={params.locale === "sv"}
             />
           }
         </Link>
@@ -54,7 +61,7 @@ export default ({ params: { locale } }: Props) => {
 
       {/* Render sections based on the sections array in @/data/cv */}
       <div className="flex flex-col gap-6">
-        {sections(locale).map((section, i) => (
+        {sections(params.locale).map((section, i) => (
           <Fragment key={i}>{section}</Fragment>
         ))}
       </div>

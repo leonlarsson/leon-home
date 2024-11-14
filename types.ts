@@ -1,3 +1,4 @@
+import type { JSX } from "react";
 import { StaticImageData } from "next/image";
 import { entries } from "./db/schema";
 

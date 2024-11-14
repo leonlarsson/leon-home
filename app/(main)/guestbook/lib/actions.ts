@@ -63,7 +63,7 @@ export const postEntry = async (
   if (!namePassed) return false;
 
   // Cloudflare header because we're behind Cloudflare
-  const ip = headers().get("cf-connecting-ip") ?? "127.0.0.1";
+  const ip = (await headers()).get("cf-connecting-ip") ?? "127.0.0.1";
   const lastEntryByIp = await db.query.entries.findFirst({
     orderBy: desc(entries.date),
     where: eq(entries.ip, ip),

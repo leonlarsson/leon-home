@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, type JSX } from "react";
 import { useRouter } from "next/navigation";
 import formatDuration from "../lib/formatDuration";
 import Icons from "../../components/icons";

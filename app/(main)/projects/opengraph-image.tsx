@@ -6,10 +6,10 @@ export const runtime = "edge";
 
 export default async () => {
   const regularFont = fetch(
-    new URL("/public/assets/fonts/Inter-Regular.ttf", import.meta.url),
+    new URL("../../../public/assets/fonts/Inter-Regular.ttf", import.meta.url),
   ).then(res => res.arrayBuffer());
   const avatar = fetch(
-    new URL("/public/assets/images/avatar.png", import.meta.url),
+    new URL("../../../public/assets/images/avatar.png", import.meta.url),
   ).then(res => res.arrayBuffer());
   const [regularFontData, avatarData] = await Promise.all([
     regularFont,

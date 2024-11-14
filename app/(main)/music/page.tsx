@@ -24,12 +24,13 @@ export const metadata: Metadata = {
 };
 
 type Props = {
-  searchParams: {
+  searchParams: Promise<{
     range?: string;
-  };
+  }>;
 };
 
-export default ({ searchParams }: Props) => {
+export default async (props: Props) => {
+  const searchParams = await props.searchParams;
   return (
     <div className="mx-auto max-w-3xl pb-10 text-start">
       <div className="flex gap-2 text-3xl font-extrabold">

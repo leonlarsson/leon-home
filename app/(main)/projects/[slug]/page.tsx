@@ -16,11 +16,10 @@ const getProject = (slug: string) =>
     project => project.slug === slug || project.slugAliases?.includes(slug),
   );
 
-export const generateMetadata = ({
-  params,
-}: {
-  params: { slug: string };
-}): Metadata => {
+export const generateMetadata = async (props: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> => {
+  const params = await props.params;
   const project = getProject(params.slug);
 
   const pageTitle = `${project?.name ?? "Project #404"}`;
@@ -47,7 +46,8 @@ export const generateStaticParams = () => {
   }));
 };
 
-export default ({ params }: { params: { slug: string } }) => {
+export default async (props: { params: Promise<{ slug: string }> }) => {
+  const params = await props.params;
   const project = getProject(params.slug);
   const previousProject = project && projects[projects.indexOf(project) - 1];
   const nextProject = project && projects[projects.indexOf(project) + 1];
