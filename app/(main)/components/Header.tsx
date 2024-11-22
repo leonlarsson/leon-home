@@ -58,11 +58,17 @@ export default () => {
               newTab
             />
             <HeaderLink
+              content={<Icons.bluesky className="w-8" />}
+              url="https://bsky.app/profile/leon.ms"
+              title="Bluesky"
+              newTab
+            />
+            {/* <HeaderLink
               content={<Icons.twitterX className="w-8" />}
               url="https://x.com/MozzyFX"
               title="Twitter"
               newTab
-            />
+            /> */}
           </div>
         </div>
       </header>
