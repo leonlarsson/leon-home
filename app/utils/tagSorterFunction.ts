@@ -1,6 +1,6 @@
-import { ProjectTag } from "@/types";
+import type { ProjectTag } from "@/types";
 
-export default (a: ProjectTag, b: ProjectTag) => {
+export const tagSorterFunction = (a: ProjectTag, b: ProjectTag) => {
   // 1. Tags with a color value should come first
   // 2. Sort by name
   if (a.color && !b.color) return -1;
