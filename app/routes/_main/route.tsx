@@ -1,6 +1,6 @@
-import { createFileRoute, Outlet } from "@tanstack/react-router";
-import mainCss from "@/styles/main.css?url";
 import { Header } from "@/features/navigation/Header";
+import mainCss from "@/styles/main.css?url";
+import { Outlet, createFileRoute } from "@tanstack/react-router";
 
 export const Route = createFileRoute("/_main")({
   head: () => ({

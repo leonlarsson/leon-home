@@ -7,7 +7,7 @@
   },
   "files": {
     "ignoreUnknown": false,
-    "ignore": [".vscode", "./app/routeTree.gen.ts"]
+    "ignore": [".vscode", "./app/client.tsx", "./app/ssr.tsx", "./app/routeTree.gen.ts", "./app/features/icons"]
   },
   "formatter": {
     "enabled": true,

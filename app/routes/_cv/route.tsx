@@ -1,9 +1,9 @@
-import * as React from 'react'
-import { createFileRoute, Outlet } from '@tanstack/react-router'
+import { Outlet, createFileRoute } from "@tanstack/react-router";
+import * as React from "react";
 
-export const Route = createFileRoute('/_cv')({
+export const Route = createFileRoute("/_cv")({
   component: RouteComponent,
-})
+});
 
 function RouteComponent() {
   return (
@@ -12,5 +12,5 @@ function RouteComponent() {
       <br />
       <Outlet />
     </div>
-  )
+  );
 }

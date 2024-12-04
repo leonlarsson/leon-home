@@ -1,10 +1,10 @@
-import { createFileRoute } from "@tanstack/react-router";
 import projectsData from "@/data/projects";
 import { ProjectCard } from "@/features/projects/components/ProjectCard";
-import { z } from "zod";
-import { ProjectSortCheckbox } from "@/features/projects/components/SortCheckbox";
 import { ProjectSearch } from "@/features/projects/components/ProjectSearch";
+import { ProjectSortCheckbox } from "@/features/projects/components/SortCheckbox";
+import { createFileRoute } from "@tanstack/react-router";
 import cn from "classnames";
+import { z } from "zod";
 
 const projectPageSearchParams = z.object({
   search: z.string().optional(),

@@ -1,6 +1,6 @@
+import globalCss from "@/styles/globals.css?url";
 import { Outlet, ScrollRestoration, createRootRoute } from "@tanstack/react-router";
 import { Meta, Scripts } from "@tanstack/start";
-import globalCss from "@/styles/globals.css?url";
 
 export const Route = createRootRoute({
   head: () => ({

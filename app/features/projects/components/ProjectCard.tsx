@@ -1,8 +1,8 @@
 import Icons from "@/features/icons/icons";
 import type { Project as ProjectType } from "@/types";
+import { tagSorterFunction } from "@/utils/tagSorterFunction";
 import { Link } from "@tanstack/react-router";
 import { ProjectTag } from "./ProjectTag";
-import { tagSorterFunction } from "@/utils/tagSorterFunction";
 
 export const ProjectCard = ({
   project,

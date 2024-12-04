@@ -1,5 +1,5 @@
-import { getRouteApi } from "@tanstack/react-router";
 import { GradientBorder } from "@/features/common/GradientBorder";
+import { getRouteApi } from "@tanstack/react-router";
 
 export const ProjectSearch = () => {
   const { useNavigate, useSearch } = getRouteApi("/_main/projects/");

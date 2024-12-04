@@ -1,7 +1,7 @@
 import projects from "@/data/projects";
 import Icons from "@/features/icons/icons";
 import { ProjectCard } from "@/features/projects/components/ProjectCard";
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { Link, createFileRoute } from "@tanstack/react-router";
 import { TypeAnimation } from "react-type-animation";
 
 export const Route = createFileRoute("/_main/")({

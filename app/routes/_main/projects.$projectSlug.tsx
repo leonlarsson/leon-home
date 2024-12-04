@@ -1,10 +1,10 @@
-import { createFileRoute, Link, redirect } from "@tanstack/react-router";
 import projects from "@/data/projects";
+import { GradientBorder } from "@/features/common/GradientBorder";
 import Icons from "@/features/icons/icons";
+import { ProjectCard } from "@/features/projects/components/ProjectCard";
 import { ProjectTag } from "@/features/projects/components/ProjectTag";
 import { tagSorterFunction } from "@/utils/tagSorterFunction";
-import { ProjectCard } from "@/features/projects/components/ProjectCard";
-import { GradientBorder } from "@/features/common/GradientBorder";
+import { Link, createFileRoute, redirect } from "@tanstack/react-router";
 import cn from "classnames";
 
 export const Route = createFileRoute("/_main/projects/$projectSlug")({

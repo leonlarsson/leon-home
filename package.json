@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "vinxi dev",
     "build": "vinxi build",
-    "start": "vinxi start"
+    "start": "vinxi start",
+    "biome": "npx @biomejs/biome check --write ."
   },
   "keywords": [],
   "author": "",
