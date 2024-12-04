@@ -1,10 +1,11 @@
 import { createFileRoute, Link, redirect } from "@tanstack/react-router";
 import projects from "@/data/projects";
 import Icons from "@/features/icons/icons";
-import { Tag } from "@/features/projects/components/Tag";
+import { ProjectTag } from "@/features/projects/components/ProjectTag";
 import { tagSorterFunction } from "@/utils/tagSorterFunction";
 import { ProjectCard } from "@/features/projects/components/ProjectCard";
 import { GradientBorder } from "@/features/common/GradientBorder";
+import cn from "classnames";
 
 export const Route = createFileRoute("/_main/projects/$projectSlug")({
   component: RouteComponent,
@@ -102,9 +103,9 @@ function RouteComponent() {
 
             {project.tags && (
               <div className="mb-3 mt-2 flex flex-wrap gap-1">
-                {project.year && <Tag tag={{ name: project.year }} clickable />}
+                {project.year && <ProjectTag tag={{ name: project.year }} clickable />}
                 {project.tags.sort(tagSorterFunction).map((tag) => (
-                  <Tag key={tag.name} tag={tag} clickable />
+                  <ProjectTag key={tag.name} tag={tag} clickable />
                 ))}
               </div>
             )}
@@ -172,7 +173,7 @@ function RouteComponent() {
                   <div>
                     <span className="text-lg font-bold">Connected projects:</span>
 
-                    <div className={`grid gap-3 ${connectedProjects.length > 1 ? "grid-cols-1 md:grid-cols-2" : ""}`}>
+                    <div className={cn("grid gap-3", connectedProjects.length > 1 && "grid-cols-1 md:grid-cols-2")}>
                       {connectedProjects.map((connectedProject) =>
                         connectedProject ? (
                           <ProjectCard key={connectedProject.slug} project={connectedProject} displayTags={false} />
@@ -217,11 +218,12 @@ function RouteComponent() {
                 <summary className="cursor-pointer p-2 text-center text-lg font-semibold text-white">Images</summary>
                 {/* Style: display as many cols as there are images */}
                 <div
-                  className={`grid gap-2 rounded bg-kinda-white p-1 dark:bg-kinda-black ${
-                    project.images.length === 1 ? "grid-cols-1" : ""
-                  } ${project.images.length === 2 ? "grid-cols-2" : ""} ${
-                    project.images.length === 3 ? "grid-cols-3" : ""
-                  } max-lg:grid-cols-1`}
+                  className={cn(
+                    "grid gap-2 rounded bg-kinda-white p-1 dark:bg-kinda-black max-lg:grid-cols-1",
+                    project.images.length === 1 && "grid-cols-1",
+                    project.images.length === 2 && "grid-cols-2",
+                    project.images.length === 3 && "grid-cols-3",
+                  )}
                 >
                   {project.images.map((image) => (
                     <div key={image}>
@@ -229,7 +231,7 @@ function RouteComponent() {
                       <img
                         src={image}
                         alt={`Project ${project.name}.`}
-                        className={`mx-auto select-none ${project.images.length > 1 ? "lg:w-full" : ""} rounded`}
+                        className={cn("mx-auto select-none rounded", project.images.length > 1 && "lg:w-full")}
                       />
                     </div>
                   ))}
@@ -250,13 +252,14 @@ function RouteComponent() {
 
           {/* List projects where the slug or one of the slug aliases match the param */}
           {matchingProjects.length > 0 && (
-            <div className={`mx-auto self-center ${matchingProjects.length === 1 ? "max-w-3xl" : ""}`}>
+            <div className={cn("mx-auto self-center", matchingProjects.length === 1 && "max-w-3xl")}>
               <div className="text-center">Maybe you were looking for:</div>
 
               <div
-                className={`grid gap-5 ${
-                  matchingProjects.length === 1 ? "self-center" : "grid-cols-1 md:grid-cols-2 xl:grid-cols-3"
-                }`}
+                className={cn(
+                  "grid gap-5",
+                  matchingProjects.length === 1 ? "self-center" : "grid-cols-1 md:grid-cols-2 xl:grid-cols-3",
+                )}
               >
                 {matchingProjects.map((project) => (
                   <ProjectCard key={project.slug} project={project} />

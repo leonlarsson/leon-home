@@ -4,6 +4,7 @@ import { ProjectCard } from "@/features/projects/components/ProjectCard";
 import { z } from "zod";
 import { ProjectSortCheckbox } from "@/features/projects/components/SortCheckbox";
 import { ProjectSearch } from "@/features/projects/components/ProjectSearch";
+import cn from "classnames";
 
 const projectPageSearchParams = z.object({
   search: z.string().optional(),
@@ -50,7 +51,7 @@ function RouteComponent() {
           <ProjectSortCheckbox />
         </div>
         {search && (
-          <span className={!projects.length ? "text-red-500 dark:text-red-400" : ""}>
+          <span className={cn(!projects.length && "text-red-500 dark:text-red-400")}>
             {projects.length || "No"} {projects.length === 1 ? "project" : "projects"} matching{" "}
             <span className="rounded bg-black p-1 font-semibold text-white dark:bg-kinda-white dark:text-kinda-black">
               {search}
@@ -60,9 +61,10 @@ function RouteComponent() {
 
         {/* // Use grid with 2 cols until medium, then use 1 col. Additionally, use 1 col if there is a single project */}
         <div
-          className={`grid gap-5 ${
-            projects.length === 1 ? "self-center" : "grid-cols-1 md:grid-cols-2 xl:grid-cols-3"
-          }`}
+          className={cn(
+            "grid gap-5",
+            projects.length === 1 ? "self-center" : "grid-cols-1 md:grid-cols-2 xl:grid-cols-3",
+          )}
         >
           {(sort === "newest" ? [...projects].reverse() : projects).map((project) => (
             <ProjectCard key={project.slug} project={project} />

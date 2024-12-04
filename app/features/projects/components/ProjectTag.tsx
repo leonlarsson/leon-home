@@ -1,11 +1,13 @@
-import type { ProjectTag } from "@/types";
+import type { ProjectTag as ProjectTagType } from "@/types";
 import { Link, useSearch } from "@tanstack/react-router";
+import classNames from "classnames";
+import cn from "classnames";
 
-export const Tag = ({
+export const ProjectTag = ({
   tag,
   clickable,
 }: {
-  tag: ProjectTag;
+  tag: ProjectTagType;
   active?: boolean;
   clickable?: boolean;
 }) => {
@@ -16,10 +18,12 @@ export const Tag = ({
   // Weird in order to please the Tailwind extension
   // If clickable and not already searching for this tag, make it hoverable
   // If already searching for this tag, make it a dotted border
-  const props = {
-    className: `select-none border-2 flex items-center gap-1 border-transparent rounded bg-blue-200 px-2 py-1 text-xs font-bold text-blue-700 transition-colors dark:bg-[#212528] dark:text-[#4b98f2] ${
-      clickable && !searchMatchesTag ? "hover:border-blue-700" : ""
-    } ${searchMatchesTag ? "border-dotted dark:border-blue-900 border-blue-600" : ""}`,
+  const className = {
+    className: cn(
+      "select-none border-2 flex items-center gap-1 border-transparent rounded bg-blue-200 px-2 py-1 text-xs font-bold text-blue-700 transition-colors dark:bg-[#212528] dark:text-[#4b98f2]",
+      clickable && !searchMatchesTag && "hover:border-blue-700",
+      searchMatchesTag && "border-dotted dark:border-blue-900 border-blue-600",
+    ),
   };
 
   // If clickable and not already searching for this tag, make it a button
@@ -27,14 +31,14 @@ export const Tag = ({
     <Link
       to="/projects"
       search={{ search: /\d{4}/.test(tag.name) ? tag.name : `tag:${tag.name}` }}
-      {...props}
+      {...className}
       title={`See other projects including "${tag.name}".`}
     >
       {tag.color && <TagColorBadge color={tag.color} />}
       {tag.name}
     </Link>
   ) : (
-    <Link {...props}>
+    <Link {...className}>
       {tag.color && <TagColorBadge color={tag.color} />}
       {tag.name}
     </Link>
@@ -48,7 +52,7 @@ type TagColorBadgeProps = {
 };
 export const TagColorBadge = ({ color, size, showBorder }: TagColorBadgeProps) => (
   <div
-    className={`size-2 rounded-full ${showBorder ? "border border-black" : ""}`}
+    className={classNames("size-2 rounded-full", showBorder && "border border-black")}
     style={{ backgroundColor: color, width: size ?? 8, height: size ?? 8 }}
   />
 );

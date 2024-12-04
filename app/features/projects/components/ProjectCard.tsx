@@ -1,7 +1,7 @@
 import Icons from "@/features/icons/icons";
 import type { Project as ProjectType } from "@/types";
 import { Link } from "@tanstack/react-router";
-import { Tag } from "./Tag";
+import { ProjectTag } from "./ProjectTag";
 import { tagSorterFunction } from "@/utils/tagSorterFunction";
 
 export const ProjectCard = ({
@@ -29,7 +29,7 @@ export const ProjectCard = ({
             </Link>{" "}
             {project.year && (
               <span
-                className="font-mono text-sm text-neutral-700 transition-colors dark:text-neutral-400"
+                className="font-mono text-xs text-neutral-700 transition-colors dark:text-neutral-400"
                 title={`First worked on ${project.year}.`}
               >
                 ({project.year}
@@ -67,7 +67,7 @@ export const ProjectCard = ({
         {displayTags && project.tags && (
           <div className="relative z-20 mt-1 flex w-fit flex-wrap gap-1">
             {project.tags.sort(tagSorterFunction).map((tag) => (
-              <Tag key={tag.name} tag={tag} clickable />
+              <ProjectTag key={tag.name} tag={tag} clickable />
             ))}
           </div>
         )}
@@ -116,8 +116,8 @@ export const ProjectCardSkeleton = () => (
 
       {/* Tags */}
       <div className="relative z-20 mt-1 flex w-fit flex-wrap gap-1">
-        <Tag tag={{ name: "Lorem" }} />
-        <Tag tag={{ name: "Ipsum" }} />
+        <ProjectTag tag={{ name: "Lorem" }} />
+        <ProjectTag tag={{ name: "Ipsum" }} />
       </div>
     </div>
   </div>
