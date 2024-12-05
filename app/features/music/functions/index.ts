@@ -1,9 +1,9 @@
 import { SpotifyApi } from "@spotify/web-api-ts-sdk";
 import queryString from "query-string";
 
-const client_id = process.env.SPOTIFY_ID;
-const client_secret = process.env.SPOTIFY_SECRET;
-const refresh_token = process.env.SPOTIFY_REFRESH_TOKEN;
+const client_id = import.meta.env.SPOTIFY_ID;
+const client_secret = import.meta.env.SPOTIFY_SECRET;
+const refresh_token = import.meta.env.SPOTIFY_REFRESH_TOKEN;
 
 const basic = Buffer.from(`${client_id}:${client_secret}`).toString("base64");
 const TOKEN_ENDPOINT = "https://accounts.spotify.com/api/token";
