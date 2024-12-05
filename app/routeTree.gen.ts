@@ -14,6 +14,7 @@ import { Route as rootRoute } from './routes/__root'
 import { Route as MainRouteImport } from './routes/_main/route'
 import { Route as CvRouteImport } from './routes/_cv/route'
 import { Route as MainIndexImport } from './routes/_main/index'
+import { Route as MainMusicImport } from './routes/_main/music'
 import { Route as CvCvImport } from './routes/_cv/cv'
 import { Route as MainProjectsIndexImport } from './routes/_main/projects.index'
 import { Route as MainProjectsProjectSlugImport } from './routes/_main/projects.$projectSlug'
@@ -34,6 +35,12 @@ const CvRouteRoute = CvRouteImport.update({
 const MainIndexRoute = MainIndexImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => MainRouteRoute,
+} as any)
+
+const MainMusicRoute = MainMusicImport.update({
+  id: '/music',
+  path: '/music',
   getParentRoute: () => MainRouteRoute,
 } as any)
 
@@ -86,6 +93,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CvCvImport
       parentRoute: typeof CvRouteImport
     }
+    '/_main/music': {
+      id: '/_main/music'
+      path: '/music'
+      fullPath: '/music'
+      preLoaderRoute: typeof MainMusicImport
+      parentRoute: typeof MainRouteImport
+    }
     '/_main/': {
       id: '/_main/'
       path: '/'
@@ -133,12 +147,14 @@ const CvRouteRouteWithChildren =
   CvRouteRoute._addFileChildren(CvRouteRouteChildren)
 
 interface MainRouteRouteChildren {
+  MainMusicRoute: typeof MainMusicRoute
   MainIndexRoute: typeof MainIndexRoute
   MainProjectsProjectSlugRoute: typeof MainProjectsProjectSlugRoute
   MainProjectsIndexRoute: typeof MainProjectsIndexRoute
 }
 
 const MainRouteRouteChildren: MainRouteRouteChildren = {
+  MainMusicRoute: MainMusicRoute,
   MainIndexRoute: MainIndexRoute,
   MainProjectsProjectSlugRoute: MainProjectsProjectSlugRoute,
   MainProjectsIndexRoute: MainProjectsIndexRoute,
@@ -151,6 +167,7 @@ const MainRouteRouteWithChildren = MainRouteRoute._addFileChildren(
 export interface FileRoutesByFullPath {
   '': typeof MainRouteRouteWithChildren
   '/cv': typeof CvCvRoute
+  '/music': typeof MainMusicRoute
   '/': typeof MainIndexRoute
   '/$locale/cv': typeof CvLocaleCvRoute
   '/projects/$projectSlug': typeof MainProjectsProjectSlugRoute
@@ -160,6 +177,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '': typeof CvRouteRouteWithChildren
   '/cv': typeof CvCvRoute
+  '/music': typeof MainMusicRoute
   '/': typeof MainIndexRoute
   '/$locale/cv': typeof CvLocaleCvRoute
   '/projects/$projectSlug': typeof MainProjectsProjectSlugRoute
@@ -171,6 +189,7 @@ export interface FileRoutesById {
   '/_cv': typeof CvRouteRouteWithChildren
   '/_main': typeof MainRouteRouteWithChildren
   '/_cv/cv': typeof CvCvRoute
+  '/_main/music': typeof MainMusicRoute
   '/_main/': typeof MainIndexRoute
   '/_cv/$locale/cv': typeof CvLocaleCvRoute
   '/_main/projects/$projectSlug': typeof MainProjectsProjectSlugRoute
@@ -182,17 +201,26 @@ export interface FileRouteTypes {
   fullPaths:
     | ''
     | '/cv'
+    | '/music'
     | '/'
     | '/$locale/cv'
     | '/projects/$projectSlug'
     | '/projects'
   fileRoutesByTo: FileRoutesByTo
-  to: '' | '/cv' | '/' | '/$locale/cv' | '/projects/$projectSlug' | '/projects'
+  to:
+    | ''
+    | '/cv'
+    | '/music'
+    | '/'
+    | '/$locale/cv'
+    | '/projects/$projectSlug'
+    | '/projects'
   id:
     | '__root__'
     | '/_cv'
     | '/_main'
     | '/_cv/cv'
+    | '/_main/music'
     | '/_main/'
     | '/_cv/$locale/cv'
     | '/_main/projects/$projectSlug'
@@ -234,6 +262,7 @@ export const routeTree = rootRoute
     "/_main": {
       "filePath": "_main/route.tsx",
       "children": [
+        "/_main/music",
         "/_main/",
         "/_main/projects/$projectSlug",
         "/_main/projects/"
@@ -242,6 +271,10 @@ export const routeTree = rootRoute
     "/_cv/cv": {
       "filePath": "_cv/cv.tsx",
       "parent": "/_cv"
+    },
+    "/_main/music": {
+      "filePath": "_main/music.tsx",
+      "parent": "/_main"
     },
     "/_main/": {
       "filePath": "_main/index.tsx",
