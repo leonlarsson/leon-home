@@ -6,6 +6,9 @@ export default defineConfig({
   server: {
     preset: "cloudflare-pages",
     unenv: cloudflare,
+    rollupConfig: {
+      external: ["node:async_hooks"],
+    },
   },
   vite: {
     build: {
