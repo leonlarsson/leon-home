@@ -32,10 +32,11 @@ export const SpotifyTopArtists = ({ range }: Props) => {
   return (
     <div className="grid grid-cols-1 min-[500px]:grid-cols-2 md:grid-cols-3">
       {artists.map((artist) => (
-        <Link
+        <a
           key={artist.id}
           href={artist.external_urls.spotify}
           target="_blank"
+          rel="noreferrer"
           className="flex items-center gap-3 rounded p-2 hover:bg-gray-300 dark:hover:bg-gray-300/10"
         >
           {/* Album image */}
@@ -54,7 +55,7 @@ export const SpotifyTopArtists = ({ range }: Props) => {
             {/* Artist name */}
             <span className="text-lg font-semibold">{artist.name}</span>
           </div>
-        </Link>
+        </a>
       ))}
     </div>
   );

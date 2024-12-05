@@ -38,9 +38,15 @@ export const SpotifyTopTracks = ({ range, hideSpotifyURI }: Props) => {
           {/* Track number / play button */}
           <div className="ms-2 w-6 shrink-0 text-center text-neutral-700 max-[380px]:hidden dark:text-neutral-300">
             <span className="group-hover:hidden">{i + 1}</span>
-            <Link href={track.uri} target="_blank" title="Open in Spotify" className="hidden group-hover:block">
+            <a
+              href={track.uri}
+              target="_blank"
+              rel="noreferrer"
+              title="Open in Spotify"
+              className="hidden group-hover:block"
+            >
               <Icons.play className="size-6" />
-            </Link>
+            </a>
           </div>
 
           {/* Album image */}
@@ -56,23 +62,25 @@ export const SpotifyTopTracks = ({ range, hideSpotifyURI }: Props) => {
           <div className="flex flex-1 flex-col text-start">
             {/* Track name */}
             <span className="space-x-2">
-              <Link
+              <a
                 href={track.external_urls.spotify}
                 target="_blank"
+                rel="noreferrer"
                 className="text-lg font-semibold hover:underline"
               >
                 {track.name}
-              </Link>
+              </a>
 
               {!hideSpotifyURI && (
-                <Link
+                <a
                   href={track.uri}
                   target="_blank"
+                  rel="noreferrer"
                   title="Open in Spotify"
                   className="hidden hover:underline max-[380px]:inline"
                 >
                   <Icons.spotify className="inline size-4 text-[#1ed760]" />
-                </Link>
+                </a>
               )}
             </span>
 
@@ -80,9 +88,15 @@ export const SpotifyTopTracks = ({ range, hideSpotifyURI }: Props) => {
             <div className="text-sm text-neutral-700 dark:text-neutral-300">
               {track.artists
                 .map<React.ReactNode>((artist) => (
-                  <Link key={artist.id} href={artist.external_urls.spotify} target="_blank" className="hover:underline">
+                  <a
+                    key={artist.id}
+                    href={artist.external_urls.spotify}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="hover:underline"
+                  >
                     {artist.name}
-                  </Link>
+                  </a>
                 ))
                 .reduce((prev, curr) => [prev, ", ", curr])}
             </div>

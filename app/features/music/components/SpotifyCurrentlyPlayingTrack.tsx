@@ -62,14 +62,25 @@ export const SpotifyCurrentlyPlayingTrack = (props: Props) => {
             <div className={`${props.compact ? "" : "text-xl max-[380px]:text-lg"} font-semibold`}>
               {track ? (
                 <span className="flex items-center gap-2">
-                  <Link href={track.item.external_urls.spotify} target="_blank" className="hover:underline">
+                  <a
+                    href={track.item.external_urls.spotify}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="hover:underline"
+                  >
                     {track.item.name}
-                  </Link>
+                  </a>
 
                   {!props.hideSpotifyURI && props.compact && (
-                    <Link href={track.item.uri} target="_blank" title="Open in Spotify" className="hover:underline">
+                    <a
+                      href={track.item.uri}
+                      target="_blank"
+                      rel="noreferrer"
+                      title="Open in Spotify"
+                      className="hover:underline"
+                    >
                       <Icons.spotify className="size-4 text-[#1ed760]" />
-                    </Link>
+                    </a>
                   )}
                 </span>
               ) : (
@@ -82,22 +93,29 @@ export const SpotifyCurrentlyPlayingTrack = (props: Props) => {
               {/* @ts-expect-error The types are delusional */}
               {track?.item.artists
                 .map((artist: Artist) => (
-                  <Link key={artist.id} href={artist.external_urls.spotify} target="_blank" className="hover:underline">
+                  <a
+                    key={artist.id}
+                    href={artist.external_urls.spotify}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="hover:underline"
+                  >
                     {artist.name}
-                  </Link>
+                  </a>
                 ))
                 .reduce((prev: ReactNode, curr: ReactNode) => [prev, ", ", curr]) ?? "Come back later"}
             </div>
 
             {track && !props.hideSpotifyURI && !props.compact && (
-              <Link
+              <a
                 href={track.item.uri}
                 target="_blank"
+                rel="noreferrer"
                 className="mt-1 flex w-fit flex-wrap items-center gap-1 hover:underline"
               >
                 <Icons.spotify className="size-5 text-[#1ed760]" />
                 Open in Spotify
-              </Link>
+              </a>
             )}
           </div>
         </div>

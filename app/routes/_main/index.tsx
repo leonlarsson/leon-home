@@ -54,7 +54,13 @@ function RouteComponent() {
         {/* WORK */}
         <div>
           I work as a Software Developer at{" "}
-          <Link href="https://oksidia.fi" target="_blank" className="link inline-flex items-baseline" draggable={false}>
+          <a
+            href="https://oksidia.fi"
+            target="_blank"
+            rel="noreferrer"
+            className="link inline-flex items-baseline"
+            draggable={false}
+          >
             <img
               src={"/images/oksidialogo_notext.png"}
               alt="Oksidia logo"
@@ -63,7 +69,7 @@ function RouteComponent() {
               className="mx-1 self-center"
             />
             <span>Oksidia</span>
-          </Link>
+          </a>
           , where I work with JavaScript/TypeScript/PHP with Angular, React, and Laravel.{" "}
           <Link to="/cv" target="_blank" className="link whitespace-nowrap">
             Past experiences
