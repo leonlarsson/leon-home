@@ -103,16 +103,14 @@ export const SpotifyCurrentlyPlayingTrack = (props: Props) => {
         </div>
 
         {/* Track progress */}
-        {track && (
-          <SpotifyCurrentTrackProgress
-            key={track.progress_ms ?? 0}
-            type="combined"
-            isPlaying={!!track.is_playing}
-            initialProgress={track.progress_ms ?? 0}
-            duration={track.item.duration_ms}
-            refreshOnEnd={props.refreshOnEnd}
-          />
-        )}
+        <SpotifyCurrentTrackProgress
+          key={track?.progress_ms ?? 0}
+          type="combined"
+          isPlaying={!!track?.is_playing}
+          initialProgress={track?.progress_ms ?? 0}
+          duration={track?.item.duration_ms ?? 0}
+          refreshOnEnd={!!track && props.refreshOnEnd}
+        />
       </div>
     </>
   );
@@ -125,26 +123,43 @@ export const SpotifyCurrentlyPlayingTrackSkeleton = ({
   compact?: boolean;
   currentlyPlayingText?: React.ReactElement | string;
 }) => (
-  <div>
+  <>
     {currentlyPlayingText}
-    <div
-      className={`flex items-center rounded ${
-        compact ? "gap-3 p-1" : "gap-5 p-2"
-      } hover:bg-gray-300 dark:hover:bg-gray-300/10`}
-    >
-      {/* Album image */}
-      <div className={`${compact ? "h-10 w-10" : "h-24 w-24"} shrink-0 rounded bg-neutral-400 dark:bg-neutral-700`} />
+    <div className="rounded hover:bg-gray-300 dark:hover:bg-gray-300/10">
+      <div className={`flex items-center ${compact ? "gap-3 p-1" : "gap-5 p-2"}`}>
+        {/* Album image */}
+        <img
+          src={"/images/spotifylogo.png"}
+          className={`${compact ? "h-10 w-10" : "h-24 w-24"} shrink-0`}
+          alt="Spotify logo"
+          width={compact ? 40 : 96}
+          height={compact ? 40 : 96}
+        />
 
-      <div className="flex flex-1 flex-col text-start">
-        {/* Track name */}
-        <span className={`${compact ? "" : "text-xl"} font-semibold`}>Track name</span>
+        <div className="flex flex-1 flex-col text-start">
+          {/* Track name */}
+          <div className={`${compact ? "" : "text-xl max-[380px]:text-lg"} font-semibold`}>
+            <span className="flex items-center gap-2">
+              <span className="hover:underline">Loading...</span>
+            </span>
+          </div>
 
-        {/* Artist names */}
-        <span className={`${compact ? "text-xs" : "text-sm"} text-neutral-700 dark:text-neutral-300`}>Artist name</span>
+          {/* Artist names */}
+          <div className={`${compact ? "text-xs" : "text-sm"} text-neutral-700 dark:text-neutral-300`}>
+            <span>Loading...</span>
+          </div>
+        </div>
       </div>
 
       {/* Track progress */}
-      <span className="text-right text-sm text-neutral-700 dark:text-neutral-300">0:00 / 4:20</span>
+      <SpotifyCurrentTrackProgress
+        key={0}
+        type="combined"
+        isPlaying={true}
+        initialProgress={0}
+        duration={0}
+        refreshOnEnd={false}
+      />
     </div>
-  </div>
+  </>
 );

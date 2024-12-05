@@ -93,7 +93,7 @@ function RouteComponent() {
           server for 8 years, until September 2024.
         </div>
 
-        {/* MUSIC - DISABLED */}
+        {/* MUSIC */}
         <div>
           <Link to="/music" className="link">
             I am currently listening to:

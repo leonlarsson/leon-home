@@ -30,7 +30,7 @@ function RouteComponent() {
         <div className="flex flex-col gap-2">
           <span className="text-xl font-semibold">I am currently listening to:</span>
 
-          <SpotifyCurrentlyPlayingTrack alwaysRender reloadOnEnd />
+          <SpotifyCurrentlyPlayingTrack alwaysRender refreshOnEnd />
         </div>
 
         <SpotifyRangeSelector />
