@@ -24,4 +24,9 @@ export const getAccessTokenFn = async () => {
   return response.json();
 };
 
-export const spotifySdk = SpotifyApi.withAccessToken(client_id ?? "", await getAccessTokenFn());
+// export const spotifySdk = SpotifyApi.withAccessToken(client_id ?? "", await getAccessTokenFn());
+
+export const getSpotifySdk = async () => {
+  const accessToken = await getAccessTokenFn();
+  return SpotifyApi.withAccessToken(client_id ?? "", accessToken);
+};

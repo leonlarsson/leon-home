@@ -9,10 +9,10 @@ export default defineConfig({
   },
   vite: {
     build: {
-      target: "es2022",
+      target: "esnext",
     },
     esbuild: {
-      target: "es2022",
+      target: "esnext",
     },
     plugins: [
       tsConfigPaths({

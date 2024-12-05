@@ -1,14 +1,13 @@
 import Icons from "@/features/icons/icons";
 import type { Artist } from "@spotify/web-api-ts-sdk";
 import { useQuery } from "@tanstack/react-query";
-import { Link } from "@tanstack/react-router";
 import { createServerFn, useServerFn } from "@tanstack/start";
 import type { ReactNode } from "react";
-import { spotifySdk } from "../functions";
+import { getSpotifySdk } from "../functions";
 import { SpotifyCurrentTrackProgress } from "./SpotifyCurrentlyPlayingTrackProgress";
 
 const getCurrentlyPlayingTrackServerFn = createServerFn().handler(async () => {
-  const playbackState = await spotifySdk.player.getCurrentlyPlayingTrack();
+  const playbackState = await (await getSpotifySdk()).player.getCurrentlyPlayingTrack();
   return playbackState;
 });
 

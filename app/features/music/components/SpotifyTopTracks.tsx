@@ -2,13 +2,13 @@ import Icons from "@/features/icons/icons";
 import { useSuspenseQuery } from "@tanstack/react-query";
 import { Link } from "@tanstack/react-router";
 import { createServerFn, useServerFn } from "@tanstack/start";
-import { spotifySdk } from "../functions";
+import { getSpotifySdk } from "../functions";
 import formatDuration from "../utils/formatDuration";
 
 const getTopTracksServerFn = createServerFn()
   .validator((range: "short_term" | "medium_term" | "long_term") => range)
   .handler(async (ctx) => {
-    return await spotifySdk.currentUser.topItems("tracks", ctx.data);
+    return await (await getSpotifySdk()).currentUser.topItems("tracks", ctx.data);
   });
 
 type Props = {

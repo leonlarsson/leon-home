@@ -1,13 +1,12 @@
 import { useSuspenseQuery } from "@tanstack/react-query";
-import { Link } from "@tanstack/react-router";
 import { createServerFn, useServerFn } from "@tanstack/start";
-import { spotifySdk } from "../functions";
+import { getSpotifySdk } from "../functions";
 
 const getTopArtistsServerFn = createServerFn()
   .validator((range: "short_term" | "medium_term" | "long_term") => range)
   .handler(async (ctx) => {
     console.time("getTopArtistsServerFn");
-    const result = await spotifySdk.currentUser.topItems("artists", ctx.data);
+    const result = await (await getSpotifySdk()).currentUser.topItems("artists", ctx.data);
     console.timeEnd("getTopArtistsServerFn");
 
     return result;
