@@ -1,5 +1,4 @@
 import { Outlet, createFileRoute } from "@tanstack/react-router";
-import * as React from "react";
 
 export const Route = createFileRoute("/_cv")({
   component: RouteComponent,
@@ -7,9 +6,7 @@ export const Route = createFileRoute("/_cv")({
 
 function RouteComponent() {
   return (
-    <div>
-      I am cv layout
-      <br />
+    <div className="container mx-auto min-h-[100svh] max-w-3xl px-4 pb-10 pt-2 lg:pt-10">
       <Outlet />
     </div>
   );

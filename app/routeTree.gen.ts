@@ -15,6 +15,7 @@ import { Route as MainRouteImport } from './routes/_main/route'
 import { Route as CvRouteImport } from './routes/_cv/route'
 import { Route as MainIndexImport } from './routes/_main/index'
 import { Route as MainMusicImport } from './routes/_main/music'
+import { Route as CvResumeImport } from './routes/_cv/resume'
 import { Route as CvCvImport } from './routes/_cv/cv'
 import { Route as MainProjectsIndexImport } from './routes/_main/projects.index'
 import { Route as MainProjectsProjectSlugImport } from './routes/_main/projects.$projectSlug'
@@ -42,6 +43,12 @@ const MainMusicRoute = MainMusicImport.update({
   id: '/music',
   path: '/music',
   getParentRoute: () => MainRouteRoute,
+} as any)
+
+const CvResumeRoute = CvResumeImport.update({
+  id: '/resume',
+  path: '/resume',
+  getParentRoute: () => CvRouteRoute,
 } as any)
 
 const CvCvRoute = CvCvImport.update({
@@ -93,6 +100,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CvCvImport
       parentRoute: typeof CvRouteImport
     }
+    '/_cv/resume': {
+      id: '/_cv/resume'
+      path: '/resume'
+      fullPath: '/resume'
+      preLoaderRoute: typeof CvResumeImport
+      parentRoute: typeof CvRouteImport
+    }
     '/_main/music': {
       id: '/_main/music'
       path: '/music'
@@ -135,11 +149,13 @@ declare module '@tanstack/react-router' {
 
 interface CvRouteRouteChildren {
   CvCvRoute: typeof CvCvRoute
+  CvResumeRoute: typeof CvResumeRoute
   CvLocaleCvRoute: typeof CvLocaleCvRoute
 }
 
 const CvRouteRouteChildren: CvRouteRouteChildren = {
   CvCvRoute: CvCvRoute,
+  CvResumeRoute: CvResumeRoute,
   CvLocaleCvRoute: CvLocaleCvRoute,
 }
 
@@ -167,6 +183,7 @@ const MainRouteRouteWithChildren = MainRouteRoute._addFileChildren(
 export interface FileRoutesByFullPath {
   '': typeof MainRouteRouteWithChildren
   '/cv': typeof CvCvRoute
+  '/resume': typeof CvResumeRoute
   '/music': typeof MainMusicRoute
   '/': typeof MainIndexRoute
   '/$locale/cv': typeof CvLocaleCvRoute
@@ -177,6 +194,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '': typeof CvRouteRouteWithChildren
   '/cv': typeof CvCvRoute
+  '/resume': typeof CvResumeRoute
   '/music': typeof MainMusicRoute
   '/': typeof MainIndexRoute
   '/$locale/cv': typeof CvLocaleCvRoute
@@ -189,6 +207,7 @@ export interface FileRoutesById {
   '/_cv': typeof CvRouteRouteWithChildren
   '/_main': typeof MainRouteRouteWithChildren
   '/_cv/cv': typeof CvCvRoute
+  '/_cv/resume': typeof CvResumeRoute
   '/_main/music': typeof MainMusicRoute
   '/_main/': typeof MainIndexRoute
   '/_cv/$locale/cv': typeof CvLocaleCvRoute
@@ -201,6 +220,7 @@ export interface FileRouteTypes {
   fullPaths:
     | ''
     | '/cv'
+    | '/resume'
     | '/music'
     | '/'
     | '/$locale/cv'
@@ -210,6 +230,7 @@ export interface FileRouteTypes {
   to:
     | ''
     | '/cv'
+    | '/resume'
     | '/music'
     | '/'
     | '/$locale/cv'
@@ -220,6 +241,7 @@ export interface FileRouteTypes {
     | '/_cv'
     | '/_main'
     | '/_cv/cv'
+    | '/_cv/resume'
     | '/_main/music'
     | '/_main/'
     | '/_cv/$locale/cv'
@@ -256,6 +278,7 @@ export const routeTree = rootRoute
       "filePath": "_cv/route.tsx",
       "children": [
         "/_cv/cv",
+        "/_cv/resume",
         "/_cv/$locale/cv"
       ]
     },
@@ -270,6 +293,10 @@ export const routeTree = rootRoute
     },
     "/_cv/cv": {
       "filePath": "_cv/cv.tsx",
+      "parent": "/_cv"
+    },
+    "/_cv/resume": {
+      "filePath": "_cv/resume.tsx",
       "parent": "/_cv"
     },
     "/_main/music": {
