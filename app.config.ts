@@ -8,6 +8,9 @@ export default defineConfig({
     unenv: cloudflare,
   },
   vite: {
+    build: {
+      target: "es2020",
+    },
     plugins: [
       tsConfigPaths({
         projects: ["./tsconfig.json"],
