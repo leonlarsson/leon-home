@@ -1,4 +1,5 @@
 import Icons from "@/features/icons/icons";
+import { useQueryClient } from "@tanstack/react-query";
 import { useRouter } from "@tanstack/react-router";
 import { type ReactElement, useEffect, useState } from "react";
 import formatDuration from "../utils/formatDuration";
@@ -8,11 +9,17 @@ type Props = {
   isPlaying: boolean;
   initialProgress: number;
   duration: number;
-  reloadOnEnd?: boolean;
+  refreshOnEnd?: boolean;
 };
 
-export default ({ type, isPlaying, initialProgress, duration, reloadOnEnd }: Props): ReactElement => {
-  const router = useRouter();
+export const SpotifyCurrentTrackProgress = ({
+  type,
+  isPlaying,
+  initialProgress,
+  duration,
+  refreshOnEnd,
+}: Props): ReactElement => {
+  const queryClient = useQueryClient();
   const [progress, setProgress] = useState(initialProgress);
 
   // Update progress every second
@@ -37,12 +44,14 @@ export default ({ type, isPlaying, initialProgress, duration, reloadOnEnd }: Pro
     }
   }, [duration, isPlaying]);
 
-  // Refresh page when track ends
+  // Invalidate query on track end
   useEffect(() => {
-    if (reloadOnEnd && progress >= duration) {
-      router.invalidate();
+    if (refreshOnEnd && progress >= duration) {
+      queryClient.invalidateQueries({
+        queryKey: ["music", "currentlyPlayingTrack"],
+      });
     }
-  }, [duration, reloadOnEnd, progress, router.invalidate]);
+  }, [duration, refreshOnEnd, progress, queryClient.invalidateQueries]);
 
   if (type === "time")
     return (

@@ -1,5 +1,6 @@
 import projects from "@/data/projects";
 import Icons from "@/features/icons/icons";
+import { SpotifyCurrentlyPlayingTrack } from "@/features/music/components/SpotifyCurrentlyPlayingTrack";
 import { ProjectCard } from "@/features/projects/components/ProjectCard";
 import { Link, createFileRoute } from "@tanstack/react-router";
 import { TypeAnimation } from "react-type-animation";
@@ -93,15 +94,13 @@ function RouteComponent() {
         </div>
 
         {/* MUSIC - DISABLED */}
-        {/* <div>
-          <Link href="/music" className="link">
+        <div>
+          <Link to="/music" className="link">
             I am currently listening to:
           </Link>
 
-          <Suspense fallback={<CurrentTrackSkeleton compact />}>
-            <SpotifyCurrentTrack compact alwaysRender reloadOnEnd />
-          </Suspense>
-        </div> */}
+          <SpotifyCurrentlyPlayingTrack compact alwaysRender refreshOnEnd />
+        </div>
 
         {/* GUESTBOOK */}
         <div>
