@@ -1,8 +1,5 @@
 /* MAIN CSS */
 
-/* TODO: Might remove this in the future if I can get away with adding base to globals.css. Depends on how the CV works */
-@tailwind base;
-
 :root {
   @apply dark:[color-scheme:light_dark];
 }
