@@ -3,16 +3,32 @@ import { GradientBorder } from "@/features/common/GradientBorder";
 import Icons from "@/features/icons/icons";
 import { ProjectCard } from "@/features/projects/components/ProjectCard";
 import { ProjectTag } from "@/features/projects/components/ProjectTag";
+import { generateMetadata } from "@/utils/seo";
 import { tagSorterFunction } from "@/utils/tagSorterFunction";
 import { Link, createFileRoute, redirect } from "@tanstack/react-router";
 import cn from "classnames";
 
-export const Route = createFileRoute("/_main/projects/$projectSlug")({
-  component: RouteComponent,
-});
-
 const getProject = (slug: string) =>
   projects.find((project) => project.slug === slug || project.slugAliases?.includes(slug));
+
+export const Route = createFileRoute("/_main/projects/$projectSlug")({
+  component: RouteComponent,
+  head: ({ params }) => {
+    const project = getProject(params.projectSlug);
+
+    const title = `${project?.name ?? "Project #404"}`;
+    const description = project?.shortDescription ?? "You found Project #404.";
+
+    return {
+      meta: generateMetadata({
+        title,
+        description,
+        url: `https://leonlarsson.com/projects${project ? `/${project.slug}` : ""}`,
+        useTitleAsPrefix: true,
+      }),
+    };
+  },
+});
 
 function RouteComponent() {
   const { projectSlug } = Route.useParams();

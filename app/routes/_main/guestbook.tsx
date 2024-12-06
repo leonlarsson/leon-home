@@ -4,6 +4,7 @@ import { GuestbookEntriesSettings } from "@/features/guestbook/components/Guestb
 import { GuestbookSendMessageSection } from "@/features/guestbook/components/GuestbookSendMessageSection";
 import { getEntries, getEntriesCount } from "@/features/guestbook/functions";
 import Icons from "@/features/icons/icons";
+import { generateMetadata } from "@/utils/seo";
 import { useQuery } from "@tanstack/react-query";
 import { createFileRoute } from "@tanstack/react-router";
 import { createServerFn, useServerFn } from "@tanstack/start";
@@ -31,6 +32,16 @@ const guestbookPageSearchParams = z.object({
 export const Route = createFileRoute("/_main/guestbook")({
   component: RouteComponent,
   validateSearch: guestbookPageSearchParams.parse,
+  head: () => {
+    return {
+      meta: generateMetadata({
+        title: "Guestbook",
+        description: "A guestbook where you can send public messages to me.",
+        url: "https://leonlarsson.com/guestbook",
+        useTitleAsPrefix: true,
+      }),
+    };
+  },
 });
 
 function RouteComponent() {

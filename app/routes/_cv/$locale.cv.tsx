@@ -1,10 +1,22 @@
-import { sections } from "@/data/cv";
+import { pageMetadata, sections } from "@/data/cv";
 import Icons from "@/features/icons/icons";
+import { generateMetadata } from "@/utils/seo";
 import { Link, createFileRoute, redirect } from "@tanstack/react-router";
 import * as React from "react";
 
 export const Route = createFileRoute("/_cv/$locale/cv")({
   component: RouteComponent,
+  head: ({ params }) => {
+    const isValidLocale = params.locale === "en" || params.locale === "sv";
+    return {
+      meta: generateMetadata({
+        title: pageMetadata.title[params.locale],
+        description: pageMetadata.description[params.locale],
+        url: isValidLocale ? `https://leonlarsson.com/${params.locale}/cv` : "https://leonlarsson.com/en/cv",
+        useTitleAsPrefix: true,
+      }),
+    };
+  },
 });
 
 function RouteComponent() {

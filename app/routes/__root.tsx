@@ -1,21 +1,11 @@
 import globalCss from "@/styles/globals.css?url";
+import { generateMetadata } from "@/utils/seo";
 import { Outlet, ScrollRestoration, createRootRoute } from "@tanstack/react-router";
 import { Meta, Scripts } from "@tanstack/start";
 
 export const Route = createRootRoute({
   head: () => ({
-    meta: [
-      {
-        charSet: "utf-8",
-      },
-      {
-        name: "viewport",
-        content: "width=device-width, initial-scale=1",
-      },
-      {
-        title: "Leon San José Larsson",
-      },
-    ],
+    meta: generateMetadata({}),
     links: [
       { rel: "stylesheet", href: globalCss },
       {
@@ -31,7 +21,6 @@ export const Route = createRootRoute({
       { rel: "icon", type: "image/png", href: "/images/avatar.png" },
     ],
   }),
-  notFoundComponent: () => <div>Not found</div>,
   component: RootComponent,
 });
 

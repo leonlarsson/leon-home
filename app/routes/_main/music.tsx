@@ -3,6 +3,7 @@ import SpotifyRangeSelector from "@/features/music/components/SpotifyRangeSelect
 import SpotifyRefreshButton from "@/features/music/components/SpotifyRefreshButton";
 import { SpotifyTopArtists } from "@/features/music/components/SpotifyTopArtists";
 import { SpotifyTopTracks } from "@/features/music/components/SpotifyTopTracks";
+import { generateMetadata } from "@/utils/seo";
 import { createFileRoute } from "@tanstack/react-router";
 import { Suspense } from "react";
 import { z } from "zod";
@@ -14,6 +15,16 @@ const musicPageSearchParams = z.object({
 export const Route = createFileRoute("/_main/music")({
   component: RouteComponent,
   validateSearch: (search) => musicPageSearchParams.parse(search),
+  head: () => {
+    return {
+      meta: generateMetadata({
+        title: "Music",
+        description: "Check out the music I listen to.",
+        url: "https://leonlarsson.com/music",
+        useTitleAsPrefix: true,
+      }),
+    };
+  },
 });
 
 function RouteComponent() {

@@ -2,6 +2,7 @@ import projectsData from "@/data/projects";
 import { ProjectCard } from "@/features/projects/components/ProjectCard";
 import { ProjectSearch } from "@/features/projects/components/ProjectSearch";
 import { ProjectSortCheckbox } from "@/features/projects/components/SortCheckbox";
+import { generateMetadata } from "@/utils/seo";
 import { createFileRoute } from "@tanstack/react-router";
 import cn from "classnames";
 import { z } from "zod";
@@ -14,6 +15,20 @@ const projectPageSearchParams = z.object({
 export const Route = createFileRoute("/_main/projects/")({
   component: RouteComponent,
   validateSearch: (search) => projectPageSearchParams.parse(search),
+  head: ({ match }) => {
+    const { search } = match.search;
+    const title = `Projects${search ? ` matching "${search}"` : ""}`;
+    const description = search ? `Leon's projects matching "${search}".` : "Browse all of Leon's projects.";
+
+    return {
+      meta: generateMetadata({
+        title,
+        description,
+        url: "https://leonlarsson.com/projects",
+        useTitleAsPrefix: true,
+      }),
+    };
+  },
 });
 
 function RouteComponent() {
