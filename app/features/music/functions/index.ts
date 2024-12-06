@@ -1,14 +1,14 @@
 import { SpotifyApi } from "@spotify/web-api-ts-sdk";
 import queryString from "query-string";
+import { getEvent } from "vinxi/http";
 
-const client_id = process.env.SPOTIFY_ID;
-const client_secret = process.env.SPOTIFY_SECRET;
-const refresh_token = process.env.SPOTIFY_REFRESH_TOKEN;
-
-const basic = Buffer.from(`${client_id}:${client_secret}`).toString("base64");
 const TOKEN_ENDPOINT = "https://accounts.spotify.com/api/token";
 
 export const getAccessTokenFn = async () => {
+  const event = getEvent();
+  const basic = Buffer.from(
+    `${event.context.cloudflare.env.SPOTIFY_ID}:${event.context.cloudflare.env.SPOTIFY_SECRET}`,
+  ).toString("base64");
   const response = await fetch(TOKEN_ENDPOINT, {
     method: "POST",
     headers: {
@@ -17,16 +17,15 @@ export const getAccessTokenFn = async () => {
     },
     body: queryString.stringify({
       grant_type: "refresh_token",
-      refresh_token,
+      refresh_token: event.context.cloudflare.env.SPOTIFY_REFRESH_TOKEN,
     }),
   });
 
   return response.json();
 };
 
-// export const spotifySdk = SpotifyApi.withAccessToken(client_id ?? "", await getAccessTokenFn());
-
 export const getSpotifySdk = async () => {
+  const event = getEvent();
   const accessToken = await getAccessTokenFn();
-  return SpotifyApi.withAccessToken(client_id ?? "", accessToken);
+  return SpotifyApi.withAccessToken(event.context.cloudflare.env.SPOTIFY_ID ?? "", accessToken);
 };
