@@ -1,0 +1,35 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Geist";
+  font-style: normal;
+  font-weight: 100, 900;
+  font-display: swap;
+  src: url("/fonts/Geist-Variable.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Geist Mono";
+  font-style: normal;
+  font-weight: 100, 900;
+  font-display: swap;
+  src: url("/fonts/GeistMono-Variable.ttf") format("truetype");
+}
+
+@layer components {
+  .link {
+    font-weight: 500;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  .card {
+    @apply rounded-lg border border-neutral-300 bg-foreground-light p-3 shadow-sm transition-colors hover:border-neutral-500 dark:border-neutral-800 dark:bg-foreground-dark dark:hover:border-neutral-800 dark:hover:bg-neutral-900;
+  }
+
+  .card-alt {
+    @apply rounded-lg border border-neutral-300 bg-foreground-light p-3 shadow-sm transition-colors hover:border-neutral-500 dark:border-neutral-800 dark:bg-foreground-dark dark:hover:border-neutral-500;
+  }
+}

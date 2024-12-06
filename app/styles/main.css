@@ -1,0 +1,53 @@
+/* MAIN CSS */
+
+/* TODO: Might remove this in the future if I can get away with adding base to globals.css. Depends on how the CV works */
+@tailwind base;
+
+:root {
+  @apply dark:[color-scheme:light_dark];
+}
+
+.button-with-border {
+  @apply select-none rounded border border-black p-2 text-black transition-colors hover:bg-black hover:text-white dark:border-kinda-white/50 dark:text-kinda-white dark:hover:border-kinda-white dark:hover:bg-kinda-black;
+}
+
+.text-input {
+  @apply text-input-base border border-black/50 transition-colors focus:border-black dark:border-kinda-white/50 dark:focus:border-kinda-white;
+}
+
+.text-input-base {
+  @apply rounded bg-white p-2 shadow outline-none dark:bg-kinda-black;
+}
+
+.gradient-border {
+  background-image: linear-gradient(
+    var(--gradient-degree),
+    var(--gradient-from),
+    var(--gradient-via),
+    var(--gradient-to)
+  );
+  background-size: 400% 400%;
+  animation: gradient var(--gradient-anim-duration) ease infinite;
+}
+
+.gradient-border:hover {
+  background-image: linear-gradient(
+    var(--gradient-degree),
+    var(--gradient-hover-from),
+    var(--gradient-hover-via),
+    var(--gradient-hover-to)
+  );
+  animation-duration: var(--gradient-hover-anim-duration);
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}

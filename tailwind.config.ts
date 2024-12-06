@@ -1,16 +1,14 @@
 import type { Config } from "tailwindcss";
+import defaultTheme from "tailwindcss/defaultTheme";
 
 export default {
-  content: [
-    "./components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./app/**/*.{js,ts,jsx,tsx,mdx}",
-  ],
+  content: ["./app/**/*.{ts,tsx}"],
   plugins: [],
   theme: {
     extend: {
       fontFamily: {
-        sans: "var(--font-geist-sans)",
-        "geist-mono": "var(--font-geist-mono)",
+        sans: ["Geist", ...defaultTheme.fontFamily.sans],
+        mono: ["Geist Mono", ...defaultTheme.fontFamily.mono],
       },
       colors: {
         "kinda-black": "#070808",
