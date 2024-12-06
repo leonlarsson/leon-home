@@ -18,7 +18,6 @@ const app = defineConfig({
   vite: {
     define: await proxyCloudflareEnv(),
     plugins: [
-      // @ts-ignore whatever
       tsConfigPaths({
         projects: ["./tsconfig.json"],
       }),

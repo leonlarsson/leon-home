@@ -1,3 +1,5 @@
+import type { entries } from "./db/schema";
+
 export type ProjectTag = {
   name: string;
   color?: string;

@@ -3,6 +3,7 @@ node_modules
 dist
 .vinxi
 .vercel
+.wrangler
 
 .env
 .dev.vars

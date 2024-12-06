@@ -1,7 +1,7 @@
 import type { GuestbookEntry } from "@/types";
 import { profanity } from "@2toad/profanity";
 
-type GuestbookEntriesProps = { entries: GuestbookEntry[]; entriesCount: number; showTimestamps: boolean };
+type GuestbookEntriesProps = { entries: Omit<GuestbookEntry, "ip">[]; entriesCount: number; showTimestamps: boolean };
 
 export const GuestbookEntries = (props: GuestbookEntriesProps) => {
   return (

@@ -1,10 +1,11 @@
-import { db } from "@/db";
+import { getDb } from "@/db";
 import { entries } from "@/db/schema";
 import type { GuestbookEntry } from "@/types";
 import { desc, eq, isNotNull } from "drizzle-orm";
 import { getHeader, getHeaders } from "vinxi/http";
 
 export const getEntriesCount = async (namedEntriesOnly: boolean): Promise<number> => {
+  const db = await getDb();
   try {
     // Get a count of all entries that are not deleted
     const result = await db.$count(entries, namedEntriesOnly ? isNotNull(entries.name) : undefined);
@@ -15,15 +16,21 @@ export const getEntriesCount = async (namedEntriesOnly: boolean): Promise<number
   }
 };
 
-export const getEntries = async (namedEntriesOnly: boolean): Promise<GuestbookEntry[]> => {
+export const getEntries = async (namedEntriesOnly: boolean): Promise<Omit<GuestbookEntry, "ip">[]> => {
+  const db = await getDb();
   try {
     // Get all entries that are not deleted, sorted by date, limited to 100
-    const result = await db
-      .select()
-      .from(entries)
-      .where(namedEntriesOnly ? isNotNull(entries.name) : undefined)
-      .orderBy(desc(entries.date))
-      .limit(100);
+    const result = await db.query.entries.findMany({
+      columns: {
+        id: true,
+        body: true,
+        name: true,
+        date: true,
+      },
+      where: namedEntriesOnly ? isNotNull(entries.name) : undefined,
+      orderBy: desc(entries.date),
+      limit: 100,
+    });
 
     return result;
   } catch (error) {
@@ -33,6 +40,8 @@ export const getEntries = async (namedEntriesOnly: boolean): Promise<GuestbookEn
 };
 
 export const postEntry = async (message: string, name?: string): Promise<boolean | "ratelimited"> => {
+  const db = await getDb();
+
   if (!message.trim()) return false;
 
   // Validate message
