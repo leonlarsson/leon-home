@@ -15,6 +15,7 @@ import { Route as MainRouteImport } from './routes/_main/route'
 import { Route as CvRouteImport } from './routes/_cv/route'
 import { Route as MainIndexImport } from './routes/_main/index'
 import { Route as MainMusicImport } from './routes/_main/music'
+import { Route as MainGuestbookImport } from './routes/_main/guestbook'
 import { Route as CvResumeImport } from './routes/_cv/resume'
 import { Route as CvCvImport } from './routes/_cv/cv'
 import { Route as MainProjectsIndexImport } from './routes/_main/projects.index'
@@ -42,6 +43,12 @@ const MainIndexRoute = MainIndexImport.update({
 const MainMusicRoute = MainMusicImport.update({
   id: '/music',
   path: '/music',
+  getParentRoute: () => MainRouteRoute,
+} as any)
+
+const MainGuestbookRoute = MainGuestbookImport.update({
+  id: '/guestbook',
+  path: '/guestbook',
   getParentRoute: () => MainRouteRoute,
 } as any)
 
@@ -107,6 +114,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CvResumeImport
       parentRoute: typeof CvRouteImport
     }
+    '/_main/guestbook': {
+      id: '/_main/guestbook'
+      path: '/guestbook'
+      fullPath: '/guestbook'
+      preLoaderRoute: typeof MainGuestbookImport
+      parentRoute: typeof MainRouteImport
+    }
     '/_main/music': {
       id: '/_main/music'
       path: '/music'
@@ -163,6 +177,7 @@ const CvRouteRouteWithChildren =
   CvRouteRoute._addFileChildren(CvRouteRouteChildren)
 
 interface MainRouteRouteChildren {
+  MainGuestbookRoute: typeof MainGuestbookRoute
   MainMusicRoute: typeof MainMusicRoute
   MainIndexRoute: typeof MainIndexRoute
   MainProjectsProjectSlugRoute: typeof MainProjectsProjectSlugRoute
@@ -170,6 +185,7 @@ interface MainRouteRouteChildren {
 }
 
 const MainRouteRouteChildren: MainRouteRouteChildren = {
+  MainGuestbookRoute: MainGuestbookRoute,
   MainMusicRoute: MainMusicRoute,
   MainIndexRoute: MainIndexRoute,
   MainProjectsProjectSlugRoute: MainProjectsProjectSlugRoute,
@@ -184,6 +200,7 @@ export interface FileRoutesByFullPath {
   '': typeof MainRouteRouteWithChildren
   '/cv': typeof CvCvRoute
   '/resume': typeof CvResumeRoute
+  '/guestbook': typeof MainGuestbookRoute
   '/music': typeof MainMusicRoute
   '/': typeof MainIndexRoute
   '/$locale/cv': typeof CvLocaleCvRoute
@@ -195,6 +212,7 @@ export interface FileRoutesByTo {
   '': typeof CvRouteRouteWithChildren
   '/cv': typeof CvCvRoute
   '/resume': typeof CvResumeRoute
+  '/guestbook': typeof MainGuestbookRoute
   '/music': typeof MainMusicRoute
   '/': typeof MainIndexRoute
   '/$locale/cv': typeof CvLocaleCvRoute
@@ -208,6 +226,7 @@ export interface FileRoutesById {
   '/_main': typeof MainRouteRouteWithChildren
   '/_cv/cv': typeof CvCvRoute
   '/_cv/resume': typeof CvResumeRoute
+  '/_main/guestbook': typeof MainGuestbookRoute
   '/_main/music': typeof MainMusicRoute
   '/_main/': typeof MainIndexRoute
   '/_cv/$locale/cv': typeof CvLocaleCvRoute
@@ -221,6 +240,7 @@ export interface FileRouteTypes {
     | ''
     | '/cv'
     | '/resume'
+    | '/guestbook'
     | '/music'
     | '/'
     | '/$locale/cv'
@@ -231,6 +251,7 @@ export interface FileRouteTypes {
     | ''
     | '/cv'
     | '/resume'
+    | '/guestbook'
     | '/music'
     | '/'
     | '/$locale/cv'
@@ -242,6 +263,7 @@ export interface FileRouteTypes {
     | '/_main'
     | '/_cv/cv'
     | '/_cv/resume'
+    | '/_main/guestbook'
     | '/_main/music'
     | '/_main/'
     | '/_cv/$locale/cv'
@@ -285,6 +307,7 @@ export const routeTree = rootRoute
     "/_main": {
       "filePath": "_main/route.tsx",
       "children": [
+        "/_main/guestbook",
         "/_main/music",
         "/_main/",
         "/_main/projects/$projectSlug",
@@ -298,6 +321,10 @@ export const routeTree = rootRoute
     "/_cv/resume": {
       "filePath": "_cv/resume.tsx",
       "parent": "/_cv"
+    },
+    "/_main/guestbook": {
+      "filePath": "_main/guestbook.tsx",
+      "parent": "/_main"
     },
     "/_main/music": {
       "filePath": "_main/music.tsx",

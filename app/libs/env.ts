@@ -10,6 +10,8 @@ const publicSchema = createEnvSchema("Public", {});
 
 // Private environment variables should be defined in the `.dev.vars` file or cloudflare dashboard
 const privateSchema = createEnvSchema("Private", {
+  TURSO_URL: z.string(),
+  TURSO_AUTH_TOKEN: z.string(),
   SPOTIFY_ID: z.string(),
   SPOTIFY_SECRET: z.string(),
   SPOTIFY_REFRESH_TOKEN: z.string(),

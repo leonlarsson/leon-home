@@ -11,6 +11,9 @@ export default defineMiddleware({
 
       event.context.cloudflare = proxy;
 
+      // Set timezone to UTC
+      process.env.TZ = "UTC";
+
       await proxy.dispose();
     }
   },
