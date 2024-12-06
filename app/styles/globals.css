@@ -2,18 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
-.geist-sans {
-  font-family: "Geist", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 100, 900;
+@font-face {
+  font-family: "Geist";
   font-style: normal;
+  font-weight: 100, 900;
+  font-display: swap;
+  src: url("/fonts/Geist-Variable.ttf") format("truetype");
 }
 
-.geist-mono {
-  font-family: "Geist Mono", monospace;
-  font-optical-sizing: auto;
-  font-weight: 100, 900;
+@font-face {
+  font-family: "Geist Mono";
   font-style: normal;
+  font-weight: 100, 900;
+  font-display: swap;
+  src: url("/fonts/GeistMono-Variable.ttf") format("truetype");
 }
 
 @layer components {
