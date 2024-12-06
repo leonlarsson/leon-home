@@ -30,7 +30,7 @@ export const ProjectTag = ({
   return clickable && !searchMatchesTag ? (
     <Link
       to="/projects"
-      search={{ search: /\d{4}/.test(tag.name) ? tag.name : `tag:${tag.name}` }}
+      search={(prev) => ({ ...prev, search: /\d{4}/.test(tag.name) ? tag.name : `tag:${tag.name}` })}
       {...className}
       title={`See other projects including "${tag.name}".`}
     >
