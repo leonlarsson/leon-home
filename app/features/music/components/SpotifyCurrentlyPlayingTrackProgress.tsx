@@ -118,13 +118,14 @@ const ProgressBar = ({
   style?: React.CSSProperties;
   progress: number;
   duration: number;
-}) => (
-  <div className={"h-1 bg-neutral-400 dark:bg-[#4d4d4d]"} style={style}>
-    <div
-      className="h-full bg-neutral-700 dark:bg-white"
-      style={{ width: `${((progress / duration) * 100).toFixed(2)}%` }}
-    />
-  </div>
-);
+}) => {
+  const progressDecimal = Number.isNaN(progress / duration) ? 0 : (progress / duration) * 100;
+
+  return (
+    <div className={"h-1 bg-neutral-400 dark:bg-[#4d4d4d]"} style={style}>
+      <div className="h-full bg-neutral-700 dark:bg-white" style={{ width: `${progressDecimal.toFixed(2)}%` }} />
+    </div>
+  );
+};
 
 const PauseIcon = () => <Icons.pause className="size-4" />;
