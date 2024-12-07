@@ -9,6 +9,7 @@
     "start": "vinxi start",
     "preview": "npm run build && wrangler pages dev",
     "deploy": "npm run build && wrangler pages deploy",
+    "db:sync": "wrangler d1 execute home-guestbook --file='./app/db/schema.sql'",
     "biome": "npx @biomejs/biome check --write ."
   },
   "keywords": [],

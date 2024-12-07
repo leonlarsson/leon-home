@@ -1,4 +1,4 @@
-import type { Request } from "@cloudflare/workers-types";
+import type { D1Database, Request } from "@cloudflare/workers-types";
 import type { Env } from "./env";
 
 export type CloudflareEnv = Env & {
@@ -7,6 +7,7 @@ export type CloudflareEnv = Env & {
   CF_PAGES_BRANCH: string;
   CF_PAGES_COMMIT_SHA: string;
   CF_PAGES_URL: string;
+  DB: D1Database;
 };
 
 export function isInCloudflareCI() {
