@@ -1,6 +1,5 @@
 import Icons from "@/features/icons/icons";
 import { useQueryClient } from "@tanstack/react-query";
-import { useRouter } from "@tanstack/react-router";
 import { type ReactElement, useEffect, useState } from "react";
 import formatDuration from "../utils/formatDuration";
 
@@ -65,11 +64,7 @@ export const SpotifyCurrentTrackProgress = ({
   if (type === "combined")
     return (
       <div className="flex items-center gap-2 tabular-nums">
-        <span
-          className={`ms-1 ${
-            isPlaying ? "min-w-[40px]" : ""
-          } text-right text-sm text-neutral-700 dark:text-neutral-300`}
-        >
+        <span className={"ms-1 min-w-[40px] inline-flex justify-end text-sm text-neutral-700 dark:text-neutral-300"}>
           {isPlaying ? formatDuration(progress) : <PauseIcon />}
         </span>
 
