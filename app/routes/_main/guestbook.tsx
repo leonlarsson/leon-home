@@ -38,6 +38,7 @@ export const Route = createFileRoute("/_main/guestbook")({
         title: "Guestbook",
         description: "A guestbook where you can send public messages to me.",
         url: "https://leonlarsson.com/guestbook",
+        ogImageUrl: "https://leonlarsson.com/images/og/guestbook.png",
         useTitleAsPrefix: true,
       }),
     };

@@ -25,6 +25,7 @@ export const Route = createFileRoute("/_main/projects/")({
         title,
         description,
         url: "https://leonlarsson.com/projects",
+        // ogImageUrl: "https://leonlarsson.com/api/og/projects",
         useTitleAsPrefix: true,
       }),
     };

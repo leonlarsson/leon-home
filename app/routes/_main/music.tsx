@@ -21,6 +21,7 @@ export const Route = createFileRoute("/_main/music")({
         title: "Music",
         description: "Check out the music I listen to.",
         url: "https://leonlarsson.com/music",
+        ogImageUrl: "https://leonlarsson.com/images/og/music.png",
         useTitleAsPrefix: true,
       }),
     };

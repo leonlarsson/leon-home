@@ -2,6 +2,7 @@ type Props = {
   title?: string;
   description?: string;
   url?: string;
+  ogImageUrl?: string;
   useTitleAsPrefix?: boolean;
 };
 
@@ -12,6 +13,7 @@ export const generateMetadata = ({
   title,
   description,
   url,
+  ogImageUrl,
   useTitleAsPrefix,
 }: Props): React.DetailedHTMLProps<React.MetaHTMLAttributes<HTMLMetaElement>, HTMLMetaElement>[] => {
   return [
@@ -54,6 +56,18 @@ export const generateMetadata = ({
       content: "en-US",
     },
     {
+      name: "og:image",
+      content: ogImageUrl ?? "https://leonlarsson.com/images/og/root.png",
+    },
+    {
+      name: "og:image:width",
+      content: "900",
+    },
+    {
+      name: "og:image:height",
+      content: "600",
+    },
+    {
       name: "og:type",
       content: "website",
     },
@@ -72,6 +86,18 @@ export const generateMetadata = ({
     {
       name: "twitter:creator",
       content: "@mozzyfx",
+    },
+    {
+      name: "twitter:image",
+      content: ogImageUrl ?? "https://leonlarsson.com/images/og/root.png",
+    },
+    {
+      name: "twitter:image:width",
+      content: "900",
+    },
+    {
+      name: "twitter:image:height",
+      content: "600",
     },
   ];
 };

@@ -24,6 +24,7 @@ export const Route = createFileRoute("/_main/projects/$projectSlug")({
         title,
         description,
         url: `https://leonlarsson.com/projects${project ? `/${project.slug}` : ""}`,
+        // ogImageUrl: `https://leonlarsson.com/api/og/projects${project ? `/${project.slug}` : ""}`,
         useTitleAsPrefix: true,
       }),
     };

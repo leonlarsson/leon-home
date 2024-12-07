@@ -23,6 +23,7 @@
     "@tanstack/react-router": "^1.86.0",
     "@tanstack/react-router-with-query": "^1.86.0",
     "@tanstack/start": "^1.86.0",
+    "@vercel/og": "^0.6.4",
     "classnames": "^2.5.1",
     "drizzle-orm": "^0.37.0",
     "query-string": "^9.1.1",
