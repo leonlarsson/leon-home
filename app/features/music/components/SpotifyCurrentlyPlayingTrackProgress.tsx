@@ -64,7 +64,7 @@ export const SpotifyCurrentTrackProgress = ({
 
   if (type === "combined")
     return (
-      <div className="flex items-center gap-2">
+      <div className="flex items-center gap-2 tabular-nums">
         <span
           className={`ms-1 ${
             isPlaying ? "min-w-[40px]" : ""
@@ -84,7 +84,7 @@ export const SpotifyCurrentTrackProgress = ({
   if (type === "combinedTextTop")
     return (
       <div>
-        <div className="mx-1 flex items-center justify-between">
+        <div className="mx-1 flex items-center justify-between tabular-nums">
           <span className="text-sm text-neutral-700 dark:text-neutral-300">
             {isPlaying ? formatDuration(progress) : <PauseIcon />}
           </span>
@@ -98,7 +98,7 @@ export const SpotifyCurrentTrackProgress = ({
     return (
       <div>
         <ProgressBar progress={progress} duration={duration} />
-        <div className="mx-1 flex items-center justify-between">
+        <div className="mx-1 flex items-center justify-between tabular-nums">
           <span className="text-sm text-neutral-700 dark:text-neutral-300">
             {isPlaying ? formatDuration(progress) : <PauseIcon />}
           </span>
