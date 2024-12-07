@@ -371,7 +371,7 @@ export default [
     slug: "guestbook",
     name: "Guestbook",
     description:
-      "A guestbook for my personal website. It uses TanStack Start's Server Functions with TanStack Query and SQLite on Turso as the database.",
+      "A guestbook for my personal website. It uses TanStack Start's Server Functions with TanStack Query and SQLite on D1 as the database.",
     shortDescription: "A guestbook powered by TanStack Start's Server Functions and SQLite.",
     year: "2023",
     tags: [tags.REACT, tags.TANSTACK_START, tags.TANSTACK_QUERY, tags.TAILWIND, tags.TS, tags.API, tags.SQLITE],
