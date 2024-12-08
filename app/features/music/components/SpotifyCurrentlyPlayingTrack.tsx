@@ -8,9 +8,15 @@ import {
   type SpotifyCurrentlyPlayingTrackProgressType,
 } from "./SpotifyCurrentlyPlayingTrackProgress";
 
+// Server function to get the currently playing track
+// Only returns the playback state if the currently playing item is a track
 const getCurrentlyPlayingTrackServerFn = createServerFn().handler(async () => {
   const playbackState = await (await getSpotifySdk()).player.getCurrentlyPlayingTrack();
-  return playbackState;
+  if (playbackState?.currently_playing_type !== "track") {
+    return { playbackState: null };
+  }
+
+  return { playbackState };
 });
 
 type Props = {
@@ -27,7 +33,7 @@ export const SpotifyCurrentlyPlayingTrack = (props: Props) => {
 
   const query = useQuery({
     queryKey: ["music", "currentlyPlayingTrack"],
-    queryFn: () => getCurrentlyPlayingTrack(),
+    queryFn: () => getCurrentlyPlayingTrack().then((res) => res.playbackState),
   });
 
   if (query.isLoading) {
@@ -41,7 +47,6 @@ export const SpotifyCurrentlyPlayingTrack = (props: Props) => {
   }
 
   const playbackState = query.data;
-  const playbackItemIsTrack = playbackState?.currently_playing_type === "track";
   const track = playbackState?.item && "album" in playbackState.item ? playbackState.item : null;
 
   // If alwaysRender is false and there is no track playing, render nothing
@@ -124,11 +129,15 @@ export const SpotifyCurrentlyPlayingTrack = (props: Props) => {
         <SpotifyCurrentTrackProgress
           key={playbackState?.progress_ms ?? 0}
           type={props.barType}
-          // Only show pause icon if it's a track that is paused
-          isPlaying={playbackItemIsTrack ? !!playbackState.is_playing : true}
-          // Only set initial progress if a track is playing
-          initialProgress={playbackItemIsTrack ? playbackState?.progress_ms || 0 : 0}
-          duration={track?.duration_ms ?? 0}
+          playbackState={
+            playbackState
+              ? {
+                  initialProgress: playbackState.progress_ms,
+                  duration: track?.duration_ms ?? 0,
+                  isPlaying: playbackState.is_playing,
+                }
+              : undefined
+          }
           refreshOnEnd={!!track && props.refreshOnEnd}
         />
       </div>
@@ -137,13 +146,13 @@ export const SpotifyCurrentlyPlayingTrack = (props: Props) => {
 };
 
 export const SpotifyCurrentlyPlayingTrackSkeleton = ({
+  barType,
   compact,
   currentlyPlayingText,
-  barType,
 }: {
+  barType: SpotifyCurrentlyPlayingTrackProgressType;
   compact?: boolean;
   currentlyPlayingText?: React.ReactElement | string;
-  barType: SpotifyCurrentlyPlayingTrackProgressType;
 }) => (
   <>
     {currentlyPlayingText}
@@ -162,7 +171,7 @@ export const SpotifyCurrentlyPlayingTrackSkeleton = ({
           {/* Track name */}
           <div className={`${compact ? "" : "text-xl max-[380px]:text-lg"} font-semibold`}>
             <span className="flex items-center gap-2">
-              <span className="hover:underline">Loading...</span>
+              <span>Loading...</span>
             </span>
           </div>
 
@@ -174,14 +183,7 @@ export const SpotifyCurrentlyPlayingTrackSkeleton = ({
       </div>
 
       {/* Track progress */}
-      <SpotifyCurrentTrackProgress
-        key={0}
-        type={barType}
-        isPlaying={true}
-        initialProgress={0}
-        duration={0}
-        refreshOnEnd={false}
-      />
+      <SpotifyCurrentTrackProgress type={barType} />
     </div>
   </>
 );

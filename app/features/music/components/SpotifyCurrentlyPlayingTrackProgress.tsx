@@ -13,20 +13,17 @@ export type SpotifyCurrentlyPlayingTrackProgressType =
 
 type Props = {
   type: SpotifyCurrentlyPlayingTrackProgressType;
-  isPlaying: boolean;
-  initialProgress: number;
-  duration: number;
+  playbackState?: {
+    isPlaying: boolean;
+    duration: number;
+    initialProgress: number;
+  };
   refreshOnEnd?: boolean;
 };
 
-export const SpotifyCurrentTrackProgress = ({
-  type,
-  isPlaying,
-  initialProgress,
-  duration,
-  refreshOnEnd,
-}: Props): ReactElement => {
+export const SpotifyCurrentTrackProgress = ({ type, playbackState, refreshOnEnd }: Props): ReactElement => {
   const queryClient = useQueryClient();
+  const { duration = 0, isPlaying = false, initialProgress = 0 } = playbackState || {};
   const [progress, setProgress] = useState(initialProgress);
 
   // Update progress every second
@@ -49,21 +46,21 @@ export const SpotifyCurrentTrackProgress = ({
         clearInterval(interval);
       };
     }
-  }, [duration, isPlaying]);
+  }, [isPlaying, duration]);
 
   // Invalidate query on track end
   useEffect(() => {
-    if (refreshOnEnd && progress >= duration) {
+    if (refreshOnEnd && playbackState && progress >= duration) {
       queryClient.invalidateQueries({
         queryKey: ["music", "currentlyPlayingTrack"],
       });
     }
-  }, [duration, refreshOnEnd, progress, queryClient.invalidateQueries]);
+  }, [duration, playbackState, progress, queryClient.invalidateQueries, refreshOnEnd]);
 
   if (type === "time") {
     return (
       <span className="text-right text-sm ml-2 text-neutral-700 max-[380px]:hidden dark:text-neutral-300">
-        {isPlaying ? formatDuration(progress) : <PauseIcon />} / {formatDuration(duration)}
+        <Progress playbackState={playbackState} progress={progress} />
       </span>
     );
   }
@@ -76,7 +73,7 @@ export const SpotifyCurrentTrackProgress = ({
     return (
       <div className="flex items-center gap-2 tabular-nums">
         <span className={"ms-1 w-[40px] inline-flex justify-end text-sm text-neutral-700 dark:text-neutral-300"}>
-          {isPlaying ? formatDuration(progress) : <PauseIcon />}
+          <Progress playbackState={playbackState} progress={progress} />
         </span>
 
         <ProgressBar progress={progress} duration={duration} style={{ flex: "1 1 0%" }} />
@@ -93,7 +90,7 @@ export const SpotifyCurrentTrackProgress = ({
       <div>
         <div className="mx-1 flex items-center justify-between tabular-nums">
           <span className="text-sm text-neutral-700 dark:text-neutral-300">
-            {isPlaying ? formatDuration(progress) : <PauseIcon />}
+            <Progress playbackState={playbackState} progress={progress} />
           </span>
           <span className="text-sm text-neutral-700 dark:text-neutral-300">{formatDuration(duration)}</span>
         </div>
@@ -108,7 +105,7 @@ export const SpotifyCurrentTrackProgress = ({
         <ProgressBar progress={progress} duration={duration} />
         <div className="mx-1 flex items-center justify-between tabular-nums">
           <span className="text-sm text-neutral-700 dark:text-neutral-300">
-            {isPlaying ? formatDuration(progress) : <PauseIcon />}
+            <Progress playbackState={playbackState} progress={progress} />
           </span>
           <span className="text-sm text-neutral-700 dark:text-neutral-300">{formatDuration(duration)}</span>
         </div>
@@ -121,7 +118,7 @@ export const SpotifyCurrentTrackProgress = ({
 
 const ProgressBar = ({
   progress,
-  duration,
+  duration = 0,
   showPauseIcon,
   style,
 }: {
@@ -130,7 +127,7 @@ const ProgressBar = ({
   showPauseIcon?: boolean;
   style?: React.CSSProperties;
 }) => {
-  const progressDecimal = Number.isNaN(progress / duration) ? 0 : (progress / duration) * 100;
+  const progressDecimal = duration ? (progress / duration) * 100 : 0;
 
   return (
     <div className={"relative h-1 bg-neutral-400 dark:bg-[#4d4d4d]"} style={style}>
@@ -153,3 +150,19 @@ const ProgressBar = ({
 };
 
 const PauseIcon = () => <Icons.pause className="size-4" />;
+
+type ProgressProps = {
+  playbackState: Props["playbackState"];
+  progress: number;
+};
+
+// Display "0:00" when playbackState is undefined
+// Display actual progress when isPlaying is true
+// Display pause icon when isPlaying is false
+const Progress = ({ playbackState, progress }: ProgressProps) => {
+  if (!playbackState) {
+    return "0:00";
+  }
+
+  return playbackState.isPlaying ? formatDuration(progress) : <PauseIcon />;
+};
