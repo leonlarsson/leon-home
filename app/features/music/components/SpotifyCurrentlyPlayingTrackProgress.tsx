@@ -1,10 +1,18 @@
 import Icons from "@/features/icons/icons";
 import { useQueryClient } from "@tanstack/react-query";
+import classNames from "classnames";
 import { type ReactElement, useEffect, useState } from "react";
 import formatDuration from "../utils/formatDuration";
 
+export type SpotifyCurrentlyPlayingTrackProgressType =
+  | "time"
+  | "bar"
+  | "combined"
+  | "combinedTextTop"
+  | "combinedTextBottom";
+
 type Props = {
-  type: "time" | "bar" | "combined" | "combinedTextTop" | "combinedTextBottom";
+  type: SpotifyCurrentlyPlayingTrackProgressType;
   isPlaying: boolean;
   initialProgress: number;
   duration: number;
@@ -52,31 +60,35 @@ export const SpotifyCurrentTrackProgress = ({
     }
   }, [duration, refreshOnEnd, progress, queryClient.invalidateQueries]);
 
-  if (type === "time")
+  if (type === "time") {
     return (
-      <span className="text-right text-sm text-neutral-700 max-[380px]:hidden dark:text-neutral-300">
+      <span className="text-right text-sm ml-2 text-neutral-700 max-[380px]:hidden dark:text-neutral-300">
         {isPlaying ? formatDuration(progress) : <PauseIcon />} / {formatDuration(duration)}
       </span>
     );
+  }
 
-  if (type === "bar") return <ProgressBar progress={progress} duration={duration} />;
+  if (type === "bar") {
+    return <ProgressBar progress={progress} duration={duration} showPauseIcon={!isPlaying} />;
+  }
 
-  if (type === "combined")
+  if (type === "combined") {
     return (
       <div className="flex items-center gap-2 tabular-nums">
-        <span className={"ms-1 min-w-[40px] inline-flex justify-end text-sm text-neutral-700 dark:text-neutral-300"}>
+        <span className={"ms-1 w-[40px] inline-flex justify-end text-sm text-neutral-700 dark:text-neutral-300"}>
           {isPlaying ? formatDuration(progress) : <PauseIcon />}
         </span>
 
         <ProgressBar progress={progress} duration={duration} style={{ flex: "1 1 0%" }} />
 
-        <span className="me-1 min-w-[40px] text-left text-sm text-neutral-700 dark:text-neutral-300">
+        <span className="me-1 w-[40px] text-left text-sm text-neutral-700 dark:text-neutral-300">
           {formatDuration(duration)}
         </span>
       </div>
     );
+  }
 
-  if (type === "combinedTextTop")
+  if (type === "combinedTextTop") {
     return (
       <div>
         <div className="mx-1 flex items-center justify-between tabular-nums">
@@ -88,8 +100,9 @@ export const SpotifyCurrentTrackProgress = ({
         <ProgressBar progress={progress} duration={duration} />
       </div>
     );
+  }
 
-  if (type === "combinedTextBottom")
+  if (type === "combinedTextBottom") {
     return (
       <div>
         <ProgressBar progress={progress} duration={duration} />
@@ -101,6 +114,7 @@ export const SpotifyCurrentTrackProgress = ({
         </div>
       </div>
     );
+  }
 
   return <ProgressBar progress={progress} duration={duration} />;
 };
@@ -108,17 +122,32 @@ export const SpotifyCurrentTrackProgress = ({
 const ProgressBar = ({
   progress,
   duration,
+  showPauseIcon,
   style,
 }: {
-  style?: React.CSSProperties;
   progress: number;
   duration: number;
+  showPauseIcon?: boolean;
+  style?: React.CSSProperties;
 }) => {
   const progressDecimal = Number.isNaN(progress / duration) ? 0 : (progress / duration) * 100;
 
   return (
-    <div className={"h-1 bg-neutral-400 dark:bg-[#4d4d4d]"} style={style}>
-      <div className="h-full bg-neutral-700 dark:bg-white" style={{ width: `${progressDecimal.toFixed(2)}%` }} />
+    <div className={"relative h-1 bg-neutral-400 dark:bg-[#4d4d4d]"} style={style}>
+      <div
+        className={classNames("h-full bg-neutral-700 dark:bg-white")}
+        style={{ width: showPauseIcon ? 0 : `${progressDecimal.toFixed(2)}%` }}
+      />
+
+      {/* Pause icon */}
+      {showPauseIcon && duration !== 0 && (
+        <div
+          className="absolute inset-0 flex items-center justify-center bg-transparent"
+          style={{ pointerEvents: "none" }}
+        >
+          <PauseIcon />
+        </div>
+      )}
     </div>
   );
 };
