@@ -21,7 +21,8 @@ export const ProjectSearch = () => {
         className="text-input-base w-full"
         value={inputValue}
         onChange={(e) => {
-          const value = e.target.value.trim();
+          const value = e.target.value;
+          if (value === " ") return;
           setInputValue(value);
 
           // If value is not empty, set searchParam. Otherwise, remove the searchParam. Then replace the URL params
