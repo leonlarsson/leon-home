@@ -105,7 +105,7 @@ function RouteComponent() {
             I am currently listening to:
           </Link>
 
-          <SpotifyCurrentlyPlayingTrack compact alwaysRender refreshOnEnd />
+          <SpotifyCurrentlyPlayingTrack barType="bar" compact alwaysRender refreshOnEnd />
         </div>
 
         {/* GUESTBOOK */}

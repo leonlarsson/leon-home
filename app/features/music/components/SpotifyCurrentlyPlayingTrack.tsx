@@ -1,10 +1,12 @@
 import Icons from "@/features/icons/icons";
-import type { Artist } from "@spotify/web-api-ts-sdk";
 import { useQuery } from "@tanstack/react-query";
 import { createServerFn, useServerFn } from "@tanstack/start";
 import type { ReactNode } from "react";
 import { getSpotifySdk } from "../functions";
-import { SpotifyCurrentTrackProgress } from "./SpotifyCurrentlyPlayingTrackProgress";
+import {
+  SpotifyCurrentTrackProgress,
+  type SpotifyCurrentlyPlayingTrackProgressType,
+} from "./SpotifyCurrentlyPlayingTrackProgress";
 
 const getCurrentlyPlayingTrackServerFn = createServerFn().handler(async () => {
   const playbackState = await (await getSpotifySdk()).player.getCurrentlyPlayingTrack();
@@ -15,6 +17,7 @@ type Props = {
   compact?: boolean;
   alwaysRender?: boolean;
   currentlyPlayingText?: React.ReactElement | string;
+  barType: SpotifyCurrentlyPlayingTrackProgressType;
   hideSpotifyURI?: boolean;
   refreshOnEnd?: boolean;
 };
@@ -29,15 +32,20 @@ export const SpotifyCurrentlyPlayingTrack = (props: Props) => {
 
   if (query.isLoading) {
     return (
-      <SpotifyCurrentlyPlayingTrackSkeleton compact={props.compact} currentlyPlayingText={props.currentlyPlayingText} />
+      <SpotifyCurrentlyPlayingTrackSkeleton
+        barType={props.barType}
+        compact={props.compact}
+        currentlyPlayingText={props.currentlyPlayingText}
+      />
     );
   }
 
-  // Get the track only if it is of type track (not podcast etc.)
-  const track = query.data ? (query.data?.item?.type === "track" ? query.data : null) : null;
+  const playbackState = query.data;
+  const playbackItemIsTrack = playbackState?.currently_playing_type === "track";
+  const track = playbackState?.item && "album" in playbackState.item ? playbackState.item : null;
 
   // If alwaysRender is false and there is no track playing, render nothing
-  if (!props.alwaysRender && !track) {
+  if (!props.alwaysRender && !playbackState) {
     return null;
   }
 
@@ -48,8 +56,7 @@ export const SpotifyCurrentlyPlayingTrack = (props: Props) => {
         <div className={`flex items-center ${props.compact ? "gap-3 p-1" : "gap-5 p-2"}`}>
           {/* Album image */}
           <img
-            // @ts-expect-error The types are delusional
-            src={track?.item.album.images[1].url ?? "/images/spotifylogo.png"}
+            src={track?.album.images[1].url ?? "/images/spotifylogo.png"}
             className={`${props.compact ? "h-10 w-10" : "h-24 w-24"} shrink-0`}
             alt="Spotify logo"
             width={props.compact ? 40 : 96}
@@ -61,18 +68,13 @@ export const SpotifyCurrentlyPlayingTrack = (props: Props) => {
             <div className={`${props.compact ? "" : "text-xl max-[380px]:text-lg"} font-semibold`}>
               {track ? (
                 <span className="flex items-center gap-2">
-                  <a
-                    href={track.item.external_urls.spotify}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="hover:underline"
-                  >
-                    {track.item.name}
+                  <a href={track.external_urls.spotify} target="_blank" rel="noreferrer" className="hover:underline">
+                    {track.name}
                   </a>
 
                   {!props.hideSpotifyURI && props.compact && (
                     <a
-                      href={track.item.uri}
+                      href={track.uri}
                       target="_blank"
                       rel="noreferrer"
                       title="Open in Spotify"
@@ -89,9 +91,8 @@ export const SpotifyCurrentlyPlayingTrack = (props: Props) => {
 
             {/* Artist names */}
             <div className={`${props.compact ? "text-xs" : "text-sm"} text-neutral-700 dark:text-neutral-300`}>
-              {/* @ts-expect-error The types are delusional */}
-              {track?.item.artists
-                .map((artist: Artist) => (
+              {track?.artists
+                .map<ReactNode>((artist) => (
                   <a
                     key={artist.id}
                     href={artist.external_urls.spotify}
@@ -102,12 +103,12 @@ export const SpotifyCurrentlyPlayingTrack = (props: Props) => {
                     {artist.name}
                   </a>
                 ))
-                .reduce((prev: ReactNode, curr: ReactNode) => [prev, ", ", curr]) ?? "Come back later"}
+                .reduce((prev, curr) => [prev, ", ", curr]) ?? "Come back later"}
             </div>
 
             {track && !props.hideSpotifyURI && !props.compact && (
               <a
-                href={track.item.uri}
+                href={track.uri}
                 target="_blank"
                 rel="noreferrer"
                 className="mt-1 flex w-fit flex-wrap items-center gap-1 hover:underline"
@@ -121,11 +122,13 @@ export const SpotifyCurrentlyPlayingTrack = (props: Props) => {
 
         {/* Track progress */}
         <SpotifyCurrentTrackProgress
-          key={track?.progress_ms ?? 0}
-          type="combined"
-          isPlaying={!!track?.is_playing}
-          initialProgress={track?.progress_ms ?? 0}
-          duration={track?.item.duration_ms ?? 0}
+          key={playbackState?.progress_ms ?? 0}
+          type={props.barType}
+          // Only show pause icon if it's a track that is paused
+          isPlaying={playbackItemIsTrack ? !!playbackState.is_playing : true}
+          // Only set initial progress if a track is playing
+          initialProgress={playbackItemIsTrack ? playbackState?.progress_ms || 0 : 0}
+          duration={track?.duration_ms ?? 0}
           refreshOnEnd={!!track && props.refreshOnEnd}
         />
       </div>
@@ -136,9 +139,11 @@ export const SpotifyCurrentlyPlayingTrack = (props: Props) => {
 export const SpotifyCurrentlyPlayingTrackSkeleton = ({
   compact,
   currentlyPlayingText,
+  barType,
 }: {
   compact?: boolean;
   currentlyPlayingText?: React.ReactElement | string;
+  barType: SpotifyCurrentlyPlayingTrackProgressType;
 }) => (
   <>
     {currentlyPlayingText}
@@ -171,7 +176,7 @@ export const SpotifyCurrentlyPlayingTrackSkeleton = ({
       {/* Track progress */}
       <SpotifyCurrentTrackProgress
         key={0}
-        type="combined"
+        type={barType}
         isPlaying={true}
         initialProgress={0}
         duration={0}
