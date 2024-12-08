@@ -273,10 +273,15 @@ function RouteComponent() {
             <div className={cn("mx-auto self-center", matchingProjects.length === 1 && "max-w-3xl")}>
               <div className="text-center">Maybe you were looking for:</div>
 
+              {/* Use 1, 2 or 3 columns depending on the amount of projects */}
               <div
                 className={cn(
                   "grid gap-5",
-                  matchingProjects.length === 1 ? "self-center" : "grid-cols-1 md:grid-cols-2 xl:grid-cols-3",
+                  projects.length === 1
+                    ? "self-center"
+                    : projects.length === 2
+                      ? "grid-cols-1 md:grid-cols-2"
+                      : "grid-cols-1 md:grid-cols-2 xl:grid-cols-3",
                 )}
               >
                 {matchingProjects.map((project) => (
