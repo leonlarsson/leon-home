@@ -1,4 +1,5 @@
 import Icons from "@/features/icons/icons";
+import { cn } from "@/utils/cn";
 import { useQuery } from "@tanstack/react-query";
 import { createServerFn, useServerFn } from "@tanstack/start";
 import type { ReactNode } from "react";
@@ -58,11 +59,11 @@ export const SpotifyCurrentlyPlayingTrack = (props: Props) => {
     <>
       {props.currentlyPlayingText}
       <div className="rounded hover:bg-neutral-200 dark:hover:bg-gray-300/10">
-        <div className={`flex items-center ${props.compact ? "gap-3 p-1" : "gap-5 p-2"}`}>
+        <div className={cn("flex items-center gap-5 p-2", props.compact && "gap-3 p-1")}>
           {/* Album image */}
           <img
             src={track?.album.images[1].url ?? "/images/spotifylogo.png"}
-            className={`${props.compact ? "h-10 w-10" : "h-24 w-24"} shrink-0`}
+            className={cn("shrink-0 h-24 w-24", props.compact && "h-10 w-10")}
             alt="Spotify logo"
             width={props.compact ? 40 : 96}
             height={props.compact ? 40 : 96}
@@ -70,7 +71,7 @@ export const SpotifyCurrentlyPlayingTrack = (props: Props) => {
 
           <div className="flex flex-1 flex-col text-start">
             {/* Track name */}
-            <div className={`${props.compact ? "" : "text-xl max-[380px]:text-lg"} font-semibold`}>
+            <div className={cn("font-semibold", !props.compact && "text-xl max-[380px]:text-lg")}>
               {track ? (
                 <span className="flex items-center gap-2">
                   <a href={track.external_urls.spotify} target="_blank" rel="noreferrer" className="hover:underline">
@@ -95,7 +96,7 @@ export const SpotifyCurrentlyPlayingTrack = (props: Props) => {
             </div>
 
             {/* Artist names */}
-            <div className={`${props.compact ? "text-xs" : "text-sm"} text-neutral-700 dark:text-neutral-300`}>
+            <div className={cn("text-sm text-neutral-700 dark:text-neutral-300", props.compact && "text-xs")}>
               {track?.artists
                 .map<ReactNode>((artist) => (
                   <a
@@ -157,11 +158,11 @@ export const SpotifyCurrentlyPlayingTrackSkeleton = ({
   <>
     {currentlyPlayingText}
     <div className="rounded hover:bg-gray-300 dark:hover:bg-gray-300/10">
-      <div className={`flex items-center ${compact ? "gap-3 p-1" : "gap-5 p-2"}`}>
+      <div className={cn("flex items-center gap-5 p-2", compact && "gap-3 p-1")}>
         {/* Album image */}
         <img
           src={"/images/spotifylogo.png"}
-          className={`${compact ? "h-10 w-10" : "h-24 w-24"} shrink-0`}
+          className={cn("shrink-0 h-24 w-24", compact && "h-10 w-10")}
           alt="Spotify logo"
           width={compact ? 40 : 96}
           height={compact ? 40 : 96}
@@ -169,14 +170,14 @@ export const SpotifyCurrentlyPlayingTrackSkeleton = ({
 
         <div className="flex flex-1 flex-col text-start">
           {/* Track name */}
-          <div className={`${compact ? "" : "text-xl max-[380px]:text-lg"} font-semibold`}>
+          <div className={cn("font-semibold", !compact && "text-xl max-[380px]:text-lg")}>
             <span className="flex items-center gap-2">
               <span>Loading...</span>
             </span>
           </div>
 
           {/* Artist names */}
-          <div className={`${compact ? "text-xs" : "text-sm"} text-neutral-700 dark:text-neutral-300`}>
+          <div className={cn("text-sm text-neutral-700 dark:text-neutral-300", compact && "text-xs")}>
             <span>Loading...</span>
           </div>
         </div>

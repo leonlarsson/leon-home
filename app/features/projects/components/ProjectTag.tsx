@@ -1,7 +1,6 @@
 import type { ProjectTag as ProjectTagType } from "@/types";
+import { cn } from "@/utils/cn";
 import { Link, useSearch } from "@tanstack/react-router";
-import classNames from "classnames";
-import cn from "classnames";
 
 export const ProjectTag = ({
   tag,
@@ -52,7 +51,7 @@ type TagColorBadgeProps = {
 };
 export const TagColorBadge = ({ color, size, showBorder }: TagColorBadgeProps) => (
   <div
-    className={classNames("size-2 rounded-full", showBorder && "border border-black")}
+    className={cn("size-2 rounded-full", showBorder && "border border-black")}
     style={{ backgroundColor: color, width: size ?? 8, height: size ?? 8 }}
   />
 );

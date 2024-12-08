@@ -1,4 +1,5 @@
 import Icons from "@/features/icons/icons";
+import { cn } from "@/utils/cn";
 import { useQueryClient } from "@tanstack/react-query";
 import { useTransition } from "react";
 
@@ -16,7 +17,7 @@ export default () => {
         })
       }
     >
-      <Icons.arrowRotate className={`size-6 ${pending ? "animate-spin" : ""}`} />
+      <Icons.arrowRotate className={cn("size-6", pending && "animate-spin")} />
     </button>
   );
 };

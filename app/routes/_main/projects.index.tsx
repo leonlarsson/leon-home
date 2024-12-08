@@ -2,9 +2,9 @@ import projectsData from "@/data/projects";
 import { ProjectCard } from "@/features/projects/components/ProjectCard";
 import { ProjectSearch } from "@/features/projects/components/ProjectSearch";
 import { ProjectSortCheckbox } from "@/features/projects/components/SortCheckbox";
+import { cn } from "@/utils/cn";
 import { generateMetadata } from "@/utils/seo";
 import { createFileRoute } from "@tanstack/react-router";
-import cn from "classnames";
 import { z } from "zod";
 
 const projectPageSearchParams = z.object({

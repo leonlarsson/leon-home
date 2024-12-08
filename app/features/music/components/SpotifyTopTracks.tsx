@@ -1,6 +1,5 @@
 import Icons from "@/features/icons/icons";
 import { useSuspenseQuery } from "@tanstack/react-query";
-import { Link } from "@tanstack/react-router";
 import { createServerFn, useServerFn } from "@tanstack/start";
 import { getSpotifySdk } from "../functions";
 import formatDuration from "../utils/formatDuration";

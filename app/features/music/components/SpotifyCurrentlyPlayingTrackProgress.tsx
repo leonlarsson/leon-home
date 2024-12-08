@@ -1,6 +1,5 @@
 import Icons from "@/features/icons/icons";
 import { useQueryClient } from "@tanstack/react-query";
-import classNames from "classnames";
 import { type ReactElement, useEffect, useState } from "react";
 import formatDuration from "../utils/formatDuration";
 
@@ -132,7 +131,7 @@ const ProgressBar = ({
   return (
     <div className={"relative h-1 bg-neutral-400 dark:bg-[#4d4d4d]"} style={style}>
       <div
-        className={classNames("h-full bg-neutral-700 dark:bg-white")}
+        className={"h-full bg-neutral-700 dark:bg-white"}
         style={{ width: showPauseIcon ? 0 : `${progressDecimal.toFixed(2)}%` }}
       />
 

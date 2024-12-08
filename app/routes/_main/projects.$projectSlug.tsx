@@ -3,10 +3,10 @@ import { GradientBorder } from "@/features/common/GradientBorder";
 import Icons from "@/features/icons/icons";
 import { ProjectCard } from "@/features/projects/components/ProjectCard";
 import { ProjectTag } from "@/features/projects/components/ProjectTag";
+import { cn } from "@/utils/cn";
 import { generateMetadata } from "@/utils/seo";
 import { tagSorterFunction } from "@/utils/tagSorterFunction";
 import { Link, createFileRoute, redirect } from "@tanstack/react-router";
-import cn from "classnames";
 
 const getProject = (slug: string) =>
   projects.find((project) => project.slug === slug || project.slugAliases?.includes(slug));
