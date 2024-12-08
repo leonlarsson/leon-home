@@ -25,7 +25,7 @@ export const ProjectTag = ({
     ),
   };
 
-  // If clickable and not already searching for this tag, make it a button
+  // If clickable and not already searching for this tag, make it a link
   return clickable && !searchMatchesTag ? (
     <Link
       to="/projects"
@@ -37,10 +37,10 @@ export const ProjectTag = ({
       {tag.name}
     </Link>
   ) : (
-    <Link {...className}>
+    <div {...className}>
       {tag.color && <TagColorBadge color={tag.color} />}
       {tag.name}
-    </Link>
+    </div>
   );
 };
 

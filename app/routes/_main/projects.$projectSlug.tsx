@@ -68,8 +68,8 @@ function RouteComponent() {
 
         <div className="w-full text-center">
           <Link
+            to="/projects"
             className="w-fit underline-offset-2 transition-all hover:font-normal hover:text-black hover:underline dark:hover:text-kinda-white"
-            href="/projects"
             title={"Go back to all projects."}
             draggable={false}
           >
@@ -80,8 +80,9 @@ function RouteComponent() {
         <div className="flex w-full justify-end text-end">
           {nextProject && (
             <Link
+              to={"/projects/$projectSlug"}
+              params={{ projectSlug: nextProject.slug }}
               className="flex w-fit items-center underline-offset-2 transition-all hover:font-normal hover:text-black hover:underline dark:hover:text-kinda-white"
-              href={`/projects/${nextProject.slug}`}
               title={`Next project, ${nextProject.name}.`}
               draggable={false}
             >
@@ -135,7 +136,7 @@ function RouteComponent() {
                   <span className="text-lg font-bold">Links:</span>
                   <div className="flex flex-wrap gap-2">
                     {project.link && (
-                      <Link
+                      <a
                         href={project.link}
                         target={!project.link.startsWith("http") ? "_self" : "_blank"}
                         className="card flex items-center gap-2 rounded-md p-2"
@@ -143,7 +144,7 @@ function RouteComponent() {
                       >
                         <Icons.link className="h-5" />
                         {project.linkName ?? "Go to project"}
-                      </Link>
+                      </a>
                     )}
 
                     {project.githubLink && (
@@ -160,7 +161,7 @@ function RouteComponent() {
                     )}
 
                     {project.extraLinks?.map((extraLink) => (
-                      <Link
+                      <a
                         key={extraLink.link}
                         href={extraLink.link}
                         target={!extraLink.link.startsWith("http") ? "_self" : "_blank"}
@@ -169,7 +170,7 @@ function RouteComponent() {
                       >
                         {extraLink.type === "link" ? <Icons.link className="h-5" /> : <Icons.github className="h-5" />}
                         {extraLink.name}
-                      </Link>
+                      </a>
                     ))}
                   </div>
                 </div>

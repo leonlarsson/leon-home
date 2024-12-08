@@ -48,7 +48,7 @@ export const ProjectsSection = ({
                 <Link
                   key={tag.name}
                   to="/projects"
-                  search={{ search: tag.name }}
+                  search={(prev) => ({ ...prev, search: /\d{4}/.test(tag.name) ? tag.name : `tag:${tag.name}` })}
                   target="_blank"
                   title={`See other projects tagged with ${tag.name}.`}
                   className="flex items-center gap-1 rounded bg-neutral-200 p-1 font-mono text-xs text-neutral-800 outline-1 hover:outline"

@@ -28,7 +28,10 @@ export const Header = () => {
             <HeaderLink
               content={
                 <>
-                  CV <Icons.externallink className="ms-1 size-3" />
+                  CV
+                  <sup>
+                    <Icons.externallink className="ms-1 size-2" />
+                  </sup>
                 </>
               }
               url="/en/cv"
@@ -79,6 +82,7 @@ export const Header = () => {
             <HeaderLink content={<Icons.list className="w-8" />} url="/projects" title="Projects" />
             <HeaderLink content={<Icons.book className="w-8" />} url="/guestbook" title="Guestbook" />
             <HeaderLink content={<Icons.spotify className="w-8" />} url="/music" title="Music" />
+            <HeaderLink content={<Icons.file className="w-8" />} url="/en/cv" title="CV" />
           </div>
         </div>
       </header>

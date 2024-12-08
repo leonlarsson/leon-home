@@ -28,7 +28,7 @@ function RouteComponent() {
           </span>
           <span className="text-xl transition-all max-md:text-sm">
             Software Developer @{" "}
-            <Link
+            <a
               href="https://oksidia.fi"
               target="_blank"
               rel="noreferrer"
@@ -36,7 +36,7 @@ function RouteComponent() {
               draggable={false}
             >
               Oksidia
-            </Link>
+            </a>
           </span>
         </div>
       </div>
@@ -163,13 +163,19 @@ function RouteComponent() {
               //   icon: <Icons.artstation className="me-2 inline size-5" />,
               // },
             ].map(({ title, url, icon }) => (
-              <Link key={title} href={url} target="_blank" className="card flex items-center justify-between p-2">
+              <a
+                key={title}
+                href={url}
+                target="_blank"
+                rel="noreferrer"
+                className="card flex items-center justify-between p-2"
+              >
                 <div className="flex items-center">
                   {icon}
                   <span>{title}</span>
                 </div>
                 <Icons.externallink />
-              </Link>
+              </a>
             ))}
           </div>
         </div>
@@ -179,10 +185,16 @@ function RouteComponent() {
           <span className="mt-2 text-xl font-semibold">Want to learn more?</span>
           <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
             {[
-              { title: "Open English CV", url: "/en/cv" },
-              { title: "Öppna svenskt CV", url: "/sv/cv" },
-            ].map(({ title, url }) => (
-              <Link key={title} to={url} target="_blank" className="card flex items-center justify-between p-2">
+              { title: "Open English CV", locale: "en" },
+              { title: "Öppna svenskt CV", locale: "sv" },
+            ].map(({ title, locale }) => (
+              <Link
+                key={title}
+                to={"/$locale/cv"}
+                params={{ locale }}
+                target="_blank"
+                className="card flex items-center justify-between p-2"
+              >
                 <div className="flex items-center">
                   <Icons.file className="me-2 inline size-5" />
                   <span>{title}</span>
