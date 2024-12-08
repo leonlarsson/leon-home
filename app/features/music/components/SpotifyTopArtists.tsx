@@ -36,7 +36,7 @@ export const SpotifyTopArtists = ({ range }: Props) => {
           href={artist.external_urls.spotify}
           target="_blank"
           rel="noreferrer"
-          className="flex items-center gap-3 rounded p-2 hover:bg-gray-300 dark:hover:bg-gray-300/10"
+          className="flex items-center gap-3 rounded p-2 hover:bg-neutral-200 dark:hover:bg-gray-300/10"
         >
           {/* Album image */}
           <div className="relative h-[64px] w-[64px] overflow-hidden rounded-full">

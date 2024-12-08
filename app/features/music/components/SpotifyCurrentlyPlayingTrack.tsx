@@ -57,7 +57,7 @@ export const SpotifyCurrentlyPlayingTrack = (props: Props) => {
   return (
     <>
       {props.currentlyPlayingText}
-      <div className="rounded hover:bg-gray-300 dark:hover:bg-gray-300/10">
+      <div className="rounded hover:bg-neutral-200 dark:hover:bg-gray-300/10">
         <div className={`flex items-center ${props.compact ? "gap-3 p-1" : "gap-5 p-2"}`}>
           {/* Album image */}
           <img
@@ -85,7 +85,7 @@ export const SpotifyCurrentlyPlayingTrack = (props: Props) => {
                       title="Open in Spotify"
                       className="hover:underline"
                     >
-                      <Icons.spotify className="size-4 text-[#1ed760]" />
+                      <Icons.spotify className="size-4 dark:text-[#1ed760]" />
                     </a>
                   )}
                 </span>
@@ -118,7 +118,7 @@ export const SpotifyCurrentlyPlayingTrack = (props: Props) => {
                 rel="noreferrer"
                 className="mt-1 flex w-fit flex-wrap items-center gap-1 hover:underline"
               >
-                <Icons.spotify className="size-5 text-[#1ed760]" />
+                <Icons.spotify className="size-5 dark:text-[#1ed760]" />
                 Open in Spotify
               </a>
             )}

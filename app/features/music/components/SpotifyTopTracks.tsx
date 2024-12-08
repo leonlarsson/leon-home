@@ -33,7 +33,7 @@ export const SpotifyTopTracks = ({ range, hideSpotifyURI }: Props) => {
       {tracks.map((track, i) => (
         <div
           key={track.id}
-          className="group flex items-center gap-4 rounded p-2 hover:bg-gray-300 dark:hover:bg-gray-300/10"
+          className="group flex items-center gap-4 rounded p-2 hover:bg-neutral-200 dark:hover:bg-gray-300/10"
         >
           {/* Track number / play button */}
           <div className="ms-2 w-6 shrink-0 text-center text-neutral-700 max-[380px]:hidden dark:text-neutral-300">
