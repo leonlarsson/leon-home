@@ -16,7 +16,6 @@ import type {
   CVProjectsSection,
 } from "@/types";
 import projects from "../projects";
-import avatar from "./images/avatar.png";
 
 export const pageMetadata: CVMetadata = {
   title: {
@@ -31,7 +30,7 @@ export const pageMetadata: CVMetadata = {
 
 export const profileSection: CVProfileSection = {
   name: "Leon San José Larsson",
-  avatar: avatar,
+  avatar: "/images/avatar.png",
   tagline: {
     en: "Passionate Software Developer with a background in video games.",
     sv: "Passionerad mjukvaruutvecklare med bakgrund inom datorspel.",

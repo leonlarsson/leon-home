@@ -1,22 +1,22 @@
 import type { Project, ProjectTag } from "@/types";
-import battlebotImage1 from "./images/battlebot1.png";
-import battlebotImage2 from "./images/battlebot2.png";
-import battlefieldStatsImage1 from "./images/battlefieldstats1.png";
-import battlefieldStatsImage2 from "./images/battlefieldstats2.png";
-import bfdImage1 from "./images/bfd1.png";
-import bfdImage2 from "./images/bfd2.png";
-import bloodhuntStatsImage1 from "./images/bloodhuntstats1.png";
-import caseSimImage1 from "./images/cscaseui1.png";
-import embedWorkerImage1 from "./images/embedworker1.png";
-import friendlyTimeImage1 from "./images/friendlytime1.png";
-import friendlyTimeImage2 from "./images/friendlytime2.png";
-import musicShowcaseImage1 from "./images/music1.png";
-import musicShowcaseImage2 from "./images/music2.png";
-import raccoonHttpImage1 from "./images/raccoonhttp1.png";
-import raccoonHttpImage2 from "./images/raccoonhttp2.png";
-import timestamperImage1 from "./images/timestamper1.png";
-import timestamperImage2 from "./images/timestamper2.png";
-import timezoneRacerImage1 from "./images/timezoneracer1.png";
+const battlebotImage1 = "/images/projects/battlebot1.png";
+const battlebotImage2 = "/images/projects/battlebot2.png";
+const battlefieldStatsImage1 = "/images/projects/battlefieldstats1.png";
+const battlefieldStatsImage2 = "/images/projects/battlefieldstats2.png";
+const bfdImage1 = "/images/projects/bfd1.png";
+const bfdImage2 = "/images/projects/bfd2.png";
+const bloodhuntStatsImage1 = "/images/projects/bloodhuntstats1.png";
+const caseSimImage1 = "/images/projects/cscaseui1.png";
+const embedWorkerImage1 = "/images/projects/embedworker1.png";
+const friendlyTimeImage1 = "/images/projects/friendlytime1.png";
+const friendlyTimeImage2 = "/images/projects/friendlytime2.png";
+const musicShowcaseImage1 = "/images/projects/music1.png";
+const musicShowcaseImage2 = "/images/projects/music2.png";
+const raccoonHttpImage1 = "/images/projects/raccoonhttp1.png";
+const raccoonHttpImage2 = "/images/projects/raccoonhttp2.png";
+const timestamperImage1 = "/images/projects/timestamper1.png";
+const timestamperImage2 = "/images/projects/timestamper2.png";
+const timezoneRacerImage1 = "/images/projects/timezoneracer1.png";
 
 const tags = {
   GO: { name: "Go", color: "#00add8" },
@@ -348,7 +348,7 @@ export default [
     year: "2023",
     tags: [tags.CLOUDFLARE_WORKERS, tags.HTML, tags.CSS, tags.TS, tags.API, tags.NEXT, tags.TAILWIND, tags.REACT],
     link: "https://omnis.pages.dev/",
-    githubLink: "https://github.com/leonlarsson/omnis-arg-public",
+    githubLink: "https://github.com/leonlarsson/omnis-arg",
     extraLinks: [
       {
         name: "Next.js Implementation",
