@@ -23,7 +23,9 @@ export async function getCloudflareProxyEnv() {
 
   const cloudflareEnv = proxy.env;
 
-  await proxy.dispose();
+  if (process.env.npm_lifecycle_event === "build") {
+    await proxy.dispose();
+  }
 
   return cloudflareEnv;
 }

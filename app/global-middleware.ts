@@ -14,7 +14,9 @@ export default defineMiddleware({
       // Set timezone to UTC
       process.env.TZ = "UTC";
 
-      await proxy.dispose();
+      if (process.env.npm_lifecycle_event === "build") {
+        await proxy.dispose();
+      }
     }
   },
 });
