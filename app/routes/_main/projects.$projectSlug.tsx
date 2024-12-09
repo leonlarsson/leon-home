@@ -4,8 +4,7 @@ import Icons from "@/features/icons/icons";
 import { ProjectCard } from "@/features/projects/components/ProjectCard";
 import { ProjectTag } from "@/features/projects/components/ProjectTag";
 import { cn } from "@/utils/cn";
-import { findProjectBySlugOrAliases } from "@/utils/findProjectBySlugOrAliases";
-import { findProjectsBySearch } from "@/utils/findProjectsBySearch";
+import { findProjectBySlugOrAliases, getProjectsBySearch } from "@/utils/projects";
 import { generateMetadata } from "@/utils/seo";
 import { tagSorterFunction } from "@/utils/tagSorterFunction";
 import { Link, createFileRoute, redirect } from "@tanstack/react-router";
@@ -43,7 +42,7 @@ function RouteComponent() {
 
   // Projects that match the search string
   // This is used to suggest projects if the slug is not found
-  const matchingProjects = findProjectsBySearch(projectSlug);
+  const matchingProjects = getProjectsBySearch(projectSlug);
 
   return (
     <div className="pb-10 text-start">

@@ -1,10 +1,14 @@
 import projects from "@/data/projects";
 import type { Project } from "@/types";
 
+export const findProjectBySlugOrAliases = (slug: string): Project | null => {
+  return projects.find((project) => project.slug === slug || project.slugAliases.includes(slug)) ?? null;
+};
+
 const tagPrefix = "tag:";
 const yearPrefix = "year:";
 
-export const findProjectsBySearch = (search: string): Project[] => {
+export const getProjectsBySearch = (search: string): Project[] => {
   const exactTagSearch = search.startsWith(tagPrefix);
   const exactYearSearch = search.startsWith(yearPrefix);
 

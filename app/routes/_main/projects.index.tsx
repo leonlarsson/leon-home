@@ -3,8 +3,7 @@ import { ProjectCard } from "@/features/projects/components/ProjectCard";
 import { ProjectSearch } from "@/features/projects/components/ProjectSearch";
 import { ProjectSortCheckbox } from "@/features/projects/components/SortCheckbox";
 import { cn } from "@/utils/cn";
-import { findProjectBySlugOrAliases } from "@/utils/findProjectBySlugOrAliases";
-import { findProjectsBySearch } from "@/utils/findProjectsBySearch";
+import { getProjectsBySearch } from "@/utils/projects";
 import { generateMetadata } from "@/utils/seo";
 import { createFileRoute } from "@tanstack/react-router";
 import { z } from "zod";
@@ -37,7 +36,7 @@ export const Route = createFileRoute("/_main/projects/")({
 function RouteComponent() {
   const { search, sort } = Route.useSearch();
 
-  const projects = search ? findProjectsBySearch(search) : projectsData;
+  const projects = search ? getProjectsBySearch(search) : projectsData;
 
   return (
     <div className="mx-auto">

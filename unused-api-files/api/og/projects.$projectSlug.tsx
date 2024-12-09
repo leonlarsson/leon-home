@@ -1,4 +1,4 @@
-import { findProjectBySlugOrAliases } from "@/utils/findProjectBySlugOrAliases";
+import { findProjectBySlugOrAliases } from "@/utils/projects";
 import { tagSorterFunction } from "@/utils/tagSorterFunction";
 import { createAPIFileRoute } from "@tanstack/start/api";
 import { ImageResponse } from "@vercel/og";
