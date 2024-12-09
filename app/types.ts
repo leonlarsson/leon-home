@@ -11,7 +11,7 @@ export type Project = {
   name: string;
   description: string | string[];
   shortDescription: string;
-  tags?: ProjectTag[];
+  tags: ProjectTag[];
   year?: string;
   endYear?: string;
   images?: string[];
