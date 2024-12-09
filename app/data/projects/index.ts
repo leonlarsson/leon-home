@@ -362,8 +362,9 @@ export default [
     slug: "home",
     slugAliases: ["leon-home"],
     name: "This website",
-    description:
-      "This is the website you're currently on. It is powered by TanStack Start, Router, and Query and is styled with Tailwind.",
+    description: [
+      "This is the website you're currently on. It is powered by TanStack Start, Router, and Query and is styled with Tailwind. It was previously built with Next.js.",
+    ],
     shortDescription: "Leon's personal website. You are currently on it.",
     year: "2023",
     tags: [tags.REACT, tags.TANSTACK_START, tags.TANSTACK_ROUTER, tags.TANSTACK_QUERY, tags.TAILWIND, tags.TS],
