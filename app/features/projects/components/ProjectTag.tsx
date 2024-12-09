@@ -13,6 +13,7 @@ export const ProjectTag = ({
   const { search } = useSearch({ strict: false });
 
   const searchMatchesTag = search?.replace("tag:", "")?.toLowerCase() === tag.name.toLowerCase();
+  const isYearTag = /\d{4}/.test(tag.name);
 
   // Weird in order to please the Tailwind extension
   // If clickable and not already searching for this tag, make it hoverable
@@ -29,9 +30,12 @@ export const ProjectTag = ({
   return clickable && !searchMatchesTag ? (
     <Link
       to="/projects"
-      search={(prev) => ({ ...prev, search: /\d{4}/.test(tag.name) ? tag.name : `tag:${tag.name}` })}
+      search={(prev) => {
+        // If year tag, navigate to year:nnnn, else tag:tagname
+        return { ...prev, search: isYearTag ? `year:${tag.name}` : `tag:${tag.name}` };
+      }}
       {...className}
-      title={`See other projects including "${tag.name}".`}
+      title={isYearTag ? `View projects from ${tag.name}` : `View projects tagged with ${tag.name}`}
     >
       {tag.color && <TagColorBadge color={tag.color} />}
       {tag.name}
