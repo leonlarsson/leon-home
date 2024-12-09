@@ -221,7 +221,6 @@ function RouteComponent() {
                 <ProjectCard
                   key={project.slug}
                   project={project}
-                  // displayTags={false}
                 />
               ))}
           </div>

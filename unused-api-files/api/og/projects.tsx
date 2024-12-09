@@ -19,7 +19,7 @@ export const APIRoute = createAPIFileRoute("/api/og/projects")({
       avatar,
     ]);
 
-    const allTags = [...new Set(projects.flatMap((x) => x.tags ?? []).toSorted(tagSorterFunction))];
+    const allTags = [...new Set(projects.flatMap((x) => x.tags).toSorted(tagSorterFunction))];
 
     return new ImageResponse(
       <div
@@ -47,7 +47,7 @@ export const APIRoute = createAPIFileRoute("/api/og/projects")({
                 {"color" in tag && (
                   <div
                     tw="size-2 rounded-full"
-                    style={{ backgroundColor: tag.color as string, width: 8, height: 8, marginRight: 4 }}
+                    style={{ backgroundColor: tag.color, width: 8, height: 8, marginRight: 4 }}
                   />
                 )}
                 <div>{tag.name}</div>

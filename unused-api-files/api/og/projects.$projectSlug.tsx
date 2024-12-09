@@ -38,7 +38,7 @@ export const APIRoute = createAPIFileRoute("/api/og/projects/$projectSlug")({
         <div tw="text-[50px] font-bold">{project?.name ?? "Project #404"}</div>
         <div tw="text-[26px] px-8">{project?.shortDescription ?? "You found Project #404."}</div>
         <div tw="flex flex-wrap justify-center px-7 mt-1">
-          {project?.tags?.sort(tagSorterFunction).map((tag) => (
+          {project?.tags.sort(tagSorterFunction).map((tag) => (
             <div
               key={tag.name}
               tw="flex items-center rounded bg-blue-200 px-2 py-1 m-1 text-sm font-medium text-blue-700"
@@ -46,7 +46,7 @@ export const APIRoute = createAPIFileRoute("/api/og/projects/$projectSlug")({
               {"color" in tag && (
                 <div
                   tw="size-2 rounded-full"
-                  style={{ backgroundColor: tag.color as string, width: 8, height: 8, marginRight: 4 }}
+                  style={{ backgroundColor: tag.color, width: 8, height: 8, marginRight: 4 }}
                 />
               )}
               <div>{tag.name}</div>

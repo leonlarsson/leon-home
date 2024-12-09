@@ -44,7 +44,7 @@ export const ProjectsSection = ({
             <p className="font-mono text-xs text-neutral-600">{shortDescription}</p>
 
             <div className="flex flex-wrap gap-1">
-              {tags?.sort(tagSorterFunction).map((tag) => (
+              {tags.sort(tagSorterFunction).map((tag) => (
                 <Link
                   key={tag.name}
                   to="/projects"

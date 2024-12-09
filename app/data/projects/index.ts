@@ -154,6 +154,7 @@ export default [
   },
   {
     slug: "battlebot",
+    slugAliases: [],
     name: "Battlebot",
     description: [
       "This is a bot we use on the Battlefield Discord. It provides moderation utilities for moderators as well as a few fun and helpful features for users.",
@@ -267,6 +268,7 @@ export default [
   },
   {
     slug: "bloodhunt-stats",
+    slugAliases: ["bhstats"],
     name: "Bloodhunt Stats Discord Bot",
     description: [
       "A Discord bot that provides on demand Bloodhunt statistics in Discord, built in Node.js. In addition, I built an API that reports some basic usage.",
@@ -296,6 +298,7 @@ export default [
   },
   {
     slug: "embed-worker",
+    slugAliases: [],
     name: "Embed Worker",
     description: "A tiny test project that lets you create custom Open Graph embeds. Powered by Cloudflare Workers.",
     shortDescription: "A tiny test project that lets you create custom Open Graph embeds.",
@@ -307,6 +310,7 @@ export default [
   },
   {
     slug: "react-ant-design-ui",
+    slugAliases: [],
     name: "React + Ant Design website",
     description:
       "A dashboard website template built with Vite + React + Ant Design. This is something I originally built for work, but without the secret parts.",
@@ -318,6 +322,7 @@ export default [
   },
   {
     slug: "the-finals-leaderboard",
+    slugAliases: ["tfl"],
     name: "THE FINALS Leaderboard",
     description:
       "An enhanced leaderboard for the game THE FINALS from Embark Studios, complete with additional features, stats, and all historical leaderboards. Built with React + Vite.",
@@ -369,6 +374,7 @@ export default [
   },
   {
     slug: "guestbook",
+    slugAliases: [],
     name: "Guestbook",
     description:
       "A guestbook for my personal website. It uses TanStack Start's Server Functions with TanStack Query and SQLite on D1 as the database.",
@@ -395,6 +401,7 @@ export default [
   },
   {
     slug: "friendly-time",
+    slugAliases: [],
     name: "Friendly Time",
     description:
       "A UI that helps convert natural language to various time formats. It is built with Next.js (React) and styled with Tailwind.",
@@ -448,6 +455,7 @@ export default [
   },
   {
     slug: "the-finals-api",
+    slugAliases: [],
     name: "THE FINALS API",
     description: [
       "The API that powers my THE FINALS leaderboard and several other community projects. It is built on Cloudflare Workers with Hono and Zod.",
@@ -472,4 +480,4 @@ export default [
     githubLink: "https://github.com/leonlarsson/bfstats-go",
     displayInCv: true,
   },
-] satisfies Project[];
+] satisfies Project[] as Project[];

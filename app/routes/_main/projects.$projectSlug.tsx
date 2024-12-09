@@ -4,17 +4,16 @@ import Icons from "@/features/icons/icons";
 import { ProjectCard } from "@/features/projects/components/ProjectCard";
 import { ProjectTag } from "@/features/projects/components/ProjectTag";
 import { cn } from "@/utils/cn";
+import { findProjectBySlugOrAliases } from "@/utils/findProjectBySlugOrAliases";
+import { findProjectsBySearch } from "@/utils/findProjectsBySearch";
 import { generateMetadata } from "@/utils/seo";
 import { tagSorterFunction } from "@/utils/tagSorterFunction";
 import { Link, createFileRoute, redirect } from "@tanstack/react-router";
 
-const getProject = (slug: string) =>
-  projects.find((project) => project.slug === slug || project.slugAliases?.includes(slug));
-
 export const Route = createFileRoute("/_main/projects/$projectSlug")({
   component: RouteComponent,
   head: ({ params }) => {
-    const project = getProject(params.projectSlug);
+    const project = findProjectBySlugOrAliases(params.projectSlug);
 
     const title = `${project?.name ?? "Project #404"}`;
     const description = project?.shortDescription ?? "You found Project #404.";
@@ -33,20 +32,18 @@ export const Route = createFileRoute("/_main/projects/$projectSlug")({
 
 function RouteComponent() {
   const { projectSlug } = Route.useParams();
-  const project = getProject(projectSlug);
+  const project = findProjectBySlugOrAliases(projectSlug);
   const previousProject = project && projects[projects.indexOf(project) - 1];
   const nextProject = project && projects[projects.indexOf(project) + 1];
 
   // If project was found and we are currently on a slug alias, redirect to the main slug
-  if (project?.slugAliases?.includes(projectSlug)) {
+  if (project?.slugAliases.includes(projectSlug)) {
     redirect({ to: "/projects/$projectSlug", params: { projectSlug: project.slug } });
   }
 
-  // Projects that match the slug or one of the slug aliases
+  // Projects that match the search string
   // This is used to suggest projects if the slug is not found
-  const matchingProjects = projects.filter(
-    (project) => project.slug.includes(projectSlug) || project.slugAliases?.some((slug) => slug.includes(projectSlug)),
-  );
+  const matchingProjects = findProjectsBySearch(projectSlug);
 
   return (
     <div className="pb-10 text-start">
@@ -180,8 +177,8 @@ function RouteComponent() {
               {(() => {
                 // Get connected projects by slug or slug alias
                 const connectedProjects = project.connectedProjectSlugs
-                  ?.map((slug) =>
-                    projects.find((project) => project.slug === slug || project.slugAliases?.includes(slug)),
+                  ?.map((connectedProjectSlug) =>
+                    projects.find((project) => project.slug === connectedProjectSlug || project.slugAliases.includes(connectedProjectSlug)),
                   )
                   .filter((p) => p !== undefined);
 
@@ -249,7 +246,7 @@ function RouteComponent() {
                       <img
                         src={image}
                         alt={`Project ${project.name}.`}
-                        className={cn("mx-auto select-none rounded", project.images.length > 1 && "lg:w-full")}
+                        className={cn("mx-auto select-none rounded", project.images!.length > 1 && "lg:w-full")}
                       />
                     </div>
                   ))}

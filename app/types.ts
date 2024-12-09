@@ -7,12 +7,12 @@ export type ProjectTag = {
 
 export type Project = {
   slug: string;
-  slugAliases?: string[];
+  slugAliases: string[];
   name: string;
   description: string | string[];
   shortDescription: string;
   tags: ProjectTag[];
-  year?: string;
+  year: string;
   endYear?: string;
   images?: string[];
   link?: string;
