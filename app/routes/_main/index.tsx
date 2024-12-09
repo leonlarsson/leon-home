@@ -14,7 +14,7 @@ function RouteComponent() {
     <div className="mx-auto max-w-3xl pb-10 text-start">
       <div className="mb-6 flex items-center gap-4">
         <img
-          className="h-full select-none rounded-[100px] shadow transition-all hover:rounded-[30px] hover:shadow-lg"
+          className="h-full select-none rounded-[100px] shadow transition-all max-md:size-[100px] max-[510px]:size-[60px] hover:rounded-[30px] hover:shadow-lg"
           src="/images/avatar.png"
           alt="Leon"
           width={130}
