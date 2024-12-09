@@ -22,6 +22,9 @@
     "ignore": ["./components/icons.tsx"],
     "rules": {
       "recommended": true,
+      "correctness": {
+        "noUnusedImports": "error"
+      },
       "style": {
         "noNonNullAssertion": "off"
       },

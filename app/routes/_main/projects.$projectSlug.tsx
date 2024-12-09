@@ -177,7 +177,10 @@ function RouteComponent() {
                 // Get connected projects by slug or slug alias
                 const connectedProjects = project.connectedProjectSlugs
                   ?.map((connectedProjectSlug) =>
-                    projects.find((project) => project.slug === connectedProjectSlug || project.slugAliases.includes(connectedProjectSlug)),
+                    projects.find(
+                      (project) =>
+                        project.slug === connectedProjectSlug || project.slugAliases.includes(connectedProjectSlug),
+                    ),
                   )
                   .filter((p) => p !== undefined);
 

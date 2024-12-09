@@ -2,7 +2,7 @@ import { getDb } from "@/db";
 import { entries } from "@/db/schema";
 import type { GuestbookEntry } from "@/types";
 import { desc, eq, isNotNull } from "drizzle-orm";
-import { getHeader, getHeaders } from "vinxi/http";
+import { getHeader } from "vinxi/http";
 
 export const getEntriesCount = async (namedEntriesOnly: boolean): Promise<number> => {
   const db = await getDb();

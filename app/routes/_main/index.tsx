@@ -218,10 +218,7 @@ function RouteComponent() {
               .filter((x) => x.featureInHome)
               .toSorted((a, b) => Number.parseInt(b.year) - Number.parseInt(a.year))
               .map((project) => (
-                <ProjectCard
-                  key={project.slug}
-                  project={project}
-                />
+                <ProjectCard key={project.slug} project={project} />
               ))}
           </div>
         </div>
