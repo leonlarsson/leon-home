@@ -16,7 +16,7 @@ export const GuestbookEntries = (props: GuestbookEntriesProps) => {
           <div
             key={entry.id}
             className={cn(
-              "break-all rounded-r border-l-2 border-transparent p-1 text-sm hover:border-l-black hover:bg-neutral-200 dark:hover:border-l-white dark:hover:bg-gray-300/10",
+              "break-all rounded-r border-l-2 border-transparent p-1 pl-2 text-sm hover:border-l-black hover:bg-neutral-200 dark:hover:border-l-white dark:hover:bg-gray-300/10",
               entry.isAdmin && "border-l-yellow-400",
             )}
           >
