@@ -30,6 +30,7 @@ export type Project = {
 };
 
 export type GuestbookEntry = typeof entries.$inferSelect;
+export type GuestbookEntryWithoutIp = Omit<GuestbookEntry, "ip">;
 
 // CV
 

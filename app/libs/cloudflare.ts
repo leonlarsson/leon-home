@@ -8,6 +8,7 @@ export type CloudflareEnv = Env & {
   CF_PAGES_COMMIT_SHA: string;
   CF_PAGES_URL: string;
   DB: D1Database;
+  GUESTBOOK_ADMIN_KEY: string;
 };
 
 export function isInCloudflareCI() {

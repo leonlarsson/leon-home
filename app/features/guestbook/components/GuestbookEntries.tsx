@@ -1,7 +1,8 @@
-import type { GuestbookEntry } from "@/types";
+import type { GuestbookEntryWithoutIp } from "@/types";
+import { cn } from "@/utils/cn";
 import { profanity } from "@2toad/profanity";
 
-type GuestbookEntriesProps = { entries: Omit<GuestbookEntry, "ip">[]; entriesCount: number; showTimestamps: boolean };
+type GuestbookEntriesProps = { entries: GuestbookEntryWithoutIp[]; entriesCount: number; showTimestamps: boolean };
 
 export const GuestbookEntries = (props: GuestbookEntriesProps) => {
   return (
@@ -14,15 +15,18 @@ export const GuestbookEntries = (props: GuestbookEntriesProps) => {
         {props.entries.map((entry) => (
           <div
             key={entry.id}
-            className="break-all rounded-r border-l-2 border-transparent p-1 text-sm hover:border-l-black hover:bg-gray-300 dark:hover:border-l-white dark:hover:bg-gray-300/10"
+            className={cn(
+              "break-all rounded-r border-l-2 border-transparent p-1 text-sm hover:border-l-black hover:bg-neutral-200 dark:hover:border-l-white dark:hover:bg-gray-300/10",
+              entry.isAdmin && "border-l-yellow-400",
+            )}
           >
             {props.showTimestamps && (
               <div className="text-xs text-neutral-600 dark:text-neutral-500">{entry.date.toLocaleString()}</div>
             )}
             <span
-              className={
-                entry.name ? "text-neutral-700 dark:text-neutral-400" : "italic text-neutral-700 dark:text-neutral-400"
-              }
+              className={cn(
+                entry.name ? "text-neutral-700 dark:text-neutral-400" : "italic text-neutral-700 dark:text-neutral-400",
+              )}
               title={entry.date.toLocaleString()}
             >
               {entry.name ? entry.name.replace(/\s+/g, " ") : "Anonymous"}:

@@ -1,8 +1,8 @@
 import { getDb } from "@/db";
 import { entries } from "@/db/schema";
-import type { GuestbookEntry } from "@/types";
+import type { GuestbookEntryWithoutIp } from "@/types";
 import { desc, eq, isNotNull } from "drizzle-orm";
-import { getHeader } from "vinxi/http";
+import { getCookie, getEvent, getHeader } from "vinxi/http";
 
 export const getEntriesCount = async (namedEntriesOnly: boolean): Promise<number> => {
   const db = await getDb();
@@ -16,7 +16,7 @@ export const getEntriesCount = async (namedEntriesOnly: boolean): Promise<number
   }
 };
 
-export const getEntries = async (namedEntriesOnly: boolean): Promise<Omit<GuestbookEntry, "ip">[]> => {
+export const getEntries = async (namedEntriesOnly: boolean): Promise<GuestbookEntryWithoutIp[]> => {
   const db = await getDb();
   try {
     // Get all entries that are not deleted, sorted by date, limited to 100
@@ -26,6 +26,7 @@ export const getEntries = async (namedEntriesOnly: boolean): Promise<Omit<Guestb
         body: true,
         name: true,
         date: true,
+        isAdmin: true,
       },
       where: namedEntriesOnly ? isNotNull(entries.name) : undefined,
       orderBy: desc(entries.date),
@@ -41,6 +42,8 @@ export const getEntries = async (namedEntriesOnly: boolean): Promise<Omit<Guestb
 
 export const postEntry = async (message: string, name?: string): Promise<boolean | "ratelimited"> => {
   const db = await getDb();
+  const { context } = getEvent();
+  const adminCookie = getCookie("leonhome_guestbook_key");
 
   if (!message.trim()) return false;
 
@@ -74,6 +77,9 @@ export const postEntry = async (message: string, name?: string): Promise<boolean
     await db.insert(entries).values({
       body: trimmedMessage,
       name: trimmedName,
+      isAdmin:
+        context.cloudflare.env.GUESTBOOK_ADMIN_KEY.length > 0 &&
+        adminCookie === context.cloudflare.env.GUESTBOOK_ADMIN_KEY,
       ip,
     });
     return true;

@@ -13,6 +13,7 @@ const privateSchema = createEnvSchema("Private", {
   SPOTIFY_ID: z.string(),
   SPOTIFY_SECRET: z.string(),
   SPOTIFY_REFRESH_TOKEN: z.string(),
+  GUESTBOOK_ADMIN_KEY: z.string(),
 });
 
 const envSchema = z.object({

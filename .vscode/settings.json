@@ -11,4 +11,7 @@
     "[sql]": {
       "editor.defaultFormatter": "adpyke.vscode-sql-formatter"
     },
+    "[typescriptreact]": {
+      "editor.defaultFormatter": "biomejs.biome"
+    },
   }
