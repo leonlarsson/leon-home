@@ -1,9 +1,12 @@
 import globalCss from "@/styles/global.css?url";
 import { generateMetadata } from "@/utils/seo";
-import { Outlet, ScrollRestoration, createRootRoute } from "@tanstack/react-router";
+import type { QueryClient } from "@tanstack/react-query";
+import { Outlet, ScrollRestoration, createRootRouteWithContext } from "@tanstack/react-router";
 import { Meta, Scripts } from "@tanstack/start";
 
-export const Route = createRootRoute({
+export const Route = createRootRouteWithContext<{
+  queryClient: QueryClient;
+}>()({
   head: () => ({
     meta: generateMetadata({}),
     links: [

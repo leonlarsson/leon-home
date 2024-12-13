@@ -14,7 +14,6 @@ export function createRouter() {
     defaultNotFoundComponent: () => <div>Not Found</div>,
   });
 
-  // No clue why TypeScript is complaining about this
   return routerWithQueryClient(tanStackRouter, queryClient);
 }
 
