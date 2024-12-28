@@ -29,7 +29,7 @@ export const GuestbookEntries = (props: GuestbookEntriesProps) => {
               )}
               title={entry.date.toLocaleString()}
             >
-              {entry.name ? entry.name.replace(/\s+/g, " ") : "Anonymous"}:
+              {entry.name ? profanity.censor(entry.name.replace(/\s+/g, " ")) : "Anonymous"}:
             </span>{" "}
             <span>{profanity.censor(entry.body.replace(/\s+/g, " "))}</span>
           </div>
