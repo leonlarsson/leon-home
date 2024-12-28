@@ -50,9 +50,10 @@ function RouteComponent() {
   const getData = useServerFn(getGuestbookEntriesServerFn);
 
   const query = useQuery({
-    queryKey: ["guestbook", "entryData", named],
+    queryKey: ["guestbook", "entries", { named }],
     queryFn: () => getData({ data: { namedEntriesOnly: !!named } }),
     refetchInterval: 10_000, // 10 seconds
+    staleTime: 5_000, // 5 seconds
   });
 
   return (
