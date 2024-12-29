@@ -325,10 +325,10 @@ export default [
     slugAliases: ["tfl"],
     name: "THE FINALS Leaderboard",
     description:
-      "An enhanced leaderboard for the game THE FINALS from Embark Studios, complete with additional features, stats, and all historical leaderboards. Built with React + Vite.",
+      "An enhanced leaderboard for the game THE FINALS from Embark Studios, complete with additional features, stats, and all historical leaderboards. Built with TanStack Router/Query on React + Vite.",
     shortDescription: "An enhanced leaderboard for the game THE FINALS.",
     year: "2023",
-    tags: [tags.REACT, tags.VITE, tags.SHADCNUI, tags.TS],
+    tags: [tags.REACT, tags.VITE, tags.SHADCNUI, tags.TS, tags.TANSTACK_ROUTER, tags.TANSTACK_QUERY],
     link: "https://the-finals-leaderboard.com/",
     githubLink: "https://github.com/leonlarsson/the-finals-leaderboard",
     featureInHome: true,
