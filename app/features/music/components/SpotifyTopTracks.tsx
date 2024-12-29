@@ -102,7 +102,7 @@ export const SpotifyTopTracks = ({ range, hideSpotifyURI }: Props) => {
           </div>
 
           {/* Track progress */}
-          <span className="text-right text-sm text-neutral-700 max-[380px]:hidden dark:text-neutral-300">
+          <span className="text-right text-sm text-neutral-700 max-[380px]:hidden dark:text-neutral-300 tabular-nums">
             {formatDuration(track.duration_ms)}
           </span>
         </div>
