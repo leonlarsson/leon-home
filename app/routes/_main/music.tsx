@@ -2,7 +2,9 @@ import { SpotifyCurrentlyPlayingTrack } from "@/features/music/components/Spotif
 import SpotifyRangeSelector from "@/features/music/components/SpotifyRangeSelector";
 import SpotifyRefreshButton from "@/features/music/components/SpotifyRefreshButton";
 import { SpotifyTopArtists } from "@/features/music/components/SpotifyTopArtists";
+import { SpotifyTopArtistsPlaceholder } from "@/features/music/components/SpotifyTopArtistsPlaceholder";
 import { SpotifyTopTracks } from "@/features/music/components/SpotifyTopTracks";
+import { SpotifyTopTracksPlaceholder } from "@/features/music/components/SpotifyTopTracksPlaceholder";
 import { generateMetadata } from "@/utils/seo";
 import { createFileRoute } from "@tanstack/react-router";
 import { Suspense } from "react";
@@ -49,7 +51,7 @@ function RouteComponent() {
 
         <div className="flex flex-col gap-2">
           <span className="text-xl font-semibold">Top tracks:</span>
-          <Suspense fallback="Loading tracks...">
+          <Suspense fallback={<SpotifyTopTracksPlaceholder amount={20} />}>
             <SpotifyTopTracks range={range ?? "medium_term"} />
           </Suspense>
         </div>
@@ -57,7 +59,7 @@ function RouteComponent() {
         <div className="flex flex-col gap-2">
           <span className="text-xl font-semibold">Artists I like:</span>
 
-          <Suspense fallback="Loading artists...">
+          <Suspense fallback={<SpotifyTopArtistsPlaceholder amount={20} />}>
             <SpotifyTopArtists range={range ?? "medium_term"} />
           </Suspense>
         </div>
