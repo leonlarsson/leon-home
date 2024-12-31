@@ -1,5 +1,5 @@
 import { QueryClient } from "@tanstack/react-query";
-import { createRouter as createTanStackRouter } from "@tanstack/react-router";
+import { Link, createRouter as createTanStackRouter } from "@tanstack/react-router";
 import { routerWithQueryClient } from "@tanstack/react-router-with-query";
 import { routeTree } from "./routeTree.gen";
 
@@ -10,8 +10,32 @@ export function createRouter() {
     routeTree,
     context: { queryClient },
     defaultPreload: "intent",
-    defaultOnCatch: () => <div>Caught</div>,
-    defaultNotFoundComponent: () => <div>Not Found</div>,
+    defaultOnCatch: () => (
+      <div>
+        Caught
+        <br />
+        <Link className="underline" to="/">
+          Go back home
+        </Link>
+      </div>
+    ),
+    defaultErrorComponent: () => (
+      <div>
+        Oops, an error happened :( <br />
+        <Link className="underline" to="/">
+          Go back home
+        </Link>
+      </div>
+    ),
+    defaultNotFoundComponent: () => (
+      <div>
+        Not Found
+        <br />
+        <Link className="underline" to="/">
+          Go back home
+        </Link>
+      </div>
+    ),
   });
 
   return routerWithQueryClient(tanStackRouter, queryClient);
