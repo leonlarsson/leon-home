@@ -1,6 +1,7 @@
 import globalCss from "@/styles/global.css?url";
 import { generateMetadata } from "@/utils/seo";
 import type { QueryClient } from "@tanstack/react-query";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { Outlet, ScrollRestoration, createRootRouteWithContext } from "@tanstack/react-router";
 import { Meta, Scripts } from "@tanstack/start";
 
@@ -37,6 +38,7 @@ function RootComponent() {
         <Outlet />
         <ScrollRestoration />
         <Scripts />
+        <ReactQueryDevtools />
       </body>
     </html>
   );
