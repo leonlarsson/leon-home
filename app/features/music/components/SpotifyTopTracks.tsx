@@ -19,7 +19,7 @@ export const SpotifyTopTracks = ({ range, hideSpotifyURI }: Props) => {
   const getTopTracks = useServerFn(getTopTracksServerFn);
 
   const query = useSuspenseQuery({
-    queryKey: ["music", "topTracks", range],
+    queryKey: ["music", "topTracks", { range }],
     queryFn: () => getTopTracks({ data: range }),
     staleTime: Number.POSITIVE_INFINITY,
   });

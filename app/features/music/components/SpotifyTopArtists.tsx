@@ -20,7 +20,7 @@ export const SpotifyTopArtists = ({ range }: Props) => {
   const getTopArtists = useServerFn(getTopArtistsServerFn);
 
   const query = useSuspenseQuery({
-    queryKey: ["music", "topArtists", range],
+    queryKey: ["music", "topArtists", { range }],
     queryFn: () => getTopArtists({ data: range }),
     staleTime: Number.POSITIVE_INFINITY,
   });
