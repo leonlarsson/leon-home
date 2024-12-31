@@ -5,7 +5,7 @@ import { GuestbookSendMessageSection } from "@/features/guestbook/components/Gue
 import { getEntries, getEntriesCount } from "@/features/guestbook/functions";
 import Icons from "@/features/icons/icons";
 import { generateMetadata } from "@/utils/seo";
-import { useQuery } from "@tanstack/react-query";
+import { queryOptions, useQuery } from "@tanstack/react-query";
 import { createFileRoute } from "@tanstack/react-router";
 import { createServerFn, useServerFn } from "@tanstack/start";
 import { z } from "zod";
@@ -24,6 +24,14 @@ const getGuestbookEntriesServerFn = createServerFn()
     };
   });
 
+// Create the query options for the guestbook entries with some defaults
+const getEntriesQueryOptions = (named: boolean) =>
+  queryOptions({
+    queryKey: ["guestbook", "entries", { named }],
+    queryFn: () => getGuestbookEntriesServerFn({ data: { namedEntriesOnly: false } }),
+    staleTime: 5_000, // Set stale time to 5 seconds
+  });
+
 const guestbookPageSearchParams = z.object({
   named: z.boolean().optional(),
   showTimestamps: z.boolean().optional(),
@@ -32,6 +40,9 @@ const guestbookPageSearchParams = z.object({
 export const Route = createFileRoute("/_main/guestbook")({
   component: RouteComponent,
   validateSearch: guestbookPageSearchParams.parse,
+  loader: ({ context: { queryClient } }) => {
+    queryClient.prefetchQuery(getEntriesQueryOptions(false));
+  },
   head: () => {
     return {
       meta: generateMetadata({
@@ -50,10 +61,9 @@ function RouteComponent() {
   const getData = useServerFn(getGuestbookEntriesServerFn);
 
   const query = useQuery({
-    queryKey: ["guestbook", "entries", { named }],
+    ...getEntriesQueryOptions(!!named),
     queryFn: () => getData({ data: { namedEntriesOnly: !!named } }),
-    refetchInterval: 10_000, // 10 seconds
-    staleTime: 5_000, // 5 seconds
+    refetchInterval: 10_000, // Refetch every 10 seconds
   });
 
   return (
