@@ -3,7 +3,7 @@ import { cn } from "@/utils/cn";
 import { useQueryClient } from "@tanstack/react-query";
 import { useTransition } from "react";
 
-export default () => {
+export const SpotifyRefreshButton = () => {
   const [pending, startTransition] = useTransition();
   const queryClient = useQueryClient();
 

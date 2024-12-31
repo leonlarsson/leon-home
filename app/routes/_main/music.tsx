@@ -1,6 +1,6 @@
 import { SpotifyCurrentlyPlayingTrack } from "@/features/music/components/SpotifyCurrentlyPlayingTrack";
-import SpotifyRangeSelector from "@/features/music/components/SpotifyRangeSelector";
-import SpotifyRefreshButton from "@/features/music/components/SpotifyRefreshButton";
+import { SpotifyRangeSelector } from "@/features/music/components/SpotifyRangeSelector";
+import { SpotifyRefreshButton } from "@/features/music/components/SpotifyRefreshButton";
 import { SpotifyTopArtists } from "@/features/music/components/SpotifyTopArtists";
 import { SpotifyTopArtistsPlaceholder } from "@/features/music/components/SpotifyTopArtistsPlaceholder";
 import { SpotifyTopTracks } from "@/features/music/components/SpotifyTopTracks";

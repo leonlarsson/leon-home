@@ -2,7 +2,7 @@ import Icons from "@/features/icons/icons";
 import { getRouteApi } from "@tanstack/react-router";
 import { useTransition } from "react";
 
-export default () => {
+export const SpotifyRangeSelector = () => {
   const { useNavigate, useSearch } = getRouteApi("/_main/music");
   const navigate = useNavigate();
   const { range } = useSearch();
