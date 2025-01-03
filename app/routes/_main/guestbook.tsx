@@ -28,6 +28,7 @@ export const Route = createFileRoute("/_main/guestbook")({
   validateSearch: guestbookPageSearchParams.parse,
   loader: ({ context: { queryClient } }) => {
     queryClient.prefetchQuery(getEntriesQueryOptions(false));
+    queryClient.prefetchQuery(getEntriesQueryOptions(true));
   },
   head: () => {
     return {
