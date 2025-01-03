@@ -1,14 +1,8 @@
 import Icons from "@/features/icons/icons";
 import { useSuspenseQuery } from "@tanstack/react-query";
-import { createServerFn, useServerFn } from "@tanstack/start";
-import { getSpotifySdk } from "../functions";
+import { useServerFn } from "@tanstack/start";
+import { $getTopTracks } from "../functions";
 import formatDuration from "../utils/formatDuration";
-
-const getTopTracksServerFn = createServerFn()
-  .validator((range: "short_term" | "medium_term" | "long_term") => range)
-  .handler(async (ctx) => {
-    return await (await getSpotifySdk()).currentUser.topItems("tracks", ctx.data);
-  });
 
 type Props = {
   range: "short_term" | "medium_term" | "long_term";
@@ -16,7 +10,7 @@ type Props = {
 };
 
 export const SpotifyTopTracks = ({ range, hideSpotifyURI }: Props) => {
-  const getTopTracks = useServerFn(getTopTracksServerFn);
+  const getTopTracks = useServerFn($getTopTracks);
 
   const query = useSuspenseQuery({
     queryKey: ["music", "topTracks", { range }],

@@ -2,33 +2,19 @@ import { GradientBorder } from "@/features/common/GradientBorder";
 import { GuestbookEntries } from "@/features/guestbook/components/GuestbookEntries";
 import { GuestbookEntriesSettings } from "@/features/guestbook/components/GuestbookEntriesSettings";
 import { GuestbookSendMessageSection } from "@/features/guestbook/components/GuestbookSendMessageSection";
-import { getEntries, getEntriesCount } from "@/features/guestbook/functions";
+import { $getGuestbookEntries } from "@/features/guestbook/functions";
 import Icons from "@/features/icons/icons";
 import { generateMetadata } from "@/utils/seo";
 import { queryOptions, useQuery } from "@tanstack/react-query";
 import { createFileRoute } from "@tanstack/react-router";
-import { createServerFn, useServerFn } from "@tanstack/start";
+import { useServerFn } from "@tanstack/start";
 import { z } from "zod";
-
-const getGuestbookEntriesServerFn = createServerFn()
-  .validator((data: { namedEntriesOnly: boolean }) => data)
-  .handler(async (ctx) => {
-    const [entries, entriesCount] = await Promise.all([
-      getEntries(ctx.data.namedEntriesOnly),
-      getEntriesCount(ctx.data.namedEntriesOnly),
-    ]);
-
-    return {
-      entries,
-      entriesCount,
-    };
-  });
 
 // Create the query options for the guestbook entries with some defaults
 const getEntriesQueryOptions = (named: boolean) =>
   queryOptions({
     queryKey: ["guestbook", "entries", { named }],
-    queryFn: () => getGuestbookEntriesServerFn({ data: { namedEntriesOnly: false } }),
+    queryFn: () => $getGuestbookEntries({ data: { namedEntriesOnly: named } }),
     staleTime: 5_000, // Set stale time to 5 seconds
   });
 
@@ -58,7 +44,7 @@ export const Route = createFileRoute("/_main/guestbook")({
 
 function RouteComponent() {
   const { named, showTimestamps } = Route.useSearch();
-  const getData = useServerFn(getGuestbookEntriesServerFn);
+  const getData = useServerFn($getGuestbookEntries);
 
   const query = useQuery({
     ...getEntriesQueryOptions(!!named),

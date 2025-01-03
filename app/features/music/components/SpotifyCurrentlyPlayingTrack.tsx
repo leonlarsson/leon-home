@@ -1,24 +1,13 @@
 import Icons from "@/features/icons/icons";
 import { cn } from "@/utils/cn";
 import { useQuery } from "@tanstack/react-query";
-import { createServerFn, useServerFn } from "@tanstack/start";
+import { useServerFn } from "@tanstack/start";
 import type { ReactNode } from "react";
-import { getSpotifySdk } from "../functions";
+import { $getCurrentlyPlayingTrack } from "../functions";
 import {
   SpotifyCurrentTrackProgress,
   type SpotifyCurrentlyPlayingTrackProgressType,
 } from "./SpotifyCurrentlyPlayingTrackProgress";
-
-// Server function to get the currently playing track
-// Only returns the playback state if the currently playing item is a track
-const getCurrentlyPlayingTrackServerFn = createServerFn().handler(async () => {
-  const playbackState = await (await getSpotifySdk()).player.getCurrentlyPlayingTrack();
-  if (playbackState?.currently_playing_type !== "track") {
-    return { playbackState: null };
-  }
-
-  return { playbackState };
-});
 
 type Props = {
   compact?: boolean;
@@ -30,7 +19,7 @@ type Props = {
 };
 
 export const SpotifyCurrentlyPlayingTrack = (props: Props) => {
-  const getCurrentlyPlayingTrack = useServerFn(getCurrentlyPlayingTrackServerFn);
+  const getCurrentlyPlayingTrack = useServerFn($getCurrentlyPlayingTrack);
 
   const query = useQuery({
     queryKey: ["music", "currentlyPlayingTrack"],

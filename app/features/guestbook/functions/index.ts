@@ -1,10 +1,33 @@
 import { getDb } from "@/db";
 import { entries } from "@/db/schema";
 import type { GuestbookEntryWithoutIp } from "@/types";
+import { createServerFn } from "@tanstack/start";
 import { desc, eq, isNotNull } from "drizzle-orm";
 import { getCookie, getEvent, getHeader } from "vinxi/http";
 
-export const getEntriesCount = async (namedEntriesOnly: boolean): Promise<number> => {
+export const $getGuestbookEntries = createServerFn()
+  .validator((data: { namedEntriesOnly: boolean }) => data)
+  .handler(async (ctx) => {
+    const [entries, entriesCount] = await Promise.all([
+      getEntries(ctx.data.namedEntriesOnly),
+      getEntriesCount(ctx.data.namedEntriesOnly),
+    ]);
+
+    return {
+      entries,
+      entriesCount,
+    };
+  });
+
+export const $postGuestbookEntry = createServerFn({ method: "POST" })
+  .validator((data: { name: string; message: string }) => data)
+  .handler(async (ctx) => {
+    const { name, message } = ctx.data;
+    const postWasOk = await postEntry(message, name);
+    return postWasOk;
+  });
+
+const getEntriesCount = async (namedEntriesOnly: boolean): Promise<number> => {
   const db = await getDb();
   try {
     // Get a count of all entries that are not deleted
@@ -16,7 +39,7 @@ export const getEntriesCount = async (namedEntriesOnly: boolean): Promise<number
   }
 };
 
-export const getEntries = async (namedEntriesOnly: boolean): Promise<GuestbookEntryWithoutIp[]> => {
+const getEntries = async (namedEntriesOnly: boolean): Promise<GuestbookEntryWithoutIp[]> => {
   const db = await getDb();
   try {
     // Get all entries that are not deleted, sorted by date, limited to 100
@@ -40,7 +63,7 @@ export const getEntries = async (namedEntriesOnly: boolean): Promise<GuestbookEn
   }
 };
 
-export const postEntry = async (message: string, name?: string): Promise<boolean | "ratelimited"> => {
+const postEntry = async (message: string, name?: string): Promise<boolean | "ratelimited"> => {
   const db = await getDb();
   const { context } = getEvent();
   const adminCookie = getCookie("leonhome_guestbook_key");

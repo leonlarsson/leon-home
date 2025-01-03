@@ -1,16 +1,7 @@
 import Icons from "@/features/icons/icons";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { createServerFn } from "@tanstack/start";
 import { useRef } from "react";
-import { postEntry } from "../functions";
-
-const postEntryServerFn = createServerFn({ method: "POST" })
-  .validator((data: { name: string; message: string }) => data)
-  .handler(async (ctx) => {
-    const { name, message } = ctx.data;
-    const postWasOk = await postEntry(message, name);
-    return postWasOk;
-  });
+import { $postGuestbookEntry } from "../functions";
 
 type GuestbookSendMessageSectionProps = {
   showNameInput?: boolean;
@@ -21,7 +12,7 @@ export const GuestbookSendMessageSection = (props: GuestbookSendMessageSectionPr
   const formRef = useRef<HTMLFormElement>(null);
 
   const { mutate, data, isError, isPending } = useMutation({
-    mutationFn: postEntryServerFn,
+    mutationFn: $postGuestbookEntry,
     onSuccess: (result) => {
       if (result === true) {
         queryClient.invalidateQueries({ queryKey: ["guestbook", "entries"] });
