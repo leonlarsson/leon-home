@@ -12,7 +12,7 @@ export const Header = () => {
               content={
                 <img
                   className="rounded-full"
-                  src="/images/avatar.png"
+                  src="https://leonlarsson.com/cdn-cgi/image/width=80/images/avatar.png"
                   alt="Avatar"
                   width={40}
                   height={40}

@@ -51,7 +51,10 @@ export const SpotifyCurrentlyPlayingTrack = (props: Props) => {
         <div className={cn("flex items-center gap-5 p-2", props.compact && "gap-3 p-1")}>
           {/* Album image */}
           <img
-            src={track?.album.images[1].url ?? "/images/spotifylogo.png"}
+            src={
+              track?.album.images[1].url ??
+              `https://leonlarsson.com/cdn-cgi/image/width=${props.compact ? "100" : "200"}/images/spotifylogo.png`
+            }
             className={cn("shrink-0 h-24 w-24", props.compact && "h-10 w-10")}
             alt="Spotify logo"
             width={props.compact ? 40 : 96}
@@ -150,7 +153,7 @@ export const SpotifyCurrentlyPlayingTrackSkeleton = ({
       <div className={cn("flex items-center gap-5 p-2", compact && "gap-3 p-1")}>
         {/* Album image */}
         <img
-          src={"/images/spotifylogo.png"}
+          src={`https://leonlarsson.com/cdn-cgi/image/width=${compact ? "100" : "200"}/images/spotifylogo.png`}
           className={cn("shrink-0 h-24 w-24", compact && "h-10 w-10")}
           alt="Spotify logo"
           width={compact ? 40 : 96}

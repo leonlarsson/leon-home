@@ -15,7 +15,7 @@ function RouteComponent() {
       <div className="mb-6 flex items-center gap-4">
         <img
           className="h-full select-none rounded-[100px] shadow transition-all max-md:size-[100px] max-[510px]:size-[60px] hover:rounded-[30px] hover:shadow-lg"
-          src="/images/avatar.png"
+          src="https://leonlarsson.com/cdn-cgi/image/width=200/images/avatar.png"
           alt="Leon"
           width={130}
           height={130}
@@ -62,7 +62,7 @@ function RouteComponent() {
             draggable={false}
           >
             <img
-              src={"/images/oksidialogo_notext.png"}
+              src={"https://leonlarsson.com/cdn-cgi/image/width=40/images/oksidialogo_notext.png"}
               alt="Oksidia logo"
               width={16}
               height={16}
