@@ -183,10 +183,10 @@ export default [
     name: "Battlefield Stats Discord Bot",
     description: [
       "My largest and most successful project by far. Battlefield Stats is a Discord bot that provides on-demand Battlefield statistics in Discord. I have also built a website and an API for this project, which uses Cloudflare D1 (SQLite) as the database.",
-      "Used by thousands of users in over 4,300 Discord servers and installed on over 1,300 accounts, the bot is built with discord.js and the website with TanStack Router and shadcn/ui.",
+      "Used by thousands of users in over 4,500 Discord servers and installed on over 2,100 accounts, the bot is built with discord.js and the website with TanStack Router and shadcn/ui.",
       "In February 2024, I rewrote the bot, going from JavaScript to TypeScript and from Node.js to Bun (and later back again).",
     ],
-    shortDescription: "A bot that provides Battlefield stats right inside Discord.",
+    shortDescription: "A bot that provides Battlefield stats from inside Discord.",
     year: "2021",
     tags: [
       tags.NODE,
@@ -274,7 +274,7 @@ export default [
       "A Discord bot that provides on demand Bloodhunt statistics in Discord, built in Node.js. In addition, I built an API that reports some basic usage.",
       "Built on the same foundations I created for the Battlefield Stats Discord bot and built as part of my role at Sharkmob.",
     ],
-    shortDescription: "A bot that provides Bloodhunt stats right inside Discord.",
+    shortDescription: "A bot that provides Bloodhunt stats from inside Discord.",
     year: "2022",
     tags: [tags.NODE, tags.DISCORDJS, tags.CLOUDFLARE_WORKERS, tags.API, tags.JS],
     images: [bloodhuntStatsImage1],
