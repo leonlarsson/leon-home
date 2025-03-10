@@ -29,6 +29,7 @@ export const ProjectsSection = ({
             <div className="flex items-baseline justify-between">
               <Link
                 to="/projects/$projectSlug"
+                aria-label={`Read more about ${name}`}
                 params={{ projectSlug: slug }}
                 target="_blank"
                 className="link font-semibold"
@@ -48,9 +49,9 @@ export const ProjectsSection = ({
                 <Link
                   key={tag.name}
                   to="/projects"
+                  title={`See other projects tagged with ${tag.name}.`}
                   search={(prev) => ({ ...prev, search: /\d{4}/.test(tag.name) ? tag.name : `tag:${tag.name}` })}
                   target="_blank"
-                  title={`See other projects tagged with ${tag.name}.`}
                   className="flex items-center gap-1 rounded bg-neutral-200 p-1 font-mono text-xs text-neutral-800 outline-1 hover:outline"
                 >
                   {tag.color && <TagColorBadge color={tag.color} size={10} showBorder />}

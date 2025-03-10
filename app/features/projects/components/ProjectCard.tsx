@@ -22,6 +22,7 @@ export const ProjectCard = ({
             {/* Name / Year */}
             <Link
               to={"/projects/$projectSlug"}
+              aria-label={`Read more about project ${project.name}`}
               params={{ projectSlug: project.slug }}
               draggable={false}
               className="relative z-20 underline-offset-2 hover:underline"
@@ -43,6 +44,7 @@ export const ProjectCard = ({
           {(project.link || project.githubLink) && (
             <a
               href={project.link ?? project.githubLink!}
+              aria-label={project.link ? `Visit ${project.name}` : `Visit ${project.name} on GitHub`}
               target="_blank"
               rel="noreferrer"
               draggable={false}
@@ -78,9 +80,10 @@ export const ProjectCard = ({
       {/* Link to /project */}
       <Link
         to={"/projects/$projectSlug"}
+        aria-label={`Read more about project ${project.name}`}
         params={{ projectSlug: project.slug }}
         draggable={false}
-        className="none absolute inset-0 z-10 block"
+        className="absolute inset-0 z-10 block"
         style={{
           textDecoration: "none",
         }}

@@ -224,7 +224,7 @@ function RouteComponent() {
         </div>
 
         {/* Coolify link */}
-        <a href="https://coolify.leonlarsson.com" className="card w-fit p-2">
+        <a href="https://coolify.leonlarsson.com" title="Go to Coolify" className="card w-fit p-2">
           <Icons.code className="size-5" />
         </a>
       </div>
