@@ -20,13 +20,12 @@ export const ProjectTag = ({
   // If already searching for this tag, make it a dotted border
   const className = {
     className: cn(
-      "select-none border-2 flex items-center gap-1 border-transparent rounded bg-blue-200 px-2 py-1 text-xs font-bold text-blue-700 transition-colors dark:bg-[#212528] dark:text-[#4b98f2]",
+      "select-none border-2 flex items-center gap-1 border-transparent rounded px-2 py-1 text-xs font-bold transition-colors bg-blue-200/80 text-blue-700 dark:bg-[#212528] dark:text-[#4b98f2]",
       clickable && !searchMatchesTag && "hover:border-blue-700",
-      searchMatchesTag && "border-dotted dark:border-blue-900 border-blue-600",
+      searchMatchesTag && "border-dashed dark:border-blue-900 border-blue-600",
     ),
   };
 
-  // If clickable and not already searching for this tag, make it a link
   return clickable && !searchMatchesTag ? (
     <Link
       to="/projects"
@@ -51,11 +50,16 @@ export const ProjectTag = ({
 type TagColorBadgeProps = {
   color: string;
   size?: number;
-  showBorder?: boolean;
+  useBlackBorder?: boolean;
 };
-export const TagColorBadge = ({ color, size, showBorder }: TagColorBadgeProps) => (
+
+export const TagColorBadge = ({ color, size = 8, useBlackBorder }: TagColorBadgeProps) => (
   <div
-    className={cn("size-2 rounded-full", showBorder && "border border-black")}
-    style={{ backgroundColor: color, width: size ?? 8, height: size ?? 8 }}
+    className={cn("rounded-full", useBlackBorder ? "border border-black" : "ring-black/50 dark:ring-white/50 ring-1")}
+    style={{
+      backgroundColor: color,
+      width: size,
+      height: size,
+    }}
   />
 );

@@ -54,7 +54,7 @@ export const ProjectsSection = ({
                   target="_blank"
                   className="flex items-center gap-1 rounded bg-neutral-200 p-1 font-mono text-xs text-neutral-800 outline-1 hover:outline"
                 >
-                  {tag.color && <TagColorBadge color={tag.color} size={10} showBorder />}
+                  {tag.color && <TagColorBadge color={tag.color} size={10} useBlackBorder />}
                   {tag.name}
                 </Link>
               ))}
