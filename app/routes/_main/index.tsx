@@ -138,30 +138,20 @@ function RouteComponent() {
                 icon: <Icons.github className="me-2 inline size-5" />,
               },
               {
+                title: "Twitter",
+                url: "https://x.com/MozzyFX",
+                icon: <Icons.twitterX className="me-2 inline size-5" />,
+              },
+              {
                 title: "Bluesky",
                 url: "https://bsky.app/profile/leon.ms",
                 icon: <Icons.bluesky className="me-2 inline size-5" />,
               },
               {
-                title: "Twitter",
-                url: "https://x.com/MozzyFX",
-                icon: <Icons.twitterX className="me-2 inline size-5" />,
+                title: "Instagram",
+                url: "https://www.instagram.com/leonsjlarsson/",
+                icon: <Icons.instagram className="me-2 inline size-5" />,
               },
-              // {
-              //   title: "Twitter 3",
-              //   url: "https://www.threads.net/@leonsjlarsson",
-              //   icon: <Icons.threads className="me-2 inline size-5" />,
-              // },
-              // {
-              //   title: "Instagram",
-              //   url: "https://www.instagram.com/leonsjlarsson/",
-              //   icon: <Icons.instagram className="me-2 inline size-5" />,
-              // },
-              // {
-              //   title: "ArtStation",
-              //   url: "https://www.artstation.com/leonlarsson",
-              //   icon: <Icons.artstation className="me-2 inline size-5" />,
-              // },
             ].map(({ title, url, icon }) => (
               <a
                 key={title}

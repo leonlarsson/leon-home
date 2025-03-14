@@ -58,18 +58,18 @@ export const Header = () => {
               title="GitHub"
               newTab
             />
-            <HeaderLink
+            {/* <HeaderLink
               content={<Icons.bluesky className="w-8" />}
               url="https://bsky.app/profile/leon.ms"
               title="Bluesky"
               newTab
-            />
-            {/* <HeaderLink
+            /> */}
+            <HeaderLink
               content={<Icons.twitterX className="w-8" />}
               url="https://x.com/MozzyFX"
               title="Twitter"
               newTab
-            /> */}
+            />
           </div>
         </div>
       </header>
