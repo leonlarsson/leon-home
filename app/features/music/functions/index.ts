@@ -51,9 +51,6 @@ export const $getTopTracks = createServerFn()
 export const $getTopArtists = createServerFn()
   .validator((range: "short_term" | "medium_term" | "long_term") => range)
   .handler(async (ctx) => {
-    console.time("getTopArtistsServerFn");
     const result = await (await getSpotifySdk()).currentUser.topItems("artists", ctx.data);
-    console.timeEnd("getTopArtistsServerFn");
-
     return result;
   });
