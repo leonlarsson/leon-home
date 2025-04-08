@@ -17,12 +17,12 @@ export const ProjectTag = ({
 
   // Weird in order to please the Tailwind extension
   // If clickable and not already searching for this tag, make it hoverable
-  // If already searching for this tag, make it a dotted border
+  // If already searching for this tag, change the background color
   const className = {
     className: cn(
-      "select-none border-2 flex items-center gap-1 border-transparent rounded px-2 py-1 text-xs font-bold transition-colors bg-blue-200/80 text-blue-700 dark:bg-[#212528] dark:text-[#4b98f2]",
-      clickable && !searchMatchesTag && "hover:border-blue-700",
-      searchMatchesTag && "border-dashed dark:border-blue-900 border-blue-600",
+      "flex items-center gap-1 bg-neutral-200 dark:bg-neutral-800 rounded-lg px-[10px] py-[6px] transition-colors duration-75 select-none text-xs font-medium text-kinda-black/80 dark:text-kinda-white/80",
+      clickable && !searchMatchesTag && "hover:bg-neutral-300 dark:hover:bg-neutral-700",
+      searchMatchesTag && "bg-neutral-500/40 dark:bg-neutral-600/60 text-kinda-black dark:text-kinda-white",
     ),
   };
 
