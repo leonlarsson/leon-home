@@ -27,15 +27,15 @@ function RouteComponent() {
             Leon San José Larsson
           </span>
           <span className="text-xl transition-all max-md:text-sm">
-            Software Developer @{" "}
+            Fullstack Engineer @{" "}
             <a
-              href="https://oksidia.fi"
+              href="https://www.embark-studios.com/"
               target="_blank"
               rel="noreferrer"
               className="link font-normal"
               draggable={false}
             >
-              Oksidia
+              Embark Studios
             </a>
           </span>
         </div>
@@ -53,37 +53,35 @@ function RouteComponent() {
 
         {/* WORK */}
         <div>
-          I work as a Software Developer at{" "}
+          I work as a Fullstack Engineer at{" "}
           <a
-            href="https://oksidia.fi"
+            href="https://www.embark-studios.com/"
             target="_blank"
             rel="noreferrer"
             className="link inline-flex items-baseline"
             draggable={false}
           >
             <img
-              src={"https://leonlarsson.com/cdn-cgi/image/width=40/images/oksidialogo_notext.png"}
-              alt="Oksidia logo"
-              width={16}
-              height={16}
+              src="https://leonlarsson.com/cdn-cgi/image/width=40/images/embarklogo.png"
+              alt="Embark Studios logo"
+              width={20}
+              height={20}
               className="mx-1 self-center"
             />
-            <span>Oksidia</span>
+            Embark Studios
           </a>
-          , where I work with JavaScript/TypeScript/PHP with Angular, React, and Laravel.{" "}
+          . My{" "}
           <Link to="/cv" target="_blank" className="link whitespace-nowrap">
-            Past experiences
+            past experiences
           </Link>{" "}
-          include companies like Sharkmob and Electronic Arts.
-        </div>
-
-        {/* DEV */}
-        <div>
-          As a Software Developer, my primary areas of interest are web development and Discord bots. I also enjoy
-          creating APIs and services on platforms such as Cloudflare Workers. Feel free to{" "}
+          include companies like Sharkmob and Electronic Arts. As a software person, I love building things in my free
+          time.
+          <br />
+          Take a look at{" "}
           <Link to="/projects" className="link whitespace-nowrap">
-            browse all my projects!
-          </Link>
+            my projects
+          </Link>{" "}
+          to see more.
         </div>
 
         {/* COMMUNITY */}

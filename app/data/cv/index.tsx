@@ -41,10 +41,10 @@ export const profileSection: CVProfileSection = {
     text: "leonlarsson.com",
   },
   location: {
-    href: "https://www.google.com/maps/place/Malm%C3%B6",
+    href: "https://www.google.com/maps/place/Stockholm",
     text: {
-      en: "Malmö, Sweden",
-      sv: "Malmö, Sverige",
+      en: "Stockholm, Sweden",
+      sv: "Stockholm, Sverige",
     },
     timezone: "Europe/Stockholm",
   },
@@ -90,18 +90,29 @@ export const employmentSection: CVEmploymentSection = {
   },
   history: [
     {
+      title: "Fullstack Engineer",
+      company: "Embark Studios",
+      companyUrl: "https://www.embark-studios.com/",
+      description: {
+        en: ["Check back later."],
+        sv: ["Kolla tillbaka senare."],
+      },
+      start: "2025-04-14",
+    },
+    {
       title: "Software Developer",
       company: "Oksidia",
       companyUrl: "https://oksidia.fi/",
       description: {
         en: [
-          "I work as a Software Developer at Oksidia, where I develop and maintain [Eepos](https://www.eepos.fi/en/), a school management platform. The languages and technologies I use include JavaScript, TypeScript, PHP, Angular, Laravel, and SQL.",
+          "I worked as a Software Developer at Oksidia, where I developed and maintained [Eepos](https://www.eepos.fi/en/), a school management platform. The languages and technologies I used include JavaScript, TypeScript, PHP, Angular, Laravel, and SQL.",
         ],
         sv: [
-          "Jag arbetar som mjukvaruutvecklare på Oksidia, där jag utvecklar och underhåller [Eepos](https://www.eepos.fi/en/), en plattform för skolor. De språk och tekniker jag använder inkluderar JavaScript, TypeScript, PHP, Angular, Laravel och SQL.",
+          "Jag arbetade som mjukvaruutvecklare på Oksidia, där jag utvecklade och underhöll [Eepos](https://www.eepos.fi/en/), en plattform för skolor. De språk och tekniker jag använde inkluderar JavaScript, TypeScript, PHP, Angular, Laravel och SQL.",
         ],
       },
       start: "2024-05-27",
+      end: "2025-04-03",
     },
     {
       title: "Community & Support Specialist",
