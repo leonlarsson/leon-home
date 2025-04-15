@@ -62,7 +62,8 @@ function RouteComponent() {
             draggable={false}
           >
             <img
-              src="https://leonlarsson.com/cdn-cgi/image/width=40/images/embarklogo.png"
+              // src="https://leonlarsson.com/cdn-cgi/image/width=40/images/embarklogo.png"
+              src="/images/embarklogo.png"
               alt="Embark Studios logo"
               width={20}
               height={20}
