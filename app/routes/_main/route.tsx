@@ -1,8 +1,8 @@
 import { Header } from "@/features/navigation/Header";
 import mainCss from "@/styles/main.css?url";
-import { Outlet, createFileRoute } from "@tanstack/react-router";
+import { Outlet } from "@tanstack/react-router";
 
-export const Route = createFileRoute("/_main")({
+export const Route = createFileRoute({
   head: () => ({
     links: [{ rel: "stylesheet", href: mainCss }],
   }),

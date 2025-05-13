@@ -5,7 +5,6 @@ import { ProjectSortCheckbox } from "@/features/projects/components/SortCheckbox
 import { cn } from "@/utils/cn";
 import { getProjectsBySearch } from "@/utils/projects";
 import { generateMetadata } from "@/utils/seo";
-import { createFileRoute } from "@tanstack/react-router";
 import { z } from "zod";
 
 const projectPageSearchParams = z.object({
@@ -13,7 +12,7 @@ const projectPageSearchParams = z.object({
   sort: z.literal("newest").optional(),
 });
 
-export const Route = createFileRoute("/_main/projects/")({
+export const Route = createFileRoute({
   component: RouteComponent,
   validateSearch: (search) => projectPageSearchParams.parse(search),
   head: ({ match }) => {

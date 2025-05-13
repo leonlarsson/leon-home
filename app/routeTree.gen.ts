@@ -8,75 +8,77 @@
 // You should NOT make any changes in this file as it will be overwritten.
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
+import type { CreateFileRoute, FileRoutesByPath } from '@tanstack/react-router'
+
 // Import Routes
 
 import { Route as rootRoute } from './routes/__root'
-import { Route as MainRouteImport } from './routes/_main/route'
-import { Route as CvRouteImport } from './routes/_cv/route'
-import { Route as MainIndexImport } from './routes/_main/index'
-import { Route as MainMusicImport } from './routes/_main/music'
-import { Route as MainGuestbookImport } from './routes/_main/guestbook'
-import { Route as CvResumeImport } from './routes/_cv/resume'
-import { Route as CvCvImport } from './routes/_cv/cv'
-import { Route as MainProjectsIndexImport } from './routes/_main/projects.index'
-import { Route as MainProjectsProjectSlugImport } from './routes/_main/projects.$projectSlug'
-import { Route as CvLocaleCvImport } from './routes/_cv/$locale.cv'
+import { Route as MainRouteRouteImport } from './routes/_main/route'
+import { Route as CvRouteRouteImport } from './routes/_cv/route'
+import { Route as MainIndexRouteImport } from './routes/_main/index'
+import { Route as MainMusicRouteImport } from './routes/_main/music'
+import { Route as MainGuestbookRouteImport } from './routes/_main/guestbook'
+import { Route as CvResumeRouteImport } from './routes/_cv/resume'
+import { Route as CvCvRouteImport } from './routes/_cv/cv'
+import { Route as MainProjectsIndexRouteImport } from './routes/_main/projects.index'
+import { Route as MainProjectsProjectSlugRouteImport } from './routes/_main/projects.$projectSlug'
+import { Route as CvLocaleCvRouteImport } from './routes/_cv/$locale.cv'
 
 // Create/Update Routes
 
-const MainRouteRoute = MainRouteImport.update({
+const MainRouteRoute = MainRouteRouteImport.update({
   id: '/_main',
   getParentRoute: () => rootRoute,
 } as any)
 
-const CvRouteRoute = CvRouteImport.update({
+const CvRouteRoute = CvRouteRouteImport.update({
   id: '/_cv',
   getParentRoute: () => rootRoute,
 } as any)
 
-const MainIndexRoute = MainIndexImport.update({
+const MainIndexRoute = MainIndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => MainRouteRoute,
 } as any)
 
-const MainMusicRoute = MainMusicImport.update({
+const MainMusicRoute = MainMusicRouteImport.update({
   id: '/music',
   path: '/music',
   getParentRoute: () => MainRouteRoute,
 } as any)
 
-const MainGuestbookRoute = MainGuestbookImport.update({
+const MainGuestbookRoute = MainGuestbookRouteImport.update({
   id: '/guestbook',
   path: '/guestbook',
   getParentRoute: () => MainRouteRoute,
 } as any)
 
-const CvResumeRoute = CvResumeImport.update({
+const CvResumeRoute = CvResumeRouteImport.update({
   id: '/resume',
   path: '/resume',
   getParentRoute: () => CvRouteRoute,
 } as any)
 
-const CvCvRoute = CvCvImport.update({
+const CvCvRoute = CvCvRouteImport.update({
   id: '/cv',
   path: '/cv',
   getParentRoute: () => CvRouteRoute,
 } as any)
 
-const MainProjectsIndexRoute = MainProjectsIndexImport.update({
+const MainProjectsIndexRoute = MainProjectsIndexRouteImport.update({
   id: '/projects/',
   path: '/projects/',
   getParentRoute: () => MainRouteRoute,
 } as any)
 
-const MainProjectsProjectSlugRoute = MainProjectsProjectSlugImport.update({
+const MainProjectsProjectSlugRoute = MainProjectsProjectSlugRouteImport.update({
   id: '/projects/$projectSlug',
   path: '/projects/$projectSlug',
   getParentRoute: () => MainRouteRoute,
 } as any)
 
-const CvLocaleCvRoute = CvLocaleCvImport.update({
+const CvLocaleCvRoute = CvLocaleCvRouteImport.update({
   id: '/$locale/cv',
   path: '/$locale/cv',
   getParentRoute: () => CvRouteRoute,
@@ -90,73 +92,166 @@ declare module '@tanstack/react-router' {
       id: '/_cv'
       path: ''
       fullPath: ''
-      preLoaderRoute: typeof CvRouteImport
+      preLoaderRoute: typeof CvRouteRouteImport
       parentRoute: typeof rootRoute
     }
     '/_main': {
       id: '/_main'
       path: ''
       fullPath: ''
-      preLoaderRoute: typeof MainRouteImport
+      preLoaderRoute: typeof MainRouteRouteImport
       parentRoute: typeof rootRoute
     }
     '/_cv/cv': {
       id: '/_cv/cv'
       path: '/cv'
       fullPath: '/cv'
-      preLoaderRoute: typeof CvCvImport
-      parentRoute: typeof CvRouteImport
+      preLoaderRoute: typeof CvCvRouteImport
+      parentRoute: typeof CvRouteRouteImport
     }
     '/_cv/resume': {
       id: '/_cv/resume'
       path: '/resume'
       fullPath: '/resume'
-      preLoaderRoute: typeof CvResumeImport
-      parentRoute: typeof CvRouteImport
+      preLoaderRoute: typeof CvResumeRouteImport
+      parentRoute: typeof CvRouteRouteImport
     }
     '/_main/guestbook': {
       id: '/_main/guestbook'
       path: '/guestbook'
       fullPath: '/guestbook'
-      preLoaderRoute: typeof MainGuestbookImport
-      parentRoute: typeof MainRouteImport
+      preLoaderRoute: typeof MainGuestbookRouteImport
+      parentRoute: typeof MainRouteRouteImport
     }
     '/_main/music': {
       id: '/_main/music'
       path: '/music'
       fullPath: '/music'
-      preLoaderRoute: typeof MainMusicImport
-      parentRoute: typeof MainRouteImport
+      preLoaderRoute: typeof MainMusicRouteImport
+      parentRoute: typeof MainRouteRouteImport
     }
     '/_main/': {
       id: '/_main/'
       path: '/'
       fullPath: '/'
-      preLoaderRoute: typeof MainIndexImport
-      parentRoute: typeof MainRouteImport
+      preLoaderRoute: typeof MainIndexRouteImport
+      parentRoute: typeof MainRouteRouteImport
     }
     '/_cv/$locale/cv': {
       id: '/_cv/$locale/cv'
       path: '/$locale/cv'
       fullPath: '/$locale/cv'
-      preLoaderRoute: typeof CvLocaleCvImport
-      parentRoute: typeof CvRouteImport
+      preLoaderRoute: typeof CvLocaleCvRouteImport
+      parentRoute: typeof CvRouteRouteImport
     }
     '/_main/projects/$projectSlug': {
       id: '/_main/projects/$projectSlug'
       path: '/projects/$projectSlug'
       fullPath: '/projects/$projectSlug'
-      preLoaderRoute: typeof MainProjectsProjectSlugImport
-      parentRoute: typeof MainRouteImport
+      preLoaderRoute: typeof MainProjectsProjectSlugRouteImport
+      parentRoute: typeof MainRouteRouteImport
     }
     '/_main/projects/': {
       id: '/_main/projects/'
       path: '/projects'
       fullPath: '/projects'
-      preLoaderRoute: typeof MainProjectsIndexImport
-      parentRoute: typeof MainRouteImport
+      preLoaderRoute: typeof MainProjectsIndexRouteImport
+      parentRoute: typeof MainRouteRouteImport
     }
   }
+}
+
+// Add type-safety to the createFileRoute function across the route tree
+
+declare module './routes/_cv/route' {
+  const createFileRoute: CreateFileRoute<
+    '/_cv',
+    FileRoutesByPath['/_cv']['parentRoute'],
+    FileRoutesByPath['/_cv']['id'],
+    FileRoutesByPath['/_cv']['path'],
+    FileRoutesByPath['/_cv']['fullPath']
+  >
+}
+declare module './routes/_main/route' {
+  const createFileRoute: CreateFileRoute<
+    '/_main',
+    FileRoutesByPath['/_main']['parentRoute'],
+    FileRoutesByPath['/_main']['id'],
+    FileRoutesByPath['/_main']['path'],
+    FileRoutesByPath['/_main']['fullPath']
+  >
+}
+declare module './routes/_cv/cv' {
+  const createFileRoute: CreateFileRoute<
+    '/_cv/cv',
+    FileRoutesByPath['/_cv/cv']['parentRoute'],
+    FileRoutesByPath['/_cv/cv']['id'],
+    FileRoutesByPath['/_cv/cv']['path'],
+    FileRoutesByPath['/_cv/cv']['fullPath']
+  >
+}
+declare module './routes/_cv/resume' {
+  const createFileRoute: CreateFileRoute<
+    '/_cv/resume',
+    FileRoutesByPath['/_cv/resume']['parentRoute'],
+    FileRoutesByPath['/_cv/resume']['id'],
+    FileRoutesByPath['/_cv/resume']['path'],
+    FileRoutesByPath['/_cv/resume']['fullPath']
+  >
+}
+declare module './routes/_main/guestbook' {
+  const createFileRoute: CreateFileRoute<
+    '/_main/guestbook',
+    FileRoutesByPath['/_main/guestbook']['parentRoute'],
+    FileRoutesByPath['/_main/guestbook']['id'],
+    FileRoutesByPath['/_main/guestbook']['path'],
+    FileRoutesByPath['/_main/guestbook']['fullPath']
+  >
+}
+declare module './routes/_main/music' {
+  const createFileRoute: CreateFileRoute<
+    '/_main/music',
+    FileRoutesByPath['/_main/music']['parentRoute'],
+    FileRoutesByPath['/_main/music']['id'],
+    FileRoutesByPath['/_main/music']['path'],
+    FileRoutesByPath['/_main/music']['fullPath']
+  >
+}
+declare module './routes/_main/index' {
+  const createFileRoute: CreateFileRoute<
+    '/_main/',
+    FileRoutesByPath['/_main/']['parentRoute'],
+    FileRoutesByPath['/_main/']['id'],
+    FileRoutesByPath['/_main/']['path'],
+    FileRoutesByPath['/_main/']['fullPath']
+  >
+}
+declare module './routes/_cv/$locale.cv' {
+  const createFileRoute: CreateFileRoute<
+    '/_cv/$locale/cv',
+    FileRoutesByPath['/_cv/$locale/cv']['parentRoute'],
+    FileRoutesByPath['/_cv/$locale/cv']['id'],
+    FileRoutesByPath['/_cv/$locale/cv']['path'],
+    FileRoutesByPath['/_cv/$locale/cv']['fullPath']
+  >
+}
+declare module './routes/_main/projects.$projectSlug' {
+  const createFileRoute: CreateFileRoute<
+    '/_main/projects/$projectSlug',
+    FileRoutesByPath['/_main/projects/$projectSlug']['parentRoute'],
+    FileRoutesByPath['/_main/projects/$projectSlug']['id'],
+    FileRoutesByPath['/_main/projects/$projectSlug']['path'],
+    FileRoutesByPath['/_main/projects/$projectSlug']['fullPath']
+  >
+}
+declare module './routes/_main/projects.index' {
+  const createFileRoute: CreateFileRoute<
+    '/_main/projects/',
+    FileRoutesByPath['/_main/projects/']['parentRoute'],
+    FileRoutesByPath['/_main/projects/']['id'],
+    FileRoutesByPath['/_main/projects/']['path'],
+    FileRoutesByPath['/_main/projects/']['fullPath']
+  >
 }
 
 // Create and export the route tree

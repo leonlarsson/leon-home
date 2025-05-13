@@ -6,7 +6,6 @@ import { SpotifyTopArtistsPlaceholder } from "@/features/music/components/Spotif
 import { SpotifyTopTracks } from "@/features/music/components/SpotifyTopTracks";
 import { SpotifyTopTracksPlaceholder } from "@/features/music/components/SpotifyTopTracksPlaceholder";
 import { generateMetadata } from "@/utils/seo";
-import { createFileRoute } from "@tanstack/react-router";
 import { Suspense } from "react";
 import { z } from "zod";
 
@@ -14,7 +13,7 @@ const musicPageSearchParams = z.object({
   range: z.enum(["short_term", "medium_term", "long_term"]).optional(),
 });
 
-export const Route = createFileRoute("/_main/music")({
+export const Route = createFileRoute({
   component: RouteComponent,
   validateSearch: (search) => musicPageSearchParams.parse(search),
   head: () => {

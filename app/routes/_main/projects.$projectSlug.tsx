@@ -7,9 +7,9 @@ import { cn } from "@/utils/cn";
 import { findProjectBySlugOrAliases, getProjectsBySearch } from "@/utils/projects";
 import { generateMetadata } from "@/utils/seo";
 import { tagSorterFunction } from "@/utils/tagSorterFunction";
-import { Link, createFileRoute, redirect } from "@tanstack/react-router";
+import { Link, redirect } from "@tanstack/react-router";
 
-export const Route = createFileRoute("/_main/projects/$projectSlug")({
+export const Route = createFileRoute({
   component: RouteComponent,
   head: ({ params }) => {
     const project = findProjectBySlugOrAliases(params.projectSlug);

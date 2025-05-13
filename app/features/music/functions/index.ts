@@ -1,15 +1,13 @@
-import { SpotifyApi } from "@spotify/web-api-ts-sdk";
-import { createServerFn } from "@tanstack/start";
+import { type AccessToken, SpotifyApi } from "@spotify/web-api-ts-sdk";
+import { createServerFn } from "@tanstack/react-start";
 import queryString from "query-string";
-import { getEvent } from "vinxi/http";
+import { getPlatformProxy } from "wrangler";
 
 const TOKEN_ENDPOINT = "https://accounts.spotify.com/api/token";
 
 const getAccessTokenFn = async () => {
-  const event = getEvent();
-  const basic = Buffer.from(
-    `${event.context.cloudflare.env.SPOTIFY_ID}:${event.context.cloudflare.env.SPOTIFY_SECRET}`,
-  ).toString("base64");
+  const { env } = await getPlatformProxy<Env>();
+  const basic = Buffer.from(`${env.SPOTIFY_ID}:${env.SPOTIFY_SECRET}`).toString("base64");
   const response = await fetch(TOKEN_ENDPOINT, {
     method: "POST",
     headers: {
@@ -18,17 +16,17 @@ const getAccessTokenFn = async () => {
     },
     body: queryString.stringify({
       grant_type: "refresh_token",
-      refresh_token: event.context.cloudflare.env.SPOTIFY_REFRESH_TOKEN,
+      refresh_token: env.SPOTIFY_REFRESH_TOKEN,
     }),
   });
 
-  return response.json();
+  return response.json<AccessToken>();
 };
 
 const getSpotifySdk = async () => {
-  const event = getEvent();
+  const { env } = await getPlatformProxy<Env>();
   const accessToken = await getAccessTokenFn();
-  return SpotifyApi.withAccessToken(event.context.cloudflare.env.SPOTIFY_ID ?? "", accessToken);
+  return SpotifyApi.withAccessToken(env.SPOTIFY_ID ?? "", accessToken);
 };
 
 // Server function to get the currently playing track

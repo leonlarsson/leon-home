@@ -2,10 +2,10 @@ import projects from "@/data/projects";
 import Icons from "@/features/icons/icons";
 import { SpotifyCurrentlyPlayingTrack } from "@/features/music/components/SpotifyCurrentlyPlayingTrack";
 import { ProjectCard } from "@/features/projects/components/ProjectCard";
-import { Link, createFileRoute } from "@tanstack/react-router";
+import { Link } from "@tanstack/react-router";
 import { TypeAnimation } from "react-type-animation";
 
-export const Route = createFileRoute("/_main/")({
+export const Route = createFileRoute({
   component: RouteComponent,
 });
 

@@ -1,6 +1,6 @@
-import { createFileRoute, redirect } from "@tanstack/react-router";
+import { redirect } from "@tanstack/react-router";
 
-export const Route = createFileRoute("/_cv/cv")({
+export const Route = createFileRoute({
   beforeLoad: () => {
     throw redirect({ to: "/$locale/cv", params: { locale: "en" } });
   },

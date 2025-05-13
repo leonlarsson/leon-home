@@ -1,8 +1,9 @@
-import { findProjectBySlugOrAliases, getProjectsBySearch } from "@/utils/projects";
-import { json } from "@tanstack/start";
-import { createAPIFileRoute } from "@tanstack/start/api";
+import { json } from "@tanstack/react-start";
+import { createServerFileRoute } from "@tanstack/react-start/server";
+import { findProjectBySlugOrAliases, getProjectsBySearch } from "../../utils/projects";
 
-export const APIRoute = createAPIFileRoute("/api/projects/$projectSlug")({
+// TODO: Broken params?
+export const ServerRoute = createServerFileRoute().methods({
   GET: ({ params }) => {
     const project = findProjectBySlugOrAliases(params.projectSlug);
 

@@ -6,8 +6,7 @@ import { $getGuestbookEntries } from "@/features/guestbook/functions";
 import Icons from "@/features/icons/icons";
 import { generateMetadata } from "@/utils/seo";
 import { queryOptions, useQuery } from "@tanstack/react-query";
-import { createFileRoute } from "@tanstack/react-router";
-import { useServerFn } from "@tanstack/start";
+import { useServerFn } from "@tanstack/react-start";
 import { z } from "zod";
 
 // Create the query options for the guestbook entries with some defaults
@@ -23,7 +22,7 @@ const guestbookPageSearchParams = z.object({
   showTimestamps: z.boolean().optional(),
 });
 
-export const Route = createFileRoute("/_main/guestbook")({
+export const Route = createFileRoute({
   component: RouteComponent,
   validateSearch: guestbookPageSearchParams.parse,
   loader: ({ context: { queryClient } }) => {
@@ -56,7 +55,7 @@ function RouteComponent() {
   return (
     <div className="mx-auto max-w-3xl">
       <div className="text-3xl font-extrabold">Guestbook</div>
-      <div className="mb-3">A guestbook where you can send a message.</div>
+      <div className="mb-3">A guestbooks where you can send a message.</div>
 
       <div className="flex flex-col justify-center gap-1">
         <GuestbookSendMessageSection showNameInput />

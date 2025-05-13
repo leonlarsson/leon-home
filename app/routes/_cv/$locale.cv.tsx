@@ -2,10 +2,10 @@ import { pageMetadata, sections } from "@/data/cv";
 import Icons from "@/features/icons/icons";
 import type { CVLocale } from "@/types";
 import { generateMetadata } from "@/utils/seo";
-import { Link, createFileRoute, redirect } from "@tanstack/react-router";
+import { Link, redirect } from "@tanstack/react-router";
 import * as React from "react";
 
-export const Route = createFileRoute("/_cv/$locale/cv")({
+export const Route = createFileRoute({
   component: RouteComponent,
   head: ({ params }) => {
     const isValidLocale = params.locale === "en" || params.locale === "sv";

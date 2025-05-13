@@ -1,7 +1,7 @@
 import Icons from "@/features/icons/icons";
 import { cn } from "@/utils/cn";
 import { useQuery } from "@tanstack/react-query";
-import { useServerFn } from "@tanstack/start";
+import { useServerFn } from "@tanstack/react-start";
 import type { ReactNode } from "react";
 import { $getCurrentlyPlayingTrack } from "../functions";
 import {

@@ -1,9 +1,10 @@
 import { getDb } from "@/db";
 import { entries } from "@/db/schema";
 import type { GuestbookEntryWithoutIp } from "@/types";
-import { createServerFn } from "@tanstack/start";
+import { createServerFn } from "@tanstack/react-start";
+import { getCookie, getHeader } from "@tanstack/react-start/server";
 import { desc, eq, isNotNull } from "drizzle-orm";
-import { getCookie, getEvent, getHeader } from "vinxi/http";
+import { getPlatformProxy } from "wrangler";
 
 export const $getGuestbookEntries = createServerFn()
   .validator((data: { namedEntriesOnly: boolean }) => data)
@@ -65,7 +66,7 @@ const getEntries = async (namedEntriesOnly: boolean): Promise<GuestbookEntryWith
 
 const postEntry = async (message: string, name?: string): Promise<boolean | "ratelimited"> => {
   const db = await getDb();
-  const { context } = getEvent();
+  const { env } = await getPlatformProxy<Env>();
   const adminCookie = getCookie("leonhome_guestbook_key");
 
   if (!message.trim()) return false;
@@ -100,9 +101,7 @@ const postEntry = async (message: string, name?: string): Promise<boolean | "rat
     await db.insert(entries).values({
       body: trimmedMessage,
       name: trimmedName,
-      isAdmin:
-        context.cloudflare.env.GUESTBOOK_ADMIN_KEY.length > 0 &&
-        adminCookie === context.cloudflare.env.GUESTBOOK_ADMIN_KEY,
+      isAdmin: env.GUESTBOOK_ADMIN_KEY.length > 0 && adminCookie === env.GUESTBOOK_ADMIN_KEY,
       ip,
     });
     return true;

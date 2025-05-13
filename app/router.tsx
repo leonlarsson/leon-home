@@ -10,6 +10,7 @@ export function createRouter() {
     routeTree,
     context: { queryClient },
     defaultPreload: "intent",
+    scrollRestoration: true,
     defaultOnCatch: () => (
       <div>
         Caught

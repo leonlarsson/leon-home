@@ -4,6 +4,9 @@ dist
 .vinxi
 .vercel
 .wrangler
+.tanstack-start
+.nitro
+.output
 
 .env
 .dev.vars

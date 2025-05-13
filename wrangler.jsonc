@@ -1,0 +1,28 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+
+  "name": "leon-home",
+  // "main": "./.output/server/index.mjs",
+  "compatibility_date": "2025-05-13",
+  "compatibility_flags": ["nodejs_compat", "nodejs_compat_populate_process_env"],
+
+  "build": {
+    "command": "npm run build",
+    "cwd": "./",
+    "watch_dir": "src"
+  },
+
+  "assets": {
+    "directory": "./.output/public",
+    "binding": "ASSETS"
+  },
+
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "home-guestbook",
+      "database_id": "098931d9-36db-4950-912a-60efd16ef111",
+      "preview_database_id": "098931d9-36db-4950-912a-60efd16ef111"
+    }
+  ]
+}

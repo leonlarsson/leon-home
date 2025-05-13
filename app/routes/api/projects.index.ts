@@ -1,9 +1,9 @@
-import projects from "@/data/projects";
-import { getProjectsBySearch } from "@/utils/projects";
-import { json } from "@tanstack/start";
-import { createAPIFileRoute } from "@tanstack/start/api";
+import { json } from "@tanstack/react-start";
+import { createServerFileRoute } from "@tanstack/react-start/server";
+import projects from "../../data/projects";
+import { getProjectsBySearch } from "../../utils/projects";
 
-export const APIRoute = createAPIFileRoute("/api/projects")({
+export const APIRoute = createServerFileRoute().methods({
   GET: ({ request }) => {
     const search = new URL(request.url).searchParams.get("search");
 
