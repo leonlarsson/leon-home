@@ -7,7 +7,7 @@
   },
   "files": {
     "ignoreUnknown": false,
-    "ignore": ["./app/client.tsx", "./app/ssr.tsx", "./app/routeTree.gen.ts"]
+    "ignore": ["./src/routeTree.gen.ts"]
   },
   "formatter": {
     "enabled": true,

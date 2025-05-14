@@ -3,8 +3,8 @@ import { defineConfig } from "@tanstack/start/config";
 import type { App } from "vinxi";
 import tsConfigPaths from "vite-tsconfig-paths";
 
-import { getCloudflareProxyEnv, isInCloudflareCI } from "./app/libs/cloudflare";
-import { parseEnv } from "./app/libs/env";
+import { getCloudflareProxyEnv, isInCloudflareCI } from "./src/libs/cloudflare";
+import { parseEnv } from "./src/libs/env";
 
 await parseEnv();
 

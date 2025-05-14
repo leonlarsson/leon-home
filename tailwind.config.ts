@@ -2,7 +2,7 @@ import type { Config } from "tailwindcss";
 import defaultTheme from "tailwindcss/defaultTheme";
 
 export default {
-  content: ["./app/**/*.{ts,tsx}"],
+  content: ["./src/**/*.{ts,tsx}"],
   plugins: [],
   theme: {
     extend: {

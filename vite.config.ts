@@ -11,9 +11,6 @@ export default defineConfig(async ({ mode }) => {
     plugins: [
       tsConfigPaths(),
       tanstackStart({
-        tsr: {
-          srcDirectory: "app",
-        },
         target: "cloudflare_module",
       }),
       cloudflare(),

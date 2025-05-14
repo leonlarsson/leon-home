@@ -1,7 +1,7 @@
-import { findProjectBySlugOrAliases } from "@/utils/projects";
-import { tagSorterFunction } from "@/utils/tagSorterFunction";
 import { createAPIFileRoute } from "@tanstack/react-start/api";
 import { ImageResponse } from "@vercel/og";
+import { findProjectBySlugOrAliases } from "../../../src/utils/projects";
+import { tagSorterFunction } from "../../../src/utils/tagSorterFunction";
 
 export const APIRoute = createAPIFileRoute("/api/og/projects/$projectSlug")({
   GET: async ({ request, params }) => {
