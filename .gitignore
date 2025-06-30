@@ -4,8 +4,10 @@ dist
 .vinxi
 .vercel
 .wrangler
+.tanstack-start
+.nitro
+.output
+.tanstack
 
 .env
 .dev.vars
-
-app.config.timestamp*

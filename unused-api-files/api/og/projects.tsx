@@ -1,7 +1,9 @@
-import projects from "@/data/projects";
-import { tagSorterFunction } from "@/utils/tagSorterFunction";
-import { createAPIFileRoute } from "@tanstack/start/api";
+// @ts-nocheck
+
+import { createAPIFileRoute } from "@tanstack/react-start/api";
 import { ImageResponse } from "@vercel/og";
+import projects from "../../../src/data/projects";
+import { tagSorterFunction } from "../../../src/utils/tagSorterFunction";
 
 export const APIRoute = createAPIFileRoute("/api/og/projects")({
   GET: async ({ request }) => {
