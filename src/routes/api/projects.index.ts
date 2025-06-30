@@ -3,7 +3,7 @@ import { createServerFileRoute } from "@tanstack/react-start/server";
 import projects from "../../data/projects";
 import { getProjectsBySearch } from "../../utils/projects";
 
-export const APIRoute = createServerFileRoute().methods({
+export const ServerRoute = createServerFileRoute("/api/projects/").methods({
   GET: ({ request }) => {
     const search = new URL(request.url).searchParams.get("search");
 

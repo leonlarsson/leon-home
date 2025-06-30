@@ -1,3 +1,4 @@
+import { createFileRoute } from "@tanstack/react-router"
 import { z } from "zod";
 import projectsData from "../../data/projects";
 import { ProjectCard } from "../../features/projects/components/ProjectCard";
@@ -12,7 +13,7 @@ const projectPageSearchParams = z.object({
   sort: z.literal("newest").optional(),
 });
 
-export const Route = createFileRoute({
+export const Route = createFileRoute("/_main/projects/")({
   component: RouteComponent,
   validateSearch: (search) => projectPageSearchParams.parse(search),
   head: ({ match }) => {

@@ -1,12 +1,18 @@
-import { Link, redirect } from "@tanstack/react-router";
+import { Link, createFileRoute, redirect } from "@tanstack/react-router";
 import * as React from "react";
 import { pageMetadata, sections } from "../../data/cv";
 import Icons from "../../features/icons/icons";
 import type { CVLocale } from "../../types";
 import { generateMetadata } from "../../utils/seo";
 
-export const Route = createFileRoute({
+export const Route = createFileRoute("/_cv/$locale/cv")({
   component: RouteComponent,
+  beforeLoad: ({ params }) => {
+    const isValidLocale = params.locale === "en" || params.locale === "sv";
+    if (!isValidLocale) {
+      throw redirect({ to: "/$locale/cv", params: { locale: "en" } });
+    }
+  },
   head: ({ params }) => {
     const isValidLocale = params.locale === "en" || params.locale === "sv";
     return {
@@ -22,7 +28,6 @@ export const Route = createFileRoute({
 
 function RouteComponent() {
   const { locale } = Route.useParams();
-  if (locale !== "en" && locale !== "sv") return redirect({ to: "/$locale/cv", params: { locale: "en" } });
 
   return (
     <div className="flex flex-col">
@@ -38,7 +43,7 @@ function RouteComponent() {
 
       {/* Render sections based on the sections array in @/data/cv */}
       <div className="flex flex-col gap-6">
-        {sections(locale).map((section, i) => (
+        {sections(locale as CVLocale).map((section, i) => (
           // biome-ignore lint/suspicious/noArrayIndexKey: it's fine
           <React.Fragment key={i}>{section}</React.Fragment>
         ))}

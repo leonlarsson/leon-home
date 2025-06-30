@@ -2,19 +2,16 @@
   "$schema": "node_modules/wrangler/config-schema.json",
 
   "name": "leon-home",
-  // "main": "./.output/server/index.mjs",
-  "compatibility_date": "2025-05-13",
-  "compatibility_flags": ["nodejs_compat", "nodejs_compat_populate_process_env"],
-
-  "build": {
-    "command": "npm run build",
-    "cwd": "./",
-    "watch_dir": "src"
-  },
+  "main": ".output/server/index.mjs",
+  "compatibility_date": "2025-06-30",
+  "compatibility_flags": ["nodejs_compat"],
 
   "assets": {
-    "directory": "./.output/public",
-    "binding": "ASSETS"
+    "directory": ".output/public"
+  },
+
+  "observability": {
+    "enabled": true
   },
 
   "d1_databases": [

@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 import { createAPIFileRoute } from "@tanstack/react-start/api";
 import { ImageResponse } from "@vercel/og";
 import { findProjectBySlugOrAliases } from "../../../src/utils/projects";

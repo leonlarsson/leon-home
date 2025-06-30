@@ -1,4 +1,3 @@
-import { cloudflare } from "@cloudflare/vite-plugin";
 import { tanstackStart } from "@tanstack/react-start/plugin/vite";
 import { defineConfig } from "vite";
 import tsConfigPaths from "vite-tsconfig-paths";
@@ -11,9 +10,8 @@ export default defineConfig(async ({ mode }) => {
     plugins: [
       tsConfigPaths(),
       tanstackStart({
-        target: "cloudflare_module",
+        target: "cloudflare-module",
       }),
-      cloudflare(),
     ],
   };
 });

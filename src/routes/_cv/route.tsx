@@ -1,7 +1,7 @@
 import cvCss from "@/styles/cv.css?url";
-import { Outlet } from "@tanstack/react-router";
+import { Outlet, createFileRoute } from "@tanstack/react-router";
 
-export const Route = createFileRoute({
+export const Route = createFileRoute("/_cv")({
   component: RouteComponent,
   head: () => ({
     links: [{ rel: "stylesheet", href: cvCss }],

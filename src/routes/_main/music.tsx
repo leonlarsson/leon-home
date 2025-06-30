@@ -1,3 +1,4 @@
+import { createFileRoute } from "@tanstack/react-router";
 import { Suspense } from "react";
 import { z } from "zod";
 import { SpotifyCurrentlyPlayingTrack } from "../../features/music/components/SpotifyCurrentlyPlayingTrack";
@@ -13,7 +14,7 @@ const musicPageSearchParams = z.object({
   range: z.enum(["short_term", "medium_term", "long_term"]).optional(),
 });
 
-export const Route = createFileRoute({
+export const Route = createFileRoute("/_main/music")({
   component: RouteComponent,
   validateSearch: (search) => musicPageSearchParams.parse(search),
   head: () => {

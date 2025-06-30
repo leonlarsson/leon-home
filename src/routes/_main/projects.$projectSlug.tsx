@@ -1,4 +1,4 @@
-import { Link, redirect } from "@tanstack/react-router";
+import { Link, createFileRoute, redirect } from "@tanstack/react-router";
 import projects from "../../data/projects";
 import { GradientBorder } from "../../features/common/GradientBorder";
 import Icons from "../../features/icons/icons";
@@ -9,7 +9,15 @@ import { findProjectBySlugOrAliases, getProjectsBySearch } from "../../utils/pro
 import { generateMetadata } from "../../utils/seo";
 import { tagSorterFunction } from "../../utils/tagSorterFunction";
 
-export const Route = createFileRoute({
+export const Route = createFileRoute("/_main/projects/$projectSlug")({
+  beforeLoad: ({ params }) => {
+    const project = findProjectBySlugOrAliases(params.projectSlug);
+
+    // If project was found and we are currently on a slug alias, redirect to the main slug
+    if (project?.slugAliases.includes(params.projectSlug)) {
+      throw redirect({ to: "/projects/$projectSlug", params: { projectSlug: project.slug } });
+    }
+  },
   component: RouteComponent,
   head: ({ params }) => {
     const project = findProjectBySlugOrAliases(params.projectSlug);
@@ -34,11 +42,6 @@ function RouteComponent() {
   const project = findProjectBySlugOrAliases(projectSlug);
   const previousProject = project && projects[projects.indexOf(project) - 1];
   const nextProject = project && projects[projects.indexOf(project) + 1];
-
-  // If project was found and we are currently on a slug alias, redirect to the main slug
-  if (project?.slugAliases.includes(projectSlug)) {
-    redirect({ to: "/projects/$projectSlug", params: { projectSlug: project.slug } });
-  }
 
   // Projects that match the search string
   // This is used to suggest projects if the slug is not found

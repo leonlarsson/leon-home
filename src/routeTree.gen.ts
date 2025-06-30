@@ -8,11 +8,9 @@
 // You should NOT make any changes in this file as it will be overwritten.
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
-import type { CreateFileRoute, FileRoutesByPath } from '@tanstack/react-router'
+import { createServerRootRoute } from '@tanstack/react-start/server'
 
-// Import Routes
-
-import { Route as rootRoute } from './routes/__root'
+import { Route as rootRouteImport } from './routes/__root'
 import { Route as MainRouteRouteImport } from './routes/_main/route'
 import { Route as CvRouteRouteImport } from './routes/_cv/route'
 import { Route as MainIndexRouteImport } from './routes/_main/index'
@@ -23,238 +21,261 @@ import { Route as CvCvRouteImport } from './routes/_cv/cv'
 import { Route as MainProjectsIndexRouteImport } from './routes/_main/projects.index'
 import { Route as MainProjectsProjectSlugRouteImport } from './routes/_main/projects.$projectSlug'
 import { Route as CvLocaleCvRouteImport } from './routes/_cv/$locale.cv'
+import { ServerRoute as ApiProjectsIndexServerRouteImport } from './routes/api/projects.index'
+import { ServerRoute as ApiProjectsProjectSlugServerRouteImport } from './routes/api/projects.$projectSlug'
 
-// Create/Update Routes
+const rootServerRouteImport = createServerRootRoute()
 
 const MainRouteRoute = MainRouteRouteImport.update({
   id: '/_main',
-  getParentRoute: () => rootRoute,
+  getParentRoute: () => rootRouteImport,
 } as any)
-
 const CvRouteRoute = CvRouteRouteImport.update({
   id: '/_cv',
-  getParentRoute: () => rootRoute,
+  getParentRoute: () => rootRouteImport,
 } as any)
-
 const MainIndexRoute = MainIndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => MainRouteRoute,
 } as any)
-
 const MainMusicRoute = MainMusicRouteImport.update({
   id: '/music',
   path: '/music',
   getParentRoute: () => MainRouteRoute,
 } as any)
-
 const MainGuestbookRoute = MainGuestbookRouteImport.update({
   id: '/guestbook',
   path: '/guestbook',
   getParentRoute: () => MainRouteRoute,
 } as any)
-
 const CvResumeRoute = CvResumeRouteImport.update({
   id: '/resume',
   path: '/resume',
   getParentRoute: () => CvRouteRoute,
 } as any)
-
 const CvCvRoute = CvCvRouteImport.update({
   id: '/cv',
   path: '/cv',
   getParentRoute: () => CvRouteRoute,
 } as any)
-
 const MainProjectsIndexRoute = MainProjectsIndexRouteImport.update({
   id: '/projects/',
   path: '/projects/',
   getParentRoute: () => MainRouteRoute,
 } as any)
-
 const MainProjectsProjectSlugRoute = MainProjectsProjectSlugRouteImport.update({
   id: '/projects/$projectSlug',
   path: '/projects/$projectSlug',
   getParentRoute: () => MainRouteRoute,
 } as any)
-
 const CvLocaleCvRoute = CvLocaleCvRouteImport.update({
   id: '/$locale/cv',
   path: '/$locale/cv',
   getParentRoute: () => CvRouteRoute,
 } as any)
+const ApiProjectsIndexServerRoute = ApiProjectsIndexServerRouteImport.update({
+  id: '/api/projects/',
+  path: '/api/projects/',
+  getParentRoute: () => rootServerRouteImport,
+} as any)
+const ApiProjectsProjectSlugServerRoute =
+  ApiProjectsProjectSlugServerRouteImport.update({
+    id: '/api/projects/$projectSlug',
+    path: '/api/projects/$projectSlug',
+    getParentRoute: () => rootServerRouteImport,
+  } as any)
 
-// Populate the FileRoutesByPath interface
+export interface FileRoutesByFullPath {
+  '/cv': typeof CvCvRoute
+  '/resume': typeof CvResumeRoute
+  '/guestbook': typeof MainGuestbookRoute
+  '/music': typeof MainMusicRoute
+  '/': typeof MainIndexRoute
+  '/$locale/cv': typeof CvLocaleCvRoute
+  '/projects/$projectSlug': typeof MainProjectsProjectSlugRoute
+  '/projects': typeof MainProjectsIndexRoute
+}
+export interface FileRoutesByTo {
+  '/cv': typeof CvCvRoute
+  '/resume': typeof CvResumeRoute
+  '/guestbook': typeof MainGuestbookRoute
+  '/music': typeof MainMusicRoute
+  '/': typeof MainIndexRoute
+  '/$locale/cv': typeof CvLocaleCvRoute
+  '/projects/$projectSlug': typeof MainProjectsProjectSlugRoute
+  '/projects': typeof MainProjectsIndexRoute
+}
+export interface FileRoutesById {
+  __root__: typeof rootRouteImport
+  '/_cv': typeof CvRouteRouteWithChildren
+  '/_main': typeof MainRouteRouteWithChildren
+  '/_cv/cv': typeof CvCvRoute
+  '/_cv/resume': typeof CvResumeRoute
+  '/_main/guestbook': typeof MainGuestbookRoute
+  '/_main/music': typeof MainMusicRoute
+  '/_main/': typeof MainIndexRoute
+  '/_cv/$locale/cv': typeof CvLocaleCvRoute
+  '/_main/projects/$projectSlug': typeof MainProjectsProjectSlugRoute
+  '/_main/projects/': typeof MainProjectsIndexRoute
+}
+export interface FileRouteTypes {
+  fileRoutesByFullPath: FileRoutesByFullPath
+  fullPaths:
+    | '/cv'
+    | '/resume'
+    | '/guestbook'
+    | '/music'
+    | '/'
+    | '/$locale/cv'
+    | '/projects/$projectSlug'
+    | '/projects'
+  fileRoutesByTo: FileRoutesByTo
+  to:
+    | '/cv'
+    | '/resume'
+    | '/guestbook'
+    | '/music'
+    | '/'
+    | '/$locale/cv'
+    | '/projects/$projectSlug'
+    | '/projects'
+  id:
+    | '__root__'
+    | '/_cv'
+    | '/_main'
+    | '/_cv/cv'
+    | '/_cv/resume'
+    | '/_main/guestbook'
+    | '/_main/music'
+    | '/_main/'
+    | '/_cv/$locale/cv'
+    | '/_main/projects/$projectSlug'
+    | '/_main/projects/'
+  fileRoutesById: FileRoutesById
+}
+export interface RootRouteChildren {
+  CvRouteRoute: typeof CvRouteRouteWithChildren
+  MainRouteRoute: typeof MainRouteRouteWithChildren
+}
+export interface FileServerRoutesByFullPath {
+  '/api/projects/$projectSlug': typeof ApiProjectsProjectSlugServerRoute
+  '/api/projects': typeof ApiProjectsIndexServerRoute
+}
+export interface FileServerRoutesByTo {
+  '/api/projects/$projectSlug': typeof ApiProjectsProjectSlugServerRoute
+  '/api/projects': typeof ApiProjectsIndexServerRoute
+}
+export interface FileServerRoutesById {
+  __root__: typeof rootServerRouteImport
+  '/api/projects/$projectSlug': typeof ApiProjectsProjectSlugServerRoute
+  '/api/projects/': typeof ApiProjectsIndexServerRoute
+}
+export interface FileServerRouteTypes {
+  fileServerRoutesByFullPath: FileServerRoutesByFullPath
+  fullPaths: '/api/projects/$projectSlug' | '/api/projects'
+  fileServerRoutesByTo: FileServerRoutesByTo
+  to: '/api/projects/$projectSlug' | '/api/projects'
+  id: '__root__' | '/api/projects/$projectSlug' | '/api/projects/'
+  fileServerRoutesById: FileServerRoutesById
+}
+export interface RootServerRouteChildren {
+  ApiProjectsProjectSlugServerRoute: typeof ApiProjectsProjectSlugServerRoute
+  ApiProjectsIndexServerRoute: typeof ApiProjectsIndexServerRoute
+}
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/_cv': {
-      id: '/_cv'
-      path: ''
-      fullPath: ''
-      preLoaderRoute: typeof CvRouteRouteImport
-      parentRoute: typeof rootRoute
-    }
     '/_main': {
       id: '/_main'
       path: ''
       fullPath: ''
       preLoaderRoute: typeof MainRouteRouteImport
-      parentRoute: typeof rootRoute
+      parentRoute: typeof rootRouteImport
     }
-    '/_cv/cv': {
-      id: '/_cv/cv'
-      path: '/cv'
-      fullPath: '/cv'
-      preLoaderRoute: typeof CvCvRouteImport
-      parentRoute: typeof CvRouteRouteImport
-    }
-    '/_cv/resume': {
-      id: '/_cv/resume'
-      path: '/resume'
-      fullPath: '/resume'
-      preLoaderRoute: typeof CvResumeRouteImport
-      parentRoute: typeof CvRouteRouteImport
-    }
-    '/_main/guestbook': {
-      id: '/_main/guestbook'
-      path: '/guestbook'
-      fullPath: '/guestbook'
-      preLoaderRoute: typeof MainGuestbookRouteImport
-      parentRoute: typeof MainRouteRouteImport
-    }
-    '/_main/music': {
-      id: '/_main/music'
-      path: '/music'
-      fullPath: '/music'
-      preLoaderRoute: typeof MainMusicRouteImport
-      parentRoute: typeof MainRouteRouteImport
+    '/_cv': {
+      id: '/_cv'
+      path: ''
+      fullPath: ''
+      preLoaderRoute: typeof CvRouteRouteImport
+      parentRoute: typeof rootRouteImport
     }
     '/_main/': {
       id: '/_main/'
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof MainIndexRouteImport
-      parentRoute: typeof MainRouteRouteImport
+      parentRoute: typeof MainRouteRoute
     }
-    '/_cv/$locale/cv': {
-      id: '/_cv/$locale/cv'
-      path: '/$locale/cv'
-      fullPath: '/$locale/cv'
-      preLoaderRoute: typeof CvLocaleCvRouteImport
-      parentRoute: typeof CvRouteRouteImport
+    '/_main/music': {
+      id: '/_main/music'
+      path: '/music'
+      fullPath: '/music'
+      preLoaderRoute: typeof MainMusicRouteImport
+      parentRoute: typeof MainRouteRoute
     }
-    '/_main/projects/$projectSlug': {
-      id: '/_main/projects/$projectSlug'
-      path: '/projects/$projectSlug'
-      fullPath: '/projects/$projectSlug'
-      preLoaderRoute: typeof MainProjectsProjectSlugRouteImport
-      parentRoute: typeof MainRouteRouteImport
+    '/_main/guestbook': {
+      id: '/_main/guestbook'
+      path: '/guestbook'
+      fullPath: '/guestbook'
+      preLoaderRoute: typeof MainGuestbookRouteImport
+      parentRoute: typeof MainRouteRoute
+    }
+    '/_cv/resume': {
+      id: '/_cv/resume'
+      path: '/resume'
+      fullPath: '/resume'
+      preLoaderRoute: typeof CvResumeRouteImport
+      parentRoute: typeof CvRouteRoute
+    }
+    '/_cv/cv': {
+      id: '/_cv/cv'
+      path: '/cv'
+      fullPath: '/cv'
+      preLoaderRoute: typeof CvCvRouteImport
+      parentRoute: typeof CvRouteRoute
     }
     '/_main/projects/': {
       id: '/_main/projects/'
       path: '/projects'
       fullPath: '/projects'
       preLoaderRoute: typeof MainProjectsIndexRouteImport
-      parentRoute: typeof MainRouteRouteImport
+      parentRoute: typeof MainRouteRoute
+    }
+    '/_main/projects/$projectSlug': {
+      id: '/_main/projects/$projectSlug'
+      path: '/projects/$projectSlug'
+      fullPath: '/projects/$projectSlug'
+      preLoaderRoute: typeof MainProjectsProjectSlugRouteImport
+      parentRoute: typeof MainRouteRoute
+    }
+    '/_cv/$locale/cv': {
+      id: '/_cv/$locale/cv'
+      path: '/$locale/cv'
+      fullPath: '/$locale/cv'
+      preLoaderRoute: typeof CvLocaleCvRouteImport
+      parentRoute: typeof CvRouteRoute
     }
   }
 }
-
-// Add type-safety to the createFileRoute function across the route tree
-
-declare module './routes/_cv/route' {
-  const createFileRoute: CreateFileRoute<
-    '/_cv',
-    FileRoutesByPath['/_cv']['parentRoute'],
-    FileRoutesByPath['/_cv']['id'],
-    FileRoutesByPath['/_cv']['path'],
-    FileRoutesByPath['/_cv']['fullPath']
-  >
+declare module '@tanstack/react-start/server' {
+  interface ServerFileRoutesByPath {
+    '/api/projects/': {
+      id: '/api/projects/'
+      path: '/api/projects'
+      fullPath: '/api/projects'
+      preLoaderRoute: typeof ApiProjectsIndexServerRouteImport
+      parentRoute: typeof rootServerRouteImport
+    }
+    '/api/projects/$projectSlug': {
+      id: '/api/projects/$projectSlug'
+      path: '/api/projects/$projectSlug'
+      fullPath: '/api/projects/$projectSlug'
+      preLoaderRoute: typeof ApiProjectsProjectSlugServerRouteImport
+      parentRoute: typeof rootServerRouteImport
+    }
+  }
 }
-declare module './routes/_main/route' {
-  const createFileRoute: CreateFileRoute<
-    '/_main',
-    FileRoutesByPath['/_main']['parentRoute'],
-    FileRoutesByPath['/_main']['id'],
-    FileRoutesByPath['/_main']['path'],
-    FileRoutesByPath['/_main']['fullPath']
-  >
-}
-declare module './routes/_cv/cv' {
-  const createFileRoute: CreateFileRoute<
-    '/_cv/cv',
-    FileRoutesByPath['/_cv/cv']['parentRoute'],
-    FileRoutesByPath['/_cv/cv']['id'],
-    FileRoutesByPath['/_cv/cv']['path'],
-    FileRoutesByPath['/_cv/cv']['fullPath']
-  >
-}
-declare module './routes/_cv/resume' {
-  const createFileRoute: CreateFileRoute<
-    '/_cv/resume',
-    FileRoutesByPath['/_cv/resume']['parentRoute'],
-    FileRoutesByPath['/_cv/resume']['id'],
-    FileRoutesByPath['/_cv/resume']['path'],
-    FileRoutesByPath['/_cv/resume']['fullPath']
-  >
-}
-declare module './routes/_main/guestbook' {
-  const createFileRoute: CreateFileRoute<
-    '/_main/guestbook',
-    FileRoutesByPath['/_main/guestbook']['parentRoute'],
-    FileRoutesByPath['/_main/guestbook']['id'],
-    FileRoutesByPath['/_main/guestbook']['path'],
-    FileRoutesByPath['/_main/guestbook']['fullPath']
-  >
-}
-declare module './routes/_main/music' {
-  const createFileRoute: CreateFileRoute<
-    '/_main/music',
-    FileRoutesByPath['/_main/music']['parentRoute'],
-    FileRoutesByPath['/_main/music']['id'],
-    FileRoutesByPath['/_main/music']['path'],
-    FileRoutesByPath['/_main/music']['fullPath']
-  >
-}
-declare module './routes/_main/index' {
-  const createFileRoute: CreateFileRoute<
-    '/_main/',
-    FileRoutesByPath['/_main/']['parentRoute'],
-    FileRoutesByPath['/_main/']['id'],
-    FileRoutesByPath['/_main/']['path'],
-    FileRoutesByPath['/_main/']['fullPath']
-  >
-}
-declare module './routes/_cv/$locale.cv' {
-  const createFileRoute: CreateFileRoute<
-    '/_cv/$locale/cv',
-    FileRoutesByPath['/_cv/$locale/cv']['parentRoute'],
-    FileRoutesByPath['/_cv/$locale/cv']['id'],
-    FileRoutesByPath['/_cv/$locale/cv']['path'],
-    FileRoutesByPath['/_cv/$locale/cv']['fullPath']
-  >
-}
-declare module './routes/_main/projects.$projectSlug' {
-  const createFileRoute: CreateFileRoute<
-    '/_main/projects/$projectSlug',
-    FileRoutesByPath['/_main/projects/$projectSlug']['parentRoute'],
-    FileRoutesByPath['/_main/projects/$projectSlug']['id'],
-    FileRoutesByPath['/_main/projects/$projectSlug']['path'],
-    FileRoutesByPath['/_main/projects/$projectSlug']['fullPath']
-  >
-}
-declare module './routes/_main/projects.index' {
-  const createFileRoute: CreateFileRoute<
-    '/_main/projects/',
-    FileRoutesByPath['/_main/projects/']['parentRoute'],
-    FileRoutesByPath['/_main/projects/']['id'],
-    FileRoutesByPath['/_main/projects/']['path'],
-    FileRoutesByPath['/_main/projects/']['fullPath']
-  >
-}
-
-// Create and export the route tree
 
 interface CvRouteRouteChildren {
   CvCvRoute: typeof CvCvRoute
@@ -291,156 +312,17 @@ const MainRouteRouteWithChildren = MainRouteRoute._addFileChildren(
   MainRouteRouteChildren,
 )
 
-export interface FileRoutesByFullPath {
-  '': typeof MainRouteRouteWithChildren
-  '/cv': typeof CvCvRoute
-  '/resume': typeof CvResumeRoute
-  '/guestbook': typeof MainGuestbookRoute
-  '/music': typeof MainMusicRoute
-  '/': typeof MainIndexRoute
-  '/$locale/cv': typeof CvLocaleCvRoute
-  '/projects/$projectSlug': typeof MainProjectsProjectSlugRoute
-  '/projects': typeof MainProjectsIndexRoute
-}
-
-export interface FileRoutesByTo {
-  '': typeof CvRouteRouteWithChildren
-  '/cv': typeof CvCvRoute
-  '/resume': typeof CvResumeRoute
-  '/guestbook': typeof MainGuestbookRoute
-  '/music': typeof MainMusicRoute
-  '/': typeof MainIndexRoute
-  '/$locale/cv': typeof CvLocaleCvRoute
-  '/projects/$projectSlug': typeof MainProjectsProjectSlugRoute
-  '/projects': typeof MainProjectsIndexRoute
-}
-
-export interface FileRoutesById {
-  __root__: typeof rootRoute
-  '/_cv': typeof CvRouteRouteWithChildren
-  '/_main': typeof MainRouteRouteWithChildren
-  '/_cv/cv': typeof CvCvRoute
-  '/_cv/resume': typeof CvResumeRoute
-  '/_main/guestbook': typeof MainGuestbookRoute
-  '/_main/music': typeof MainMusicRoute
-  '/_main/': typeof MainIndexRoute
-  '/_cv/$locale/cv': typeof CvLocaleCvRoute
-  '/_main/projects/$projectSlug': typeof MainProjectsProjectSlugRoute
-  '/_main/projects/': typeof MainProjectsIndexRoute
-}
-
-export interface FileRouteTypes {
-  fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths:
-    | ''
-    | '/cv'
-    | '/resume'
-    | '/guestbook'
-    | '/music'
-    | '/'
-    | '/$locale/cv'
-    | '/projects/$projectSlug'
-    | '/projects'
-  fileRoutesByTo: FileRoutesByTo
-  to:
-    | ''
-    | '/cv'
-    | '/resume'
-    | '/guestbook'
-    | '/music'
-    | '/'
-    | '/$locale/cv'
-    | '/projects/$projectSlug'
-    | '/projects'
-  id:
-    | '__root__'
-    | '/_cv'
-    | '/_main'
-    | '/_cv/cv'
-    | '/_cv/resume'
-    | '/_main/guestbook'
-    | '/_main/music'
-    | '/_main/'
-    | '/_cv/$locale/cv'
-    | '/_main/projects/$projectSlug'
-    | '/_main/projects/'
-  fileRoutesById: FileRoutesById
-}
-
-export interface RootRouteChildren {
-  CvRouteRoute: typeof CvRouteRouteWithChildren
-  MainRouteRoute: typeof MainRouteRouteWithChildren
-}
-
 const rootRouteChildren: RootRouteChildren = {
   CvRouteRoute: CvRouteRouteWithChildren,
   MainRouteRoute: MainRouteRouteWithChildren,
 }
-
-export const routeTree = rootRoute
+export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-/* ROUTE_MANIFEST_START
-{
-  "routes": {
-    "__root__": {
-      "filePath": "__root.tsx",
-      "children": [
-        "/_cv",
-        "/_main"
-      ]
-    },
-    "/_cv": {
-      "filePath": "_cv/route.tsx",
-      "children": [
-        "/_cv/cv",
-        "/_cv/resume",
-        "/_cv/$locale/cv"
-      ]
-    },
-    "/_main": {
-      "filePath": "_main/route.tsx",
-      "children": [
-        "/_main/guestbook",
-        "/_main/music",
-        "/_main/",
-        "/_main/projects/$projectSlug",
-        "/_main/projects/"
-      ]
-    },
-    "/_cv/cv": {
-      "filePath": "_cv/cv.tsx",
-      "parent": "/_cv"
-    },
-    "/_cv/resume": {
-      "filePath": "_cv/resume.tsx",
-      "parent": "/_cv"
-    },
-    "/_main/guestbook": {
-      "filePath": "_main/guestbook.tsx",
-      "parent": "/_main"
-    },
-    "/_main/music": {
-      "filePath": "_main/music.tsx",
-      "parent": "/_main"
-    },
-    "/_main/": {
-      "filePath": "_main/index.tsx",
-      "parent": "/_main"
-    },
-    "/_cv/$locale/cv": {
-      "filePath": "_cv/$locale.cv.tsx",
-      "parent": "/_cv"
-    },
-    "/_main/projects/$projectSlug": {
-      "filePath": "_main/projects.$projectSlug.tsx",
-      "parent": "/_main"
-    },
-    "/_main/projects/": {
-      "filePath": "_main/projects.index.tsx",
-      "parent": "/_main"
-    }
-  }
+const rootServerRouteChildren: RootServerRouteChildren = {
+  ApiProjectsProjectSlugServerRoute: ApiProjectsProjectSlugServerRoute,
+  ApiProjectsIndexServerRoute: ApiProjectsIndexServerRoute,
 }
-ROUTE_MANIFEST_END */
+export const serverRouteTree = rootServerRouteImport
+  ._addFileChildren(rootServerRouteChildren)
+  ._addFileTypes<FileServerRouteTypes>()

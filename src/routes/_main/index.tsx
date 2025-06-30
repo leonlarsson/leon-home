@@ -1,11 +1,10 @@
-import { Link } from "@tanstack/react-router";
-import { TypeAnimation } from "react-type-animation";
+import { Link, createFileRoute } from "@tanstack/react-router";
 import projects from "../../data/projects";
 import Icons from "../../features/icons/icons";
 import { SpotifyCurrentlyPlayingTrack } from "../../features/music/components/SpotifyCurrentlyPlayingTrack";
 import { ProjectCard } from "../../features/projects/components/ProjectCard";
 
-export const Route = createFileRoute({
+export const Route = createFileRoute("/_main/")({
   component: RouteComponent,
 });
 
@@ -42,14 +41,7 @@ function RouteComponent() {
       </div>
 
       <div className="flex flex-col gap-6">
-        <div>
-          👋{" "}
-          <TypeAnimation
-            cursor={false}
-            deletionSpeed={1}
-            sequence={["Hello there!", 2000, "Hello, I am Leon San José Larsson."]}
-          />
-        </div>
+        <div>👋 Hello there! I am Leon.</div>
 
         {/* WORK */}
         <div>
