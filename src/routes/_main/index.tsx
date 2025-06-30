@@ -41,7 +41,6 @@ function RouteComponent() {
       </div>
 
       <div className="flex flex-col gap-6">
-        {/* HELLO */}
         <div>👋 Hello there! I am Leon.</div>
 
         {/* WORK */}
