@@ -1,7 +1,6 @@
 import { getBindings } from "@/utils/bindings";
 import { type AccessToken, SpotifyApi } from "@spotify/web-api-ts-sdk";
 import { createServerFn } from "@tanstack/react-start";
-import queryString from "query-string";
 
 const TOKEN_ENDPOINT = "https://accounts.spotify.com/api/token";
 
@@ -14,10 +13,7 @@ const getAccessTokenFn = async () => {
       Authorization: `Basic ${basic}`,
       "Content-Type": "application/x-www-form-urlencoded",
     },
-    body: queryString.stringify({
-      grant_type: "refresh_token",
-      refresh_token: SPOTIFY_REFRESH_TOKEN,
-    }),
+    body: new URLSearchParams({ grant_type: "refresh_token", refresh_token: SPOTIFY_REFRESH_TOKEN }).toString(),
   });
 
   return response.json<AccessToken>();
