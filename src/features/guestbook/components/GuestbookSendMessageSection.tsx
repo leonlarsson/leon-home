@@ -38,7 +38,7 @@ export const GuestbookSendMessageSection = (props: GuestbookSendMessageSectionPr
       >
         {props.showNameInput && (
           <input
-            className="card rounded-md p-2 outline-none disabled:cursor-not-allowed disabled:bg-neutral-300 dark:disabled:bg-neutral-600"
+            className="text-input disabled:cursor-not-allowed disabled:bg-neutral-300 dark:disabled:bg-neutral-600"
             type="text"
             name="name"
             placeholder="Your name"
@@ -49,7 +49,7 @@ export const GuestbookSendMessageSection = (props: GuestbookSendMessageSectionPr
         )}
 
         <input
-          className="card rounded-md p-2 outline-none disabled:cursor-not-allowed disabled:bg-neutral-300 dark:disabled:bg-neutral-600"
+          className="text-input w-full disabled:cursor-not-allowed disabled:bg-neutral-300 dark:disabled:bg-neutral-600"
           type="text"
           name="message"
           placeholder="Your message"

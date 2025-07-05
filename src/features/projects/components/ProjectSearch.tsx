@@ -1,6 +1,5 @@
 import { getRouteApi } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { GradientBorder } from "../../common/GradientBorder";
 
 export const ProjectSearch = () => {
   const { useNavigate, useSearch } = getRouteApi("/_main/projects/");
@@ -13,27 +12,25 @@ export const ProjectSearch = () => {
   }, [search]);
 
   return (
-    <GradientBorder rounded="5px" padding="1px">
-      <input
-        type="search"
-        maxLength={20}
-        placeholder="Name, description, year, tags..."
-        className="text-input-base w-full"
-        value={inputValue}
-        onChange={(e) => {
-          const value = e.target.value;
-          if (value === " ") return;
-          setInputValue(value);
+    <input
+      type="search"
+      maxLength={20}
+      placeholder="Name, description, year, tags..."
+      className="text-input w-full"
+      value={inputValue}
+      onChange={(e) => {
+        const value = e.target.value;
+        if (value === " ") return;
+        setInputValue(value);
 
-          // If value is not empty, set searchParam. Otherwise, remove the searchParam. Then replace the URL params
-          navigate({
-            search: (prev) => ({
-              ...prev,
-              search: value || undefined,
-            }),
-          });
-        }}
-      />
-    </GradientBorder>
+        // If value is not empty, set searchParam. Otherwise, remove the searchParam. Then replace the URL params
+        navigate({
+          search: (prev) => ({
+            ...prev,
+            search: value || undefined,
+          }),
+        });
+      }}
+    />
   );
 };
