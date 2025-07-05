@@ -94,8 +94,14 @@ export const employmentSection: CVEmploymentSection = {
       company: "Embark Studios",
       companyUrl: "https://www.embark-studios.com/",
       description: {
-        en: ["Check back later."],
-        sv: ["Kolla tillbaka senare."],
+        en: [
+          "I work as a Fullstack Engineer at Embark Studios, where I develop internal tools and services. My work primarily involves working with tech like TypeScript, React, Next.js, Golang, Python, and Postgres.",
+          "I also work on player-facing websites, such as the [ARC Raiders website](https://arcraiders.com/).",
+        ],
+        sv: [
+          "Jag arbetar som Fullstack Engineer på Embark Studios, där jag utvecklar interna verktyg och tjänster. Mitt arbete involverar främst TypeScript, React, Next.js, Golang, Python och Postgres.",
+          "Jag arbetar även med utåtriktade projekt, som [ARC Raiders-hemsidan](https://arcraiders.com/).",
+        ],
       },
       start: "2025-04-14",
     },
@@ -124,8 +130,8 @@ export const employmentSection: CVEmploymentSection = {
           "Additionally, I contributed to website development and provided technical specifications for the [RE_HACK ARG website](https://exoborne.com/rehack).",
         ],
         sv: [
-          "Hanterade spelarsupport för både [Bloodhunt](https://bloodhunt.com) och [Exoborne](https://exoborne.com) i nära samarbete med Tencent, Level Infinite och utvecklare. Hanterade även allt innehåll på Bloodhunts webbplats, gjorde community management, Discord och Twitch Drops.",
-          "Bidrog även till webbutveckling och gav tekniska specifikationer för [RE_HACK ARG-webbplatsen](https://exoborne.com/rehack).",
+          "Hanterade spelarsupport för både [Bloodhunt](https://bloodhunt.com) och [Exoborne](https://exoborne.com) i nära samarbete med Tencent, Level Infinite och utvecklare. Hanterade även allt innehåll på Bloodhunts hemsida, gjorde community management, Discord och Twitch Drops.",
+          "Bidrog även till webbutveckling och gav tekniska specifikationer för [RE_HACK ARG-hemsidan](https://exoborne.com/rehack).",
         ],
       },
       start: "2022-08-10",
