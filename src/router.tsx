@@ -1,6 +1,7 @@
 import { QueryClient } from "@tanstack/react-query";
-import { Link, createRouter as createTanStackRouter } from "@tanstack/react-router";
+import { createRouter as createTanStackRouter } from "@tanstack/react-router";
 import { routerWithQueryClient } from "@tanstack/react-router-with-query";
+import { Fallback } from "./features/common/Fallback";
 import { routeTree } from "./routeTree.gen";
 
 export function createRouter() {
@@ -11,31 +12,18 @@ export function createRouter() {
     context: { queryClient },
     defaultPreload: "intent",
     scrollRestoration: true,
-    defaultOnCatch: () => (
-      <div>
-        Caught
-        <br />
-        <Link className="underline" to="/">
-          Go back home
-        </Link>
-      </div>
-    ),
-    defaultErrorComponent: () => (
-      <div>
-        Oops, an error happened :( <br />
-        <Link className="underline" to="/">
-          Go back home
-        </Link>
-      </div>
-    ),
+    defaultOnCatch: () => <Fallback text="Caught an error" />,
+    defaultErrorComponent: () => <Fallback text="An error occurred" />,
     defaultNotFoundComponent: () => (
-      <div>
-        Not Found
-        <br />
-        <Link className="underline" to="/">
-          Go back home
-        </Link>
-      </div>
+      <Fallback text="Page not found">
+        <a href="https://httpraccoons.com" target="_blank" rel="noopener noreferrer">
+          <img
+            src="https://httpraccoons.com/404"
+            alt="404 Not Found"
+            className="max-h-[40vh] sm:max-h-[60vh] object-contain"
+          />
+        </a>
+      </Fallback>
     ),
   });
 
