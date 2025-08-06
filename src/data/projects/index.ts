@@ -183,10 +183,10 @@ export default [
     name: "Battlefield Stats Discord Bot",
     description: [
       "My largest and most successful project by far. Battlefield Stats is a Discord bot that provides on-demand Battlefield statistics in Discord. I have also built a website and an API for this project, which uses Cloudflare D1 (SQLite) as the database.",
-      "Used by thousands of users in over 4,500 Discord servers and installed on over 2,100 accounts, the bot is built with discord.js and the website with TanStack Router and shadcn/ui.",
+      "Used by thousands of users in over 5,000 Discord servers and installed on over 3,000 accounts, the bot is built with discord.js and the website with TanStack Router and shadcn/ui.",
       "In February 2024, I rewrote the bot, going from JavaScript to TypeScript and from Node.js to Bun (and later back again).",
     ],
-    shortDescription: "A bot that provides Battlefield stats from inside Discord.",
+    shortDescription: "The biggest Battlefield Discord bot, providing stats and more.",
     year: "2021",
     tags: [
       tags.NODE,
@@ -428,7 +428,7 @@ export default [
     description: [
       "This is my attempt at recreating the case opening UI from Counter-Strike. It is built with Next.js (React) and styled with Tailwind.",
       "Every case from the game is able to be opened, with real odds. I have also built a Global Unbox History page, that shows some stats and recently opened cases, powered by a self-hosted PostgreSQL database.",
-      "To date, 30 million cases have been opened on the website.",
+      "To date, 75 million cases have been opened on the website.",
     ],
     shortDescription: "The case opening UI from Counter-Strike recreated in React, powered by PostgreSQL.",
     year: "2023",
@@ -460,6 +460,7 @@ export default [
     name: "THE FINALS API",
     description: [
       "The API that powers my THE FINALS leaderboard and several other community projects. It is built on Cloudflare Workers with Hono and Zod.",
+      "As of September 2025, it serves ~350,000 requests per day.",
     ],
     shortDescription: "The API that powers my THE FINALS leaderboard.",
     year: "2024",
