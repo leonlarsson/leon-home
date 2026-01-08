@@ -273,9 +273,11 @@ export default [
     description: [
       "A Discord bot that provides on demand Bloodhunt statistics in Discord, built in Node.js. In addition, I built an API that reports some basic usage.",
       "Built on the same foundations I created for the Battlefield Stats Discord bot and built as part of my role at Sharkmob.",
+      "As of Jan 08, 2026, I have decided to shut down this bot, as Bloodhunt is sunsetting later in the year.",
     ],
     shortDescription: "A bot that provides Bloodhunt stats from inside Discord.",
     year: "2022",
+    endYear: "2026",
     tags: [tags.NODE, tags.DISCORDJS, tags.CLOUDFLARE_WORKERS, tags.API, tags.JS],
     images: [bloodhuntStatsImage1],
     extraLinks: [
