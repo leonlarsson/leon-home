@@ -282,11 +282,6 @@ export default [
     images: [bloodhuntStatsImage1],
     extraLinks: [
       {
-        name: "Add Bot",
-        link: "https://discord.com/api/oauth2/authorize?client_id=979116430802972732&permissions=0&scope=bot%20applications.commands",
-        type: "link",
-      },
-      {
         name: "API",
         link: "https://bhstats-api.leonlarsson.com/",
         type: "link",
