@@ -62,6 +62,14 @@ function RouteComponent() {
               className="mx-1 self-center"
             />
             Embark Studios
+          </a>{" "}
+          where I work on{" "}
+          <a href="https://reachthefinals.com" target="_blank" rel="noreferrer" className="link" draggable={false}>
+            THE FINALS
+          </a>{" "}
+          and{" "}
+          <a href="https://arcraiders.com" target="_blank" rel="noreferrer" className="link" draggable={false}>
+            ARC Raiders
           </a>
           . My{" "}
           <Link to="/cv" target="_blank" className="link whitespace-nowrap">
