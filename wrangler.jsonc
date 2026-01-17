@@ -21,5 +21,11 @@
       "database_id": "098931d9-36db-4950-912a-60efd16ef111",
       "preview_database_id": "098931d9-36db-4950-912a-60efd16ef111"
     }
+  ],
+
+  "send_email": [
+    {
+      "name": "EMAIL_SENDER"
+    }
   ]
 }

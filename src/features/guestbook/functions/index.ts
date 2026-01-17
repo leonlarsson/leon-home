@@ -1,7 +1,10 @@
+import { EmailMessage } from "cloudflare:email";
+import { waitUntil } from "cloudflare:workers";
 import { getBindings } from "@/utils/bindings";
 import { createServerFn } from "@tanstack/react-start";
 import { getCookie, getHeader } from "@tanstack/react-start/server";
 import { desc, eq, isNotNull } from "drizzle-orm";
+import { createMimeMessage } from "mimetext";
 import { getDb } from "../../../db";
 import { entries } from "../../../db/schema";
 import type { GuestbookEntryWithoutIp } from "../../../types";
@@ -66,7 +69,7 @@ const getEntries = async (namedEntriesOnly: boolean): Promise<GuestbookEntryWith
 
 const postEntry = async (message: string, name?: string): Promise<boolean | "ratelimited"> => {
   const db = await getDb();
-  const { GUESTBOOK_ADMIN_KEY } = getBindings();
+  const { EMAIL_SENDER, GUESTBOOK_ADMIN_KEY, GUESTBOOK_EMAIL_DESTINATION } = getBindings();
   const adminCookie = getCookie("leonhome_guestbook_key");
 
   if (!message.trim()) return false;
@@ -97,13 +100,33 @@ const postEntry = async (message: string, name?: string): Promise<boolean | "rat
     return "ratelimited";
   }
 
+  const isAdmin = GUESTBOOK_ADMIN_KEY.length > 0 && adminCookie === GUESTBOOK_ADMIN_KEY;
+
   try {
     await db.insert(entries).values({
       body: trimmedMessage,
       name: trimmedName,
-      isAdmin: GUESTBOOK_ADMIN_KEY.length > 0 && adminCookie === GUESTBOOK_ADMIN_KEY,
+      isAdmin,
       ip,
     });
+
+    if (!isAdmin) {
+      console.log("prepping email");
+
+      const senderAddr = "no-reply@leonlarsson.com";
+      const msg = createMimeMessage();
+      msg.setSender({ name: "Guestbook", addr: senderAddr });
+      msg.setRecipient(GUESTBOOK_EMAIL_DESTINATION);
+      msg.setSubject("New guestbook entry");
+      msg.addMessage({
+        contentType: "text/plain",
+        data: `New guestbook entry:\n\nName: ${trimmedName || "Anonymous"}\nMessage: ${trimmedMessage}`,
+      });
+      const message = new EmailMessage(senderAddr, GUESTBOOK_EMAIL_DESTINATION, msg.asRaw());
+
+      waitUntil(EMAIL_SENDER.send(message));
+    }
+
     return true;
   } catch (error) {
     console.log(error);
