@@ -66,7 +66,7 @@ const getEntries = async (namedEntriesOnly: boolean): Promise<GuestbookEntryWith
 
 const postEntry = async (message: string, name?: string): Promise<boolean | "ratelimited"> => {
   const db = await getDb();
-  const { GUESTBOOK_ADMIN_KEY } = getBindings();
+  const { GUESTBOOK_ADMIN_KEY, GUESTBOOK_EMAIL_DESTINATION, RESEND_API_KEY } = getBindings();
   const adminCookie = getCookie("leonhome_guestbook_key");
 
   if (!message.trim()) return false;
@@ -97,13 +97,33 @@ const postEntry = async (message: string, name?: string): Promise<boolean | "rat
     return "ratelimited";
   }
 
+  const isAdmin = GUESTBOOK_ADMIN_KEY.length > 0 && adminCookie === GUESTBOOK_ADMIN_KEY;
+
   try {
     await db.insert(entries).values({
       body: trimmedMessage,
       name: trimmedName,
-      isAdmin: GUESTBOOK_ADMIN_KEY.length > 0 && adminCookie === GUESTBOOK_ADMIN_KEY,
+      isAdmin: isAdmin,
       ip,
     });
+
+    if (!isAdmin) {
+      fetch("https://api.resend.com/emails", {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${RESEND_API_KEY}`,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          from: "Guestbook <no-reply@leonlarsson.com>",
+          to: [GUESTBOOK_EMAIL_DESTINATION],
+          subject: "New guestbook entry!",
+          text: `New guestbook entry:\n\nName: ${trimmedName || "Anonymous"}\nMessage: ${trimmedMessage}`,
+          html: `<p>New guestbook entry:</p><p><strong>Name:</strong> ${trimmedName || "Anonymous"}</p><p><strong>Message:</strong> ${trimmedMessage}</p>`,
+        }),
+      });
+    }
+
     return true;
   } catch (error) {
     console.log(error);
