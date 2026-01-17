@@ -108,7 +108,7 @@ const postEntry = async (message: string, name?: string): Promise<boolean | "rat
     });
 
     if (!isAdmin) {
-      fetch("https://api.resend.com/emails", {
+      await fetch("https://api.resend.com/emails", {
         method: "POST",
         headers: {
           Authorization: `Bearer ${RESEND_API_KEY}`,
