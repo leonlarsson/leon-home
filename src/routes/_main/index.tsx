@@ -123,7 +123,7 @@ function RouteComponent() {
             {[
               {
                 title: "Email",
-                url: "mailto:leonlarsson8@gmail.com",
+                url: "mailto:contact@leonlarsson.com",
                 icon: <Icons.envelope className="me-2 inline size-5" />,
               },
               {

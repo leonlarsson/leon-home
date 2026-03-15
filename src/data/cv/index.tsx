@@ -51,7 +51,7 @@ export const profileSection: CVProfileSection = {
   iconLinks: [
     {
       icon: <Icons.envelopeThin className="size-4 text-neutral-600 transition-colors group-hover:text-black" />,
-      href: "mailto:leonlarsson8@gmail.com",
+      href: "mailto:contact@leonlarsson.com",
       text: "Email",
     },
     {

@@ -42,7 +42,7 @@ export const Header = () => {
           <div className="hidden items-center text-2xl *:px-1 min-[680px]:flex">
             <HeaderLink
               content={<Icons.envelope className="w-8" />}
-              url="mailto:leonlarsson8@gmail.com"
+              url="mailto:contact@leonlarsson.com"
               title="Email"
               newTab
             />
