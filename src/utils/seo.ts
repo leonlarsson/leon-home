@@ -7,7 +7,7 @@ type Props = {
 };
 
 const defaultTitle = "Leon San José Larsson";
-const defaultDescription = "Software Developer with a background in video games.";
+const defaultDescription = "Fullstack Engineer working at Embark Studios.";
 
 export const generateMetadata = ({
   title,
@@ -55,26 +55,26 @@ export const generateMetadata = ({
       name: "og:locale",
       content: "en-US",
     },
-    {
-      name: "og:image",
-      content: ogImageUrl ?? "https://leonlarsson.com/images/og/root.png",
-    },
-    {
-      name: "og:image:width",
-      content: "900",
-    },
-    {
-      name: "og:image:height",
-      content: "600",
-    },
+    // {
+    //   name: "og:image",
+    //   content: ogImageUrl ?? "https://leonlarsson.com/images/og/root.png",
+    // },
+    // {
+    //   name: "og:image:width",
+    //   content: "900",
+    // },
+    // {
+    //   name: "og:image:height",
+    //   content: "600",
+    // },
     {
       name: "og:type",
       content: "website",
     },
-    {
-      name: "twitter:card",
-      content: "summary_large_image",
-    },
+    // {
+    //   name: "twitter:card",
+    //   content: "summary_large_image",
+    // },
     {
       name: "twitter:title",
       content: useTitleAsPrefix ? `${title} | Leon San José Larsson` : (title ?? defaultTitle),
@@ -87,17 +87,17 @@ export const generateMetadata = ({
       name: "twitter:creator",
       content: "@mozzyfx",
     },
-    {
-      name: "twitter:image",
-      content: ogImageUrl ?? "https://leonlarsson.com/images/og/root.png",
-    },
-    {
-      name: "twitter:image:width",
-      content: "900",
-    },
-    {
-      name: "twitter:image:height",
-      content: "600",
-    },
+    // {
+    //   name: "twitter:image",
+    //   content: ogImageUrl ?? "https://leonlarsson.com/images/og/root.png",
+    // },
+    // {
+    //   name: "twitter:image:width",
+    //   content: "900",
+    // },
+    // {
+    //   name: "twitter:image:height",
+    //   content: "600",
+    // },
   ];
 };
