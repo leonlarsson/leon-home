@@ -66,7 +66,7 @@ const getEntries = async (namedEntriesOnly: boolean): Promise<GuestbookEntryWith
 
 const postEntry = async (message: string, name?: string): Promise<boolean | "ratelimited"> => {
   const db = await getDb();
-  const { GUESTBOOK_ADMIN_KEY, GUESTBOOK_EMAIL_DESTINATION, RESEND_API_KEY } = getBindings();
+  const { GUESTBOOK_ADMIN_KEY, GUESTBOOK_EMAIL_DESTINATION, EMAIL } = getBindings();
   const adminCookie = getCookie("leonhome_guestbook_key");
 
   if (!message.trim()) return false;
@@ -106,29 +106,26 @@ const postEntry = async (message: string, name?: string): Promise<boolean | "rat
       isAdmin: isAdmin,
       ip,
     });
-
-    if (!isAdmin) {
-      await fetch("https://api.resend.com/emails", {
-        method: "POST",
-        headers: {
-          Authorization: `Bearer ${RESEND_API_KEY}`,
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          from: "Guestbook <no-reply@leonlarsson.com>",
-          to: [GUESTBOOK_EMAIL_DESTINATION],
-          subject: "New guestbook entry!",
-          text: `New guestbook entry:\n\nName: ${trimmedName || "Anonymous"}\nMessage: ${trimmedMessage}`,
-          html: `<p>New guestbook entry:</p><p><strong>Name:</strong> ${trimmedName || "Anonymous"}</p><p><strong>Message:</strong> ${trimmedMessage}</p>`,
-        }),
-      });
-    }
-
-    return true;
   } catch (error) {
     console.log(error);
     return false;
   }
+
+  if (!isAdmin && EMAIL) {
+    try {
+      await EMAIL.send({
+        to: GUESTBOOK_EMAIL_DESTINATION,
+        from: "no-reply@leonlarsson.com",
+        subject: "New guestbook entry!",
+        text: `New guestbook entry:\n\nName: ${trimmedName || "Anonymous"}\nMessage: ${trimmedMessage}`,
+        html: `<p>New guestbook entry:</p><p><strong>Name:</strong> ${trimmedName || "Anonymous"}</p><p><strong>Message:</strong> ${trimmedMessage}</p>`,
+      });
+    } catch (error) {
+      console.log("Email notification failed:", error);
+    }
+  }
+
+  return true;
 };
 
 const validateString = (string: string, maxLength: number): { passed: boolean; trimmedString: string } => {

@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite dev",
+    "dev:cf": "npm run build && wrangler dev",
     "build": "vite build && tsc --noEmit",
     "serve": "vite preview",
     "start": "vite",
@@ -46,6 +47,6 @@
     "tailwindcss": "^3.4.15",
     "typescript": "^5.7.2",
     "vite-tsconfig-paths": "^5.1.4",
-    "wrangler": "^4.59.2"
+    "wrangler": "^4.100.0"
   }
 }
