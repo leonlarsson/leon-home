@@ -37,6 +37,7 @@ export const SpotifyTopArtists = ({ range }: Props) => {
               height={128}
               alt={artist.name}
               loading="lazy"
+              draggable={false}
             />
           </div>
 

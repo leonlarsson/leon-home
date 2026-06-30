@@ -50,6 +50,7 @@ export const SpotifyTopTracks = ({ range, hideSpotifyURI }: Props) => {
             width={55}
             height={55}
             loading="lazy"
+            draggable={false}
           />
 
           <div className="flex flex-1 flex-col text-start">

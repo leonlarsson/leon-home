@@ -59,6 +59,7 @@ export const SpotifyCurrentlyPlayingTrack = (props: Props) => {
             alt="Spotify logo"
             width={props.compact ? 40 : 96}
             height={props.compact ? 40 : 96}
+            draggable={false}
           />
 
           <div className="flex flex-1 flex-col text-start">
