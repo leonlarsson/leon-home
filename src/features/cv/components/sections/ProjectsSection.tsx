@@ -24,7 +24,7 @@ export const ProjectsSection = ({
         {data.projects.map(({ name, shortDescription, slug, tags, year, endYear }) => (
           <div
             key={slug}
-            className="flex flex-col gap-[2px] rounded-lg border border-neutral-200 p-2 transition-colors hover:border-neutral-400"
+            className="flex flex-col gap-[2px] rounded border border-neutral-200 p-2 transition-colors hover:border-neutral-400"
           >
             <div className="flex items-baseline justify-between">
               <Link

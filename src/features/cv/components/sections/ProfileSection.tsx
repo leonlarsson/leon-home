@@ -69,7 +69,7 @@ export const ProfileSection = ({
                     target="_blank"
                     rel="noreferrer"
                     title={text}
-                    className="group rounded-lg border p-2 transition-colors hover:bg-neutral-100"
+                    className="group rounded border p-2 transition-colors hover:bg-neutral-100"
                   >
                     {icon}
                   </a>
@@ -78,7 +78,7 @@ export const ProfileSection = ({
                   {i === data.iconLinks!.length! - 1 && data.showPrintButton && (
                     <CVPrintButton
                       title="Print this page"
-                      className="group rounded-lg border p-2 transition-colors hover:bg-neutral-100 print:hidden"
+                      className="group rounded border p-2 transition-colors hover:bg-neutral-100 print:hidden"
                     >
                       <Icons.print className="size-4 text-neutral-600 transition-colors group-hover:text-black" />
                     </CVPrintButton>
@@ -89,8 +89,16 @@ export const ProfileSection = ({
           </div>
         )}
       </div>
+
       {data.avatar && (
-        <img className="hidden rounded-xl sm:block" src={data.avatar} alt={data.name} width={100} height={100} />
+        <img
+          className="hidden rounded-lg sm:block"
+          src={data.avatar}
+          alt={data.name}
+          width={100}
+          height={100}
+          draggable={false}
+        />
       )}
     </div>
   );
