@@ -32,8 +32,8 @@ export const profileSection: CVProfileSection = {
   name: "Leon San José Larsson",
   avatar: "/images/avatar.png",
   tagline: {
-    en: "Passionate Software Developer with a background in video games.",
-    sv: "Passionerad mjukvaruutvecklare med bakgrund inom datorspel.",
+    en: "Software Developer specializing in fullstack web development, building software at Embark Studios.",
+    sv: "Mjukvaruutvecklare specialiserad inom fullstack-webbutveckling, som bygger mjukvara på Embark Studios.",
   },
   title: "Software Developer",
   url: {
@@ -75,10 +75,10 @@ export const aboutSection: CVAboutSection = {
   },
   sectionDescription: {
     en: [
-      "I'm a Software Developer. My primary areas of interest are web development and Discord bots. I also enjoy creating APIs and services on platforms such as Cloudflare Workers.",
+      "I work as a Fullstack Engineer at Embark Studios. Outside of work, software development is also one of my favorite hobbies. I enjoy building web tools and Discord bots, and creating APIs and services for communities, often on platforms like Cloudflare.",
     ],
     sv: [
-      "Jag är en mjukvaruutvecklare. Mina primära intresseområden är webbutveckling och Discord-bottar. Jag tycker också om att skapa API:er och tjänster på plattformar som Cloudflare Workers.",
+      "Jag arbetar som Fullstack Engineer på Embark Studios. Utanför jobbet är mjukvaruutveckling också en av mina favorithobbyer. Jag tycker om att bygga webbverktyg och Discord-bottar, samt skapa API:er och tjänster för communities, ofta på plattformar som Cloudflare.",
     ],
   },
 } satisfies CVAboutSection;
@@ -95,12 +95,10 @@ export const employmentSection: CVEmploymentSection = {
       companyUrl: "https://www.embark-studios.com/",
       description: {
         en: [
-          "I work as a Fullstack Engineer at Embark Studios, where I develop internal tools and services. My work primarily involves working with tech like TypeScript, React, Next.js, Golang, Python, and Postgres.",
-          "I also work on player-facing websites, such as the [ARC Raiders website](https://arcraiders.com/).",
+          "I'm a Fullstack Engineer at Embark Studios, building internal live service platforms and external marketing sites for [ARC Raiders](https://arcraiders.com/) and [THE FINALS](https://reachthefinals.com/), using TypeScript, React, Next.js, Python, Golang, and Postgres.",
         ],
         sv: [
-          "Jag arbetar som Fullstack Engineer på Embark Studios, där jag utvecklar interna verktyg och tjänster. Mitt arbete involverar främst TypeScript, React, Next.js, Golang, Python och Postgres.",
-          "Jag arbetar även med utåtriktade projekt, som [ARC Raiders-hemsidan](https://arcraiders.com/).",
+          "Jag arbetar som Fullstack Engineer på Embark Studios, där jag bygger interna live service-plattformar och utåtriktade hemsidor för [ARC Raiders](https://arcraiders.com/) och [THE FINALS](https://reachthefinals.com/), med TypeScript, React, Next.js, Python, Golang, och Postgres.",
         ],
       },
       start: "2025-04-14",
