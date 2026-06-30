@@ -55,7 +55,7 @@ export const SpotifyCurrentlyPlayingTrack = (props: Props) => {
               track?.album.images[1].url ??
               `https://leonlarsson.com/cdn-cgi/image/width=${props.compact ? "100" : "200"}/images/spotifylogo.png`
             }
-            className={cn("shrink-0 h-24 w-24", props.compact && "h-10 w-10")}
+            className={cn("shrink-0 h-24 w-24 rounded", props.compact && "h-10 w-10")}
             alt="Spotify logo"
             width={props.compact ? 40 : 96}
             height={props.compact ? 40 : 96}

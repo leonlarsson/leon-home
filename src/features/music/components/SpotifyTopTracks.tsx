@@ -45,7 +45,7 @@ export const SpotifyTopTracks = ({ range, hideSpotifyURI }: Props) => {
           {/* Album image */}
           <img
             src={track.album.images[1].url}
-            className="shrink-0"
+            className="shrink-0 rounded"
             alt={`Album art for '${track.album.name}'`}
             width={55}
             height={55}
