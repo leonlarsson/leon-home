@@ -124,11 +124,11 @@ export const employmentSection: CVEmploymentSection = {
       companyUrl: "https://sharkmob.com",
       description: {
         en: [
-          "Managed player support for both [Bloodhunt](https://bloodhunt.com) and [Exoborne](https://exoborne.com) in close collaboration with Tencent, Level Infinite, and developers. Also managed all content on the Bloodhunt website, did community management, Discord, and Twitch Drops.",
+          "Managed player support for both [Bloodhunt](https://bloodhunt.com) and [Exoborne](https://exoborne.com) in close collaboration with Tencent, Level Infinite, and the development teams. I also managed the Bloodhunt website's content, helped with community management and Discord, and handled Twitch Drops campaigns.",
           "Additionally, I contributed to website development and provided technical specifications for the [RE_HACK ARG website](https://exoborne.com/rehack).",
         ],
         sv: [
-          "Hanterade spelarsupport för både [Bloodhunt](https://bloodhunt.com) och [Exoborne](https://exoborne.com) i nära samarbete med Tencent, Level Infinite och utvecklare. Hanterade även allt innehåll på Bloodhunts hemsida, gjorde community management, Discord och Twitch Drops.",
+          "Hanterade spelarsupport för både [Bloodhunt](https://bloodhunt.com) och [Exoborne](https://exoborne.com) i nära samarbete med Tencent, Level Infinite och utvecklingsteamen. Jag hanterade även innehållet på Bloodhunts hemsida, hjälpte till med community management och Discord, samt ansvarade för Twitch Drops-kampanjer.",
           "Bidrog även till webbutveckling och gav tekniska specifikationer för [RE_HACK ARG-hemsidan](https://exoborne.com/rehack).",
         ],
       },
@@ -182,10 +182,10 @@ export const projectsSection: CVProjectsSection = {
   sectionTitleUrl: "https://leonlarsson.com/projects",
   sectionDescription: {
     en: [
-      "Software engineering is also a hobby. I love working with technologies such as React, Next.js, Node.js using JavaScript, TypeScript, and Go. I also have some experience with SQLite, MySQL, and PostgreSQL. Below you can read about a few of my projects. Click on a title to read more.",
+      "As mentioned, software development is also a hobby of mine. I love working with technologies such as React, Next.js, and Node.js using JavaScript, TypeScript, and Go. I also have experience with databases. Below you can read about a few of my projects. Click on a title to read more.",
     ],
     sv: [
-      "Mjukvaruutveckling är även en hobby. Jag älskar att arbeta med tekniker som React, Next.js, Node.js med JavaScript, TypeScript och Go. Jag har också viss erfarenhet av SQLite, MySQL och PostgreSQL. Nedan kan du läsa om några av mina projekt. Klicka på en titel för att läsa mer.",
+      "Som nämnt är mjukvaruutveckling också en hobby för mig. Jag älskar att arbeta med tekniker som React, Next.js och Node.js med JavaScript, TypeScript och Go. Jag har också erfarenhet av databaser. Nedan kan du läsa om några av mina projekt. Klicka på en titel för att läsa mer.",
     ],
   },
   browseAllText: {
