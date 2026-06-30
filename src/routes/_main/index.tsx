@@ -13,11 +13,11 @@ function RouteComponent() {
     <div className="mx-auto max-w-3xl pb-10 text-start">
       <div className="mb-6 flex items-center gap-4">
         <img
-          className="h-full select-none rounded-[100px] shadow transition-all max-md:size-[100px] max-[510px]:size-[60px] hover:rounded-[30px] hover:shadow-lg"
+          className="h-full select-none rounded-[16px] shadow transition-all max-md:size-[70px] max-[510px]:size-[60px] max-md:rounded-[8px] max-[510px]:rounded-[6px]"
           src="https://leonlarsson.com/cdn-cgi/image/width=200/images/avatar.png"
           alt="Leon"
-          width={130}
-          height={130}
+          width={100}
+          height={100}
           draggable={false}
         />
 

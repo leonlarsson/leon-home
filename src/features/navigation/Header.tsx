@@ -11,7 +11,7 @@ export const Header = () => {
             <HeaderLink
               content={
                 <img
-                  className="rounded-full"
+                  className="rounded"
                   src="https://leonlarsson.com/cdn-cgi/image/width=80/images/avatar.png"
                   alt="Avatar"
                   width={40}
