@@ -106,6 +106,7 @@ export type CVEmploymentSection = {
     title: string;
     company: string;
     companyUrl: string;
+    logo?: string;
     description: {
       en: string[];
       sv: string[];

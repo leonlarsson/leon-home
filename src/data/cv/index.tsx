@@ -93,6 +93,7 @@ export const employmentSection: CVEmploymentSection = {
       title: "Fullstack Engineer",
       company: "Embark Studios",
       companyUrl: "https://www.embark-studios.com/",
+      logo: "/images/embarklogo.png",
       description: {
         en: [
           "I'm a Fullstack Engineer at Embark Studios, building internal live service platforms and external marketing sites for [ARC Raiders](https://arcraiders.com/) and [THE FINALS](https://reachthefinals.com/), using TypeScript, React, Next.js, Python, Golang, and Postgres.",
@@ -106,7 +107,8 @@ export const employmentSection: CVEmploymentSection = {
     {
       title: "Software Developer",
       company: "Oksidia",
-      companyUrl: "https://oksidia.fi/",
+      companyUrl: "https://www.eepos.fi/en/",
+      logo: "/images/oksidialogo_notext.png",
       description: {
         en: [
           "I worked as a Software Developer at Oksidia, where I developed and maintained [Eepos](https://www.eepos.fi/en/), a school management platform. The languages and technologies I used include JavaScript, TypeScript, PHP, Angular, Laravel, and SQL.",
@@ -122,6 +124,7 @@ export const employmentSection: CVEmploymentSection = {
       title: "Community & Support Specialist",
       company: "Sharkmob",
       companyUrl: "https://sharkmob.com",
+      logo: "/images/smlogo_notext.png",
       description: {
         en: [
           "Managed player support for both [Bloodhunt](https://bloodhunt.com) and [Exoborne](https://exoborne.com) in close collaboration with Tencent, Level Infinite, and the development teams. I also managed the Bloodhunt website's content, helped with community management and Discord, and handled Twitch Drops campaigns.",
@@ -139,6 +142,7 @@ export const employmentSection: CVEmploymentSection = {
       title: "Localization/QA Tester - Swedish",
       company: "Electronic Arts",
       companyUrl: "https://ea.com",
+      logo: "/images/ealogo.png",
       description: {
         en: [
           "Reviewed and ensured the quality of EA games, including marketing materials. Also managed candidate tests and contributed to crafting application test materials during peak seasons.",
