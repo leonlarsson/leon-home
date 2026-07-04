@@ -1,5 +1,5 @@
-import { createFileRoute } from "@tanstack/react-router"
 import { queryOptions, useQuery } from "@tanstack/react-query";
+import { createFileRoute } from "@tanstack/react-router";
 import { useServerFn } from "@tanstack/react-start";
 import { z } from "zod";
 import { GradientBorder } from "../../features/common/GradientBorder";

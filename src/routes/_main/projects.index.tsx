@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router"
+import { createFileRoute } from "@tanstack/react-router";
 import { z } from "zod";
 import projectsData from "../../data/projects";
 import { ProjectCard } from "../../features/projects/components/ProjectCard";
