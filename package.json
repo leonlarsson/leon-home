@@ -3,15 +3,19 @@
   "version": "1.0.0",
   "main": "index.js",
   "type": "module",
+  "packageManager": "pnpm@11.9.0",
+  "engines": {
+    "node": ">=22"
+  },
   "scripts": {
     "dev": "vite dev",
-    "dev:cf": "npm run build && wrangler dev",
+    "dev:cf": "pnpm run build && wrangler dev",
     "build": "vite build && tsc --noEmit",
     "serve": "vite preview",
     "start": "vite",
-    "deploy": "npm run build && wrangler deploy",
+    "deploy": "pnpm run build && wrangler deploy",
     "db:sync": "wrangler d1 execute home-guestbook --file='./src/db/schema.sql'",
-    "biome": "npx @biomejs/biome check --write .",
+    "biome": "biome check --write .",
     "types": "wrangler types"
   },
   "keywords": [],
