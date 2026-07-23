@@ -15,6 +15,7 @@
     "start": "vite",
     "deploy": "pnpm run build && wrangler deploy",
     "db:sync": "wrangler d1 execute home-guestbook --file='./src/db/schema.sql'",
+    "spotify:token": "node scripts/spotify-refresh-token.ts",
     "biome": "biome check --write .",
     "types": "wrangler types"
   },
